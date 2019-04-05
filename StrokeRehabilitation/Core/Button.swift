@@ -7,7 +7,7 @@
 //
 
 import Foundation
-var test
+
 class Button {
     var ButtonID:Int
     init(id:Int){

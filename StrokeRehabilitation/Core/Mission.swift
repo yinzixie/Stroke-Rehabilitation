@@ -7,7 +7,7 @@
 //
 
 import Foundation
-var test
+
 class Mission {
     
     enum missiontype {

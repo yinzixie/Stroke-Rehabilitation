@@ -9,7 +9,7 @@
 import Foundation
 
 class Patient {
-    var test
+    
     enum gender {
         case man
         case women

@@ -7,7 +7,7 @@
 //
 
 import UIKit
-var test
+
 class ViewController: UIViewController {
 
     override func viewDidLoad() {

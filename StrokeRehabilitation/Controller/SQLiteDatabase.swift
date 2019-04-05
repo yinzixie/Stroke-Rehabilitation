@@ -7,7 +7,7 @@
 //
 import Foundation
 import SQLite3
-var test
+
 class SQLiteDatabase
 {
     /* This variable is of type OpaquePointer, which is effectively the same as a C pointer (recall the SQLite API is a C-library). The variable is declared as an optional, since it is possible that a database connection is not made successfully, and will be nil until such time as we create the connection.*/

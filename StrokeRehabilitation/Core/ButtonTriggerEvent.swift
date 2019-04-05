@@ -7,7 +7,7 @@
 //
 
 import Foundation
-var test
+
 class ButtonTriggerEvent {
     var Button:Button
     var Time:NSDate
