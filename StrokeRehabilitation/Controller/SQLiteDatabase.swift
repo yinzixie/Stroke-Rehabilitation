@@ -60,7 +60,7 @@ class SQLiteDatabase
     
     private func createTables()
     {
-       
+       createPatientTable()
         //INSERT YOUR createTable function calls here
         //e.g. createMovieTable()
     }
@@ -174,7 +174,7 @@ class SQLiteDatabase
     
     //helper function for handling INSERT statements
     //provide it with a binding function for replacing the ?'s for setting values
-    private func insertWithQuery(_ insertStatementQuery : String, bindingFunction:(_ insertStatement: OpaquePointer?)->())
+    private func insertWithQuery(_ insertStatementQuery : String, bindingFunction:(_ insertStatement: OpaquePointer?)->())->Bool
     {
         /*
          Similar to the CREATE statement, the INSERT statement needs the following SQLite functions to be called (note the addition of the binding function calls):
@@ -185,6 +185,8 @@ class SQLiteDatabase
          */
         // First, we prepare the statement, and check that this was successful. The result will be a C-
         // pointer to the statement:
+        var flag:Bool
+        
         var insertStatement: OpaquePointer? = nil
         if sqlite3_prepare_v2(db, insertStatementQuery, -1, &insertStatement, nil) == SQLITE_OK
         {
@@ -196,22 +198,26 @@ class SQLiteDatabase
             //execute the statement
             if sqlite3_step(insertStatement) == SQLITE_DONE
             {
+                flag = true
                 print("Successfully inserted row.")
             }
             else
             {
+                flag = false
                 print("Could not insert row.")
                 printCurrentSQLErrorMessage(db)
             }
         }
         else
         {
+            flag = false
             print("INSERT statement could not be prepared.")
             printCurrentSQLErrorMessage(db)
         }
         
         //clean up
         sqlite3_finalize(insertStatement)
+        return flag
     }
     
     //helper function to run Select statements
@@ -282,7 +288,51 @@ class SQLiteDatabase
     /* --------------------------------*/
     /* --- Creat table ---*/
     /* --------------------------------*/
-    
+    func createPatientTable(){
+        let query = """
+        CREATE TABLE Patient(
+        ID STRING PRIMARY KEY NOT NULL,
+        Firstname CHAR(255),
+        Givenname CHAR(255),
+        Gender CHAR(10),
+        Age INTEGER,
+        AimMissionTable CHAR(255),
+        HistoryMissionTable CHAR(255)
+        )
+        """
+        createTableWithQuery(query, tableName: "Patient")
+    }
   
+    func insertPatient(patient:Patient)->Bool {
+        let query = """
+        INSERT INTO Patient (ID,Firstname,Givenname,Gender,Age,AimMissionTable,HistoryMissionTable) VALUES (?,?,?,?,?,?,?)
+        """
+        return insertWithQuery(query, bindingFunction: { (insertStatement) in
+            sqlite3_bind_text(insertStatement, 1, NSString(string:patient.ID).utf8String, -1, nil)
+            sqlite3_bind_text(insertStatement, 2, NSString(string:patient.Firstname).utf8String, -1, nil)
+            sqlite3_bind_text(insertStatement, 3, NSString(string:patient.Givenname).utf8String, -1, nil)
+            sqlite3_bind_text(insertStatement, 4, NSString(string:patient.Gender).utf8String, -1, nil)
+            sqlite3_bind_int(insertStatement, 5, Int32(patient.Age))
+            sqlite3_bind_text(insertStatement, 6, NSString(string:patient.AimMissionTableName).utf8String, -1, nil)
+            sqlite3_bind_text(insertStatement, 7, NSString(string:patient.HistoryMissionTableName).utf8String, -1, nil)
+        })
+    }
+    
+    func selectAllPatients() -> [Patient] {
+        var result = [Patient]()
+        let selectStatementQuery = "SELECT ID,Firstname,Givenname,Gender,Age FROM Patient"
+        
+        selectWithQuery(selectStatementQuery, eachRow: { (row) in //create a patient object from each result
+            let patient = Patient(
+                id: String(cString:sqlite3_column_text(row, 0)), firstname: String(cString:sqlite3_column_text(row, 1)),
+                givenname: String(cString:sqlite3_column_text(row, 2)), sex: String(cString:sqlite3_column_text(row, 3)),
+                age:Int(sqlite3_column_int(row, 4)))
+            
+            result += [patient]
+        })
+            
+        return result
+        
+    }
     
 }

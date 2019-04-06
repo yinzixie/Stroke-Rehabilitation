@@ -10,20 +10,39 @@ import Foundation
 
 class Patient {
     
-    enum gender {
+   /* enum gender {
         case man
         case women
         case neutral
-    }
+        
+        func string_() -> String {
+            
+            switch self {
+            case .man: return "man"
+            case .women: return "women"
+            case .neutral: return "neutral"            
+            }
+        }
+    }*/
     
-    var ID:Int
-    var Gender:gender
+    var ID:String
+    var Firstname:String
+    var Givenname:String
+    var Age:Int
+    var Gender:String
+    var AimMissionTableName:String
+    var HistoryMissionTableName:String
     var AimMissionList = [Mission]()
     var HistoryMissionList = [Mission]()
     
-    init(id:Int,sex:gender) {
+    init(id:String,firstname:String,givenname:String,sex:String,age:Int) {
         ID = id
+        Firstname = firstname
+        Givenname = givenname
         Gender = sex
+        Age = age
+        AimMissionTableName = ID + "AimMissionTable"
+        HistoryMissionTableName = ID + "HistoryMissionTable"
     }
     
 }

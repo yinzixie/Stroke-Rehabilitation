@@ -7,13 +7,18 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2D111AAC2258266F001986BD /* CreateNewAccountController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D111AAB2258266F001986BD /* CreateNewAccountController.swift */; };
+		2D436BEA2258802400EE6A10 /* PatientTableCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D436BE92258802400EE6A10 /* PatientTableCellView.swift */; };
+		2D436BEE2258828300EE6A10 /* PatientTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D436BED2258828300EE6A10 /* PatientTableViewController.swift */; };
+		2D436BF02258A0CA00EE6A10 /* PatientDetailController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D436BEF2258A0CA00EE6A10 /* PatientDetailController.swift */; };
+		2D530AC72258120F00ED1772 /* AdminHomepageController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D530AC62258120F00ED1772 /* AdminHomepageController.swift */; };
+		2D530AC9225815CB00ED1772 /* StartPageController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D530AC8225815CB00ED1772 /* StartPageController.swift */; };
 		2D60898F22570E8C00150702 /* SQLiteDatabase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D60898E22570E8C00150702 /* SQLiteDatabase.swift */; };
 		2D60899122570F2200150702 /* Patient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D60899022570F2200150702 /* Patient.swift */; };
 		2D6089932257101100150702 /* Button.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D6089922257101100150702 /* Button.swift */; };
 		2D6089952257104400150702 /* ButtonTriggerEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D6089942257104400150702 /* ButtonTriggerEvent.swift */; };
 		2D6089982257107D00150702 /* Mission.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D6089972257107D00150702 /* Mission.swift */; };
 		2DC608FC225483520089E238 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DC608FB225483520089E238 /* AppDelegate.swift */; };
-		2DC608FE225483520089E238 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DC608FD225483520089E238 /* ViewController.swift */; };
 		2DC60901225483520089E238 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2DC608FF225483520089E238 /* Main.storyboard */; };
 		2DC60903225483560089E238 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2DC60902225483560089E238 /* Assets.xcassets */; };
 		2DC60906225483560089E238 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2DC60904225483560089E238 /* LaunchScreen.storyboard */; };
@@ -39,6 +44,12 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		2D111AAB2258266F001986BD /* CreateNewAccountController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateNewAccountController.swift; sourceTree = "<group>"; };
+		2D436BE92258802400EE6A10 /* PatientTableCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PatientTableCellView.swift; sourceTree = "<group>"; };
+		2D436BED2258828300EE6A10 /* PatientTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PatientTableViewController.swift; sourceTree = "<group>"; };
+		2D436BEF2258A0CA00EE6A10 /* PatientDetailController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PatientDetailController.swift; sourceTree = "<group>"; };
+		2D530AC62258120F00ED1772 /* AdminHomepageController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdminHomepageController.swift; sourceTree = "<group>"; };
+		2D530AC8225815CB00ED1772 /* StartPageController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartPageController.swift; sourceTree = "<group>"; };
 		2D60898E22570E8C00150702 /* SQLiteDatabase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SQLiteDatabase.swift; sourceTree = "<group>"; };
 		2D60899022570F2200150702 /* Patient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Patient.swift; sourceTree = "<group>"; };
 		2D6089922257101100150702 /* Button.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Button.swift; sourceTree = "<group>"; };
@@ -46,7 +57,6 @@
 		2D6089972257107D00150702 /* Mission.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Mission.swift; sourceTree = "<group>"; };
 		2DC608F8225483520089E238 /* StrokeRehabilitation.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = StrokeRehabilitation.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2DC608FB225483520089E238 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		2DC608FD225483520089E238 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		2DC60900225483520089E238 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		2DC60902225483560089E238 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		2DC60905225483560089E238 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -122,8 +132,6 @@
 				2DC6092B225487980089E238 /* View */,
 				2DC6092A225483DD0089E238 /* Controller */,
 				2DC608FB225483520089E238 /* AppDelegate.swift */,
-				2DC608FD225483520089E238 /* ViewController.swift */,
-				2DC608FF225483520089E238 /* Main.storyboard */,
 				2DC60902225483560089E238 /* Assets.xcassets */,
 				2DC60904225483560089E238 /* LaunchScreen.storyboard */,
 				2DC60907225483560089E238 /* Info.plist */,
@@ -160,6 +168,13 @@
 		2DC6092B225487980089E238 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				2D436BED2258828300EE6A10 /* PatientTableViewController.swift */,
+				2D436BE92258802400EE6A10 /* PatientTableCellView.swift */,
+				2D530AC62258120F00ED1772 /* AdminHomepageController.swift */,
+				2DC608FF225483520089E238 /* Main.storyboard */,
+				2D436BEF2258A0CA00EE6A10 /* PatientDetailController.swift */,
+				2D530AC8225815CB00ED1772 /* StartPageController.swift */,
+				2D111AAB2258266F001986BD /* CreateNewAccountController.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -295,9 +310,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2D436BF02258A0CA00EE6A10 /* PatientDetailController.swift in Sources */,
 				2D6089932257101100150702 /* Button.swift in Sources */,
+				2D111AAC2258266F001986BD /* CreateNewAccountController.swift in Sources */,
 				2D6089952257104400150702 /* ButtonTriggerEvent.swift in Sources */,
-				2DC608FE225483520089E238 /* ViewController.swift in Sources */,
+				2D436BEA2258802400EE6A10 /* PatientTableCellView.swift in Sources */,
+				2D530AC72258120F00ED1772 /* AdminHomepageController.swift in Sources */,
+				2D530AC9225815CB00ED1772 /* StartPageController.swift in Sources */,
+				2D436BEE2258828300EE6A10 /* PatientTableViewController.swift in Sources */,
 				2D60899122570F2200150702 /* Patient.swift in Sources */,
 				2DC608FC225483520089E238 /* AppDelegate.swift in Sources */,
 				2D6089982257107D00150702 /* Mission.swift in Sources */,
