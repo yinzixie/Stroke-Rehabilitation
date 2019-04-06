@@ -288,7 +288,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rMZ-e4-nNr" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2424.609375" y="-952.34375"/>
+            <point key="canvasLocation" x="2340" y="-952"/>
         </scene>
         <!--Patient Detail-->
         <scene sceneID="W2M-Ux-1G8">
@@ -341,6 +341,9 @@
                                     <rect key="frame" x="876" y="50" width="45" height="30"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <state key="normal" title="Delete"/>
+                                    <connections>
+                                        <action selector="deleteAccountButton:" destination="gxK-gi-id5" eventType="touchUpInside" id="nkP-q1-mLG"/>
+                                    </connections>
                                 </button>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="History Mission List:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OP5-R7-GI5">
                                     <rect key="frame" x="102" y="406" width="154" height="24"/>
@@ -368,10 +371,17 @@
                             <outlet property="delegate" destination="gxK-gi-id5" id="M6N-Ro-Qxe"/>
                         </connections>
                     </tableView>
+                    <connections>
+                        <outlet property="ageLabel" destination="Wyp-xT-Ip1" id="gqv-0F-gGN"/>
+                        <outlet property="firstnameLabel" destination="6kQ-wS-Cth" id="Bj0-bt-BU7"/>
+                        <outlet property="genderLabel" destination="x43-YI-NVA" id="4tt-PX-ILR"/>
+                        <outlet property="givennameLabel" destination="Do1-7n-TyA" id="Ser-3Q-aez"/>
+                        <outlet property="idLabel" destination="g1c-RJ-lFo" id="oMC-nj-a5O"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qi8-hH-sFY" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3055.6640625" y="-952.34375"/>
+            <point key="canvasLocation" x="2999" y="-952"/>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>

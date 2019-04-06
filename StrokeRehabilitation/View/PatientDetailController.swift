@@ -9,11 +9,26 @@
 import UIKit
 
 class PatientDetailController: UITableViewController {
-    var patient:Patient
+    
+    var database : SQLiteDatabase = SQLiteDatabase(databaseName:"MyDatabase")
+    var patient:Patient?
+    
+    @IBOutlet var idLabel: UILabel!
+    @IBOutlet var firstnameLabel: UILabel!
+    @IBOutlet var givennameLabel: UILabel!
+    @IBOutlet var ageLabel: UILabel!
+    @IBOutlet var genderLabel: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        if let displayPatient = patient
+        {
+            idLabel.text = displayPatient.ID
+            firstnameLabel.text = displayPatient.Firstname
+            givennameLabel.text = displayPatient.Givenname
+            ageLabel.text = String(displayPatient.Age)
+            genderLabel.text = displayPatient.Gender
+        }
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
@@ -33,6 +48,16 @@ class PatientDetailController: UITableViewController {
         return 0
     }
 
+    
+    //delete account
+    @IBAction func deleteAccountButton(_ sender: UIButton) {
+        guard database.deletePatient(patient: patient!) else {
+            print("1f")
+            return 
+        }
+      database.deletePatientRelevantTable(patient:patient!)
+        
+    }
     /*
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)

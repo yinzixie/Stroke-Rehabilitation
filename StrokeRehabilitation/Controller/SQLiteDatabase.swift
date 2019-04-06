@@ -318,6 +318,21 @@ class SQLiteDatabase
         })
     }
     
+    //NEED DELTE RELEVANT TABLE ALSO!!!!!!!!!! DON'T FORGET
+    func deletePatient(patient:Patient)->Bool {
+        let query = """
+        DELETE FROM Patient WHERE ID=?
+        """
+        return insertWithQuery(query, bindingFunction: { (insertStatement) in
+            sqlite3_bind_text(insertStatement, 1, NSString(string:patient.ID).utf8String, -1, nil)
+        })
+    }
+    
+    func deletePatientRelevantTable(patient:Patient) {
+        dropTable(tableName: patient.AimMissionTableName)
+        dropTable(tableName: patient.HistoryMissionTableName)
+    }
+    
     func selectAllPatients() -> [Patient] {
         var result = [Patient]()
         let selectStatementQuery = "SELECT ID,Firstname,Givenname,Gender,Age FROM Patient"

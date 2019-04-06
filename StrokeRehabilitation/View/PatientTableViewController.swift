@@ -59,12 +59,12 @@ class PatientTableViewController: UITableViewController {
         return cell
     }
     
-    override func prepare(for segue:gotoPatientDetailSegue, sender: Any?)
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?)
     {
         super.prepare(for: segue, sender: sender)
         if segue.identifier == "gotoPatientDetailSegue"
         {
-            guard let detailViewController = segue.destination as? DetailViewController else {
+            guard let detailViewController = segue.destination as? PatientDetailController else {
                 fatalError("Unexpected destination: \(segue.destination)")
             }
             guard let selectedMovieCell = sender as? PatientTableCellView else
@@ -76,7 +76,7 @@ class PatientTableViewController: UITableViewController {
                 fatalError("The selected cell is not being displayed by the table")
             }
             let selectedpatient = patients[indexPath.row]
-            PatientDetailController.patient = selectedpatient
+            detailViewController.patient = selectedpatient
         }
     }
 
