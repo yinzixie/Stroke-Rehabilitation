@@ -48,16 +48,54 @@ class PatientDetailController: UITableViewController {
         return 0
     }
 
+    ///remove PatientDetailController in navigation controller
+    ///移除导航控制器中指定的（单个、多个连续|不连续）控制器
+    public func removePatientDetailController() {
+        if let tmpControllers = navigationController?.viewControllers {
+            var controllers = tmpControllers
+            
+            for (i, controller) in (controllers.enumerated()).reversed() {
+                if controller.isKind(of: PatientDetailController.classForCoder()) {
+                    controllers.remove(at: i)
+                    navigationController?.viewControllers = controllers
+                }
+            }
+        }
+    }
     
-    //delete account
+    ///remove PatientTableController in navigation controller
+    public func removePatientTableController() {
+        if let tmpControllers = navigationController?.viewControllers {
+            var controllers = tmpControllers
+            
+            for (i, controller) in (controllers.enumerated()).reversed() {
+                if controller.isKind(of: PatientTableViewController.classForCoder()) {
+                    controllers.remove(at: i)
+                    navigationController?.viewControllers = controllers
+                }
+            }
+        }
+    }
+   
+    
+    //delete account and relevant tables, then jump to previes page(delete relevant controller in navigation)
     @IBAction func deleteAccountButton(_ sender: UIButton) {
+        //delete tables in database
         guard database.deletePatient(patient: patient!) else {
-            print("1f")
             return 
         }
-      database.deletePatientRelevantTable(patient:patient!)
+        database.deletePatientRelevantTable(patient:patient!)
         
+        //remove view controller in navigation controller
+        
+       
+        removePatientTableController()
+        //jump to admin page through segue"backToPatientTableSegue"
+        self.performSegue(withIdentifier:"backToPatientTableSegue", sender: self)
+        //after jumping out, then delete this patient detail view controller in navigation controller
+         removePatientDetailController()
     }
+    
     /*
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)

@@ -318,7 +318,6 @@ class SQLiteDatabase
         })
     }
     
-    //NEED DELTE RELEVANT TABLE ALSO!!!!!!!!!! DON'T FORGET
     func deletePatient(patient:Patient)->Bool {
         let query = """
         DELETE FROM Patient WHERE ID=?
@@ -345,9 +344,22 @@ class SQLiteDatabase
             
             result += [patient]
         })
-            
         return result
-        
     }
+    
+    func selectPatientByID(id:String)->Patient? {
+        let selectStatementQuery = "SELECT * FROM Patient WHERE ID=\(id)"
+        var result:Patient? = nil
+        selectWithQuery(selectStatementQuery, eachRow: { (row) in //create a patient object from each result
+            let patient = Patient(
+                id: String(cString:sqlite3_column_text(row, 0)), firstname: String(cString:sqlite3_column_text(row, 1)),
+                givenname: String(cString:sqlite3_column_text(row, 2)), sex: String(cString:sqlite3_column_text(row, 3)),
+                age:Int(sqlite3_column_int(row, 4)))
+            result = patient
+        })
+        print(result?.ID)
+        return result
+    }
+    
     
 }

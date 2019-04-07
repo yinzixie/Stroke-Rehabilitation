@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2D11161E2259C17000A64523 /* WelcomePageController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D11161D2259C17000A64523 /* WelcomePageController.swift */; };
+		2D1116202259D45D00A64523 /* NormalCounterController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D11161F2259D45D00A64523 /* NormalCounterController.swift */; };
+		2D1116242259D71A00A64523 /* counter_strike_source_by_joaopedropg_d1e5eua-pre.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2D1116232259D71A00A64523 /* counter_strike_source_by_joaopedropg_d1e5eua-pre.jpg */; };
 		2D111AAC2258266F001986BD /* CreateNewAccountController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D111AAB2258266F001986BD /* CreateNewAccountController.swift */; };
 		2D436BEA2258802400EE6A10 /* PatientTableCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D436BE92258802400EE6A10 /* PatientTableCellView.swift */; };
 		2D436BEE2258828300EE6A10 /* PatientTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D436BED2258828300EE6A10 /* PatientTableViewController.swift */; };
@@ -44,6 +47,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		2D11161D2259C17000A64523 /* WelcomePageController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomePageController.swift; sourceTree = "<group>"; };
+		2D11161F2259D45D00A64523 /* NormalCounterController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NormalCounterController.swift; sourceTree = "<group>"; };
+		2D1116232259D71A00A64523 /* counter_strike_source_by_joaopedropg_d1e5eua-pre.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = "counter_strike_source_by_joaopedropg_d1e5eua-pre.jpg"; path = "../../../../../../../Volumes/VMware Shared Folders/Share Folder/counter_strike_source_by_joaopedropg_d1e5eua-pre.jpg"; sourceTree = "<group>"; };
 		2D111AAB2258266F001986BD /* CreateNewAccountController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateNewAccountController.swift; sourceTree = "<group>"; };
 		2D436BE92258802400EE6A10 /* PatientTableCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PatientTableCellView.swift; sourceTree = "<group>"; };
 		2D436BED2258828300EE6A10 /* PatientTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PatientTableViewController.swift; sourceTree = "<group>"; };
@@ -94,6 +100,21 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2D1116212259D47000A64523 /* Gamification */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Gamification;
+			sourceTree = "<group>";
+		};
+		2D1116222259D5DC00A64523 /* image */ = {
+			isa = PBXGroup;
+			children = (
+				2D1116232259D71A00A64523 /* counter_strike_source_by_joaopedropg_d1e5eua-pre.jpg */,
+			);
+			path = image;
+			sourceTree = "<group>";
+		};
 		2D6089962257105200150702 /* Core */ = {
 			isa = PBXGroup;
 			children = (
@@ -128,6 +149,8 @@
 		2DC608FA225483520089E238 /* StrokeRehabilitation */ = {
 			isa = PBXGroup;
 			children = (
+				2D1116222259D5DC00A64523 /* image */,
+				2D1116212259D47000A64523 /* Gamification */,
 				2D6089962257105200150702 /* Core */,
 				2DC6092B225487980089E238 /* View */,
 				2DC6092A225483DD0089E238 /* Controller */,
@@ -168,10 +191,12 @@
 		2DC6092B225487980089E238 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				2D11161D2259C17000A64523 /* WelcomePageController.swift */,
 				2D436BED2258828300EE6A10 /* PatientTableViewController.swift */,
 				2D436BE92258802400EE6A10 /* PatientTableCellView.swift */,
 				2D530AC62258120F00ED1772 /* AdminHomepageController.swift */,
 				2DC608FF225483520089E238 /* Main.storyboard */,
+				2D11161F2259D45D00A64523 /* NormalCounterController.swift */,
 				2D436BEF2258A0CA00EE6A10 /* PatientDetailController.swift */,
 				2D530AC8225815CB00ED1772 /* StartPageController.swift */,
 				2D111AAB2258266F001986BD /* CreateNewAccountController.swift */,
@@ -283,6 +308,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2D1116242259D71A00A64523 /* counter_strike_source_by_joaopedropg_d1e5eua-pre.jpg in Resources */,
 				2DC60906225483560089E238 /* LaunchScreen.storyboard in Resources */,
 				2DC60903225483560089E238 /* Assets.xcassets in Resources */,
 				2DC60901225483520089E238 /* Main.storyboard in Resources */,
@@ -319,9 +345,11 @@
 				2D530AC9225815CB00ED1772 /* StartPageController.swift in Sources */,
 				2D436BEE2258828300EE6A10 /* PatientTableViewController.swift in Sources */,
 				2D60899122570F2200150702 /* Patient.swift in Sources */,
+				2D11161E2259C17000A64523 /* WelcomePageController.swift in Sources */,
 				2DC608FC225483520089E238 /* AppDelegate.swift in Sources */,
 				2D6089982257107D00150702 /* Mission.swift in Sources */,
 				2D60898F22570E8C00150702 /* SQLiteDatabase.swift in Sources */,
+				2D1116202259D45D00A64523 /* NormalCounterController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

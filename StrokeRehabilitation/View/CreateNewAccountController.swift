@@ -110,7 +110,11 @@ class CreateNewAccountController: UIViewController,UIPickerViewDelegate, UIPicke
             return
         }
         
-        //pop up
+        
+        //jump to admin page through segue"createAccountSegue"
+        //self.performSegue(withIdentifier:"createAccountSegue", sender: self)
+    
+        //pop up a succees message 
         let message = UIAlertController(
             title:"Message",
             message:"Succeed create account",
@@ -123,8 +127,11 @@ class CreateNewAccountController: UIViewController,UIPickerViewDelegate, UIPicke
         ))
         self.present(message, animated: true, completion: nil)
         
-        //jump to admin page through segue"createAccountSegue"
-        self.performSegue(withIdentifier:"createAccountSegue", sender: self)
+        //reset
+        idTextField.text = ""
+        ageTextField.text = ""
+        firstNameTextField.text = ""
+        givenNameTextField.text = ""
         
     }
     

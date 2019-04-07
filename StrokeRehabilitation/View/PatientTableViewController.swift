@@ -33,7 +33,6 @@ class PatientTableViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        print("1s")
         return patients.count
     }
 
@@ -54,8 +53,6 @@ class PatientTableViewController: UITableViewController {
             
         }
         
-        
-        print("2s")
         return cell
     }
     
