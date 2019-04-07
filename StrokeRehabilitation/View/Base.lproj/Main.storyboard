@@ -378,7 +378,7 @@
                                 </state>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qxe-Nx-b6y">
-                                <rect key="frame" x="20" y="395" width="352" height="293"/>
+                                <rect key="frame" x="20" y="395" width="361" height="293"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="28"/>
                                 <state key="normal" title="game2" backgroundImage="counter_strike_source_by_joaopedropg_d1e5eua-pre.jpg">
@@ -543,6 +543,7 @@
         <image name="counter_strike_source_by_joaopedropg_d1e5eua-pre.jpg" width="1000" height="800"/>
     </resources>
     <inferredMetricsTieBreakers>
+        <segue reference="pso-aq-Y1l"/>
         <segue reference="BDu-0J-tbc"/>
         <segue reference="KLC-Dr-YGj"/>
     </inferredMetricsTieBreakers>
