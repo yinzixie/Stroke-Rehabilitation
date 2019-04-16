@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		2D11161E2259C17000A64523 /* WelcomePageController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D11161D2259C17000A64523 /* WelcomePageController.swift */; };
 		2D1116202259D45D00A64523 /* NormalCounterController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D11161F2259D45D00A64523 /* NormalCounterController.swift */; };
-		2D111660225D750000A64523 /* 1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2D11165F225D750000A64523 /* 1.jpg */; };
 		2D111AAC2258266F001986BD /* CreateNewAccountController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D111AAB2258266F001986BD /* CreateNewAccountController.swift */; };
 		2D436BEA2258802400EE6A10 /* PatientTableCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D436BE92258802400EE6A10 /* PatientTableCellView.swift */; };
 		2D436BEE2258828300EE6A10 /* PatientTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D436BED2258828300EE6A10 /* PatientTableViewController.swift */; };
@@ -326,7 +325,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2D111660225D750000A64523 /* 1.jpg in Resources */,
 				2DC60906225483560089E238 /* LaunchScreen.storyboard in Resources */,
 				2DC60903225483560089E238 /* Assets.xcassets in Resources */,
 				2DC60901225483520089E238 /* Main.storyboard in Resources */,

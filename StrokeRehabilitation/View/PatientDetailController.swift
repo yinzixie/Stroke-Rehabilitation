@@ -81,19 +81,30 @@ class PatientDetailController: UITableViewController {
     //delete account and relevant tables, then jump to previes page(delete relevant controller in navigation)
     @IBAction func deleteAccountButton(_ sender: UIButton) {
         //delete tables in database
-        guard database.deletePatient(patient: patient!) else {
-            return 
-        }
-        database.deletePatientRelevantTable(patient:patient!)
+        let alert = UIAlertController(title: "Warning", message: "This action cannot be reversed.", preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "Proceed", style: .default, handler: {
+            action in
+            guard self.database.deletePatient(patient: self.patient!) else {
+                return
+            }
+            self.database.deletePatientRelevantTable(patient:self.patient!)
+            //remove view controller in navigation controller
+            
+            
+            self.removePatientTableController()
+            //jump to admin page through segue"backToPatientTableSegue"
+            self.performSegue(withIdentifier:"backToPatientTableSegue", sender: self)
+            //after jumping out, then delete this patient detail view controller in navigation controller
+            self.removePatientDetailController()
+        }))
+        alert.addAction(UIAlertAction(title: "Cancel", style: .default, handler: nil))
+        self.present(alert, animated: true, completion: nil)
+            
+                
+    }
+
         
-        //remove view controller in navigation controller
-        
-       
-        removePatientTableController()
-        //jump to admin page through segue"backToPatientTableSegue"
-        self.performSegue(withIdentifier:"backToPatientTableSegue", sender: self)
-        //after jumping out, then delete this patient detail view controller in navigation controller
-         removePatientDetailController()
+
     }
     
     /*
@@ -151,4 +162,4 @@ class PatientDetailController: UITableViewController {
     }
     */
 
-}
+
