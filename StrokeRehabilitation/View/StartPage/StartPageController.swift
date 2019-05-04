@@ -18,6 +18,8 @@ class StartPageController: UIViewController {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        DBConectionAndDataController()
+       
     }
     
     //pop up alert if parameter was right
@@ -36,7 +38,7 @@ class StartPageController: UIViewController {
     }
     
     ///remove PatientTableController in navigation controller
-    public func removeController() {
+ /*   public func removeController() {
         if let tmpControllers = navigationController?.viewControllers {
             var controllers = tmpControllers
             
@@ -47,7 +49,12 @@ class StartPageController: UIViewController {
                 }
             }
         }
-    }
+    }*/
+    
+   /* @IBAction func goToAdminPage(_ sender: Any) {
+        //jump through fromHomeGoToAdminPageSegue
+        self.performSegue(withIdentifier:"fromHomeGoToAdminPageSegue", sender: self)
+    }*/
     
     @IBAction func LoginButton(_ sender: Any) {
         let id = idTextField.text
@@ -58,19 +65,25 @@ class StartPageController: UIViewController {
         }else {
             //removeController() //may be put this at bottom later
             
-            //jump to admin page through segue"loginSegue"
+            //jump to segue"loginSegue"
             self.performSegue(withIdentifier:"loginSegue", sender: self)
-            removeController()
+           // removeController()
         }
     }
-    /*
+    
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destination.
         // Pass the selected object to the new view controller.
+        if segue.identifier == "fromHomeGoToAdminPageSegue" {
+            /*let EditPage = segue.destination as! CreateNewJournalScreen
+            EditPage.journal = sender as? Journal
+            EditPage.EditMode = "Edit"*/
+        
+        }
     }
-    */
+    
 
 }

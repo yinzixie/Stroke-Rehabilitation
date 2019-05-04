@@ -11,13 +11,14 @@ import UIKit
 class CreateNewAccountController: UIViewController,UIPickerViewDelegate, UIPickerViewDataSource {
      var database : SQLiteDatabase = SQLiteDatabase(databaseName:"MyDatabase")
     
+    @IBOutlet var idTextField: UITextField!
     @IBOutlet var firstNameTextField: UITextField!
     @IBOutlet var givenNameTextField: UITextField!
     @IBOutlet var ageTextField: UITextField!
-    @IBOutlet var idTextField: UITextField!
+    @IBOutlet var levelDescriptionTextField: UITextField!
     
     @IBOutlet var genderPicker: UIPickerView!
-    
+
     //gender piker data source
     var genderData = ["Man","Woman","neutral"]
     
@@ -53,21 +54,7 @@ class CreateNewAccountController: UIViewController,UIPickerViewDelegate, UIPicke
         return genderData[Int(row)]
     }
     
-    //pop up alert if parameter was right
-    func parameterAlert(message:String){
-        let alert = UIAlertController(
-        title:"Warnning",
-        message:message,
-        preferredStyle:UIAlertController.Style.alert
-        )
-        alert.addAction(UIAlertAction(
-        title:"OK",
-        style:UIAlertAction.Style.cancel,
-        handler:nil
-        ))
-        self.present(alert, animated: true, completion: nil)
-    }
-    
+   
     //click button cretate new account
     @IBAction func createAccountButton(_ sender: Any) {
 
@@ -76,21 +63,22 @@ class CreateNewAccountController: UIViewController,UIPickerViewDelegate, UIPicke
         let age = ageTextField.text
         let firstname = firstNameTextField.text
         let givenname = givenNameTextField.text
+        let levelDescription = levelDescriptionTextField.text ?? ""
         
         guard (id != "") else{
-            parameterAlert(message: "Please input id!")
+            Alert.warningAlert(message: "Please input id!", view: self)
             return
         }
         guard (firstname != "") else{
-            parameterAlert(message: "Please input first name!")
+             Alert.warningAlert(message: "Please input first name!", view: self)
             return
         }
         guard (givenname != "") else{
-            parameterAlert(message: "Please input given name!")
+             Alert.warningAlert(message: "Please input given name!", view: self)
             return
         }
         guard (age != "" ) else{
-            self.parameterAlert(message: "Please input age!")
+            Alert.warningAlert(message: "Please input age!", view: self)
             return
         }
         
@@ -98,44 +86,38 @@ class CreateNewAccountController: UIViewController,UIPickerViewDelegate, UIPicke
         let scan: Scanner = Scanner(string: age ?? "0")
         var val:Int = 0
         guard (scan.scanInt(&val) && scan.isAtEnd) else{
-            self.parameterAlert(message: "Please input integer for age!")
+             Alert.warningAlert(message: "Please input integer for age!", view: self)
             return
         }
        
-        let patient:Patient = Patient(id:id!,firstname:firstname!,givenname:givenname!,sex:genderValue,age:Int(age ?? "0")!)
-        
-        
-        guard database.insertPatient(patient:patient) else {
-            parameterAlert(message: "Create Failed!Usually caused by repeated id")
+        let patient:Patient = Patient(id:id!)
+        patient.setPatientDetails(firstname:firstname!,givenname:givenname!,sex:genderValue,age:Int(age ?? "0")!,levelDescription: levelDescription)
+       
+        guard DBConectionAndDataController.addPatient(patient:patient) else {
+            Alert.warningAlert(message: "Create Failed! Usually caused by repeated id", view: self)
             return
         }
         
-        
+        self.dismiss(animated: true, completion: nil)
         //jump to admin page through segue"createAccountSegue"
         //self.performSegue(withIdentifier:"createAccountSegue", sender: self)
     
-        //pop up a succees message 
-        let message = UIAlertController(
-            title:"Message",
-            message:"Succeed create account",
-            preferredStyle:UIAlertController.Style.alert
-        )
-        message.addAction(UIAlertAction(
-            title:"OK",
-            style:UIAlertAction.Style.cancel,
-            handler:nil
-        ))
-        self.present(message, animated: true, completion: nil)
-        
+       // Alert.messageAlert(message: "Succeed!", view: self)
+        //resetAllInput()
+    }
+    
+    func resetAllInput(){
         //reset
         idTextField.text = ""
         ageTextField.text = ""
         firstNameTextField.text = ""
         givenNameTextField.text = ""
-        
+        levelDescriptionTextField.text = ""
     }
     
-    
+    @IBAction func backToAdminPage(_ sender: Any) {
+        self.dismiss(animated: true, completion: nil)
+    }
     /*
     // MARK: - Navigation
 

@@ -10,10 +10,10 @@
 		2D11161E2259C17000A64523 /* WelcomePageController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D11161D2259C17000A64523 /* WelcomePageController.swift */; };
 		2D1116202259D45D00A64523 /* NormalCounterController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D11161F2259D45D00A64523 /* NormalCounterController.swift */; };
 		2D111AAC2258266F001986BD /* CreateNewAccountController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D111AAB2258266F001986BD /* CreateNewAccountController.swift */; };
-		2D436BEA2258802400EE6A10 /* PatientTableCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D436BE92258802400EE6A10 /* PatientTableCellView.swift */; };
+		2D1D7A452276E5E100E7D926 /* AccountCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D1D7A432276E5E000E7D926 /* AccountCell.swift */; };
+		2D1D7A462276E5E100E7D926 /* ManagementAccountScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D1D7A442276E5E100E7D926 /* ManagementAccountScreen.swift */; };
+		2D1D7A4A2276F38800E7D926 /* FoldingCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D1D7A492276F38800E7D926 /* FoldingCell.swift */; };
 		2D436BEE2258828300EE6A10 /* PatientTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D436BED2258828300EE6A10 /* PatientTableViewController.swift */; };
-		2D436BF02258A0CA00EE6A10 /* PatientDetailController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D436BEF2258A0CA00EE6A10 /* PatientDetailController.swift */; };
-		2D530AC72258120F00ED1772 /* AdminHomepageController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D530AC62258120F00ED1772 /* AdminHomepageController.swift */; };
 		2D530AC9225815CB00ED1772 /* StartPageController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D530AC8225815CB00ED1772 /* StartPageController.swift */; };
 		2D60898F22570E8C00150702 /* SQLiteDatabase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D60898E22570E8C00150702 /* SQLiteDatabase.swift */; };
 		2D60899122570F2200150702 /* Patient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D60899022570F2200150702 /* Patient.swift */; };
@@ -26,6 +26,11 @@
 		2DC60906225483560089E238 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2DC60904225483560089E238 /* LaunchScreen.storyboard */; };
 		2DC60911225483560089E238 /* StrokeRehabilitationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DC60910225483560089E238 /* StrokeRehabilitationTests.swift */; };
 		2DC6091C225483560089E238 /* StrokeRehabilitationUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DC6091B225483560089E238 /* StrokeRehabilitationUITests.swift */; };
+		2DCFB3F1227D0E1E0035A5E5 /* DateInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DCFB3F0227D0E1E0035A5E5 /* DateInfo.swift */; };
+		2DCFB3F4227D0E5F0035A5E5 /* ExtensionDate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DCFB3F3227D0E5F0035A5E5 /* ExtensionDate.swift */; };
+		2DCFB3F8227D113D0035A5E5 /* Alert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DCFB3F7227D113D0035A5E5 /* Alert.swift */; };
+		2DCFB3FB227D1C6F0035A5E5 /* DBConectionAndDataController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DCFB3FA227D1C6F0035A5E5 /* DBConectionAndDataController.swift */; };
+		2DFF02682279272C00DD0E10 /* SetGoalForNormalCounterScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DFF02672279272C00DD0E10 /* SetGoalForNormalCounterScreen.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -48,12 +53,11 @@
 /* Begin PBXFileReference section */
 		2D11161D2259C17000A64523 /* WelcomePageController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomePageController.swift; sourceTree = "<group>"; };
 		2D11161F2259D45D00A64523 /* NormalCounterController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NormalCounterController.swift; sourceTree = "<group>"; };
-		2D11165F225D750000A64523 /* 1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = 1.jpg; path = StrokeRehabilitation/image/1.jpg; sourceTree = SOURCE_ROOT; };
 		2D111AAB2258266F001986BD /* CreateNewAccountController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateNewAccountController.swift; sourceTree = "<group>"; };
-		2D436BE92258802400EE6A10 /* PatientTableCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PatientTableCellView.swift; sourceTree = "<group>"; };
+		2D1D7A432276E5E000E7D926 /* AccountCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AccountCell.swift; sourceTree = "<group>"; };
+		2D1D7A442276E5E100E7D926 /* ManagementAccountScreen.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ManagementAccountScreen.swift; sourceTree = "<group>"; };
+		2D1D7A492276F38800E7D926 /* FoldingCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoldingCell.swift; sourceTree = "<group>"; };
 		2D436BED2258828300EE6A10 /* PatientTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PatientTableViewController.swift; sourceTree = "<group>"; };
-		2D436BEF2258A0CA00EE6A10 /* PatientDetailController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PatientDetailController.swift; sourceTree = "<group>"; };
-		2D530AC62258120F00ED1772 /* AdminHomepageController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdminHomepageController.swift; sourceTree = "<group>"; };
 		2D530AC8225815CB00ED1772 /* StartPageController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartPageController.swift; sourceTree = "<group>"; };
 		2D60898E22570E8C00150702 /* SQLiteDatabase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SQLiteDatabase.swift; sourceTree = "<group>"; };
 		2D60899022570F2200150702 /* Patient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Patient.swift; sourceTree = "<group>"; };
@@ -72,6 +76,11 @@
 		2DC60917225483560089E238 /* StrokeRehabilitationUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = StrokeRehabilitationUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		2DC6091B225483560089E238 /* StrokeRehabilitationUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StrokeRehabilitationUITests.swift; sourceTree = "<group>"; };
 		2DC6091D225483560089E238 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		2DCFB3F0227D0E1E0035A5E5 /* DateInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DateInfo.swift; sourceTree = "<group>"; };
+		2DCFB3F3227D0E5F0035A5E5 /* ExtensionDate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExtensionDate.swift; sourceTree = "<group>"; };
+		2DCFB3F7227D113D0035A5E5 /* Alert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Alert.swift; sourceTree = "<group>"; };
+		2DCFB3FA227D1C6F0035A5E5 /* DBConectionAndDataController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DBConectionAndDataController.swift; sourceTree = "<group>"; };
+		2DFF02672279272C00DD0E10 /* SetGoalForNormalCounterScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetGoalForNormalCounterScreen.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,27 +108,18 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		2D1116212259D47000A64523 /* Gamification */ = {
+		2D036F48227E539400C5FEE2 /* CreateNewAccountPage */ = {
 			isa = PBXGroup;
 			children = (
+				2D111AAB2258266F001986BD /* CreateNewAccountController.swift */,
 			);
-			path = Gamification;
+			path = CreateNewAccountPage;
 			sourceTree = "<group>";
-		};
-		2D1116222259D5DC00A64523 /* images */ = {
-			isa = PBXGroup;
-			children = (
-				2D11165F225D750000A64523 /* 1.jpg */,
-			);
-			name = images;
-			path = StrokeRehabilitation/Resources/images;
-			sourceTree = SOURCE_ROOT;
 		};
 		2D111661225D754000A64523 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
 				2D111662225D754E00A64523 /* Sounds */,
-				2D1116222259D5DC00A64523 /* images */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -132,7 +132,17 @@
 			path = StrokeRehabilitation/Resources/Sounds;
 			sourceTree = SOURCE_ROOT;
 		};
-		2D6089962257105200150702 /* Core */ = {
+		2D1D7A342276CCC400E7D926 /* ManagementAccountPage */ = {
+			isa = PBXGroup;
+			children = (
+				2D1D7A432276E5E000E7D926 /* AccountCell.swift */,
+				2D1D7A442276E5E100E7D926 /* ManagementAccountScreen.swift */,
+				2D1D7A492276F38800E7D926 /* FoldingCell.swift */,
+			);
+			path = ManagementAccountPage;
+			sourceTree = "<group>";
+		};
+		2D6089962257105200150702 /* CoreStruct */ = {
 			isa = PBXGroup;
 			children = (
 				2D60899022570F2200150702 /* Patient.swift */,
@@ -140,7 +150,7 @@
 				2D6089942257104400150702 /* ButtonTriggerEvent.swift */,
 				2D6089972257107D00150702 /* Mission.swift */,
 			);
-			path = Core;
+			path = CoreStruct;
 			sourceTree = "<group>";
 		};
 		2DC608EF225483520089E238 = {
@@ -166,14 +176,17 @@
 		2DC608FA225483520089E238 /* StrokeRehabilitation */ = {
 			isa = PBXGroup;
 			children = (
+				2DCFB3F9227D1C340035A5E5 /* CoreController */,
+				2DCFB3F2227D0E390035A5E5 /* Extension */,
+				2DCFB3EF227D0DED0035A5E5 /* Tool */,
+				2DCFB3EE227D0DD40035A5E5 /* Database */,
 				2D111661225D754000A64523 /* Resources */,
-				2D1116212259D47000A64523 /* Gamification */,
-				2D6089962257105200150702 /* Core */,
+				2D6089962257105200150702 /* CoreStruct */,
 				2DC6092B225487980089E238 /* View */,
-				2DC6092A225483DD0089E238 /* Controller */,
 				2DC608FB225483520089E238 /* AppDelegate.swift */,
 				2DC60902225483560089E238 /* Assets.xcassets */,
 				2DC60904225483560089E238 /* LaunchScreen.storyboard */,
+				2D11161D2259C17000A64523 /* WelcomePageController.swift */,
 				2DC60907225483560089E238 /* Info.plist */,
 			);
 			path = StrokeRehabilitation;
@@ -197,28 +210,75 @@
 			path = StrokeRehabilitationUITests;
 			sourceTree = "<group>";
 		};
-		2DC6092A225483DD0089E238 /* Controller */ = {
+		2DC6092B225487980089E238 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				2DCFB3F5227D0FA20035A5E5 /* StartPage */,
+				2DCFB3F6227D0FB70035A5E5 /* AdminPage */,
+				2DFF0266227926EE00DD0E10 /* NormolPage */,
+				2D436BED2258828300EE6A10 /* PatientTableViewController.swift */,
+				2DC608FF225483520089E238 /* Main.storyboard */,
+				2D11161F2259D45D00A64523 /* NormalCounterController.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		2DCFB3EE227D0DD40035A5E5 /* Database */ = {
 			isa = PBXGroup;
 			children = (
 				2D60898E22570E8C00150702 /* SQLiteDatabase.swift */,
 			);
-			path = Controller;
+			path = Database;
 			sourceTree = "<group>";
 		};
-		2DC6092B225487980089E238 /* View */ = {
+		2DCFB3EF227D0DED0035A5E5 /* Tool */ = {
 			isa = PBXGroup;
 			children = (
-				2D11161D2259C17000A64523 /* WelcomePageController.swift */,
-				2D436BED2258828300EE6A10 /* PatientTableViewController.swift */,
-				2D436BE92258802400EE6A10 /* PatientTableCellView.swift */,
-				2D530AC62258120F00ED1772 /* AdminHomepageController.swift */,
-				2DC608FF225483520089E238 /* Main.storyboard */,
-				2D11161F2259D45D00A64523 /* NormalCounterController.swift */,
-				2D436BEF2258A0CA00EE6A10 /* PatientDetailController.swift */,
-				2D530AC8225815CB00ED1772 /* StartPageController.swift */,
-				2D111AAB2258266F001986BD /* CreateNewAccountController.swift */,
+				2DCFB3F0227D0E1E0035A5E5 /* DateInfo.swift */,
+				2DCFB3F7227D113D0035A5E5 /* Alert.swift */,
 			);
-			path = View;
+			path = Tool;
+			sourceTree = "<group>";
+		};
+		2DCFB3F2227D0E390035A5E5 /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				2DCFB3F3227D0E5F0035A5E5 /* ExtensionDate.swift */,
+			);
+			path = Extension;
+			sourceTree = "<group>";
+		};
+		2DCFB3F5227D0FA20035A5E5 /* StartPage */ = {
+			isa = PBXGroup;
+			children = (
+				2D530AC8225815CB00ED1772 /* StartPageController.swift */,
+			);
+			path = StartPage;
+			sourceTree = "<group>";
+		};
+		2DCFB3F6227D0FB70035A5E5 /* AdminPage */ = {
+			isa = PBXGroup;
+			children = (
+				2D036F48227E539400C5FEE2 /* CreateNewAccountPage */,
+				2D1D7A342276CCC400E7D926 /* ManagementAccountPage */,
+			);
+			path = AdminPage;
+			sourceTree = "<group>";
+		};
+		2DCFB3F9227D1C340035A5E5 /* CoreController */ = {
+			isa = PBXGroup;
+			children = (
+				2DCFB3FA227D1C6F0035A5E5 /* DBConectionAndDataController.swift */,
+			);
+			path = CoreController;
+			sourceTree = "<group>";
+		};
+		2DFF0266227926EE00DD0E10 /* NormolPage */ = {
+			isa = PBXGroup;
+			children = (
+				2DFF02672279272C00DD0E10 /* SetGoalForNormalCounterScreen.swift */,
+			);
+			path = NormolPage;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -352,16 +412,21 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2D436BF02258A0CA00EE6A10 /* PatientDetailController.swift in Sources */,
+				2D1D7A462276E5E100E7D926 /* ManagementAccountScreen.swift in Sources */,
+				2D1D7A4A2276F38800E7D926 /* FoldingCell.swift in Sources */,
 				2D6089932257101100150702 /* Button.swift in Sources */,
+				2DCFB3FB227D1C6F0035A5E5 /* DBConectionAndDataController.swift in Sources */,
 				2D111AAC2258266F001986BD /* CreateNewAccountController.swift in Sources */,
 				2D6089952257104400150702 /* ButtonTriggerEvent.swift in Sources */,
-				2D436BEA2258802400EE6A10 /* PatientTableCellView.swift in Sources */,
-				2D530AC72258120F00ED1772 /* AdminHomepageController.swift in Sources */,
+				2DCFB3F8227D113D0035A5E5 /* Alert.swift in Sources */,
 				2D530AC9225815CB00ED1772 /* StartPageController.swift in Sources */,
 				2D436BEE2258828300EE6A10 /* PatientTableViewController.swift in Sources */,
 				2D60899122570F2200150702 /* Patient.swift in Sources */,
+				2D1D7A452276E5E100E7D926 /* AccountCell.swift in Sources */,
+				2DCFB3F1227D0E1E0035A5E5 /* DateInfo.swift in Sources */,
+				2DCFB3F4227D0E5F0035A5E5 /* ExtensionDate.swift in Sources */,
 				2D11161E2259C17000A64523 /* WelcomePageController.swift in Sources */,
+				2DFF02682279272C00DD0E10 /* SetGoalForNormalCounterScreen.swift in Sources */,
 				2DC608FC225483520089E238 /* AppDelegate.swift in Sources */,
 				2D6089982257107D00150702 /* Mission.swift in Sources */,
 				2D60898F22570E8C00150702 /* SQLiteDatabase.swift in Sources */,

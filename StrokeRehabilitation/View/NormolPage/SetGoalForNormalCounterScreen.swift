@@ -1,16 +1,15 @@
 //
-//  AdminHomepageController.swift
+//  SetGoalForNormalCounterScreen.swift
 //  StrokeRehabilitation
 //
-//  Created by yinzixie on 5/4/19.
+//  Created by yinzixie on 1/5/19.
 //  Copyright © 2019 Project. All rights reserved.
 //
 
 import UIKit
 
-class AdminHomepageController: UIViewController {
+class SetGoalForNormalCounterScreen: UIViewController {
 
- 
     override func viewDidLoad() {
         super.viewDidLoad()
 

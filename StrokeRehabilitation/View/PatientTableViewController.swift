@@ -9,7 +9,7 @@
 import UIKit
 
 class PatientTableViewController: UITableViewController {
-    var patients = [Patient]()
+ /*   var patients = [Patient]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -48,7 +48,7 @@ class PatientTableViewController: UITableViewController {
             patientCell.idLabel.text = patient.ID
             patientCell.firstnameLabel.text = patient.Firstname
             patientCell.givennameLabel.text = patient.Givenname
-            patientCell.ageLabel.text = String(patient.Age)
+          //  patientCell.ageLabel.text = String(patient.Age)
             patientCell.genderLabel.text = patient.Gender
             
         }
@@ -121,5 +121,6 @@ class PatientTableViewController: UITableViewController {
         // Pass the selected object to the new view controller.
     }
     */
-
+*/
 }
+

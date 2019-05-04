@@ -19,7 +19,7 @@ class SQLiteDatabase
      
      WARNING: DOING THIS WILL WIPE YOUR DATA, unless you modify how updateDatabase() works.
      */
-    private let DATABASE_VERSION = 4
+    private let DATABASE_VERSION = 2
     
     
     
@@ -66,7 +66,7 @@ class SQLiteDatabase
     }
     private func dropTables()
     {
-        dropTable(tableName:"Movie")
+        dropTable(tableName:"Patient")
         //INSERT YOUR dropTable function calls here
         //e.g. dropTable(tableName:"Movie")
     }
@@ -81,7 +81,7 @@ class SQLiteDatabase
         let lastSavedVersion = defaults.integer(forKey: "DATABASE_VERSION")
         
         // detect a version change
-        if (DATABASE_VERSION > lastSavedVersion)
+        if (DATABASE_VERSION != lastSavedVersion)
         {
             onUpdateDatabase(previousVersion:lastSavedVersion, newVersion: DATABASE_VERSION);
             
@@ -296,6 +296,8 @@ class SQLiteDatabase
         Givenname CHAR(255),
         Gender CHAR(10),
         Age INTEGER,
+        LevelDescription TEXT,
+        DateString CHAR(10),
         AimMissionTable CHAR(255),
         HistoryMissionTable CHAR(255)
         )
@@ -305,16 +307,19 @@ class SQLiteDatabase
   
     func insertPatient(patient:Patient)->Bool {
         let query = """
-        INSERT INTO Patient (ID,Firstname,Givenname,Gender,Age,AimMissionTable,HistoryMissionTable) VALUES (?,?,?,?,?,?,?)
+        INSERT INTO Patient (ID,Firstname,Givenname,Gender,Age,LevelDescription,
+        DateString,AimMissionTable,HistoryMissionTable) VALUES (?,?,?,?,?,?,?,?,?)
         """
         return insertWithQuery(query, bindingFunction: { (insertStatement) in
             sqlite3_bind_text(insertStatement, 1, NSString(string:patient.ID).utf8String, -1, nil)
-            sqlite3_bind_text(insertStatement, 2, NSString(string:patient.Firstname).utf8String, -1, nil)
-            sqlite3_bind_text(insertStatement, 3, NSString(string:patient.Givenname).utf8String, -1, nil)
-            sqlite3_bind_text(insertStatement, 4, NSString(string:patient.Gender).utf8String, -1, nil)
-            sqlite3_bind_int(insertStatement, 5, Int32(patient.Age))
-            sqlite3_bind_text(insertStatement, 6, NSString(string:patient.AimMissionTableName).utf8String, -1, nil)
-            sqlite3_bind_text(insertStatement, 7, NSString(string:patient.HistoryMissionTableName).utf8String, -1, nil)
+            sqlite3_bind_text(insertStatement, 2, NSString(string:patient.Firstname!).utf8String, -1, nil)
+            sqlite3_bind_text(insertStatement, 3, NSString(string:patient.Givenname!).utf8String, -1, nil)
+            sqlite3_bind_text(insertStatement, 4, NSString(string:patient.Gender!).utf8String, -1, nil)
+            sqlite3_bind_int(insertStatement, 5, Int32(patient.Age!))
+            sqlite3_bind_text(insertStatement, 6, NSString(string:patient.LevelDescription ?? "").utf8String, -1, nil)
+            sqlite3_bind_text(insertStatement, 7, NSString(string:patient.DateString!).utf8String, -1, nil)
+            sqlite3_bind_text(insertStatement, 8, NSString(string:patient.AimMissionTableName).utf8String, -1, nil)
+            sqlite3_bind_text(insertStatement, 9, NSString(string:patient.HistoryMissionTableName).utf8String, -1, nil)
         })
     }
     
@@ -334,13 +339,15 @@ class SQLiteDatabase
     
     func selectAllPatients() -> [Patient] {
         var result = [Patient]()
-        let selectStatementQuery = "SELECT ID,Firstname,Givenname,Gender,Age FROM Patient"
+        let selectStatementQuery = "SELECT * FROM Patient"
         
         selectWithQuery(selectStatementQuery, eachRow: { (row) in //create a patient object from each result
             let patient = Patient(
-                id: String(cString:sqlite3_column_text(row, 0)), firstname: String(cString:sqlite3_column_text(row, 1)),
-                givenname: String(cString:sqlite3_column_text(row, 2)), sex: String(cString:sqlite3_column_text(row, 3)),
-                age:Int(sqlite3_column_int(row, 4)))
+                id: String(cString:sqlite3_column_text(row, 0)))
+            patient.setPatientDetails(firstname: String(cString:sqlite3_column_text(row, 1)),
+                                      givenname: String(cString:sqlite3_column_text(row, 2)), sex: String(cString:sqlite3_column_text(row, 3)),
+                                      age:Int(sqlite3_column_int(row, 4)), levelDescription: String(cString:sqlite3_column_text(row, 5)))
+            patient.changeDate(date_: String(cString:sqlite3_column_text(row, 6)))
             
             result += [patient]
         })
@@ -352,12 +359,15 @@ class SQLiteDatabase
         var result:Patient? = nil
         selectWithQuery(selectStatementQuery, eachRow: { (row) in //create a patient object from each result
             let patient = Patient(
-                id: String(cString:sqlite3_column_text(row, 0)), firstname: String(cString:sqlite3_column_text(row, 1)),
-                givenname: String(cString:sqlite3_column_text(row, 2)), sex: String(cString:sqlite3_column_text(row, 3)),
-                age:Int(sqlite3_column_int(row, 4)))
+                id: String(cString:sqlite3_column_text(row, 0)))
+            patient.setPatientDetails(firstname: String(cString:sqlite3_column_text(row, 1)),
+                                      givenname: String(cString:sqlite3_column_text(row, 2)), sex: String(cString:sqlite3_column_text(row, 3)),
+                                      age:Int(sqlite3_column_int(row, 4)), levelDescription: String(cString:sqlite3_column_text(row, 5)))
+            patient.changeDate(date_: String(cString:sqlite3_column_text(row, 6)))
+            
             result = patient
         })
-        print(result?.ID)
+    
         return result
     }
     
