@@ -34,16 +34,17 @@ public class Patient {
     var LevelDescription:String?
     var DateString:String? //create date
     
-    var AimMissionTableName:String!
-    var HistoryMissionTableName:String!
+    var NormalCounterGoal:Int!
+    var NormalCounterLimitTime:Float!
+    
     var AimMissionList = [Mission]()
     var HistoryMissionList = [Mission]()
     
     init(id:String) {
         ID = id
         DateString = DateInfo.dateToDateString(Date(), dateFormat: "yyyy-MM-dd  HH:mm:ss")
-        AimMissionTableName = ID + "AimMissionTable"
-        HistoryMissionTableName = ID + "HistoryMissionTable"
+        NormalCounterGoal = 0
+        NormalCounterLimitTime = 0
     }
     
     func setPatientDetails(firstname:String,givenname:String,sex:String,age:Int,levelDescription:String?){
@@ -51,6 +52,12 @@ public class Patient {
         Givenname = givenname
         Gender = sex
         Age = age
+        LevelDescription = levelDescription
+    }
+    
+    func setPatientPresetGoal(normalGoal:Int,normalTime:Float) {
+        NormalCounterGoal = normalGoal
+        NormalCounterLimitTime = normalTime
     }
     
     func changeDate(date_:String) {

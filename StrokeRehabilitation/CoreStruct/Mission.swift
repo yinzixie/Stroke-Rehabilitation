@@ -10,24 +10,17 @@ import Foundation
 
 class Mission {
     
-    enum missiontype {
-        case normal
-        case game1
-        case game2
-        case game3
-    }
-    
     var MissionID:Int
-    var MissionType:missiontype
+    var MissionType:CounterModel
     var AimNumber:Int?
-    var AimTime:NSDate?
+    var AimTime:Int?
     var FinalNumber:Int = 0
     var FinalTime:Int? = nil
     
     var ButtonList = [Button]()
     var ButtonTriggerEventList = [ButtonTriggerEvent]()
     
-    init(id:Int,type:missiontype,number:Int?,time:NSDate?){
+    init(id:Int,type:CounterModel,number:Int?,time:Int?){
         MissionID = id
         MissionType = type
         AimNumber = number

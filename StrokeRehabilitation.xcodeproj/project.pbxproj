@@ -7,12 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2D036F4A227E637100C5FEE2 /* TimerTime.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D036F49227E637100C5FEE2 /* TimerTime.swift */; };
 		2D11161E2259C17000A64523 /* WelcomePageController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D11161D2259C17000A64523 /* WelcomePageController.swift */; };
 		2D1116202259D45D00A64523 /* NormalCounterController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D11161F2259D45D00A64523 /* NormalCounterController.swift */; };
 		2D111AAC2258266F001986BD /* CreateNewAccountController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D111AAB2258266F001986BD /* CreateNewAccountController.swift */; };
 		2D1D7A452276E5E100E7D926 /* AccountCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D1D7A432276E5E000E7D926 /* AccountCell.swift */; };
 		2D1D7A462276E5E100E7D926 /* ManagementAccountScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D1D7A442276E5E100E7D926 /* ManagementAccountScreen.swift */; };
 		2D1D7A4A2276F38800E7D926 /* FoldingCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D1D7A492276F38800E7D926 /* FoldingCell.swift */; };
+		2D38A869227E851F00943703 /* CounterModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D38A868227E851F00943703 /* CounterModel.swift */; };
 		2D436BEE2258828300EE6A10 /* PatientTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D436BED2258828300EE6A10 /* PatientTableViewController.swift */; };
 		2D530AC9225815CB00ED1772 /* StartPageController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D530AC8225815CB00ED1772 /* StartPageController.swift */; };
 		2D60898F22570E8C00150702 /* SQLiteDatabase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D60898E22570E8C00150702 /* SQLiteDatabase.swift */; };
@@ -51,12 +53,14 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		2D036F49227E637100C5FEE2 /* TimerTime.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerTime.swift; sourceTree = "<group>"; };
 		2D11161D2259C17000A64523 /* WelcomePageController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomePageController.swift; sourceTree = "<group>"; };
 		2D11161F2259D45D00A64523 /* NormalCounterController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NormalCounterController.swift; sourceTree = "<group>"; };
 		2D111AAB2258266F001986BD /* CreateNewAccountController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateNewAccountController.swift; sourceTree = "<group>"; };
 		2D1D7A432276E5E000E7D926 /* AccountCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AccountCell.swift; sourceTree = "<group>"; };
 		2D1D7A442276E5E100E7D926 /* ManagementAccountScreen.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ManagementAccountScreen.swift; sourceTree = "<group>"; };
 		2D1D7A492276F38800E7D926 /* FoldingCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoldingCell.swift; sourceTree = "<group>"; };
+		2D38A868227E851F00943703 /* CounterModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CounterModel.swift; sourceTree = "<group>"; };
 		2D436BED2258828300EE6A10 /* PatientTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PatientTableViewController.swift; sourceTree = "<group>"; };
 		2D530AC8225815CB00ED1772 /* StartPageController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartPageController.swift; sourceTree = "<group>"; };
 		2D60898E22570E8C00150702 /* SQLiteDatabase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SQLiteDatabase.swift; sourceTree = "<group>"; };
@@ -149,6 +153,7 @@
 				2D6089922257101100150702 /* Button.swift */,
 				2D6089942257104400150702 /* ButtonTriggerEvent.swift */,
 				2D6089972257107D00150702 /* Mission.swift */,
+				2D38A868227E851F00943703 /* CounterModel.swift */,
 			);
 			path = CoreStruct;
 			sourceTree = "<group>";
@@ -218,7 +223,6 @@
 				2DFF0266227926EE00DD0E10 /* NormolPage */,
 				2D436BED2258828300EE6A10 /* PatientTableViewController.swift */,
 				2DC608FF225483520089E238 /* Main.storyboard */,
-				2D11161F2259D45D00A64523 /* NormalCounterController.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -236,6 +240,7 @@
 			children = (
 				2DCFB3F0227D0E1E0035A5E5 /* DateInfo.swift */,
 				2DCFB3F7227D113D0035A5E5 /* Alert.swift */,
+				2D036F49227E637100C5FEE2 /* TimerTime.swift */,
 			);
 			path = Tool;
 			sourceTree = "<group>";
@@ -276,6 +281,7 @@
 		2DFF0266227926EE00DD0E10 /* NormolPage */ = {
 			isa = PBXGroup;
 			children = (
+				2D11161F2259D45D00A64523 /* NormalCounterController.swift */,
 				2DFF02672279272C00DD0E10 /* SetGoalForNormalCounterScreen.swift */,
 			);
 			path = NormolPage;
@@ -420,6 +426,7 @@
 				2D6089952257104400150702 /* ButtonTriggerEvent.swift in Sources */,
 				2DCFB3F8227D113D0035A5E5 /* Alert.swift in Sources */,
 				2D530AC9225815CB00ED1772 /* StartPageController.swift in Sources */,
+				2D38A869227E851F00943703 /* CounterModel.swift in Sources */,
 				2D436BEE2258828300EE6A10 /* PatientTableViewController.swift in Sources */,
 				2D60899122570F2200150702 /* Patient.swift in Sources */,
 				2D1D7A452276E5E100E7D926 /* AccountCell.swift in Sources */,
@@ -430,6 +437,7 @@
 				2DC608FC225483520089E238 /* AppDelegate.swift in Sources */,
 				2D6089982257107D00150702 /* Mission.swift in Sources */,
 				2D60898F22570E8C00150702 /* SQLiteDatabase.swift in Sources */,
+				2D036F4A227E637100C5FEE2 /* TimerTime.swift in Sources */,
 				2D1116202259D45D00A64523 /* NormalCounterController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -606,6 +614,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 3A9FK2TUR8;
 				INFOPLIST_FILE = StrokeRehabilitation/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -623,6 +632,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 3A9FK2TUR8;
 				INFOPLIST_FILE = StrokeRehabilitation/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

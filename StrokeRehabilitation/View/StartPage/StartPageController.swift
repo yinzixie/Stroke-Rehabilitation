@@ -10,8 +10,6 @@ import UIKit
 
 class StartPageController: UIViewController {
     
-    var database : SQLiteDatabase = SQLiteDatabase(databaseName:"MyDatabase")
-    
     @IBOutlet var idTextField: UITextField!
     
     override func viewDidLoad() {
@@ -60,7 +58,7 @@ class StartPageController: UIViewController {
         let id = idTextField.text
         
         
-        if(database.selectPatientByID(id:id!) == nil) {
+        if(DBConectionAndDataController.selectPatientByID(id:id!) == nil) {
             parameterAlert(message:"Wrong ID!")
         }else {
             //removeController() //may be put this at bottom later
@@ -77,11 +75,9 @@ class StartPageController: UIViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destination.
         // Pass the selected object to the new view controller.
-        if segue.identifier == "fromHomeGoToAdminPageSegue" {
-            /*let EditPage = segue.destination as! CreateNewJournalScreen
-            EditPage.journal = sender as? Journal
-            EditPage.EditMode = "Edit"*/
-        
+        if segue.identifier == "loginSegue" {
+           //let normalCounterPage = segue.destination as! NormalCounterController
+            //normalCounterPage.patient = DBConectionAndDataController.logPatient
         }
     }
     

@@ -19,7 +19,7 @@ class SQLiteDatabase
      
      WARNING: DOING THIS WILL WIPE YOUR DATA, unless you modify how updateDatabase() works.
      */
-    private let DATABASE_VERSION = 2
+    private let DATABASE_VERSION = 4
     
     
     
@@ -61,12 +61,14 @@ class SQLiteDatabase
     private func createTables()
     {
        createPatientTable()
+       //createPresetGoalTable()
         //INSERT YOUR createTable function calls here
         //e.g. createMovieTable()
     }
     private func dropTables()
     {
         dropTable(tableName:"Patient")
+        dropTable(tableName:"PresetGoal")
         //INSERT YOUR dropTable function calls here
         //e.g. dropTable(tableName:"Movie")
     }
@@ -298,19 +300,45 @@ class SQLiteDatabase
         Age INTEGER,
         LevelDescription TEXT,
         DateString CHAR(10),
-        AimMissionTable CHAR(255),
-        HistoryMissionTable CHAR(255)
+        NormalCounterGoal INT,
+        NormalCounterLimitTime FLOAT
         )
         """
         createTableWithQuery(query, tableName: "Patient")
     }
+    
+   /* func createPresetGoalTable() {
+        let query = """
+        CREATE TABLE PresetGoal(
+        PresetGoalID STRING PRIMARY KEY NOT NULL,
+        PatientID STRING,
+        ModelType CHAR(255),
+        Goal INT,
+        TimeLimit FLOAT
+        )
+        """
+        createTableWithQuery(query, tableName: "PresetGoal")
+    }*/
+    
+    /*func createAimMissionTable() {
+        let query = """
+        CREATE TABLE AimMission(
+        AimMissionID STRING PRIMARY KEY NOT NULL,
+        PatientID STRING,
+        ModelType CHAR(255),
+        TimeLimite FLOAT,
+        Goal INT
+        )
+        """
+        createTableWithQuery(query, tableName: "PresetGoal")
+    }*/
   
     func insertPatient(patient:Patient)->Bool {
         let query = """
         INSERT INTO Patient (ID,Firstname,Givenname,Gender,Age,LevelDescription,
-        DateString,AimMissionTable,HistoryMissionTable) VALUES (?,?,?,?,?,?,?,?,?)
+        DateString,NormalCounterGoal,NormalCounterLimitTime) VALUES (?,?,?,?,?,?,?,?,?)
         """
-        return insertWithQuery(query, bindingFunction: { (insertStatement) in
+        if( insertWithQuery(query, bindingFunction: { (insertStatement) in
             sqlite3_bind_text(insertStatement, 1, NSString(string:patient.ID).utf8String, -1, nil)
             sqlite3_bind_text(insertStatement, 2, NSString(string:patient.Firstname!).utf8String, -1, nil)
             sqlite3_bind_text(insertStatement, 3, NSString(string:patient.Givenname!).utf8String, -1, nil)
@@ -318,23 +346,41 @@ class SQLiteDatabase
             sqlite3_bind_int(insertStatement, 5, Int32(patient.Age!))
             sqlite3_bind_text(insertStatement, 6, NSString(string:patient.LevelDescription ?? "").utf8String, -1, nil)
             sqlite3_bind_text(insertStatement, 7, NSString(string:patient.DateString!).utf8String, -1, nil)
-            sqlite3_bind_text(insertStatement, 8, NSString(string:patient.AimMissionTableName).utf8String, -1, nil)
-            sqlite3_bind_text(insertStatement, 9, NSString(string:patient.HistoryMissionTableName).utf8String, -1, nil)
-        })
+            sqlite3_bind_int(insertStatement, 8, Int32(patient.NormalCounterGoal))
+            sqlite3_bind_double(insertStatement, 9, Double(patient.NormalCounterLimitTime))
+        })) {
+           /* let query2 = """
+            INSERT INTO PresetGoal (PresetGoalID,PatientID,ModelType,Goal,TimeLimit) VALUES (?,?,?,?,?)
+            """
+            return insertWithQuery(query2, bindingFunction: { (insertStatement) in
+                sqlite3_bind_text(insertStatement, 1, NSString(string:(patient.ID + CounterModel.normal.rawValue)).utf8String, -1, nil)
+                sqlite3_bind_text(insertStatement, 2, NSString(string:patient.ID).utf8String, -1, nil)
+                sqlite3_bind_text(insertStatement, 3, NSString(string:CounterModel.normal.rawValue).utf8String, -1, nil)
+                sqlite3_bind_int(insertStatement, 4, Int32(patient.NormalCounterGoal))
+                sqlite3_bind_double(insertStatement, 5, Double(patient.NormalCounterLimitTime))
+            })*/
+            return true
+        }else {
+            return false
+        }
     }
     
     func deletePatient(patient:Patient)->Bool {
         let query = """
         DELETE FROM Patient WHERE ID=?
         """
-        return insertWithQuery(query, bindingFunction: { (insertStatement) in
+        if (insertWithQuery(query, bindingFunction: { (insertStatement) in
             sqlite3_bind_text(insertStatement, 1, NSString(string:patient.ID).utf8String, -1, nil)
-        })
-    }
-    
-    func deletePatientRelevantTable(patient:Patient) {
-        dropTable(tableName: patient.AimMissionTableName)
-        dropTable(tableName: patient.HistoryMissionTableName)
+        })) {
+            /*let query2 = """
+            DELETE FROM PresetGoal WHERE PatientID=?
+            """
+             return insertWithQuery(query2, bindingFunction: { (insertStatement) in
+                sqlite3_bind_text(insertStatement, 1, NSString(string:patient.ID).utf8String, -1, nil)
+            })*/
+           return true
+        }
+        return false
     }
     
     func selectAllPatients() -> [Patient] {
@@ -348,6 +394,7 @@ class SQLiteDatabase
                                       givenname: String(cString:sqlite3_column_text(row, 2)), sex: String(cString:sqlite3_column_text(row, 3)),
                                       age:Int(sqlite3_column_int(row, 4)), levelDescription: String(cString:sqlite3_column_text(row, 5)))
             patient.changeDate(date_: String(cString:sqlite3_column_text(row, 6)))
+            patient.setPatientPresetGoal(normalGoal: Int(sqlite3_column_int(row, 7)), normalTime: Float(sqlite3_column_double(row, 8)))
             
             result += [patient]
         })
@@ -363,7 +410,9 @@ class SQLiteDatabase
             patient.setPatientDetails(firstname: String(cString:sqlite3_column_text(row, 1)),
                                       givenname: String(cString:sqlite3_column_text(row, 2)), sex: String(cString:sqlite3_column_text(row, 3)),
                                       age:Int(sqlite3_column_int(row, 4)), levelDescription: String(cString:sqlite3_column_text(row, 5)))
+            
             patient.changeDate(date_: String(cString:sqlite3_column_text(row, 6)))
+            patient.setPatientPresetGoal(normalGoal: Int(sqlite3_column_int(row, 7)), normalTime: Float(sqlite3_column_double(row, 8)))
             
             result = patient
         })
@@ -371,5 +420,24 @@ class SQLiteDatabase
         return result
     }
     
+   /* func updateNormalCounterPresetGoal(patient:Patient){
+        let statement = "UPDATE PresetGoal SET Goal = ?,TimeLimit = ? WHERE PresetGoalID = ? "
+        
+        updateWithQuery(statement,bindingFunction: {(insertStatement) in
+            sqlite3_bind_int(insertStatement, 1, Int32(patient.NormalCounterGoal))
+            sqlite3_bind_double(insertStatement, 2, Double(patient.NormalCounterLimitTime))
+            sqlite3_bind_text(insertStatement, 3, NSString(string:patient.ID + CounterModel.normal.rawValue).utf8String, -1, nil)
+        })
+    }*/
+    
+    func updateNormalCounterPresetGoal(patient:Patient){
+        let statement = "UPDATE Patient SET NormalCounterGoal = ?,NormalCounterLimitTime = ? WHERE ID = ?"
+        
+        updateWithQuery(statement,bindingFunction: {(insertStatement) in
+            sqlite3_bind_int(insertStatement, 1, Int32(patient.NormalCounterGoal))
+            sqlite3_bind_double(insertStatement, 2, Double(patient.NormalCounterLimitTime))
+            sqlite3_bind_text(insertStatement, 3, NSString(string:patient.ID).utf8String, -1, nil)
+        })
+    }
     
 }

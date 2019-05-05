@@ -63,7 +63,7 @@ class CreateNewAccountController: UIViewController,UIPickerViewDelegate, UIPicke
         let age = ageTextField.text
         let firstname = firstNameTextField.text
         let givenname = givenNameTextField.text
-        let levelDescription = levelDescriptionTextField.text ?? ""
+        let levelDescription = levelDescriptionTextField.text
         
         guard (id != "") else{
             Alert.warningAlert(message: "Please input id!", view: self)
@@ -97,7 +97,7 @@ class CreateNewAccountController: UIViewController,UIPickerViewDelegate, UIPicke
             Alert.warningAlert(message: "Create Failed! Usually caused by repeated id", view: self)
             return
         }
-        
+       
         self.dismiss(animated: true, completion: nil)
         //jump to admin page through segue"createAccountSegue"
         //self.performSegue(withIdentifier:"createAccountSegue", sender: self)

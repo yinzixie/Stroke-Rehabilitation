@@ -28,6 +28,9 @@ class AccountCell: FoldingCell {
     @IBOutlet var detailLevelLabel: UILabel!
     @IBOutlet var detailGenderLabel: UILabel!
     
+    @IBOutlet var normalTimeLimitLabel: UILabel!
+    @IBOutlet var normalGoalLabel: UILabel!
+    
     @IBOutlet var fullNameLabel: UILabel!
     
     @IBOutlet var deleteButton: UIButton!
@@ -44,6 +47,7 @@ class AccountCell: FoldingCell {
     }
 
     func setAccountCell(patient:Patient) {
+       
         let date = DateInfo.dateStringToDate(patient.DateString!)
         dateTimeLabel.text = DateInfo.dateToDateString(date, dateFormat: "yyyy/MM/dd")
         dayTimeLabel.text = DateInfo.dateToDateString(date, dateFormat: "HH:mm")
@@ -56,7 +60,15 @@ class AccountCell: FoldingCell {
         detailAgeLabel.text = String(patient.Age!)
         detailGenderLabel.text = patient.Gender
         detailLevelLabel.text = patient.LevelDescription
-        
         fullNameLabel.text = patient.Firstname! + " " + patient.Givenname!
+        
+        if(patient.NormalCounterLimitTime == 0) {
+            normalTimeLimitLabel.text = "Time Limit: Unlimit"
+        }else {
+             normalTimeLimitLabel.text = "Time Limit: " + TimerTime.convertSecondsToTimeWrittenString(seconds: patient.NormalCounterLimitTime)
+        }
+    
+        normalGoalLabel.text = "Goal: " + TimerTime.returnDisplayGoalString(goal: patient.NormalCounterGoal) + " times"
+       
     }
 }
