@@ -1,0 +1,787 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		2D02D3C422E96DB3003A5279 /* MissionListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D02D3C322E96DB3003A5279 /* MissionListCell.swift */; };
+		2D02D3C822E96DFF003A5279 /* StatisticPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D02D3C722E96DFF003A5279 /* StatisticPage.swift */; };
+		2D02DF3922E7FB6100763334 /* UserListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D02DF3822E7FB6100763334 /* UserListCell.swift */; };
+		2D02DF3B22E7FB7D00763334 /* AddNewUserCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D02DF3A22E7FB7D00763334 /* AddNewUserCell.swift */; };
+		2D02DF4222E8063A00763334 /* ExtensionString.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D02DF3E22E8063A00763334 /* ExtensionString.swift */; };
+		2D02DF4322E8063A00763334 /* ExtensionUIImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D02DF3F22E8063A00763334 /* ExtensionUIImage.swift */; };
+		2D02DF4422E8063A00763334 /* ExtensionUIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D02DF4022E8063A00763334 /* ExtensionUIViewController.swift */; };
+		2D03673622E723EC004FA5DE /* UserListAndLoginPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D03673522E723EC004FA5DE /* UserListAndLoginPage.swift */; };
+		2D040B2F22E46F31004D1659 /* TimeInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D040B2E22E46F31004D1659 /* TimeInfo.swift */; };
+		2D040B3222E47190004D1659 /* SQLiteDatabase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D040B3122E47190004D1659 /* SQLiteDatabase.swift */; };
+		2D040B3922E471CD004D1659 /* Button.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D040B3422E471CD004D1659 /* Button.swift */; };
+		2D040B3A22E471CD004D1659 /* ButtonTriggerEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D040B3522E471CD004D1659 /* ButtonTriggerEvent.swift */; };
+		2D040B3B22E471CD004D1659 /* CounterModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D040B3622E471CD004D1659 /* CounterModel.swift */; };
+		2D040B3C22E471CD004D1659 /* Mission.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D040B3722E471CD004D1659 /* Mission.swift */; };
+		2D040B3D22E471CD004D1659 /* Patient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D040B3822E471CD004D1659 /* Patient.swift */; };
+		2D040B3F22E471F9004D1659 /* Alert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D040B3E22E471F9004D1659 /* Alert.swift */; };
+		2D040B4122E47956004D1659 /* GoalCounterPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D040B4022E47956004D1659 /* GoalCounterPage.swift */; };
+		2D040B4322E47CC0004D1659 /* GoalCounterSettingPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D040B4222E47CC0004D1659 /* GoalCounterSettingPage.swift */; };
+		2D048D2522E6A96800956E5A /* NormalCounterMission.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D048D2422E6A96800956E5A /* NormalCounterMission.swift */; };
+		2D048D2722E6B43600956E5A /* UserDefaultKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D048D2622E6B43600956E5A /* UserDefaultKeys.swift */; };
+		2D048D2922E6B95600956E5A /* DBAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D048D2822E6B95600956E5A /* DBAdapter.swift */; };
+		2D048D2B22E6C9F600956E5A /* TimerFormattor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D048D2A22E6C9F600956E5A /* TimerFormattor.swift */; };
+		2D30577622E3FA6500EBF92B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D30577522E3FA6500EBF92B /* AppDelegate.swift */; };
+		2D30577B22E3FA6500EBF92B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2D30577922E3FA6500EBF92B /* Main.storyboard */; };
+		2D30577D22E3FA6600EBF92B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2D30577C22E3FA6600EBF92B /* Assets.xcassets */; };
+		2D30578022E3FA6600EBF92B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2D30577E22E3FA6600EBF92B /* LaunchScreen.storyboard */; };
+		2D30578B22E3FA6600EBF92B /* Stroke_RehabilitationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D30578A22E3FA6600EBF92B /* Stroke_RehabilitationTests.swift */; };
+		2D30579622E3FA6600EBF92B /* Stroke_RehabilitationUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D30579522E3FA6600EBF92B /* Stroke_RehabilitationUITests.swift */; };
+		2D3057A522E3FB2D00EBF92B /* NormalCounterPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D3057A422E3FB2D00EBF92B /* NormalCounterPage.swift */; };
+		2D3057A822E4000E00EBF92B /* AudioEffectController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D3057A722E4000E00EBF92B /* AudioEffectController.swift */; };
+		2D3057AD22E409FF00EBF92B /* First_Tone.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 2D3057AC22E409FF00EBF92B /* First_Tone.mp3 */; };
+		2D3057AF22E40A0500EBF92B /* Second_Tone.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 2D3057AE22E40A0500EBF92B /* Second_Tone.mp3 */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		2D30578722E3FA6600EBF92B /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 2D30576A22E3FA6500EBF92B /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 2D30577122E3FA6500EBF92B;
+			remoteInfo = "Stroke-Rehabilitation";
+		};
+		2D30579222E3FA6600EBF92B /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 2D30576A22E3FA6500EBF92B /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 2D30577122E3FA6500EBF92B;
+			remoteInfo = "Stroke-Rehabilitation";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		2D02D3C322E96DB3003A5279 /* MissionListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MissionListCell.swift; sourceTree = "<group>"; };
+		2D02D3C722E96DFF003A5279 /* StatisticPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatisticPage.swift; sourceTree = "<group>"; };
+		2D02DF3822E7FB6100763334 /* UserListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserListCell.swift; sourceTree = "<group>"; };
+		2D02DF3A22E7FB7D00763334 /* AddNewUserCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNewUserCell.swift; sourceTree = "<group>"; };
+		2D02DF3E22E8063A00763334 /* ExtensionString.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExtensionString.swift; sourceTree = "<group>"; };
+		2D02DF3F22E8063A00763334 /* ExtensionUIImage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExtensionUIImage.swift; sourceTree = "<group>"; };
+		2D02DF4022E8063A00763334 /* ExtensionUIViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExtensionUIViewController.swift; sourceTree = "<group>"; };
+		2D03673522E723EC004FA5DE /* UserListAndLoginPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserListAndLoginPage.swift; sourceTree = "<group>"; };
+		2D040B2E22E46F31004D1659 /* TimeInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeInfo.swift; sourceTree = "<group>"; };
+		2D040B3122E47190004D1659 /* SQLiteDatabase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SQLiteDatabase.swift; sourceTree = "<group>"; };
+		2D040B3422E471CD004D1659 /* Button.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Button.swift; sourceTree = "<group>"; };
+		2D040B3522E471CD004D1659 /* ButtonTriggerEvent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ButtonTriggerEvent.swift; sourceTree = "<group>"; };
+		2D040B3622E471CD004D1659 /* CounterModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CounterModel.swift; sourceTree = "<group>"; };
+		2D040B3722E471CD004D1659 /* Mission.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Mission.swift; sourceTree = "<group>"; };
+		2D040B3822E471CD004D1659 /* Patient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Patient.swift; sourceTree = "<group>"; };
+		2D040B3E22E471F9004D1659 /* Alert.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Alert.swift; sourceTree = "<group>"; };
+		2D040B4022E47956004D1659 /* GoalCounterPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoalCounterPage.swift; sourceTree = "<group>"; };
+		2D040B4222E47CC0004D1659 /* GoalCounterSettingPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoalCounterSettingPage.swift; sourceTree = "<group>"; };
+		2D048D2422E6A96800956E5A /* NormalCounterMission.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NormalCounterMission.swift; sourceTree = "<group>"; };
+		2D048D2622E6B43600956E5A /* UserDefaultKeys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultKeys.swift; sourceTree = "<group>"; };
+		2D048D2822E6B95600956E5A /* DBAdapter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DBAdapter.swift; sourceTree = "<group>"; };
+		2D048D2A22E6C9F600956E5A /* TimerFormattor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerFormattor.swift; sourceTree = "<group>"; };
+		2D30577222E3FA6500EBF92B /* Stroke-Rehabilitation.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Stroke-Rehabilitation.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		2D30577522E3FA6500EBF92B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		2D30577A22E3FA6500EBF92B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		2D30577C22E3FA6600EBF92B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		2D30577F22E3FA6600EBF92B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		2D30578122E3FA6600EBF92B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		2D30578622E3FA6600EBF92B /* Stroke-RehabilitationTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Stroke-RehabilitationTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		2D30578A22E3FA6600EBF92B /* Stroke_RehabilitationTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Stroke_RehabilitationTests.swift; sourceTree = "<group>"; };
+		2D30578C22E3FA6600EBF92B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		2D30579122E3FA6600EBF92B /* Stroke-RehabilitationUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Stroke-RehabilitationUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		2D30579522E3FA6600EBF92B /* Stroke_RehabilitationUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Stroke_RehabilitationUITests.swift; sourceTree = "<group>"; };
+		2D30579722E3FA6600EBF92B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		2D3057A422E3FB2D00EBF92B /* NormalCounterPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NormalCounterPage.swift; sourceTree = "<group>"; };
+		2D3057A722E4000E00EBF92B /* AudioEffectController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioEffectController.swift; sourceTree = "<group>"; };
+		2D3057AC22E409FF00EBF92B /* First_Tone.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = First_Tone.mp3; sourceTree = "<group>"; };
+		2D3057AE22E40A0500EBF92B /* Second_Tone.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = Second_Tone.mp3; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		2D30576F22E3FA6500EBF92B /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2D30578322E3FA6600EBF92B /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2D30578E22E3FA6600EBF92B /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		2D02D3C222E96D84003A5279 /* StatisticPage */ = {
+			isa = PBXGroup;
+			children = (
+				2D02D3C722E96DFF003A5279 /* StatisticPage.swift */,
+				2D02D3C322E96DB3003A5279 /* MissionListCell.swift */,
+			);
+			path = StatisticPage;
+			sourceTree = "<group>";
+		};
+		2D02DF3522E7FAC200763334 /* UserListAndLoginPage */ = {
+			isa = PBXGroup;
+			children = (
+				2D03673522E723EC004FA5DE /* UserListAndLoginPage.swift */,
+				2D02DF3822E7FB6100763334 /* UserListCell.swift */,
+				2D02DF3A22E7FB7D00763334 /* AddNewUserCell.swift */,
+			);
+			path = UserListAndLoginPage;
+			sourceTree = "<group>";
+		};
+		2D02DF3622E7FB1300763334 /* NormalCounterpage */ = {
+			isa = PBXGroup;
+			children = (
+				2D3057A422E3FB2D00EBF92B /* NormalCounterPage.swift */,
+			);
+			path = NormalCounterpage;
+			sourceTree = "<group>";
+		};
+		2D02DF3722E7FB2600763334 /* GoalCounterPage */ = {
+			isa = PBXGroup;
+			children = (
+				2D040B4022E47956004D1659 /* GoalCounterPage.swift */,
+				2D040B4222E47CC0004D1659 /* GoalCounterSettingPage.swift */,
+			);
+			path = GoalCounterPage;
+			sourceTree = "<group>";
+		};
+		2D02DF3C22E8063A00763334 /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				2D02DF3E22E8063A00763334 /* ExtensionString.swift */,
+				2D02DF3F22E8063A00763334 /* ExtensionUIImage.swift */,
+				2D02DF4022E8063A00763334 /* ExtensionUIViewController.swift */,
+			);
+			path = Extension;
+			sourceTree = "<group>";
+		};
+		2D040B3022E470DF004D1659 /* DatabaseController */ = {
+			isa = PBXGroup;
+			children = (
+				2D040B3122E47190004D1659 /* SQLiteDatabase.swift */,
+				2D048D2822E6B95600956E5A /* DBAdapter.swift */,
+			);
+			path = DatabaseController;
+			sourceTree = "<group>";
+		};
+		2D040B3322E471CD004D1659 /* CoreStruct */ = {
+			isa = PBXGroup;
+			children = (
+				2D040B3422E471CD004D1659 /* Button.swift */,
+				2D040B3522E471CD004D1659 /* ButtonTriggerEvent.swift */,
+				2D040B3622E471CD004D1659 /* CounterModel.swift */,
+				2D040B3722E471CD004D1659 /* Mission.swift */,
+				2D040B3822E471CD004D1659 /* Patient.swift */,
+				2D048D2422E6A96800956E5A /* NormalCounterMission.swift */,
+				2D048D2622E6B43600956E5A /* UserDefaultKeys.swift */,
+			);
+			path = CoreStruct;
+			sourceTree = "<group>";
+		};
+		2D30576922E3FA6500EBF92B = {
+			isa = PBXGroup;
+			children = (
+				2D30577422E3FA6500EBF92B /* Stroke-Rehabilitation */,
+				2D30578922E3FA6600EBF92B /* Stroke-RehabilitationTests */,
+				2D30579422E3FA6600EBF92B /* Stroke-RehabilitationUITests */,
+				2D30577322E3FA6500EBF92B /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		2D30577322E3FA6500EBF92B /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				2D30577222E3FA6500EBF92B /* Stroke-Rehabilitation.app */,
+				2D30578622E3FA6600EBF92B /* Stroke-RehabilitationTests.xctest */,
+				2D30579122E3FA6600EBF92B /* Stroke-RehabilitationUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		2D30577422E3FA6500EBF92B /* Stroke-Rehabilitation */ = {
+			isa = PBXGroup;
+			children = (
+				2D3057A622E3FFC500EBF92B /* Tool */,
+				2D02DF3C22E8063A00763334 /* Extension */,
+				2D3057AA22E409B600EBF92B /* Resources */,
+				2D040B3322E471CD004D1659 /* CoreStruct */,
+				2D3057A322E3FAE300EBF92B /* ViewController */,
+				2D3057A922E4001800EBF92B /* EffectController */,
+				2D040B3022E470DF004D1659 /* DatabaseController */,
+				2D30577522E3FA6500EBF92B /* AppDelegate.swift */,
+				2D30578122E3FA6600EBF92B /* Info.plist */,
+			);
+			path = "Stroke-Rehabilitation";
+			sourceTree = "<group>";
+		};
+		2D30578922E3FA6600EBF92B /* Stroke-RehabilitationTests */ = {
+			isa = PBXGroup;
+			children = (
+				2D30578A22E3FA6600EBF92B /* Stroke_RehabilitationTests.swift */,
+				2D30578C22E3FA6600EBF92B /* Info.plist */,
+			);
+			path = "Stroke-RehabilitationTests";
+			sourceTree = "<group>";
+		};
+		2D30579422E3FA6600EBF92B /* Stroke-RehabilitationUITests */ = {
+			isa = PBXGroup;
+			children = (
+				2D30579522E3FA6600EBF92B /* Stroke_RehabilitationUITests.swift */,
+				2D30579722E3FA6600EBF92B /* Info.plist */,
+			);
+			path = "Stroke-RehabilitationUITests";
+			sourceTree = "<group>";
+		};
+		2D3057A322E3FAE300EBF92B /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				2D02D3C222E96D84003A5279 /* StatisticPage */,
+				2D02DF3722E7FB2600763334 /* GoalCounterPage */,
+				2D02DF3622E7FB1300763334 /* NormalCounterpage */,
+				2D02DF3522E7FAC200763334 /* UserListAndLoginPage */,
+				2D30577E22E3FA6600EBF92B /* LaunchScreen.storyboard */,
+				2D30577922E3FA6500EBF92B /* Main.storyboard */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
+		2D3057A622E3FFC500EBF92B /* Tool */ = {
+			isa = PBXGroup;
+			children = (
+				2D040B3E22E471F9004D1659 /* Alert.swift */,
+				2D040B2E22E46F31004D1659 /* TimeInfo.swift */,
+				2D048D2A22E6C9F600956E5A /* TimerFormattor.swift */,
+			);
+			path = Tool;
+			sourceTree = "<group>";
+		};
+		2D3057A922E4001800EBF92B /* EffectController */ = {
+			isa = PBXGroup;
+			children = (
+				2D3057A722E4000E00EBF92B /* AudioEffectController.swift */,
+			);
+			path = EffectController;
+			sourceTree = "<group>";
+		};
+		2D3057AA22E409B600EBF92B /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				2D3057AB22E409C600EBF92B /* Sounds */,
+				2D30577C22E3FA6600EBF92B /* Assets.xcassets */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		2D3057AB22E409C600EBF92B /* Sounds */ = {
+			isa = PBXGroup;
+			children = (
+				2D3057AC22E409FF00EBF92B /* First_Tone.mp3 */,
+				2D3057AE22E40A0500EBF92B /* Second_Tone.mp3 */,
+			);
+			path = Sounds;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		2D30577122E3FA6500EBF92B /* Stroke-Rehabilitation */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 2D30579A22E3FA6600EBF92B /* Build configuration list for PBXNativeTarget "Stroke-Rehabilitation" */;
+			buildPhases = (
+				2D30576E22E3FA6500EBF92B /* Sources */,
+				2D30576F22E3FA6500EBF92B /* Frameworks */,
+				2D30577022E3FA6500EBF92B /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Stroke-Rehabilitation";
+			productName = "Stroke-Rehabilitation";
+			productReference = 2D30577222E3FA6500EBF92B /* Stroke-Rehabilitation.app */;
+			productType = "com.apple.product-type.application";
+		};
+		2D30578522E3FA6600EBF92B /* Stroke-RehabilitationTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 2D30579D22E3FA6600EBF92B /* Build configuration list for PBXNativeTarget "Stroke-RehabilitationTests" */;
+			buildPhases = (
+				2D30578222E3FA6600EBF92B /* Sources */,
+				2D30578322E3FA6600EBF92B /* Frameworks */,
+				2D30578422E3FA6600EBF92B /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				2D30578822E3FA6600EBF92B /* PBXTargetDependency */,
+			);
+			name = "Stroke-RehabilitationTests";
+			productName = "Stroke-RehabilitationTests";
+			productReference = 2D30578622E3FA6600EBF92B /* Stroke-RehabilitationTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		2D30579022E3FA6600EBF92B /* Stroke-RehabilitationUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 2D3057A022E3FA6600EBF92B /* Build configuration list for PBXNativeTarget "Stroke-RehabilitationUITests" */;
+			buildPhases = (
+				2D30578D22E3FA6600EBF92B /* Sources */,
+				2D30578E22E3FA6600EBF92B /* Frameworks */,
+				2D30578F22E3FA6600EBF92B /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				2D30579322E3FA6600EBF92B /* PBXTargetDependency */,
+			);
+			name = "Stroke-RehabilitationUITests";
+			productName = "Stroke-RehabilitationUITests";
+			productReference = 2D30579122E3FA6600EBF92B /* Stroke-RehabilitationUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		2D30576A22E3FA6500EBF92B /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1020;
+				LastUpgradeCheck = 1020;
+				ORGANIZATIONNAME = yinzixie;
+				TargetAttributes = {
+					2D30577122E3FA6500EBF92B = {
+						CreatedOnToolsVersion = 10.2;
+					};
+					2D30578522E3FA6600EBF92B = {
+						CreatedOnToolsVersion = 10.2;
+						TestTargetID = 2D30577122E3FA6500EBF92B;
+					};
+					2D30579022E3FA6600EBF92B = {
+						CreatedOnToolsVersion = 10.2;
+						TestTargetID = 2D30577122E3FA6500EBF92B;
+					};
+				};
+			};
+			buildConfigurationList = 2D30576D22E3FA6500EBF92B /* Build configuration list for PBXProject "Stroke-Rehabilitation" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 2D30576922E3FA6500EBF92B;
+			productRefGroup = 2D30577322E3FA6500EBF92B /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				2D30577122E3FA6500EBF92B /* Stroke-Rehabilitation */,
+				2D30578522E3FA6600EBF92B /* Stroke-RehabilitationTests */,
+				2D30579022E3FA6600EBF92B /* Stroke-RehabilitationUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		2D30577022E3FA6500EBF92B /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2D30578022E3FA6600EBF92B /* LaunchScreen.storyboard in Resources */,
+				2D3057AD22E409FF00EBF92B /* First_Tone.mp3 in Resources */,
+				2D30577D22E3FA6600EBF92B /* Assets.xcassets in Resources */,
+				2D30577B22E3FA6500EBF92B /* Main.storyboard in Resources */,
+				2D3057AF22E40A0500EBF92B /* Second_Tone.mp3 in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2D30578422E3FA6600EBF92B /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2D30578F22E3FA6600EBF92B /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		2D30576E22E3FA6500EBF92B /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2D02DF3922E7FB6100763334 /* UserListCell.swift in Sources */,
+				2D048D2B22E6C9F600956E5A /* TimerFormattor.swift in Sources */,
+				2D040B4122E47956004D1659 /* GoalCounterPage.swift in Sources */,
+				2D048D2922E6B95600956E5A /* DBAdapter.swift in Sources */,
+				2D040B4322E47CC0004D1659 /* GoalCounterSettingPage.swift in Sources */,
+				2D040B2F22E46F31004D1659 /* TimeInfo.swift in Sources */,
+				2D03673622E723EC004FA5DE /* UserListAndLoginPage.swift in Sources */,
+				2D040B3922E471CD004D1659 /* Button.swift in Sources */,
+				2D3057A822E4000E00EBF92B /* AudioEffectController.swift in Sources */,
+				2D3057A522E3FB2D00EBF92B /* NormalCounterPage.swift in Sources */,
+				2D30577622E3FA6500EBF92B /* AppDelegate.swift in Sources */,
+				2D040B3A22E471CD004D1659 /* ButtonTriggerEvent.swift in Sources */,
+				2D02DF4422E8063A00763334 /* ExtensionUIViewController.swift in Sources */,
+				2D048D2722E6B43600956E5A /* UserDefaultKeys.swift in Sources */,
+				2D02D3C422E96DB3003A5279 /* MissionListCell.swift in Sources */,
+				2D02DF3B22E7FB7D00763334 /* AddNewUserCell.swift in Sources */,
+				2D040B3C22E471CD004D1659 /* Mission.swift in Sources */,
+				2D02D3C822E96DFF003A5279 /* StatisticPage.swift in Sources */,
+				2D040B3B22E471CD004D1659 /* CounterModel.swift in Sources */,
+				2D040B3F22E471F9004D1659 /* Alert.swift in Sources */,
+				2D02DF4222E8063A00763334 /* ExtensionString.swift in Sources */,
+				2D048D2522E6A96800956E5A /* NormalCounterMission.swift in Sources */,
+				2D040B3222E47190004D1659 /* SQLiteDatabase.swift in Sources */,
+				2D040B3D22E471CD004D1659 /* Patient.swift in Sources */,
+				2D02DF4322E8063A00763334 /* ExtensionUIImage.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2D30578222E3FA6600EBF92B /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2D30578B22E3FA6600EBF92B /* Stroke_RehabilitationTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2D30578D22E3FA6600EBF92B /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2D30579622E3FA6600EBF92B /* Stroke_RehabilitationUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		2D30578822E3FA6600EBF92B /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 2D30577122E3FA6500EBF92B /* Stroke-Rehabilitation */;
+			targetProxy = 2D30578722E3FA6600EBF92B /* PBXContainerItemProxy */;
+		};
+		2D30579322E3FA6600EBF92B /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 2D30577122E3FA6500EBF92B /* Stroke-Rehabilitation */;
+			targetProxy = 2D30579222E3FA6600EBF92B /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		2D30577922E3FA6500EBF92B /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				2D30577A22E3FA6500EBF92B /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		2D30577E22E3FA6600EBF92B /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				2D30577F22E3FA6600EBF92B /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		2D30579822E3FA6600EBF92B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.2;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		2D30579922E3FA6600EBF92B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		2D30579B22E3FA6600EBF92B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 3A9FK2TUR8;
+				INFOPLIST_FILE = "Stroke-Rehabilitation/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "SR-Agile2.Stroke-Rehabilitation";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		2D30579C22E3FA6600EBF92B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 3A9FK2TUR8;
+				INFOPLIST_FILE = "Stroke-Rehabilitation/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "SR-Agile2.Stroke-Rehabilitation";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		2D30579E22E3FA6600EBF92B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 3A9FK2TUR8;
+				INFOPLIST_FILE = "Stroke-RehabilitationTests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "SR-Agile2.Stroke-RehabilitationTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Stroke-Rehabilitation.app/Stroke-Rehabilitation";
+			};
+			name = Debug;
+		};
+		2D30579F22E3FA6600EBF92B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 3A9FK2TUR8;
+				INFOPLIST_FILE = "Stroke-RehabilitationTests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "SR-Agile2.Stroke-RehabilitationTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Stroke-Rehabilitation.app/Stroke-Rehabilitation";
+			};
+			name = Release;
+		};
+		2D3057A122E3FA6600EBF92B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 3A9FK2TUR8;
+				INFOPLIST_FILE = "Stroke-RehabilitationUITests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "SR-Agile2.Stroke-RehabilitationUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = "Stroke-Rehabilitation";
+			};
+			name = Debug;
+		};
+		2D3057A222E3FA6600EBF92B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 3A9FK2TUR8;
+				INFOPLIST_FILE = "Stroke-RehabilitationUITests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "SR-Agile2.Stroke-RehabilitationUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = "Stroke-Rehabilitation";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		2D30576D22E3FA6500EBF92B /* Build configuration list for PBXProject "Stroke-Rehabilitation" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2D30579822E3FA6600EBF92B /* Debug */,
+				2D30579922E3FA6600EBF92B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		2D30579A22E3FA6600EBF92B /* Build configuration list for PBXNativeTarget "Stroke-Rehabilitation" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2D30579B22E3FA6600EBF92B /* Debug */,
+				2D30579C22E3FA6600EBF92B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		2D30579D22E3FA6600EBF92B /* Build configuration list for PBXNativeTarget "Stroke-RehabilitationTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2D30579E22E3FA6600EBF92B /* Debug */,
+				2D30579F22E3FA6600EBF92B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		2D3057A022E3FA6600EBF92B /* Build configuration list for PBXNativeTarget "Stroke-RehabilitationUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2D3057A122E3FA6600EBF92B /* Debug */,
+				2D3057A222E3FA6600EBF92B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 2D30576A22E3FA6500EBF92B /* Project object */;
+}
