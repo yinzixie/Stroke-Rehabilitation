@@ -16,10 +16,14 @@ class GoalCounterPage: UIViewController{
     @IBOutlet weak var hintLoginNameLabel: UILabel!
     
     var mission:NormalCounterMission!
+    var missionInProcess = false // is mission in processing
+    
     var audioPlayer = AudioEffectController()
     
     var countdown = TimeInterval(0) //time of timer
-    var count:Int = 0//value to be displayed on the counter
+    
+    var realCount:Int = 0 //true press value
+    var displayCount:Int = 0//value to be displayed on the counter
     
     var timer = Timer()
     var isTimerRunning = false
@@ -47,12 +51,12 @@ class GoalCounterPage: UIViewController{
         mission.AimGoal = DBAdapter.logPatient.NormalCounterGoal
         mission.AimTime = DBAdapter.logPatient.NormalCounterLimitTime
         
-        count = mission.AimGoal
+        displayCount = mission.AimGoal
         countdown = TimeInterval(mission.AimTime)
         
         progressBar.setProgress(0, animated: false)
         
-        goalLabel.text = String(count)
+        goalLabel.text = String(displayCount)
         timerLabel.text = TimerFormattor.formatter.string(from: countdown)
         
         if(mission.AimGoal > 0 && mission.AimTime > 0) {
@@ -89,9 +93,9 @@ class GoalCounterPage: UIViewController{
             countdown -= 1
             timerLabel.text = TimerFormattor.formatter.string(from: countdown)
             
+            //time is up before user finish all task
             if countdown == 0
             {
-                stopTimer()
                 missionFinshed()
                 
                 let alert = UIAlertController(title: "Time's Up!", message: "Your timer has ended. Tap finish to exist goal page or Reset to start again.", preferredStyle: .alert)
@@ -116,7 +120,7 @@ class GoalCounterPage: UIViewController{
     {
         if firstArm == true
         {
-            runTimer()
+            missionStrat()
             firstArm = false
         }
         if armed == false
@@ -132,23 +136,38 @@ class GoalCounterPage: UIViewController{
     {
         if armed == true
         {
-            if count > 0
+            realCount += 1
+            if displayCount > 0
             {
-                count -= 1 //decrease the value of count
-                goalLabel.text = String(count) //change the label that displays the counter value
+                displayCount -= 1 //decrease the value of count
+                goalLabel.text = String(displayCount) //change the label that displays the counter value
                 armed = false //de-arms the counter so its can be armed again
-                progressBar.setProgress(Float(mission.AimGoal - count)/Float(mission.AimGoal), animated: true)
+                progressBar.setProgress(Float(mission.AimGoal - displayCount)/Float(mission.AimGoal), animated: true)
                
-                print(count)
+                print(displayCount)
             }
             else //if the counter is zero or below, keep decrementing but remove the negative sign so it looks like its counting up
             {
-                count -= 1 //decrease the value of count
-                var stringCount = String(count)
+                displayCount -= 1 //decrease the value of count
+                var stringCount = String(displayCount)
                 stringCount.remove(at: stringCount.startIndex)
                 goalLabel.text = stringCount //change the label that displays the counter value
                 armed = false //de-arms the counter so its can be armed again
-                print(count)
+                print(displayCount)
+            }
+            
+            //user finish mission before the time is up
+            if mission.AimGoal > 0 && displayCount == 0
+            {
+                missionFinshed()
+                
+                let alert = UIAlertController(title: "Congratulations!", message: "You have completed your target reps.", preferredStyle: .alert)
+                
+                alert.addAction(UIAlertAction(title: "Finish", style: .default, handler: {(alert: UIAlertAction!) in
+                    self.dismiss(animated: true, completion: nil)
+                })) //back to normal counter page
+                alert.addAction(UIAlertAction(title: "Reset", style: .default, handler: {(alert: UIAlertAction!) in self.reset()}))
+                self.present(alert, animated: true)//presents the alert
             }
         }
         else
@@ -164,20 +183,6 @@ class GoalCounterPage: UIViewController{
                 alert.dismiss(animated: true, completion: nil)
             }
         }
-        
-        if mission.AimGoal > 0 && count == 0
-        {
-            stopTimer()
-            missionFinshed()
-            
-            let alert = UIAlertController(title: "Congratulations!", message: "You have completed your target reps.", preferredStyle: .alert)
-            
-            alert.addAction(UIAlertAction(title: "Finish", style: .default, handler: {(alert: UIAlertAction!) in
-                self.dismiss(animated: true, completion: nil)
-            })) //back to normal counter page
-            alert.addAction(UIAlertAction(title: "Reset", style: .default, handler: {(alert: UIAlertAction!) in self.reset()}))
-            self.present(alert, animated: true)//presents the alert
-        }
     }
     
     func reset() -> Void //resets the goal and timer values to their starting values and refreshes the labels
@@ -185,14 +190,17 @@ class GoalCounterPage: UIViewController{
         stopTimer()
         firstArm = true
         
-        count = mission.AimGoal
+        displayCount = mission.AimGoal
         countdown = TimeInterval(mission.AimTime)
-        goalLabel.text = String(count)
+        goalLabel.text = String(displayCount)
         timerLabel.text = TimerFormattor.formatter.string(from: countdown)
     }
     
     @IBAction func arm(_ sender: AnyObject) { //links our arm button and tells it to run the arm function when pressed
         audioPlayer.playSound(fileName: "First_Tone", fileType: "mp3")
+        //once arm has been pressed we the mission is starting
+        missionInProcess = true
+        
         let armButton = Button(id: UserDefaultKeys.ArmButton)
         let armButtonTriigerEvent = ButtonTriggerEvent(missionID: mission.MissionID, patientID: DBAdapter.logPatient.ID, button: armButton, timeinterval: TimeInfo.getStamp())
         print(armButtonTriigerEvent.EventID)
@@ -227,19 +235,31 @@ class GoalCounterPage: UIViewController{
         reset()
     }
     
+    func missionStrat() {
+        runTimer()
+        missionInProcess = true
+        mission.StartTime = TimeInfo.getStamp()
+    }
+    
     func missionFinshed(){
-        mission.FinalAchievement = mission.AimGoal - count
-        if(hasTimer) {
-            mission.FinalTime = mission.AimTime - Int(countdown)
+        stopTimer()
+        missionInProcess = false
+        //make sure user exactly did some press
+        if(mission.ButtonTriggerEventList.count != 0) {
+            mission.FinalTime = TimeInfo.getStamp()
+            mission.FinalAchievement = realCount
+           
+            if(DBAdapter.insertNormalCounterMission(mission: mission)) {
+                print("Succeed to save statistic data")
+                DBAdapter.refreshlogPatientData()
+            }else {
+                print("Failed to save statistic data")
+            }
+            
         }else {
-            mission.FinalTime = mission.AimTime + Int(countdown)
+            print("No data need to be stored")
         }
-        
-        if(DBAdapter.insertNormalCounterMission(mission: mission)) {
-             print("Succeed to save statistic data")
-        }else {
-            print("Failed to save statistic data")
-        }
+        updateMission()
     }
     
     @IBAction func backPreviousPage(_ sender: Any) {
@@ -261,18 +281,19 @@ class GoalCounterPage: UIViewController{
 extension GoalCounterPage:TellGoalCounterPageUpdate   {
     func updateMission() {
         stopTimer()
-        
+        missionInProcess = false
+        realCount = 0
         let _id = DBAdapter.logPatient.ID + "-" + String(TimeInfo.getStamp())
         mission = NormalCounterMission(missionID: _id, patientID: DBAdapter.logPatient.ID)
         mission.AimGoal = DBAdapter.logPatient.NormalCounterGoal
         mission.AimTime = DBAdapter.logPatient.NormalCounterLimitTime
         
-        count = mission.AimGoal
+        displayCount = mission.AimGoal
         countdown = TimeInterval(mission.AimTime)
         
         progressBar.setProgress(0, animated: false)
         
-        goalLabel.text = String(count)
+        goalLabel.text = String(displayCount)
         timerLabel.text = TimerFormattor.formatter.string(from: countdown)
         
         firstArm = true

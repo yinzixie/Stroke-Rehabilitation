@@ -16,8 +16,7 @@ public class Patient {
     var NormalCounterGoal:Int
     var NormalCounterLimitTime:Int
     
-    var AimMissionList = [Mission]()
-    var HistoryMissionList = [Mission]()
+    var HistoryNormalCounterMissionList = [NormalCounterMission]()
     
     init() {
         ID = "0"

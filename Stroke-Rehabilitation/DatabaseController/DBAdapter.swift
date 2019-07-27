@@ -58,6 +58,11 @@ public class DBAdapter {
         delegateForGoalCounterPage?.userChanged()
     }
     
+    static func refreshlogPatientData() {
+        DBAdapter.logPatient = DBAdapter.database.selectPatientByID(id: DBAdapter.logPatient.ID)
+    }
+    
+    
     static func addPatient(patient:Patient)->Bool {
         guard database.insertPatient(patient:patient) else {
             return false

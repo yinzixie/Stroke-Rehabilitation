@@ -338,6 +338,7 @@ class SQLiteDatabase
         PatientID STRING,
         AimGoal INT,
         AimTime INT,
+        StartTime INT,
         FinalAchievement INT,
         FinalTime INT
         )
@@ -402,6 +403,7 @@ class SQLiteDatabase
             patient.ID = String(cString:sqlite3_column_text(row, 0))
             patient.Name = String(cString:sqlite3_column_text(row, 1))
             patient.setPatientPresetGoal(normalGoal: Int(sqlite3_column_int(row, 2)), normalTime: Int(sqlite3_column_double(row, 3)))
+            patient.HistoryNormalCounterMissionList = selectAllNormalCounterMissionsThroughPatientID(id:patient.ID)
             
             result += [patient]
         })
@@ -417,7 +419,8 @@ class SQLiteDatabase
             patient.ID = String(cString:sqlite3_column_text(row, 0))
             patient.Name = String(cString:sqlite3_column_text(row, 1))
             patient.setPatientPresetGoal(normalGoal: Int(sqlite3_column_int(row, 2)), normalTime: Int(sqlite3_column_double(row, 3)))
-            
+            patient.HistoryNormalCounterMissionList = selectAllNormalCounterMissionsThroughPatientID(id:patient.ID)
+
             result = patient
         })
         return result
@@ -437,7 +440,7 @@ class SQLiteDatabase
     //insert NormoalCounter mission
     func insertNormoalCounterMission(mission:NormalCounterMission)->Bool {
         let query = """
-        INSERT INTO NormalCounterMission (MissionID,PatientID,AimGoal,AimTime,FinalAchievement,FinalTime) VALUES (?,?,?,?,?,?)
+        INSERT INTO NormalCounterMission (MissionID,PatientID,AimGoal,AimTime,StartTime,FinalAchievement,FinalTime) VALUES (?,?,?,?,?,?,?)
         """
         
         if( insertWithQuery(query, bindingFunction: { (insertStatement) in
@@ -445,8 +448,9 @@ class SQLiteDatabase
             sqlite3_bind_text(insertStatement, 2, NSString(string:mission.PatientID).utf8String, -1, nil)
             sqlite3_bind_int(insertStatement, 3, Int32(mission.AimGoal))
             sqlite3_bind_int(insertStatement, 4, Int32(mission.AimTime))
-            sqlite3_bind_int(insertStatement, 5, Int32(mission.FinalAchievement))
-            sqlite3_bind_int(insertStatement, 6, Int32(mission.FinalTime))
+            sqlite3_bind_int(insertStatement, 5, Int32(mission.StartTime))
+            sqlite3_bind_int(insertStatement, 6, Int32(mission.FinalAchievement))
+            sqlite3_bind_int(insertStatement, 7, Int32(mission.FinalTime))
         })) {
             //insert events
             for event in mission.ButtonTriggerEventList {
@@ -459,16 +463,17 @@ class SQLiteDatabase
         }
     }
     
-    //select patient's mission through patient's id
+    //select patient's mission through patient's id order by time
     func selectAllNormalCounterMissionsThroughPatientID(id:String)->[NormalCounterMission] {
         var result = [NormalCounterMission]()
-        let selectStatementQuery = "SELECT * FROM NormalCounterMission WHERE PatientID='\(id)'"
+        let selectStatementQuery = "SELECT * FROM NormalCounterMission WHERE PatientID='\(id)' ORDER BY StartTime DESC"
         
         selectWithQuery(selectStatementQuery, eachRow: { (row) in //create a mission object from each result
             let mission = NormalCounterMission(missionID: String(cString:sqlite3_column_text(row, 0)), patientID: String(cString:sqlite3_column_text(row, 1)))
-          
+            
             mission.setGoal(aimGoal: Int(sqlite3_column_int(row, 2)), aimTime: Int(sqlite3_column_int(row, 3)))
-            mission.setResult(achievement: Int(sqlite3_column_int(row, 4)), time: Int(sqlite3_column_int(row, 5)), eventList: selectButtonTriggerEventsThroughMissionID(id:mission.MissionID))
+            mission.misionStartAt(startTime: Int(sqlite3_column_int(row, 4)))
+            mission.setResult(achievement: Int(sqlite3_column_int(row, 5)), time: Int(sqlite3_column_int(row, 6)), eventList: selectButtonTriggerEventsThroughMissionID(id:mission.MissionID))
             
             result += [mission]
         })

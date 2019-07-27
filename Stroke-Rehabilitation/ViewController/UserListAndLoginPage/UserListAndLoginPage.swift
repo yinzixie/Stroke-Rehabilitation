@@ -42,6 +42,7 @@ class UserListAndLoginPage: UIViewController {
         userListTable.beginUpdates()
         userListTable.reloadData()
         userListTable.endUpdates()
+        print("Login as " + DBAdapter.logPatient.ID)
         //self.dismiss(animated: true, completion: nil)
     }
     

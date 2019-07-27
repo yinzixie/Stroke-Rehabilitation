@@ -29,6 +29,7 @@
 		2D048D2722E6B43600956E5A /* UserDefaultKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D048D2622E6B43600956E5A /* UserDefaultKeys.swift */; };
 		2D048D2922E6B95600956E5A /* DBAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D048D2822E6B95600956E5A /* DBAdapter.swift */; };
 		2D048D2B22E6C9F600956E5A /* TimerFormattor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D048D2A22E6C9F600956E5A /* TimerFormattor.swift */; };
+		2D06771C22EC329500CFC680 /* ExtensionDate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D06771B22EC329500CFC680 /* ExtensionDate.swift */; };
 		2D30577622E3FA6500EBF92B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D30577522E3FA6500EBF92B /* AppDelegate.swift */; };
 		2D30577B22E3FA6500EBF92B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2D30577922E3FA6500EBF92B /* Main.storyboard */; };
 		2D30577D22E3FA6600EBF92B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2D30577C22E3FA6600EBF92B /* Assets.xcassets */; };
@@ -81,6 +82,7 @@
 		2D048D2622E6B43600956E5A /* UserDefaultKeys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultKeys.swift; sourceTree = "<group>"; };
 		2D048D2822E6B95600956E5A /* DBAdapter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DBAdapter.swift; sourceTree = "<group>"; };
 		2D048D2A22E6C9F600956E5A /* TimerFormattor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerFormattor.swift; sourceTree = "<group>"; };
+		2D06771B22EC329500CFC680 /* ExtensionDate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExtensionDate.swift; sourceTree = "<group>"; };
 		2D30577222E3FA6500EBF92B /* Stroke-Rehabilitation.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Stroke-Rehabilitation.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		2D30577522E3FA6500EBF92B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2D30577A22E3FA6500EBF92B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -163,6 +165,7 @@
 		2D02DF3C22E8063A00763334 /* Extension */ = {
 			isa = PBXGroup;
 			children = (
+				2D06771B22EC329500CFC680 /* ExtensionDate.swift */,
 				2D02DF3E22E8063A00763334 /* ExtensionString.swift */,
 				2D02DF3F22E8063A00763334 /* ExtensionUIImage.swift */,
 				2D02DF4022E8063A00763334 /* ExtensionUIViewController.swift */,
@@ -454,6 +457,7 @@
 				2D040B3222E47190004D1659 /* SQLiteDatabase.swift in Sources */,
 				2D040B3D22E471CD004D1659 /* Patient.swift in Sources */,
 				2D02DF4322E8063A00763334 /* ExtensionUIImage.swift in Sources */,
+				2D06771C22EC329500CFC680 /* ExtensionDate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

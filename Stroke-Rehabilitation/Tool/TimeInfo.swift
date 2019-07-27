@@ -9,7 +9,8 @@
 import Foundation
 
 public class TimeInfo {
-   
+    static let MonthsString = ["Jan","Feb","Mar","Apr","May","June","July","Aug","Sept","Oct","Nov","Dec"]
+    
     //MARK: current year
     static func currentYear() ->Int {
         let calendar = NSCalendar.current
@@ -92,7 +93,7 @@ public class TimeInfo {
     static func timeStringToDate(_ dateStr:String) ->Date {
         let dateFormatter = DateFormatter()
         //        dateFormatter.timeZone = TimeZone(abbreviation: "UTC")
-        dateFormatter.dateFormat = "yyyy-MM-dd  HH:mm:ss"
+        dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
         let date = dateFormatter.date(from: dateStr)
         return date!
     }
@@ -159,7 +160,7 @@ public class TimeInfo {
         let string = NSString(string: timeStamp)
         let timeSta:TimeInterval = string.doubleValue
         let dfmatter = DateFormatter()
-        dfmatter.dateFormat="yyyy年MM月dd日HH:mm:ss"
+        dfmatter.dateFormat="yyyy-MM-dd HH:mm:ss"
         let date = Date(timeIntervalSince1970: timeSta)
         return dfmatter.string(from: date)
     }
@@ -248,5 +249,30 @@ public class TimeInfo {
         }
         return result
     }
+    
+    //sec to hours/min/sec
+    static func secTransToHourMinSec(time: Float) -> String
+    {
+        let allTime: Int = Int(time)
+        var hours = 0
+        var minutes = 0
+        var seconds = 0
+        var hoursText = ""
+        var minutesText = ""
+        var secondsText = ""
+        
+        hours = allTime / 3600
+        hoursText = hours > 9 ? "\(hours)" : "0\(hours)"
+        
+        minutes = allTime % 3600 / 60
+        minutesText = minutes > 9 ? "\(minutes)" : "0\(minutes)"
+        
+        seconds = allTime % 3600 % 60
+        secondsText = seconds > 9 ? "\(seconds)" : "0\(seconds)"
+        
+        return "\(hoursText):\(minutesText):\(secondsText)"
+    }
+    
+    
 }
 

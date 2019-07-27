@@ -14,6 +14,7 @@ class NormalCounterMission {
     var AimGoal:Int //0 means no specific goal is setting
     var AimTime:Int //0 means no specific time is setting
     
+    var StartTime:Int
     var FinalAchievement:Int
     var FinalTime:Int
     
@@ -24,6 +25,7 @@ class NormalCounterMission {
         PatientID = patientID
         AimGoal = 0
         AimTime = 0
+        StartTime = 0
         FinalAchievement = 0
         FinalTime = 0
     }
@@ -33,10 +35,13 @@ class NormalCounterMission {
         AimTime = aimTime
     }
     
+    func misionStartAt(startTime:Int) {
+        StartTime = startTime
+    }
+    
     func setResult(achievement:Int, time:Int, eventList:[ButtonTriggerEvent]) {
         FinalAchievement = achievement
         FinalTime = time
         ButtonTriggerEventList = eventList
     }
-    
 }
