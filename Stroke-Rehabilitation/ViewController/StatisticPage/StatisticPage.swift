@@ -10,11 +10,13 @@ import UIKit
 
 class StatisticPage: UIViewController {
 
+    @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var missionListTable: UITableView!
     @IBOutlet weak var aimGoalLabel: UILabel!
     @IBOutlet weak var aimTimeLabel: UILabel!
     @IBOutlet weak var finalAchievementLabel: UILabel!
     @IBOutlet weak var finalTimeLabel: UILabel!
+    @IBOutlet weak var averageLabel: UILabel!
     
     
     var displayMission:NormalCounterMission!
@@ -26,6 +28,7 @@ class StatisticPage: UIViewController {
         missionListTable.tableFooterView = UIView.init(frame: CGRect.zero)
         missionListTable.layer.borderWidth = 0.5
         missionListTable.layer.borderColor = UIColor.lightGray.cgColor
+        titleLabel.text = DBAdapter.logPatient.Name + "'s Missions History"
     }
     
     private func setDetailsInformation() {
@@ -34,10 +37,16 @@ class StatisticPage: UIViewController {
         let finalAchievementString = "Final Achievement: " + String(displayMission.FinalAchievement)
         let finalTimeString = "Final Time: " + TimeInfo.secTransToHourMinSec(time: Float(displayMission.FinalTime - displayMission.StartTime))
         
+        let _time = displayMission.FinalTime - displayMission.StartTime
+        let _achievement = displayMission.FinalAchievement
+        let _result = Float(_time)/Float(_achievement)
+        let averageString = "Average: " +  String(format: "%.2f", _result) + "s/press"
+        
         aimGoalLabel.text = aimGoalString
         aimTimeLabel.text = aimTimeString
         finalAchievementLabel.text = finalAchievementString
         finalTimeLabel.text = finalTimeString
+        averageLabel.text = averageString
     }
 
     @IBAction func back(_ sender: Any) {
