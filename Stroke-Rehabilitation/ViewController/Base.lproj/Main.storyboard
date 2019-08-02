@@ -774,7 +774,7 @@ Click &lt;&lt;&lt; to return to previous screens.</string>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" text="Choose a user to Relogin or create a new user or delete current user" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="xpC-jk-QUY">
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" text="Use this screen to create, delete, or login as a user" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="xpC-jk-QUY">
                                 <rect key="frame" x="646" y="299" width="240" height="66"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -782,19 +782,12 @@ Click &lt;&lt;&lt; to return to previous screens.</string>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="You are now login as visitor" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EfF-3n-Fu8">
-                                <rect key="frame" x="646" y="260" width="278" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SD1-zd-esk">
                                 <rect key="frame" x="646" y="373" width="292" height="67"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" name="systemGreenColor" catalog="System" colorSpace="catalog"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="30"/>
-                                <state key="normal" title="Show Statistic &gt;&gt;&gt;">
+                                <state key="normal" title="Show Statistics">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                                 <connections>
@@ -910,7 +903,6 @@ Click &lt;&lt;&lt; to return to previous screens.</string>
                     </view>
                     <connections>
                         <outlet property="helloLabel" destination="kGh-IT-uY1" id="4jI-ap-PFY"/>
-                        <outlet property="hintLoginAsLabel" destination="EfF-3n-Fu8" id="mU3-ep-F7s"/>
                         <outlet property="loginAsButton" destination="37c-Qi-qJG" id="rbr-kc-d4n"/>
                         <outlet property="userListTable" destination="76c-Yd-Ose" id="fN1-iY-VWu"/>
                     </connections>
@@ -931,6 +923,6 @@ Click &lt;&lt;&lt; to return to previous screens.</string>
         <image name="red-increase-arrow" width="170.66667175292969" height="170.66667175292969"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="KX0-0Y-vAn"/>
+        <segue reference="GVY-PE-VB4"/>
     </inferredMetricsTieBreakers>
 </document>

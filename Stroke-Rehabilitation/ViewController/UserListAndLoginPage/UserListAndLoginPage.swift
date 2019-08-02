@@ -30,14 +30,14 @@ class UserListAndLoginPage: UIViewController {
         userListTable.layer.borderColor = UIColor.lightGray.cgColor
         //set label text
         helloLabel.text = "Hello " + DBAdapter.logPatient.Name
-        hintLoginAsLabel.text = "You are now login as " + DBAdapter.logPatient.ID
+        //hintLoginAsLabel.text = "You are now login as " + DBAdapter.logPatient.ID
     }
     
     @IBAction func loginAs(_ sender: Any) {
         DBAdapter.refreshlogPatient(patient:reLoginUser!)
         //set label text
         helloLabel.text = "Hello " + DBAdapter.logPatient.Name
-        hintLoginAsLabel.text = "You are now login as " + DBAdapter.logPatient.ID
+        //hintLoginAsLabel.text = "You are now logged in as " + DBAdapter.logPatient.ID
         //reload userlist
         userListTable.beginUpdates()
         userListTable.reloadData()
@@ -143,9 +143,9 @@ extension UserListAndLoginPage:UITableViewDataSource, UITableViewDelegate {
     }
     
     @objc func addNewUser(_ sender:UIButton) {
-        print("Strat create a new user")
+        print("Start create a new user")
         //1. Create the alert controller.
-        let addNewUserAlert = UIAlertController(title: "Add new user", message: "Type user's ID and Name(must be unique)", preferredStyle: .alert)
+        let addNewUserAlert = UIAlertController(title: "Add new user", message: "Type user's (unique) ID and Name", preferredStyle: .alert)
         
         //2. Add the text field.
         addNewUserAlert.addTextField(configurationHandler: { (textField) -> Void in
@@ -166,7 +166,7 @@ extension UserListAndLoginPage:UITableViewDataSource, UITableViewDelegate {
                 //check weather the id is repeated. if no, continue
                 if (DBAdapter.isUserIDExist(id: newUserID!)) {
                     //pop up alert
-                    let repeatedAlert = UIAlertController(title: "Warrning", message: "This ID is already existed", preferredStyle: .alert)
+                    let repeatedAlert = UIAlertController(title: "Warning", message: "This ID already exists", preferredStyle: .alert)
                     repeatedAlert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: { (action: UIAlertAction!) in
                         //print("Repeated name")
                     }))
@@ -188,7 +188,7 @@ extension UserListAndLoginPage:UITableViewDataSource, UITableViewDelegate {
                     }
                 }
             }else {
-                let notificationAlert = UIAlertController(title: "Add new user", message: "Please fill the blank", preferredStyle: .alert)
+                let notificationAlert = UIAlertController(title: "Add new user", message: "Error: please fill in both fields.", preferredStyle: .alert)
                 notificationAlert.addAction(UIAlertAction(title: "OK", style: .cancel, handler: { (action: UIAlertAction!) in
                     //
                 }))
@@ -224,7 +224,7 @@ extension UserListAndLoginPage:TellUserListTableAddAccount {
 extension UserListAndLoginPage:TellLoginPageSelectUser {
     func selectUser(id: String) {
         reLoginUser = DBAdapter.selectPatientByID(id: id)
-        loginAsButton.setTitle("ReLogin as " + id, for: .normal)
+        loginAsButton.setTitle("Login as " + id, for: .normal)
     }
     
     
