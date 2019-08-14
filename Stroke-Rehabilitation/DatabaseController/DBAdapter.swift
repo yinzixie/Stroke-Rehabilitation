@@ -84,6 +84,10 @@ public class DBAdapter {
         let sPatient = database.selectPatientByID(id: id)
         return sPatient
     }
+    static func selectPatientName(id:String)->String? {
+        let sPatient = database.selectPatientByID(id: id)
+        return sPatient!.Name
+    }
     
     static func isUserIDExist(id:String)->Bool {
         let sPatient = database.selectPatientByID(id: id)
