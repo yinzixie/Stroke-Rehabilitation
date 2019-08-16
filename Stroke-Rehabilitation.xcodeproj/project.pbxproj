@@ -30,6 +30,7 @@
 		2D048D2922E6B95600956E5A /* DBAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D048D2822E6B95600956E5A /* DBAdapter.swift */; };
 		2D048D2B22E6C9F600956E5A /* TimerFormattor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D048D2A22E6C9F600956E5A /* TimerFormattor.swift */; };
 		2D06771C22EC329500CFC680 /* ExtensionDate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D06771B22EC329500CFC680 /* ExtensionDate.swift */; };
+		2D0C4DF9230701BE008EBE91 /* BlueToothCheckPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D0C4DF8230701BE008EBE91 /* BlueToothCheckPage.swift */; };
 		2D30577622E3FA6500EBF92B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D30577522E3FA6500EBF92B /* AppDelegate.swift */; };
 		2D30577B22E3FA6500EBF92B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2D30577922E3FA6500EBF92B /* Main.storyboard */; };
 		2D30577D22E3FA6600EBF92B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2D30577C22E3FA6600EBF92B /* Assets.xcassets */; };
@@ -83,6 +84,7 @@
 		2D048D2822E6B95600956E5A /* DBAdapter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DBAdapter.swift; sourceTree = "<group>"; };
 		2D048D2A22E6C9F600956E5A /* TimerFormattor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerFormattor.swift; sourceTree = "<group>"; };
 		2D06771B22EC329500CFC680 /* ExtensionDate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExtensionDate.swift; sourceTree = "<group>"; };
+		2D0C4DF8230701BE008EBE91 /* BlueToothCheckPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlueToothCheckPage.swift; sourceTree = "<group>"; };
 		2D30577222E3FA6500EBF92B /* Stroke-Rehabilitation.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Stroke-Rehabilitation.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		2D30577522E3FA6500EBF92B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2D30577A22E3FA6500EBF92B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -259,6 +261,7 @@
 				2D02DF3522E7FAC200763334 /* UserListAndLoginPage */,
 				2D30577E22E3FA6600EBF92B /* LaunchScreen.storyboard */,
 				2D30577922E3FA6500EBF92B /* Main.storyboard */,
+				2D0C4DF8230701BE008EBE91 /* BlueToothCheckPage.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -455,6 +458,7 @@
 				2D02DF4222E8063A00763334 /* ExtensionString.swift in Sources */,
 				2D048D2522E6A96800956E5A /* NormalCounterMission.swift in Sources */,
 				2D040B3222E47190004D1659 /* SQLiteDatabase.swift in Sources */,
+				2D0C4DF9230701BE008EBE91 /* BlueToothCheckPage.swift in Sources */,
 				2D040B3D22E471CD004D1659 /* Patient.swift in Sources */,
 				2D02DF4322E8063A00763334 /* ExtensionUIImage.swift in Sources */,
 				2D06771C22EC329500CFC680 /* ExtensionDate.swift in Sources */,
