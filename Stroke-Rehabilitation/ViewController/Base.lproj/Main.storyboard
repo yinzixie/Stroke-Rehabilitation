@@ -14,16 +14,36 @@
         <scene sceneID="akO-Z2-wpI">
             <objects>
                 <viewController id="FUJ-yg-msp" customClass="BlueToothCheckPage" customModule="Stroke_Rehabilitation" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="WWN-8k-dBJ" customClass="Blue">
+                    <view key="view" contentMode="scaleToFill" id="WWN-8k-dBJ">
                         <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mGt-dH-jua">
+                                <rect key="frame" x="188" y="65" width="192" height="195"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9VE-FC-hks">
+                                <rect key="frame" x="188" y="203" width="396" height="115"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="Suk-wm-Pol"/>
                     </view>
+                    <connections>
+                        <outlet property="la" destination="mGt-dH-jua" id="w5X-eE-oHN"/>
+                        <outlet property="la2" destination="9VE-FC-hks" id="c2M-wM-j3c"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bdf-De-qX3" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-885" y="283"/>
+            <point key="canvasLocation" x="-885.3515625" y="282.8125"/>
         </scene>
         <!--Normal Counter Page-->
         <scene sceneID="tne-QT-ifu">
