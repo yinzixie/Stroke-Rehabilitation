@@ -48,6 +48,8 @@ class BlueToothCheckPage: UIViewController, CBCentralManagerDelegate,CBPeriphera
     func centralManager(_ central: CBCentralManager, didConnect peripheral: CBPeripheral) {
         print("Connected!")
         manager.stopScan()
+        peripheral.delegate = self
+        peripheral.discoverServices([CBUUID.init(string: Service_UUID)])
     }
     
     //disconnected
@@ -56,7 +58,7 @@ class BlueToothCheckPage: UIViewController, CBCentralManagerDelegate,CBPeriphera
         manager.scanForPeripherals(withServices: nil, options: nil)
     }
     
-    private let Service_UUID: String = "CDD1"
+    private let Service_UUID: String = "6E400001-B5A3-F393-E0A9-E50E24DCCA9E"
     private let Characteristic_UUID: String = "CDD2"
     
     /** 发现服务 */
@@ -67,7 +69,7 @@ class BlueToothCheckPage: UIViewController, CBCentralManagerDelegate,CBPeriphera
         //本例的外设中只有一个服务
         let service = peripheral.services?.last
         // 根据UUID寻找服务中的特征
-        peripheral.discoverCharacteristics([CBUUID.init(string: Characteristic_UUID)], for: service!)
+        //peripheral.discoverCharacteristics([CBUUID.init(string: Characteristic_UUID)], for: service!)
     }
     
     /** 发现特征 */

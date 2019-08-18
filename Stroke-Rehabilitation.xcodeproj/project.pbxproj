@@ -41,6 +41,10 @@
 		2D3057A822E4000E00EBF92B /* AudioEffectController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D3057A722E4000E00EBF92B /* AudioEffectController.swift */; };
 		2D3057AD22E409FF00EBF92B /* First_Tone.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 2D3057AC22E409FF00EBF92B /* First_Tone.mp3 */; };
 		2D3057AF22E40A0500EBF92B /* Second_Tone.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 2D3057AE22E40A0500EBF92B /* Second_Tone.mp3 */; };
+		2D9F3FFE23094D7300932D8F /* BLEAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D9F3FFD23094D7300932D8F /* BLEAdapter.swift */; };
+		2D9F4001230950C200932D8F /* BLEConnectionPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D9F4000230950C200932D8F /* BLEConnectionPage.swift */; };
+		2D9F40032309526400932D8F /* PeripheralListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D9F40022309526400932D8F /* PeripheralListCell.swift */; };
+		2D9F400523095BB300932D8F /* UUIDKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D9F400423095BB200932D8F /* UUIDKey.swift */; };
 		2DCE904E23068EDC00B8ECE6 /* CoreBluetooth.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2DCE904D23068EDB00B8ECE6 /* CoreBluetooth.framework */; };
 /* End PBXBuildFile section */
 
@@ -102,6 +106,10 @@
 		2D3057A722E4000E00EBF92B /* AudioEffectController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioEffectController.swift; sourceTree = "<group>"; };
 		2D3057AC22E409FF00EBF92B /* First_Tone.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = First_Tone.mp3; sourceTree = "<group>"; };
 		2D3057AE22E40A0500EBF92B /* Second_Tone.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = Second_Tone.mp3; sourceTree = "<group>"; };
+		2D9F3FFD23094D7300932D8F /* BLEAdapter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BLEAdapter.swift; sourceTree = "<group>"; };
+		2D9F4000230950C200932D8F /* BLEConnectionPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BLEConnectionPage.swift; sourceTree = "<group>"; };
+		2D9F40022309526400932D8F /* PeripheralListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PeripheralListCell.swift; sourceTree = "<group>"; };
+		2D9F400423095BB200932D8F /* UUIDKey.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UUIDKey.swift; sourceTree = "<group>"; };
 		2DCE904D23068EDB00B8ECE6 /* CoreBluetooth.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreBluetooth.framework; path = System/Library/Frameworks/CoreBluetooth.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
@@ -231,6 +239,7 @@
 				2D040B3322E471CD004D1659 /* CoreStruct */,
 				2D3057A322E3FAE300EBF92B /* ViewController */,
 				2D3057A922E4001800EBF92B /* EffectController */,
+				2D9F3FFC23094D0000932D8F /* BluetoothController */,
 				2D040B3022E470DF004D1659 /* DatabaseController */,
 				2D30577522E3FA6500EBF92B /* AppDelegate.swift */,
 				2D30578122E3FA6600EBF92B /* Info.plist */,
@@ -261,6 +270,7 @@
 			children = (
 				2D02D3C222E96D84003A5279 /* StatisticPage */,
 				2D02DF3722E7FB2600763334 /* GoalCounterPage */,
+				2D9F3FFF2309506A00932D8F /* BLEConnectionPage */,
 				2D02DF3622E7FB1300763334 /* NormalCounterpage */,
 				2D02DF3522E7FAC200763334 /* UserListAndLoginPage */,
 				2D30577E22E3FA6600EBF92B /* LaunchScreen.storyboard */,
@@ -304,6 +314,24 @@
 				2D3057AE22E40A0500EBF92B /* Second_Tone.mp3 */,
 			);
 			path = Sounds;
+			sourceTree = "<group>";
+		};
+		2D9F3FFC23094D0000932D8F /* BluetoothController */ = {
+			isa = PBXGroup;
+			children = (
+				2D9F400423095BB200932D8F /* UUIDKey.swift */,
+				2D9F3FFD23094D7300932D8F /* BLEAdapter.swift */,
+			);
+			path = BluetoothController;
+			sourceTree = "<group>";
+		};
+		2D9F3FFF2309506A00932D8F /* BLEConnectionPage */ = {
+			isa = PBXGroup;
+			children = (
+				2D9F4000230950C200932D8F /* BLEConnectionPage.swift */,
+				2D9F40022309526400932D8F /* PeripheralListCell.swift */,
+			);
+			path = BLEConnectionPage;
 			sourceTree = "<group>";
 		};
 		2DCE904C23068EDB00B8ECE6 /* Frameworks */ = {
@@ -465,12 +493,15 @@
 				2D30577622E3FA6500EBF92B /* AppDelegate.swift in Sources */,
 				2D040B3A22E471CD004D1659 /* ButtonTriggerEvent.swift in Sources */,
 				2D02DF4422E8063A00763334 /* ExtensionUIViewController.swift in Sources */,
+				2D9F4001230950C200932D8F /* BLEConnectionPage.swift in Sources */,
 				2D048D2722E6B43600956E5A /* UserDefaultKeys.swift in Sources */,
 				2D02D3C422E96DB3003A5279 /* MissionListCell.swift in Sources */,
 				2D02DF3B22E7FB7D00763334 /* AddNewUserCell.swift in Sources */,
 				2D040B3C22E471CD004D1659 /* Mission.swift in Sources */,
 				2D02D3C822E96DFF003A5279 /* StatisticPage.swift in Sources */,
 				2D040B3B22E471CD004D1659 /* CounterModel.swift in Sources */,
+				2D9F3FFE23094D7300932D8F /* BLEAdapter.swift in Sources */,
+				2D9F40032309526400932D8F /* PeripheralListCell.swift in Sources */,
 				2D040B3F22E471F9004D1659 /* Alert.swift in Sources */,
 				2D02DF4222E8063A00763334 /* ExtensionString.swift in Sources */,
 				2D048D2522E6A96800956E5A /* NormalCounterMission.swift in Sources */,
@@ -478,6 +509,7 @@
 				2D0C4DF9230701BE008EBE91 /* BlueToothCheckPage.swift in Sources */,
 				2D040B3D22E471CD004D1659 /* Patient.swift in Sources */,
 				2D02DF4322E8063A00763334 /* ExtensionUIImage.swift in Sources */,
+				2D9F400523095BB300932D8F /* UUIDKey.swift in Sources */,
 				2D06771C22EC329500CFC680 /* ExtensionDate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
