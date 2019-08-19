@@ -10,11 +10,6 @@ import Foundation
 import UIKit
 import CoreBluetooth
 
-var txCharacteristic : CBCharacteristic?
-var rxCharacteristic : CBCharacteristic?
-var blePeripheral : CBPeripheral?
-var characteristicASCIIValue = NSString()
-
 class BLEConnectionPage: UIViewController, CBCentralManagerDelegate, CBPeripheralDelegate, UITableViewDelegate, UITableViewDataSource{
 
     @IBOutlet weak var peripheralTable: UITableView!
@@ -39,10 +34,8 @@ class BLEConnectionPage: UIViewController, CBCentralManagerDelegate, CBPeriphera
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        //BLEAdapter()
         self.peripheralTable.reloadData()
-        
-        /*Our key player in this app will be our CBCentralManager. CBCentralManager objects are used to manage discovered or connected remote peripheral devices (represented by CBPeripheral objects), including scanning for, discovering, and connecting to advertising peripherals.
-         */
         centralManager = CBCentralManager(delegate: self, queue: nil)
         //let backButton = UIBarButtonItem(title: "Disconnect", style: .plain, target: nil, action: nil)
         //navigationItem.backBarButtonItem = backButton
@@ -89,10 +82,10 @@ class BLEConnectionPage: UIViewController, CBCentralManagerDelegate, CBPeriphera
      (didUpdateNotificationStateForCharacteristic will cancel the connection if a subscription is involved)
      */
     func disconnectFromDevice () {
-        if blePeripheral != nil {
+        if BLEAdapter.blePeripheral != nil {
             // We have a connection to the device but we are not subscribed to the Transfer Characteristic for some reason.
             // Therefore, we will just disconnect from the peripheral
-            centralManager?.cancelPeripheralConnection(blePeripheral!)
+            centralManager?.cancelPeripheralConnection(BLEAdapter.blePeripheral!)
         }
     }
     
@@ -107,12 +100,12 @@ class BLEConnectionPage: UIViewController, CBCentralManagerDelegate, CBPeriphera
      */
     func centralManager(_ central: CBCentralManager, didDiscover peripheral: CBPeripheral,advertisementData: [String : Any], rssi RSSI: NSNumber) {
     
-        blePeripheral = peripheral
+        BLEAdapter.blePeripheral = peripheral
         self.peripherals.append(peripheral)
         self.RSSIs.append(RSSI)
         peripheral.delegate = self
         self.peripheralTable.reloadData()
-        if blePeripheral == nil {
+        if BLEAdapter.blePeripheral == nil {
             print("Found new pheripheral devices with services")
             print("Peripheral name: \(String(describing: peripheral.name))")
             print("**********************************")
@@ -124,7 +117,7 @@ class BLEConnectionPage: UIViewController, CBCentralManagerDelegate, CBPeriphera
     
     //-Connection
     func connectToDevice () {
-        centralManager?.connect(blePeripheral!, options: nil)
+        centralManager?.connect(BLEAdapter.blePeripheral!, options: nil)
     }
     
     /*
@@ -135,7 +128,7 @@ class BLEConnectionPage: UIViewController, CBCentralManagerDelegate, CBPeriphera
     func centralManager(_ central: CBCentralManager, didConnect peripheral: CBPeripheral) {
         print("*****************************")
         print("Connection complete")
-        print("Peripheral info: \(String(describing: blePeripheral))")
+        print("Peripheral info: \(String(describing: BLEAdapter.blePeripheral))")
         
         //Stop Scan- We don't need to scan once we've connected to a peripheral. We got what we came for.
         centralManager?.stopScan()
@@ -153,8 +146,7 @@ class BLEConnectionPage: UIViewController, CBCentralManagerDelegate, CBPeriphera
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         
         let normalCounterPage = storyboard.instantiateViewController(withIdentifier: "NormalCounterPage") as! NormalCounterPage
-        
-        //normalCounterPage.peripheral = peripheral
+        normalCounterPage.peripheral = peripheral
         self.present(normalCounterPage, animated: true, completion: nil)
         //navigationController?.pushViewController(normalCounterPage, animated: true)
     }
@@ -171,7 +163,7 @@ class BLEConnectionPage: UIViewController, CBCentralManagerDelegate, CBPeriphera
     }
     
     func disconnectAllConnection() {
-        centralManager.cancelPeripheralConnection(blePeripheral!)
+        centralManager.cancelPeripheralConnection(BLEAdapter.blePeripheral!)
     }
     
     /*
@@ -221,17 +213,17 @@ class BLEConnectionPage: UIViewController, CBCentralManagerDelegate, CBPeriphera
         for characteristic in characteristics {
         //looks for the right characteristic
             if characteristic.uuid.isEqual(BLE_Characteristic_uuid_Rx)  {
-                rxCharacteristic = characteristic
+                BLEAdapter.rxCharacteristic = characteristic
                 
                 //Once found, subscribe to the this particular characteristic...
-                peripheral.setNotifyValue(true, for: rxCharacteristic!)
+                peripheral.setNotifyValue(true, for: BLEAdapter.rxCharacteristic!)
                 // We can return after calling CBPeripheral.setNotifyValue because CBPeripheralDelegate's
                 // didUpdateNotificationStateForCharacteristic method will be called automatically
                 peripheral.readValue(for: characteristic)
                 print("Rx Characteristic: \(characteristic.uuid)")
             }
             if characteristic.uuid.isEqual(BLE_Characteristic_uuid_Tx){
-                txCharacteristic = characteristic
+                BLEAdapter.txCharacteristic = characteristic
                 print("Tx Characteristic: \(characteristic.uuid)")
             }
             peripheral.discoverDescriptors(for: characteristic)
@@ -244,10 +236,10 @@ class BLEConnectionPage: UIViewController, CBCentralManagerDelegate, CBPeriphera
      */
     func peripheral(_ peripheral: CBPeripheral, didUpdateValueFor characteristic: CBCharacteristic, error: Error?) {
     
-        if characteristic == rxCharacteristic {
+        if characteristic == BLEAdapter.rxCharacteristic {
             if let ASCIIstring = NSString(data: characteristic.value!, encoding: String.Encoding.utf8.rawValue) {
-            characteristicASCIIValue = ASCIIstring
-            let receiveText = characteristicASCIIValue as String
+            BLEAdapter.characteristicASCIIValue = ASCIIstring
+            let receiveText = BLEAdapter.characteristicASCIIValue as String
             print("Value Recieved: \(receiveText)")
             NotificationCenter.default.post(name:NSNotification.Name(rawValue: "Notify"), object: nil)
             
@@ -270,8 +262,8 @@ class BLEConnectionPage: UIViewController, CBCentralManagerDelegate, CBPeriphera
             for x in characteristic.descriptors!{
                 let descript = x as CBDescriptor?
                 print("function name: DidDiscoverDescriptorForChar \(String(describing: descript?.description))")
-                print("Rx Value \(String(describing: rxCharacteristic?.value))")
-                print("Tx Value \(String(describing: txCharacteristic?.value))")
+                print("Rx Value \(String(describing: BLEAdapter.rxCharacteristic?.value))")
+                print("Tx Value \(String(describing: BLEAdapter.txCharacteristic?.value))")
             }
         }
     }
@@ -337,7 +329,7 @@ class BLEConnectionPage: UIViewController, CBCentralManagerDelegate, CBPeriphera
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        blePeripheral = peripherals[indexPath.row]
+        BLEAdapter.blePeripheral = peripherals[indexPath.row]
         connectToDevice()
     }
     

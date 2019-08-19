@@ -8,6 +8,7 @@
 
 import UIKit
 import AVFoundation
+import CoreBluetooth
 
 class NormalCounterPage: UIViewController {
     
@@ -18,10 +19,18 @@ class NormalCounterPage: UIViewController {
     var armed:Bool = false //used for checking if the counter has been armed
     var audioPlayer = AudioEffectController()
     
+    var peripheralManager: CBPeripheralManager?
+    var peripheral: CBPeripheral!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         super_init()
         // Do any additional setup after loading the view.
+        //Create and start the peripheral manager
+        peripheralManager = CBPeripheralManager(delegate: self, queue: nil)
+        //-Notification for updating the text view with incoming text
+        updateIncomingData()
+        
         //registe DBAdapter
         DBAdapter.delegateForNormalCounterPage = self
         //set label text
@@ -121,4 +130,45 @@ extension NormalCounterPage:SendMessageToNormalCounterPage {
         //set label text
         hintLoginNameLabel.text = DBAdapter.logPatient.Name
     }
+}
+
+extension NormalCounterPage:CBPeripheralManagerDelegate {
+    func updateIncomingData () {
+        NotificationCenter.default.addObserver(forName: NSNotification.Name(rawValue: "Notify"), object: nil , queue: nil){
+            notification in
+            let rawValue = BLEAdapter.characteristicASCIIValue as String
+            if(BLEAdapter.checkValue(value: rawValue)) {
+                if(rawValue.split(separator: ":")[0] == BLEAdapter.SENSOR0_ID && rawValue.split(separator: ":")[1] == BLEAdapter.RELEASE_KEY) {
+                    self.audioPlayer.playSound(fileName: "First_Tone", fileType: "mp3")
+                    self.arm()
+                }
+                else if(rawValue.split(separator: ":")[0] == BLEAdapter.SENSOR1_ID && rawValue.split(separator: ":")[1] == BLEAdapter.RELEASE_KEY) {
+                    self.audioPlayer.playSound(fileName: "Second_Tone", fileType: "mp3")
+                    self.trigger()
+                    
+                }
+            }
+        }
+    }
+    
+    func peripheralManagerDidUpdateState(_ peripheral: CBPeripheralManager) {
+        if peripheral.state == .poweredOn {
+            return
+        }
+        print("Peripheral manager is running")
+    }
+    
+    //Check when someone subscribe to our characteristic, start sending the data
+    func peripheralManager(_ peripheral: CBPeripheralManager, central: CBCentral, didSubscribeTo characteristic: CBCharacteristic) {
+        print("Device subscribe to characteristic")
+    }
+    
+    func peripheralManagerDidStartAdvertising(_ peripheral: CBPeripheralManager, error: Error?) {
+        if let error = error {
+            print("\(error)")
+            return
+        }
+    }
+    
+    
 }
