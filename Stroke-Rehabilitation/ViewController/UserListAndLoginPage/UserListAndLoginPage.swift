@@ -224,7 +224,7 @@ extension UserListAndLoginPage:TellUserListTableAddAccount {
 extension UserListAndLoginPage:TellLoginPageSelectUser {
     func selectUser(id: String) {
         reLoginUser = DBAdapter.selectPatientByID(id: id)
-        loginAsButton.setTitle("Login as " + DBAdapter.selectPatientName(id: id)!, for: .normal)
+        loginAsButton.setTitle("Login as " + DBAdapter.selectPatientName(id: id)! + " (" + id + ")", for: .normal)
     }
     
     
