@@ -20,7 +20,7 @@ class NormalCounterPage: UIViewController {
     var audioPlayer = AudioEffectController()
     
     var peripheralManager: CBPeripheralManager?
-    var peripheral: CBPeripheral!
+    //var peripheral: CBPeripheral?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -138,11 +138,11 @@ extension NormalCounterPage:CBPeripheralManagerDelegate {
             notification in
             let rawValue = BLEAdapter.characteristicASCIIValue as String
             if(BLEAdapter.checkValue(value: rawValue)) {
-                if(rawValue.split(separator: ":")[0] == BLEAdapter.SENSOR0_ID && rawValue.split(separator: ":")[1] == BLEAdapter.RELEASE_KEY) {
+                if(rawValue.split(separator: ":")[0] == BLEAdapter.ARM_ID && rawValue.split(separator: ":")[1] == BLEAdapter.RELEASE_KEY) {
                     self.audioPlayer.playSound(fileName: "First_Tone", fileType: "mp3")
                     self.arm()
                 }
-                else if(rawValue.split(separator: ":")[0] == BLEAdapter.SENSOR1_ID && rawValue.split(separator: ":")[1] == BLEAdapter.RELEASE_KEY) {
+                else if(rawValue.split(separator: ":")[0] == BLEAdapter.TRIGGER_ID && rawValue.split(separator: ":")[1] == BLEAdapter.RELEASE_KEY) {
                     self.audioPlayer.playSound(fileName: "Second_Tone", fileType: "mp3")
                     self.trigger()
                     

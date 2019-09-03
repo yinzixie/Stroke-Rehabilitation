@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import CoreBluetooth
 
 class GoalCounterPage: UIViewController{
     
@@ -14,6 +15,9 @@ class GoalCounterPage: UIViewController{
     @IBOutlet weak var timerLabel: UILabel!
     @IBOutlet weak var progressBar: UIProgressView!
     @IBOutlet weak var hintLoginNameLabel: UILabel!
+   
+    var peripheralManager: CBPeripheralManager?
+    //var peripheral: CBPeripheral?
     
     var mission:NormalCounterMission!
     var missionInProcess = false // is mission in processing
@@ -38,6 +42,11 @@ class GoalCounterPage: UIViewController{
         super.viewDidLoad()
         // progressBar.transform = CGAffineTransform(scaleX: 1.0, y: 5.0)
         // Do any additional setup after loading the view.
+        
+        //Create and start the peripheral manager
+        peripheralManager = CBPeripheralManager(delegate: self, queue: nil)
+        //-Notification for updating the text view with incoming text
+        updateIncomingData()
         
         //register DBAdapter
         DBAdapter.delegateForGoalCounterPage = self
@@ -198,12 +207,9 @@ class GoalCounterPage: UIViewController{
     
     @IBAction func arm(_ sender: AnyObject) { //links our arm button and tells it to run the arm function when pressed
         audioPlayer.playSound(fileName: "First_Tone", fileType: "mp3")
-        //once arm has been pressed we the mission is starting
-        missionInProcess = true
-        
         let armButton = Button(id: UserDefaultKeys.ArmButton)
         let armButtonTriigerEvent = ButtonTriggerEvent(missionID: mission.MissionID, patientID: DBAdapter.logPatient.ID, button: armButton, timeinterval: TimeInfo.getStamp())
-        print(armButtonTriigerEvent.EventID)
+        //print(armButtonTriigerEvent.EventID)
         mission.ButtonTriggerEventList.append(armButtonTriigerEvent)
         arm()
     }
@@ -212,7 +218,7 @@ class GoalCounterPage: UIViewController{
         audioPlayer.playSound(fileName: "Second_Tone", fileType: "mp3")
         let triggerButton = Button(id: UserDefaultKeys.TriggerButton)
         let triggerButtonTriigerEvent = ButtonTriggerEvent(missionID: mission.MissionID, patientID: DBAdapter.logPatient.ID, button: triggerButton, timeinterval: TimeInfo.getStamp())
-        print(triggerButtonTriigerEvent.EventID)
+        //print(triggerButtonTriigerEvent.EventID)
         mission.ButtonTriggerEventList.append(triggerButtonTriigerEvent)
         trigger()
     }
@@ -326,4 +332,52 @@ extension GoalCounterPage:SendMessageToGoalCounterPage {
     }
     
     
+}
+
+extension GoalCounterPage:CBPeripheralManagerDelegate {
+    
+    func updateIncomingData () {
+        NotificationCenter.default.addObserver(forName: NSNotification.Name(rawValue: "Notify"), object: nil , queue: nil){
+            notification in
+            let rawValue = BLEAdapter.characteristicASCIIValue as String
+            if(BLEAdapter.checkValue(value: rawValue)) {
+                if(rawValue.split(separator: ":")[0] == BLEAdapter.ARM_ID && rawValue.split(separator: ":")[1] == BLEAdapter.RELEASE_KEY) {
+                    self.audioPlayer.playSound(fileName: "First_Tone", fileType: "mp3")
+                    let armButton = Button(id: UserDefaultKeys.ArmButton)
+                    let armButtonTriigerEvent = ButtonTriggerEvent(missionID: self.mission.MissionID, patientID: DBAdapter.logPatient.ID, button: armButton, timeinterval: TimeInfo.getStamp())
+                    //print(armButtonTriigerEvent.EventID)
+                    self.mission.ButtonTriggerEventList.append(armButtonTriigerEvent)
+                    self.arm()
+                }
+                else if(rawValue.split(separator: ":")[0] == BLEAdapter.TRIGGER_ID && rawValue.split(separator: ":")[1] == BLEAdapter.RELEASE_KEY) {
+                    self.audioPlayer.playSound(fileName: "Second_Tone", fileType: "mp3")
+                    let triggerButton = Button(id: UserDefaultKeys.TriggerButton)
+                    let triggerButtonTriigerEvent = ButtonTriggerEvent(missionID: self.mission.MissionID, patientID: DBAdapter.logPatient.ID, button: triggerButton, timeinterval: TimeInfo.getStamp())
+                    //print(triggerButtonTriigerEvent.EventID)
+                    self.mission.ButtonTriggerEventList.append(triggerButtonTriigerEvent)
+                    self.trigger()
+                    
+                }
+            }
+        }
+    }
+    
+    func peripheralManagerDidUpdateState(_ peripheral: CBPeripheralManager) {
+        if peripheral.state == .poweredOn {
+            return
+        }
+        print("Peripheral manager is running")
+    }
+    
+    //Check when someone subscribe to our characteristic, start sending the data
+    func peripheralManager(_ peripheral: CBPeripheralManager, central: CBCentral, didSubscribeTo characteristic: CBCharacteristic) {
+        print("Device subscribe to characteristic")
+    }
+    
+    func peripheralManagerDidStartAdvertising(_ peripheral: CBPeripheralManager, error: Error?) {
+        if let error = error {
+            print("\(error)")
+            return
+        }
+    }
 }

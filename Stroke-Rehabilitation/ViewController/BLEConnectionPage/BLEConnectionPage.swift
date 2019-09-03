@@ -13,6 +13,13 @@ import CoreBluetooth
 class BLEConnectionPage: UIViewController, CBCentralManagerDelegate, CBPeripheralDelegate, UITableViewDelegate, UITableViewDataSource{
 
     @IBOutlet weak var peripheralTable: UITableView!
+    @IBOutlet weak var sensor0Button: UIButton!
+    @IBOutlet weak var sensor1Button: UIButton!
+    
+    @IBOutlet weak var armIDLabel: UILabel!
+    @IBOutlet weak var triggerIDLabel: UILabel!
+    
+    @IBOutlet weak var settingView: UIView!
     
     //Data
     var centralManager : CBCentralManager!
@@ -34,7 +41,14 @@ class BLEConnectionPage: UIViewController, CBCentralManagerDelegate, CBPeriphera
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        //BLEAdapter()
+        
+        BLEAdapter()
+        
+        let defaults = UserDefaults.standard
+        armIDLabel.text = defaults.string(forKey: UserDefaultKeys.ArmID) ?? BLEAdapter.SENSOR0_ID
+        triggerIDLabel.text = defaults.string(forKey: UserDefaultKeys.TriggerID) ?? BLEAdapter.SENSOR1_ID
+        settingView.isHidden = true
+        
         self.peripheralTable.reloadData()
         centralManager = CBCentralManager(delegate: self, queue: nil)
         //let backButton = UIBarButtonItem(title: "Disconnect", style: .plain, target: nil, action: nil)
@@ -142,13 +156,8 @@ class BLEConnectionPage: UIViewController, CBCentralManagerDelegate, CBPeriphera
         //Only look for services that matches transmit uuid
         peripheral.discoverServices([BLEService_UUID])
         
-        //Once connected, move to new view controller to manager incoming and outgoing data
-        let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        
-        let normalCounterPage = storyboard.instantiateViewController(withIdentifier: "NormalCounterPage") as! NormalCounterPage
-        normalCounterPage.peripheral = peripheral
-        self.present(normalCounterPage, animated: true, completion: nil)
-        //navigationController?.pushViewController(normalCounterPage, animated: true)
+        settingView.isHidden = false
+       
     }
     
     /*
@@ -244,8 +253,25 @@ class BLEConnectionPage: UIViewController, CBCentralManagerDelegate, CBPeriphera
             NotificationCenter.default.post(name:NSNotification.Name(rawValue: "Notify"), object: nil)
             
             //receiveText.split(separator: ":")
-            
-            
+            if(BLEAdapter.checkValue(value: receiveText)) {
+                if(receiveText.split(separator: ":")[0] == BLEAdapter.SENSOR0_ID ) {
+                    if(receiveText.split(separator: ":")[1] == BLEAdapter.RELEASE_KEY){
+                        self.sensor0Button.backgroundColor = .white
+                        
+                    }else if(receiveText.split(separator: ":")[1] == BLEAdapter.PRESS_KEY){
+                         self.sensor0Button.backgroundColor = .red
+                    }
+                }
+                else if(receiveText.split(separator: ":")[0] == BLEAdapter.SENSOR1_ID ) {
+                    if(receiveText.split(separator: ":")[1] == BLEAdapter.RELEASE_KEY){
+                        self.sensor1Button.backgroundColor = .white
+                        
+                    }else if(receiveText.split(separator: ":")[1] == BLEAdapter.PRESS_KEY){
+                        self.sensor1Button.backgroundColor = .red
+                    }
+                }
+            }
+                
             }
         }
     }
@@ -288,6 +314,7 @@ class BLEConnectionPage: UIViewController, CBCentralManagerDelegate, CBPeriphera
     
     func centralManager(_ central: CBCentralManager, didDisconnectPeripheral peripheral: CBPeripheral, error: Error?) {
         print("Disconnected")
+        settingView.isHidden = false
     }
     
     
@@ -355,5 +382,28 @@ class BLEConnectionPage: UIViewController, CBCentralManagerDelegate, CBPeriphera
         self.present(alertVC, animated: true, completion: nil)
         }
     }
+    
+    @IBAction func swapID(_ sender: Any) {
+        let temp = BLEAdapter.ARM_ID
+        BLEAdapter.setArmID(id: BLEAdapter.TRIGGER_ID)
+        BLEAdapter.setTriggerID(id: temp)
+        
+        let defaults = UserDefaults.standard
+        armIDLabel.text = defaults.string(forKey: UserDefaultKeys.ArmID)
+        triggerIDLabel.text = defaults.string(forKey: UserDefaultKeys.TriggerID) ?? BLEAdapter.SENSOR1_ID
+        
+    }
+    
+    @IBAction func start(_ sender: Any) {
+        //Once connected, move to new view controller to manager incoming and outgoing data
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+         
+         let normalCounterPage = storyboard.instantiateViewController(withIdentifier: "NormalCounterPage") as! NormalCounterPage
+         //normalCounterPage.peripheral = BLEAdapter.blePeripheral
+         self.present(normalCounterPage, animated: true, completion: nil)
+        //navigationController?.pushViewController(normalCounterPage, animated: true)
+        
+    }
+    
 }
 
