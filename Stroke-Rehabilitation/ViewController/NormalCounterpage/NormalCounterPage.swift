@@ -47,6 +47,10 @@ class NormalCounterPage: UIViewController {
         DBAdapter()
     }
     
+    @IBAction func bluetoothSettings(_ sender: Any) {
+        performSegue(withIdentifier: "bluetoothSegue", sender: self)
+        
+    }
     /*
      The arm function is used to arm the counter, making it ready to trigger.
      */
@@ -73,21 +77,10 @@ class NormalCounterPage: UIViewController {
                 print(count)
             }
         }
-        else
-        {
-            let alert = UIAlertController(title: "Error:", message: "You need to hit the arm button before you can trigger the counter.", preferredStyle: .alert)//an alert to warn users that they have hit the trigger button without arming the counter.
-            alert.addAction(UIAlertAction(title: "Continue", style: .default, handler: nil)) //an optional continue button
-            self.present(alert, animated: true, completion: nil)
-            
-            // tells the timer to wait 3 seconds, before dismissing the alert.
-            let when = DispatchTime.now() + 3
-            DispatchQueue.main.asyncAfter(deadline: when){
-                // code that is excecuted after a short delay
-                alert.dismiss(animated: true, completion: nil)
-            }
-        }
         
     }
+    
+    
     
     func reset() -> Void
     {

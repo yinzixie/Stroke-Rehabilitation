@@ -107,7 +107,7 @@ class GoalCounterPage: UIViewController{
             {
                 missionFinshed()
                 
-                let alert = UIAlertController(title: "Time's Up!", message: "Your timer has ended. Tap finish to exist goal page or Reset to start again.", preferredStyle: .alert)
+                let alert = UIAlertController(title: "Time's Up!", message: "Your timer has ended. Tap finish to bring up the goal page or Reset to start again.", preferredStyle: .alert)
                 
                 alert.addAction(UIAlertAction(title: "Finish", style: .default, handler: {(alert: UIAlertAction!) in
                     self.dismiss(animated: true, completion: nil)
@@ -129,7 +129,7 @@ class GoalCounterPage: UIViewController{
     {
         if firstArm == true
         {
-            missionStrat()
+            missionStart()
             firstArm = false
         }
         if armed == false
@@ -177,19 +177,6 @@ class GoalCounterPage: UIViewController{
                 })) //back to normal counter page
                 alert.addAction(UIAlertAction(title: "Reset", style: .default, handler: {(alert: UIAlertAction!) in self.reset()}))
                 self.present(alert, animated: true)//presents the alert
-            }
-        }
-        else
-        {
-            let alert = UIAlertController(title: "Error:", message: "You need to hit the arm button before you can trigger the counter.", preferredStyle: .alert)//an alert to warn users that they have hit the trigger button without arming the counter.
-            alert.addAction(UIAlertAction(title: "Continue", style: .default, handler: nil)) //an optional continue button
-            self.present(alert, animated: true, completion: nil)
-            
-            // tells the timer to wait 3 seconds, before dismissing the alert.
-            let when = DispatchTime.now() + 2
-            DispatchQueue.main.asyncAfter(deadline: when){
-                // code that is excecuted after a short delay
-                alert.dismiss(animated: true, completion: nil)
             }
         }
     }
@@ -241,7 +228,7 @@ class GoalCounterPage: UIViewController{
         reset()
     }
     
-    func missionStrat() {
+    func missionStart() {
         runTimer()
         missionInProcess = true
         mission.StartTime = TimeInfo.getStamp()

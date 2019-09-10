@@ -28,13 +28,13 @@ class StatisticPage: UIViewController {
         missionListTable.tableFooterView = UIView.init(frame: CGRect.zero)
         missionListTable.layer.borderWidth = 0.5
         missionListTable.layer.borderColor = UIColor.lightGray.cgColor
-        titleLabel.text = DBAdapter.logPatient.Name + "'s Missions History"
+        titleLabel.text = DBAdapter.logPatient.Name + "'s Session History"
     }
     
     private func setDetailsInformation() {
-        let aimGoalString = "Aim Goal: " + String(displayMission.AimGoal)
-        let aimTimeString = "Am Time: " + TimeInfo.secTransToHourMinSec(time: Float(displayMission!.AimTime))
-        let finalAchievementString = "Final Achievement: " + String(displayMission.FinalAchievement)
+        let aimGoalString = "Set Goal: " + String(displayMission.AimGoal)
+        let aimTimeString = "Set Time: " + TimeInfo.secTransToHourMinSec(time: Float(displayMission!.AimTime))
+        let finalAchievementString = "Final Reps Completed: " + String(displayMission.FinalAchievement)
         let finalTimeString = "Final Time: " + TimeInfo.secTransToHourMinSec(time: Float(displayMission.FinalTime - displayMission.StartTime))
         
         let _time = displayMission.FinalTime - displayMission.StartTime
