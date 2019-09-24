@@ -37,28 +37,39 @@ class UserListAndLoginPage: UIViewController {
         DBAdapter.refreshlogPatient(patient:reLoginUser!)
         //set label text
         helloLabel.text = "Hello " + DBAdapter.logPatient.Name
-        //hintLoginAsLabel.text = "You are now logged in as " + DBAdapter.logPatient.ID
         //reload userlist
         userListTable.beginUpdates()
         userListTable.reloadData()
         userListTable.endUpdates()
         print("Login as " + DBAdapter.logPatient.ID)
-        //self.dismiss(animated: true, completion: nil)
     }
     
     @IBAction func backPreviousPage(_ sender: Any) {
         self.dismiss(animated: true, completion: nil)
     }
-    /*
+   
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+       /* if segue.identifier == "popOverStatisticOverViewPage"
+        {
+            let vc = segue.destination
+            vc.preferredContentSize = CGSize(width: 200, height: 300)
+            
+            let controller = vc.popoverPresentationController
+            
+            if controller != nil
+            {
+               
+                controller?.delegate = self as? UIPopoverPresentationControllerDelegate
+                //you could set the following in your storyboard
+                controller?.sourceView = self.view
+                controller?.sourceRect = CGRect(x:self.view.bounds.midX, y: self.view.bounds.midY,width: 315,height: 230)
+                controller?.permittedArrowDirections = UIPopoverArrowDirection(rawValue: 0)
+            }
+        }*/
     }
-    */
-
 }
 
 extension UserListAndLoginPage:UITableViewDataSource, UITableViewDelegate {
@@ -177,6 +188,14 @@ extension UserListAndLoginPage:UITableViewDataSource, UITableViewDelegate {
                     newPatient.Name = newUserName!
                     if(DBAdapter.addPatient(patient: newPatient)) {
                         print("Succeed add new user")
+                        DBAdapter.refreshlogPatient(patient:newPatient)
+                        //set label text
+                        self.helloLabel.text = "Hello " + DBAdapter.logPatient.Name
+                        //reload userlist
+                        self.userListTable.beginUpdates()
+                        self.userListTable.reloadData()
+                        self.userListTable.endUpdates()
+                        print("Auto login as " + DBAdapter.logPatient.ID)
                     }else {
                         //pop up message if failed to add new user
                         let failedAlert = UIAlertController(title: "Add new user", message: "Failed to add new user", preferredStyle: .alert)
@@ -226,7 +245,4 @@ extension UserListAndLoginPage:TellLoginPageSelectUser {
         reLoginUser = DBAdapter.selectPatientByID(id: id)
         loginAsButton.setTitle("Login as " + DBAdapter.selectPatientName(id: id)! + " (" + id + ")", for: .normal)
     }
-    
-    
-    
 }

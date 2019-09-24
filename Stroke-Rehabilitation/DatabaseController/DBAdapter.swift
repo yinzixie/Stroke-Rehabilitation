@@ -84,6 +84,7 @@ public class DBAdapter {
         let sPatient = database.selectPatientByID(id: id)
         return sPatient
     }
+    
     static func selectPatientName(id:String)->String? {
         let sPatient = database.selectPatientByID(id: id)
         return sPatient!.Name
@@ -96,6 +97,25 @@ public class DBAdapter {
         }else {
             return false
         }
+    }
+    
+    static func isExericeAtDay(day:Date)->Bool {
+        for mission in  DBAdapter.logPatient.HistoryNormalCounterMissionList {
+            if(TimeInfo.compareOneDay(oneDay:day, withAnotherDay:Date(timeIntervalSince1970: TimeInterval(mission.StartTime))) == 0) {
+               return true
+            }
+        }
+        return false
+    }
+    
+    static func selectNormalCounterMissionForDay(day:Date)->[NormalCounterMission] {
+        var result = [NormalCounterMission]()
+        for mission in  DBAdapter.logPatient.HistoryNormalCounterMissionList {
+            if(TimeInfo.compareOneDay(oneDay:day, withAnotherDay:Date(timeIntervalSince1970: TimeInterval(mission.StartTime))) == 0) {
+                result += [mission]
+            }
+        }
+         return result
     }
     
     static func updatePatientNormalCounterPresetGoal(patient:Patient) {

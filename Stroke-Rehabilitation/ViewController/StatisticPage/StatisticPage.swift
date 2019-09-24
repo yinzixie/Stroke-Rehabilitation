@@ -18,11 +18,12 @@ class StatisticPage: UIViewController {
     @IBOutlet weak var finalTimeLabel: UILabel!
     @IBOutlet weak var averageLabel: UILabel!
     
-    
+    var displayMissionList:[NormalCounterMission]!
     var displayMission:NormalCounterMission!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+       
         // Do any additional setup after loading the view.
         //remove seperation from cell which doesn't contain data
         missionListTable.tableFooterView = UIView.init(frame: CGRect.zero)
@@ -66,14 +67,14 @@ class StatisticPage: UIViewController {
 
 extension StatisticPage:UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return DBAdapter.logPatient.HistoryNormalCounterMissionList.count
+        return displayMissionList.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
             let cell = tableView.dequeueReusableCell(withIdentifier: "MissionListCell", for: indexPath) as! MissionListCell
             // Configure the cell...
         cell.delegateForStatisticPage = self
-            cell.mission = DBAdapter.logPatient.HistoryNormalCounterMissionList[indexPath.row]
+            cell.mission = displayMissionList[indexPath.row]
             cell.setLabels()
             return cell
     }

@@ -15,6 +15,16 @@
 		2D02DF4322E8063A00763334 /* ExtensionUIImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D02DF3F22E8063A00763334 /* ExtensionUIImage.swift */; };
 		2D02DF4422E8063A00763334 /* ExtensionUIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D02DF4022E8063A00763334 /* ExtensionUIViewController.swift */; };
 		2D03673622E723EC004FA5DE /* UserListAndLoginPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D03673522E723EC004FA5DE /* UserListAndLoginPage.swift */; };
+		2D0403AE2337636E00794EA8 /* StatisticOverviewPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D0403AD2337636E00794EA8 /* StatisticOverviewPage.swift */; };
+		2D0403CC2337775700794EA8 /* CalendarDayCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D0403C32337775700794EA8 /* CalendarDayCell.swift */; };
+		2D0403CD2337775700794EA8 /* CalendarFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D0403C42337775700794EA8 /* CalendarFlowLayout.swift */; };
+		2D0403CE2337775700794EA8 /* CalendarHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D0403C52337775700794EA8 /* CalendarHeaderView.swift */; };
+		2D0403CF2337775700794EA8 /* CalendarView+DataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D0403C62337775700794EA8 /* CalendarView+DataSource.swift */; };
+		2D0403D02337775700794EA8 /* CalendarView+Delegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D0403C72337775700794EA8 /* CalendarView+Delegate.swift */; };
+		2D0403D12337775700794EA8 /* CalendarView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D0403C82337775700794EA8 /* CalendarView+Extensions.swift */; };
+		2D0403D22337775700794EA8 /* CalendarView+Style.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D0403C92337775700794EA8 /* CalendarView+Style.swift */; };
+		2D0403D32337775700794EA8 /* CalendarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D0403CA2337775700794EA8 /* CalendarView.swift */; };
+		2D0403D42337775700794EA8 /* EventsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D0403CB2337775700794EA8 /* EventsManager.swift */; };
 		2D040B2F22E46F31004D1659 /* TimeInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D040B2E22E46F31004D1659 /* TimeInfo.swift */; };
 		2D040B3222E47190004D1659 /* SQLiteDatabase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D040B3122E47190004D1659 /* SQLiteDatabase.swift */; };
 		2D040B3922E471CD004D1659 /* Button.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D040B3422E471CD004D1659 /* Button.swift */; };
@@ -25,6 +35,7 @@
 		2D040B3F22E471F9004D1659 /* Alert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D040B3E22E471F9004D1659 /* Alert.swift */; };
 		2D040B4122E47956004D1659 /* GoalCounterPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D040B4022E47956004D1659 /* GoalCounterPage.swift */; };
 		2D040B4322E47CC0004D1659 /* GoalCounterSettingPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D040B4222E47CC0004D1659 /* GoalCounterSettingPage.swift */; };
+		2D0447012339A06A00F8F374 /* ExtensionUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D0447002339A06A00F8F374 /* ExtensionUIView.swift */; };
 		2D048D2522E6A96800956E5A /* NormalCounterMission.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D048D2422E6A96800956E5A /* NormalCounterMission.swift */; };
 		2D048D2722E6B43600956E5A /* UserDefaultKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D048D2622E6B43600956E5A /* UserDefaultKeys.swift */; };
 		2D048D2922E6B95600956E5A /* DBAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D048D2822E6B95600956E5A /* DBAdapter.swift */; };
@@ -73,6 +84,16 @@
 		2D02DF3F22E8063A00763334 /* ExtensionUIImage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExtensionUIImage.swift; sourceTree = "<group>"; };
 		2D02DF4022E8063A00763334 /* ExtensionUIViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExtensionUIViewController.swift; sourceTree = "<group>"; };
 		2D03673522E723EC004FA5DE /* UserListAndLoginPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserListAndLoginPage.swift; sourceTree = "<group>"; };
+		2D0403AD2337636E00794EA8 /* StatisticOverviewPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatisticOverviewPage.swift; sourceTree = "<group>"; };
+		2D0403C32337775700794EA8 /* CalendarDayCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalendarDayCell.swift; sourceTree = "<group>"; };
+		2D0403C42337775700794EA8 /* CalendarFlowLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalendarFlowLayout.swift; sourceTree = "<group>"; };
+		2D0403C52337775700794EA8 /* CalendarHeaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalendarHeaderView.swift; sourceTree = "<group>"; };
+		2D0403C62337775700794EA8 /* CalendarView+DataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CalendarView+DataSource.swift"; sourceTree = "<group>"; };
+		2D0403C72337775700794EA8 /* CalendarView+Delegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CalendarView+Delegate.swift"; sourceTree = "<group>"; };
+		2D0403C82337775700794EA8 /* CalendarView+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CalendarView+Extensions.swift"; sourceTree = "<group>"; };
+		2D0403C92337775700794EA8 /* CalendarView+Style.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CalendarView+Style.swift"; sourceTree = "<group>"; };
+		2D0403CA2337775700794EA8 /* CalendarView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalendarView.swift; sourceTree = "<group>"; };
+		2D0403CB2337775700794EA8 /* EventsManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventsManager.swift; sourceTree = "<group>"; };
 		2D040B2E22E46F31004D1659 /* TimeInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeInfo.swift; sourceTree = "<group>"; };
 		2D040B3122E47190004D1659 /* SQLiteDatabase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SQLiteDatabase.swift; sourceTree = "<group>"; };
 		2D040B3422E471CD004D1659 /* Button.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Button.swift; sourceTree = "<group>"; };
@@ -83,6 +104,7 @@
 		2D040B3E22E471F9004D1659 /* Alert.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Alert.swift; sourceTree = "<group>"; };
 		2D040B4022E47956004D1659 /* GoalCounterPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoalCounterPage.swift; sourceTree = "<group>"; };
 		2D040B4222E47CC0004D1659 /* GoalCounterSettingPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoalCounterSettingPage.swift; sourceTree = "<group>"; };
+		2D0447002339A06A00F8F374 /* ExtensionUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionUIView.swift; sourceTree = "<group>"; };
 		2D048D2422E6A96800956E5A /* NormalCounterMission.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NormalCounterMission.swift; sourceTree = "<group>"; };
 		2D048D2622E6B43600956E5A /* UserDefaultKeys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultKeys.swift; sourceTree = "<group>"; };
 		2D048D2822E6B95600956E5A /* DBAdapter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DBAdapter.swift; sourceTree = "<group>"; };
@@ -142,6 +164,7 @@
 			children = (
 				2D02D3C722E96DFF003A5279 /* StatisticPage.swift */,
 				2D02D3C322E96DB3003A5279 /* MissionListCell.swift */,
+				2D0403AD2337636E00794EA8 /* StatisticOverviewPage.swift */,
 			);
 			path = StatisticPage;
 			sourceTree = "<group>";
@@ -178,10 +201,27 @@
 			children = (
 				2D06771B22EC329500CFC680 /* ExtensionDate.swift */,
 				2D02DF3E22E8063A00763334 /* ExtensionString.swift */,
+				2D0447002339A06A00F8F374 /* ExtensionUIView.swift */,
 				2D02DF3F22E8063A00763334 /* ExtensionUIImage.swift */,
 				2D02DF4022E8063A00763334 /* ExtensionUIViewController.swift */,
 			);
 			path = Extension;
+			sourceTree = "<group>";
+		};
+		2D0403C22337775700794EA8 /* CalendarView */ = {
+			isa = PBXGroup;
+			children = (
+				2D0403C32337775700794EA8 /* CalendarDayCell.swift */,
+				2D0403C42337775700794EA8 /* CalendarFlowLayout.swift */,
+				2D0403C52337775700794EA8 /* CalendarHeaderView.swift */,
+				2D0403C62337775700794EA8 /* CalendarView+DataSource.swift */,
+				2D0403C72337775700794EA8 /* CalendarView+Delegate.swift */,
+				2D0403C82337775700794EA8 /* CalendarView+Extensions.swift */,
+				2D0403C92337775700794EA8 /* CalendarView+Style.swift */,
+				2D0403CA2337775700794EA8 /* CalendarView.swift */,
+				2D0403CB2337775700794EA8 /* EventsManager.swift */,
+			);
+			path = CalendarView;
 			sourceTree = "<group>";
 		};
 		2D040B3022E470DF004D1659 /* DatabaseController */ = {
@@ -267,6 +307,7 @@
 			isa = PBXGroup;
 			children = (
 				2D02D3C222E96D84003A5279 /* StatisticPage */,
+				2D0403C22337775700794EA8 /* CalendarView */,
 				2D02DF3722E7FB2600763334 /* GoalCounterPage */,
 				2D9F3FFF2309506A00932D8F /* BLEConnectionPage */,
 				2D02DF3622E7FB1300763334 /* NormalCounterpage */,
@@ -478,19 +519,27 @@
 			buildActionMask = 2147483647;
 			files = (
 				2D02DF3922E7FB6100763334 /* UserListCell.swift in Sources */,
+				2D0403CE2337775700794EA8 /* CalendarHeaderView.swift in Sources */,
 				2D048D2B22E6C9F600956E5A /* TimerFormattor.swift in Sources */,
 				2D040B4122E47956004D1659 /* GoalCounterPage.swift in Sources */,
 				2D048D2922E6B95600956E5A /* DBAdapter.swift in Sources */,
+				2D0403D02337775700794EA8 /* CalendarView+Delegate.swift in Sources */,
 				2D040B4322E47CC0004D1659 /* GoalCounterSettingPage.swift in Sources */,
 				2D040B2F22E46F31004D1659 /* TimeInfo.swift in Sources */,
+				2D0403CD2337775700794EA8 /* CalendarFlowLayout.swift in Sources */,
 				2D03673622E723EC004FA5DE /* UserListAndLoginPage.swift in Sources */,
 				2D040B3922E471CD004D1659 /* Button.swift in Sources */,
+				2D0447012339A06A00F8F374 /* ExtensionUIView.swift in Sources */,
+				2D0403CC2337775700794EA8 /* CalendarDayCell.swift in Sources */,
 				2D3057A822E4000E00EBF92B /* AudioEffectController.swift in Sources */,
 				2D3057A522E3FB2D00EBF92B /* NormalCounterPage.swift in Sources */,
+				2D0403D22337775700794EA8 /* CalendarView+Style.swift in Sources */,
 				2D30577622E3FA6500EBF92B /* AppDelegate.swift in Sources */,
 				2D040B3A22E471CD004D1659 /* ButtonTriggerEvent.swift in Sources */,
 				2D02DF4422E8063A00763334 /* ExtensionUIViewController.swift in Sources */,
 				2D9F4001230950C200932D8F /* BLEConnectionPage.swift in Sources */,
+				2D0403AE2337636E00794EA8 /* StatisticOverviewPage.swift in Sources */,
+				2D0403D12337775700794EA8 /* CalendarView+Extensions.swift in Sources */,
 				2D048D2722E6B43600956E5A /* UserDefaultKeys.swift in Sources */,
 				2D02D3C422E96DB3003A5279 /* MissionListCell.swift in Sources */,
 				2D02DF3B22E7FB7D00763334 /* AddNewUserCell.swift in Sources */,
@@ -502,10 +551,13 @@
 				2D040B3F22E471F9004D1659 /* Alert.swift in Sources */,
 				2D02DF4222E8063A00763334 /* ExtensionString.swift in Sources */,
 				2D048D2522E6A96800956E5A /* NormalCounterMission.swift in Sources */,
+				2D0403D32337775700794EA8 /* CalendarView.swift in Sources */,
 				2D040B3222E47190004D1659 /* SQLiteDatabase.swift in Sources */,
+				2D0403CF2337775700794EA8 /* CalendarView+DataSource.swift in Sources */,
 				2D040B3D22E471CD004D1659 /* Patient.swift in Sources */,
 				2D02DF4322E8063A00763334 /* ExtensionUIImage.swift in Sources */,
 				2D9F400523095BB300932D8F /* UUIDKey.swift in Sources */,
+				2D0403D42337775700794EA8 /* EventsManager.swift in Sources */,
 				2D06771C22EC329500CFC680 /* ExtensionDate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
