@@ -108,6 +108,33 @@ public class DBAdapter {
         return false
     }
     
+    static func numberOfCompletedMission(missionList:[NormalCounterMission])->Int {
+        var result = 0
+        for mission in missionList {
+            if(mission.FinalAchievement >= mission.AimGoal) {
+                result += 1
+            }
+        }
+        return result
+    }
+    
+    static func numberOfReps(missionList:[NormalCounterMission])->Int {
+        var result = 0
+        for mission in missionList {
+                result += mission.FinalAchievement
+        }
+        return result
+    }
+    
+    static func numberOfTimes(missionList:[NormalCounterMission])->Float {
+        var result = 0
+        for mission in missionList {
+            let difference = mission.FinalTime - mission.StartTime
+                result += difference
+            }
+        return Float(result)
+    }
+    
     static func selectNormalCounterMissionForDay(day:Date)->[NormalCounterMission] {
         var result = [NormalCounterMission]()
         for mission in  DBAdapter.logPatient.HistoryNormalCounterMissionList {

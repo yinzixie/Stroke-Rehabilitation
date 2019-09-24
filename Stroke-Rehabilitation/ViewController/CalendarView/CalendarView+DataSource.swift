@@ -161,7 +161,12 @@ extension CalendarView: UICollectionViewDataSource {
         }
         
         dayCell.eventsCount = self.eventsByIndexPath[indexPath]?.count ?? 0
+        
+        //ADD BY yinzi xie 2019.9.24
         dayCell.didExercise = DBAdapter.isExericeAtDay(day:dateFromIndexPath(indexPath) ?? TimeInfo.dateStringToDate("1970-1-1"))
+        if(dayCell.didExercise) {
+            DBAdapter.logPatient.ExerciseLog += [dateFromIndexPath(indexPath)!]
+        }
         return dayCell
     }
 }

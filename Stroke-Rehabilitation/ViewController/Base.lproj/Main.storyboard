@@ -312,26 +312,32 @@ click the &gt;&gt;&gt; button to go to the "goal" page.</string>
                                             <constraint firstAttribute="height" constant="390" id="3ee-EF-PgY"/>
                                         </constraints>
                                     </view>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Total Task: 5" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Y59-Ze-EVn">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Total Task: 0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Y59-Ze-EVn">
                                         <rect key="frame" x="20" y="400" width="300" height="21"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tasks complete: 5" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Bou-S2-CEH">
-                                        <rect key="frame" x="20" y="472" width="297" height="21"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tasks Failed: 0 " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gHD-em-exq">
+                                        <rect key="frame" x="20" y="436" width="300" height="21"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Exercise time: 71.6mins" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mM5-yx-HKk">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Exercise Time: 0 mins" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mM5-yx-HKk">
                                         <rect key="frame" x="20" y="508" width="300" height="21"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Total presses: 1000 presses" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MbY-wy-4AZ">
-                                        <rect key="frame" x="20" y="544" width="213.5" height="21"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tasks Completed: 0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Bou-S2-CEH">
+                                        <rect key="frame" x="20" y="472" width="297" height="21"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Total Reps: 0 presses" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MbY-wy-4AZ">
+                                        <rect key="frame" x="20" y="544" width="164" height="21"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
@@ -350,7 +356,7 @@ click the &gt;&gt;&gt; button to go to the "goal" page.</string>
                                             <constraint firstAttribute="width" constant="20" id="e2q-ze-oxB"/>
                                         </constraints>
                                     </imageView>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="red-increase-arrow" translatesAutoresizingMaskIntoConstraints="NO" id="R8k-RO-0YO">
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="green-decrease-arrow" translatesAutoresizingMaskIntoConstraints="NO" id="R8k-RO-0YO">
                                         <rect key="frame" x="325" y="395.5" width="20" height="30"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="30" id="63D-LP-6bt"/>
@@ -364,6 +370,13 @@ click the &gt;&gt;&gt; button to go to the "goal" page.</string>
                                             <constraint firstAttribute="width" constant="20" id="oF3-mB-Xs0"/>
                                         </constraints>
                                     </imageView>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="green-decrease-arrow" translatesAutoresizingMaskIntoConstraints="NO" id="DbM-5X-cc7">
+                                        <rect key="frame" x="325" y="539.5" width="20" height="30"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="20" id="5Wa-Lg-ZIp"/>
+                                            <constraint firstAttribute="height" constant="30" id="u0m-nO-H2r"/>
+                                        </constraints>
+                                    </imageView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2nq-Up-owe">
                                         <rect key="frame" x="20" y="604" width="325" height="48"/>
                                         <color key="backgroundColor" red="1" green="0.60571204082517438" blue="0.16118262709839337" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -375,19 +388,6 @@ click the &gt;&gt;&gt; button to go to the "goal" page.</string>
                                             <segue destination="aW3-tc-q1I" kind="showDetail" identifier="showDetailStatisticPage" id="UoH-F3-Esj"/>
                                         </connections>
                                     </button>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="green-decrease-arrow" translatesAutoresizingMaskIntoConstraints="NO" id="DbM-5X-cc7">
-                                        <rect key="frame" x="325" y="539.5" width="20" height="30"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" constant="20" id="5Wa-Lg-ZIp"/>
-                                            <constraint firstAttribute="height" constant="30" id="u0m-nO-H2r"/>
-                                        </constraints>
-                                    </imageView>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tasks failed: 2 " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gHD-em-exq">
-                                        <rect key="frame" x="20" y="436" width="300" height="21"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
@@ -437,7 +437,17 @@ click the &gt;&gt;&gt; button to go to the "goal" page.</string>
                     <connections>
                         <outlet property="backgroundView" destination="dPy-QW-off" id="ufk-Fw-7Zo"/>
                         <outlet property="calendarView" destination="Bku-iE-o9x" id="lCd-Nj-Y1c"/>
+                        <outlet property="exerciseTimeImage" destination="1BB-2b-WIa" id="WSP-70-qnk"/>
+                        <outlet property="exerciseTimeLabel" destination="mM5-yx-HKk" id="How-MT-u3a"/>
                         <outlet property="showDetailsButton" destination="2nq-Up-owe" id="zbZ-qM-fjB"/>
+                        <outlet property="taskCompletedImage" destination="QmO-k5-xI6" id="sxX-7I-OGx"/>
+                        <outlet property="taskCompletedLabel" destination="Bou-S2-CEH" id="7PJ-gg-y0k"/>
+                        <outlet property="taskFailedImage" destination="Grk-J8-ZPo" id="tPq-Ko-0wg"/>
+                        <outlet property="taskFailedLabel" destination="gHD-em-exq" id="QBs-AF-OZM"/>
+                        <outlet property="totalPressesImage" destination="DbM-5X-cc7" id="SIp-N5-tBu"/>
+                        <outlet property="totalPressesLabel" destination="MbY-wy-4AZ" id="LLz-pK-gvQ"/>
+                        <outlet property="totalTaskImage" destination="R8k-RO-0YO" id="Sq4-dH-Pk7"/>
+                        <outlet property="totalTaskLabel" destination="Y59-Ze-EVn" id="kp5-dk-uSE"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="KLc-BN-VCM" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1149,7 +1159,6 @@ click the &gt;&gt;&gt; button to go to the "goal" page.</string>
         <image name="change-user" width="512" height="512"/>
         <image name="green-decrease-arrow" width="170.66667175292969" height="170.66667175292969"/>
         <image name="green-plus" width="170.66667175292969" height="170.66667175292969"/>
-        <image name="red-increase-arrow" width="170.66667175292969" height="170.66667175292969"/>
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="KX0-0Y-vAn"/>

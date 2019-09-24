@@ -16,6 +16,7 @@ public class Patient {
     var NormalCounterGoal:Int
     var NormalCounterLimitTime:Int
     
+    var ExerciseLog = [Date]() //wont save in database
     var HistoryNormalCounterMissionList = [NormalCounterMission]()
     
     init() {
