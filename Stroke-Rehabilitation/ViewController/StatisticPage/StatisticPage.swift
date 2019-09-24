@@ -13,6 +13,10 @@ class StatisticPage: UIViewController {
     @IBOutlet weak var calendarMonththView: UIView!
     @IBOutlet weak var calendarYearView: UIView!
 
+    @IBOutlet weak var monthLabel: UILabel!
+    @IBOutlet weak var dayLabel: UILabel!
+    @IBOutlet weak var weekdayLabel: UILabel!
+    @IBOutlet weak var yearLabel: UILabel!
     
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var missionListTable: UITableView!
@@ -27,15 +31,32 @@ class StatisticPage: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-       
-        calendarPageView.cardView(radius: CGFloat(10))
-    calendarMonththView.SetMutiBorderRoundingCorners(corner: CGFloat(10), topRight: true, topLeft: true, bottomRight: false, bottomLeft: false)
-    calendarYearView.SetMutiBorderRoundingCorners(corner: CGFloat(20), topRight: false, topLeft: false, bottomRight: true, bottomLeft: true)
+    
+        setCalendarCard()
+        
         //remove seperation from cell which doesn't contain data
         missionListTable.tableFooterView = UIView.init(frame: CGRect.zero)
-        missionListTable.layer.borderWidth = 0.5
-        missionListTable.layer.borderColor = UIColor.lightGray.cgColor
+        //missionListTable.layer.borderWidth = 0.5
+      //  missionListTable.layer.borderColor = UIColor.lightGray.cgColor
         titleLabel.text = DBAdapter.logPatient.Name + "'s Session History"
+       
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        
+    }
+    
+    private func setCalendarCard() {
+        calendarPageView.cardView(radius: CGFloat(10))
+        calendarMonththView.SetMutiBorderRoundingCorners(corner: CGFloat(10), topRight: true, topLeft: true, bottomRight: false, bottomLeft: false)
+        calendarYearView.SetMutiBorderRoundingCorners(corner: CGFloat(20), topRight: false, topLeft: false, bottomRight: true, bottomLeft: true)
+       calendarYearView.SetBorder(true, left: false, bottom: false, right: false, width: 0.5, color: UIColor.lightGray)
+        
+        let showDate = Date(timeIntervalSince1970: TimeInterval(displayMissionList[0].StartTime))
+        monthLabel.text = TimeInfo.MonthsString[showDate.month_()-1]
+        dayLabel.text = String(showDate.day_())
+        yearLabel.text = String(showDate.year_())
+        weekdayLabel.text = TimeInfo.WeekDaysString[showDate.weekDay()-1]
     }
     
     private func setDetailsInformation() {

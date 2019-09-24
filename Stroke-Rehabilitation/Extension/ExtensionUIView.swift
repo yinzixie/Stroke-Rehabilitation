@@ -48,7 +48,7 @@ extension UIView {
     }
     
     //https://blog.csdn.net/kmonarch/article/details/82892300
-    func SetBorderWithView(_ top:Bool,left:Bool,bottom:Bool,right:Bool,width:CGFloat,color:UIColor)
+    func SetBorder(_ top:Bool,left:Bool,bottom:Bool,right:Bool,width:CGFloat,color:UIColor)
         
     {
         

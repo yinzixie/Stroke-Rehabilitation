@@ -14,6 +14,8 @@ protocol TellStatisticPageShowMission {
 
 class MissionListCell: UITableViewCell {
 
+    @IBOutlet weak var backGroundView: UIView!
+    
     @IBOutlet weak var dateLabel: UILabel!
     @IBOutlet weak var yearLabel: UILabel!
     @IBOutlet weak var monthLabel: UILabel!
@@ -27,7 +29,7 @@ class MissionListCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
-        
+         backGroundView.cardView(radius: CGFloat(10))
     }
     
     func setLabels() {

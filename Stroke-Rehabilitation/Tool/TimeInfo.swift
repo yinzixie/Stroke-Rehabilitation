@@ -10,6 +10,7 @@ import Foundation
 
 public class TimeInfo {
     static let MonthsString = ["Jan","Feb","Mar","Apr","May","June","July","Aug","Sept","Oct","Nov","Dec"]
+    static let WeekDaysString = ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"]
     
     //MARK: current year
     static func currentYear() ->Int {

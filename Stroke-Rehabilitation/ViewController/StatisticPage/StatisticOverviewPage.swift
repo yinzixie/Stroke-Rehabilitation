@@ -63,8 +63,10 @@ class StatisticOverviewPage: UIViewController{
         
         calendarView.backgroundColor = UIColor.white
         
-        backgroundView.cardView(radius: CGFloat(20))
+        backgroundView.cardView(radius: CGFloat(10))
+        calendarView.SetMutiBorderRoundingCorners(corner: CGFloat(10), topRight: true, topLeft: true, bottomRight: false, bottomLeft: false)
         
+        showDetailsButton.layer.cornerRadius = 5
         showDetailsButton.isEnabled = false
         showDetailsButton.backgroundColor = UIColor(red:0.86, green:0.86, blue:0.86, alpha:1.00) //light gray
         showDetailsButton.setTitle("No Data", for: .normal)
@@ -75,12 +77,15 @@ class StatisticOverviewPage: UIViewController{
         
         let today = Date()
         
-        var tomorrowComponents = DateComponents()
-        tomorrowComponents.day = 1
+        //var tomorrowComponents = DateComponents()
+        //tomorrowComponents.day = 1
        
         //self.calendarView.selectDate(today) //one bug caused by delay of calendar loading
+      
+        if(normalCounterMissionListForSelectDay == nil) {
+            self.calendarView.setDisplayDate(today)
+        }
         
-        self.calendarView.setDisplayDate(today)
     }
 
     func setStatisticOverViewInformation(){
@@ -229,5 +234,15 @@ extension StatisticOverviewPage: CalendarViewDataSource, CalendarViewDelegate{
     
     func calendar(_ calendar: CalendarView, didLongPressDate date : Date, withEvents events: [CalendarEvent]?) {
         
+    }
+    
+    func calendar(_ calendar: CalendarView, didDeselectDate date: Date) {
+        normalCounterMissionListForSelectDay = []
+        normalCounterMissionListForLastDay = []
+        setStatisticOverViewInformation()
+        
+        showDetailsButton.isEnabled = false
+        showDetailsButton.backgroundColor = UIColor(red:0.86, green:0.86, blue:0.86, alpha:1.00) //light gray
+        showDetailsButton.setTitle("No Data", for: .normal)
     }
 }
