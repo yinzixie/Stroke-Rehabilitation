@@ -63,7 +63,7 @@ class StatisticOverviewPage: UIViewController{
         
         calendarView.backgroundColor = UIColor.white
         
-        backgroundView.cardView()
+        backgroundView.cardView(radius: CGFloat(20))
         
         showDetailsButton.isEnabled = false
         showDetailsButton.backgroundColor = UIColor(red:0.86, green:0.86, blue:0.86, alpha:1.00) //light gray

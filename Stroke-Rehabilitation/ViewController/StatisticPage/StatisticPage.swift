@@ -9,7 +9,11 @@
 import UIKit
 
 class StatisticPage: UIViewController {
+    @IBOutlet weak var calendarPageView: UIView!
+    @IBOutlet weak var calendarMonththView: UIView!
+    @IBOutlet weak var calendarYearView: UIView!
 
+    
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var missionListTable: UITableView!
     @IBOutlet weak var aimGoalLabel: UILabel!
@@ -24,7 +28,9 @@ class StatisticPage: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
        
-        // Do any additional setup after loading the view.
+        calendarPageView.cardView(radius: CGFloat(10))
+    calendarMonththView.SetMutiBorderRoundingCorners(corner: CGFloat(10), topRight: true, topLeft: true, bottomRight: false, bottomLeft: false)
+    calendarYearView.SetMutiBorderRoundingCorners(corner: CGFloat(20), topRight: false, topLeft: false, bottomRight: true, bottomLeft: true)
         //remove seperation from cell which doesn't contain data
         missionListTable.tableFooterView = UIView.init(frame: CGRect.zero)
         missionListTable.layer.borderWidth = 0.5
