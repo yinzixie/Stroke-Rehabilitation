@@ -66,7 +66,6 @@ class StatisticOverviewPage: UIViewController{
         backgroundView.cardView(radius: CGFloat(10))
         calendarView.SetMutiBorderRoundingCorners(corner: CGFloat(10), topRight: true, topLeft: true, bottomRight: false, bottomLeft: false)
         
-        showDetailsButton.layer.cornerRadius = 5
         showDetailsButton.isEnabled = false
         showDetailsButton.backgroundColor = UIColor(red:0.86, green:0.86, blue:0.86, alpha:1.00) //light gray
         showDetailsButton.setTitle("No Data", for: .normal)
@@ -170,6 +169,16 @@ class StatisticOverviewPage: UIViewController{
     @IBAction func back(_ sender: Any) {
         self.dismiss(animated: true, completion: nil)
     }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "showDetailStatisticPage" {
+            print("Going to show statistic details")
+            let statiticPage = segue.destination as! StatisticPage
+            statiticPage.modalTransitionStyle = UIModalTransitionStyle.crossDissolve
+            statiticPage.displayMissionList = normalCounterMissionListForSelectDay
+            //UIModalTransitionStyleCrossDissolve
+        }
+    }
 }
 
 extension StatisticOverviewPage: CalendarViewDataSource, CalendarViewDelegate{
@@ -195,14 +204,6 @@ extension StatisticOverviewPage: CalendarViewDataSource, CalendarViewDelegate{
         let twoMonthsFromNow = self.calendarView.calendar.date(byAdding: dateComponents, to: today)!
         
         return twoMonthsFromNow
-    }
-    
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "showDetailStatisticPage" {
-            print("Going to show statistic details")
-            let statiticPage = segue.destination as! StatisticPage
-            statiticPage.displayMissionList = normalCounterMissionListForSelectDay
-        }
     }
     
     // MARK : KDCalendarDelegate

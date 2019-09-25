@@ -50,9 +50,9 @@ class MissionListCell: UITableViewCell {
         //let finishedTimeDate:Date = TimeInfo.timeStringToDate(finishedTimeString)
         let finishedAtString = "Finished at: " + TimeInfo.timeStampToHHMMSS(String(finishedTime!))
 
-        dateLabel.text = dateString
-        monthLabel.text = monthString
-        yearLabel.text = yearString
+       // dateLabel.text = dateString
+       // monthLabel.text = monthString
+       // yearLabel.text = yearString
         startedFromLabel.text = stratedFromString
         finishedAtLabel.text = finishedAtString
     }

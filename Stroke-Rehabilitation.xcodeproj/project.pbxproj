@@ -42,6 +42,8 @@
 		2D048D2B22E6C9F600956E5A /* TimerFormattor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D048D2A22E6C9F600956E5A /* TimerFormattor.swift */; };
 		2D06771C22EC329500CFC680 /* ExtensionDate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D06771B22EC329500CFC680 /* ExtensionDate.swift */; };
 		2D0DDAC3233B538E00674257 /* ZFRippleButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D0DDAC2233B538E00674257 /* ZFRippleButton.swift */; };
+		2D2E7FBA233B679F00E17CE5 /* AFBlurSegue.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D2E7FB7233B679F00E17CE5 /* AFBlurSegue.m */; };
+		2D2E7FBB233B679F00E17CE5 /* UIImage+ImageEffects.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D2E7FB8233B679F00E17CE5 /* UIImage+ImageEffects.m */; };
 		2D30577622E3FA6500EBF92B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D30577522E3FA6500EBF92B /* AppDelegate.swift */; };
 		2D30577B22E3FA6500EBF92B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2D30577922E3FA6500EBF92B /* Main.storyboard */; };
 		2D30577D22E3FA6600EBF92B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2D30577C22E3FA6600EBF92B /* Assets.xcassets */; };
@@ -112,6 +114,10 @@
 		2D048D2A22E6C9F600956E5A /* TimerFormattor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerFormattor.swift; sourceTree = "<group>"; };
 		2D06771B22EC329500CFC680 /* ExtensionDate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExtensionDate.swift; sourceTree = "<group>"; };
 		2D0DDAC2233B538E00674257 /* ZFRippleButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ZFRippleButton.swift; sourceTree = "<group>"; };
+		2D2E7FB6233B679F00E17CE5 /* UIImage+ImageEffects.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+ImageEffects.h"; sourceTree = "<group>"; };
+		2D2E7FB7233B679F00E17CE5 /* AFBlurSegue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFBlurSegue.m; sourceTree = "<group>"; };
+		2D2E7FB8233B679F00E17CE5 /* UIImage+ImageEffects.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+ImageEffects.m"; sourceTree = "<group>"; };
+		2D2E7FB9233B679F00E17CE5 /* AFBlurSegue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFBlurSegue.h; sourceTree = "<group>"; };
 		2D30577222E3FA6500EBF92B /* Stroke-Rehabilitation.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Stroke-Rehabilitation.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		2D30577522E3FA6500EBF92B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2D30577A22E3FA6500EBF92B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -252,6 +258,7 @@
 		2D0DDAC1233B534800674257 /* UI */ = {
 			isa = PBXGroup;
 			children = (
+				2D2E7FBC233B67A200E17CE5 /* BlurSegue */,
 				2D0DDAC4233B539600674257 /* ZFRippleButton */,
 				2D0403C22337775700794EA8 /* CalendarView */,
 			);
@@ -264,6 +271,17 @@
 				2D0DDAC2233B538E00674257 /* ZFRippleButton.swift */,
 			);
 			path = ZFRippleButton;
+			sourceTree = "<group>";
+		};
+		2D2E7FBC233B67A200E17CE5 /* BlurSegue */ = {
+			isa = PBXGroup;
+			children = (
+				2D2E7FB9233B679F00E17CE5 /* AFBlurSegue.h */,
+				2D2E7FB7233B679F00E17CE5 /* AFBlurSegue.m */,
+				2D2E7FB6233B679F00E17CE5 /* UIImage+ImageEffects.h */,
+				2D2E7FB8233B679F00E17CE5 /* UIImage+ImageEffects.m */,
+			);
+			path = BlurSegue;
 			sourceTree = "<group>";
 		};
 		2D30576922E3FA6500EBF92B = {
@@ -467,6 +485,7 @@
 				TargetAttributes = {
 					2D30577122E3FA6500EBF92B = {
 						CreatedOnToolsVersion = 10.2;
+						LastSwiftMigration = 1020;
 						SystemCapabilities = {
 							com.apple.BackgroundModes = {
 								enabled = 1;
@@ -541,6 +560,7 @@
 				2D0403CE2337775700794EA8 /* CalendarHeaderView.swift in Sources */,
 				2D048D2B22E6C9F600956E5A /* TimerFormattor.swift in Sources */,
 				2D040B4122E47956004D1659 /* GoalCounterPage.swift in Sources */,
+				2D2E7FBB233B679F00E17CE5 /* UIImage+ImageEffects.m in Sources */,
 				2D048D2922E6B95600956E5A /* DBAdapter.swift in Sources */,
 				2D0403D02337775700794EA8 /* CalendarView+Delegate.swift in Sources */,
 				2D040B4322E47CC0004D1659 /* GoalCounterSettingPage.swift in Sources */,
@@ -578,6 +598,7 @@
 				2D02DF4322E8063A00763334 /* ExtensionUIImage.swift in Sources */,
 				2D9F400523095BB300932D8F /* UUIDKey.swift in Sources */,
 				2D0403D42337775700794EA8 /* EventsManager.swift in Sources */,
+				2D2E7FBA233B679F00E17CE5 /* AFBlurSegue.m in Sources */,
 				2D06771C22EC329500CFC680 /* ExtensionDate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -753,6 +774,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 3A9FK2TUR8;
 				INFOPLIST_FILE = "Stroke-Rehabilitation/Info.plist";
@@ -762,6 +784,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "SR-Agile2.Stroke-Rehabilitation";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -771,6 +794,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 3A9FK2TUR8;
 				INFOPLIST_FILE = "Stroke-Rehabilitation/Info.plist";

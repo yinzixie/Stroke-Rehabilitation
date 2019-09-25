@@ -31,9 +31,9 @@ class StatisticPage: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-    
-        
-        
+        setCalendarCard()
+        missionListTable.backgroundColor = UIColor.clear
+        //missionListTable.backgroundView?.backgroundColor = UIColor.clear
         //remove seperation from cell which doesn't contain data
         missionListTable.tableFooterView = UIView.init(frame: CGRect.zero)
         //missionListTable.layer.borderWidth = 0.5
@@ -43,7 +43,7 @@ class StatisticPage: UIViewController {
     }
     
     override func viewDidAppear(_ animated: Bool) {
-        setCalendarCard()
+        
     }
     
     private func setCalendarCard() {
@@ -100,7 +100,8 @@ extension StatisticPage:UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
             let cell = tableView.dequeueReusableCell(withIdentifier: "MissionListCell", for: indexPath) as! MissionListCell
             // Configure the cell...
-        cell.delegateForStatisticPage = self
+            cell.backgroundColor = UIColor.clear
+            cell.delegateForStatisticPage = self
             cell.mission = displayMissionList[indexPath.row]
             cell.setLabels()
             return cell
