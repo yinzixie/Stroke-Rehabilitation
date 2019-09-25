@@ -32,18 +32,18 @@ class StatisticPage: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
     
-        setCalendarCard()
+        
         
         //remove seperation from cell which doesn't contain data
         missionListTable.tableFooterView = UIView.init(frame: CGRect.zero)
         //missionListTable.layer.borderWidth = 0.5
       //  missionListTable.layer.borderColor = UIColor.lightGray.cgColor
-        titleLabel.text = DBAdapter.logPatient.Name + "'s Session History"
+        //titleLabel.text = DBAdapter.logPatient.Name + "'s Session History"
        
     }
     
     override func viewDidAppear(_ animated: Bool) {
-        
+        setCalendarCard()
     }
     
     private func setCalendarCard() {

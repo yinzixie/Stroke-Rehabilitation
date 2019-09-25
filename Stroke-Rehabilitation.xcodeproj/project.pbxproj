@@ -41,6 +41,7 @@
 		2D048D2922E6B95600956E5A /* DBAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D048D2822E6B95600956E5A /* DBAdapter.swift */; };
 		2D048D2B22E6C9F600956E5A /* TimerFormattor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D048D2A22E6C9F600956E5A /* TimerFormattor.swift */; };
 		2D06771C22EC329500CFC680 /* ExtensionDate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D06771B22EC329500CFC680 /* ExtensionDate.swift */; };
+		2D0DDAC3233B538E00674257 /* ZFRippleButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D0DDAC2233B538E00674257 /* ZFRippleButton.swift */; };
 		2D30577622E3FA6500EBF92B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D30577522E3FA6500EBF92B /* AppDelegate.swift */; };
 		2D30577B22E3FA6500EBF92B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2D30577922E3FA6500EBF92B /* Main.storyboard */; };
 		2D30577D22E3FA6600EBF92B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2D30577C22E3FA6600EBF92B /* Assets.xcassets */; };
@@ -110,6 +111,7 @@
 		2D048D2822E6B95600956E5A /* DBAdapter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DBAdapter.swift; sourceTree = "<group>"; };
 		2D048D2A22E6C9F600956E5A /* TimerFormattor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerFormattor.swift; sourceTree = "<group>"; };
 		2D06771B22EC329500CFC680 /* ExtensionDate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExtensionDate.swift; sourceTree = "<group>"; };
+		2D0DDAC2233B538E00674257 /* ZFRippleButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ZFRippleButton.swift; sourceTree = "<group>"; };
 		2D30577222E3FA6500EBF92B /* Stroke-Rehabilitation.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Stroke-Rehabilitation.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		2D30577522E3FA6500EBF92B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2D30577A22E3FA6500EBF92B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -247,6 +249,23 @@
 			path = CoreStruct;
 			sourceTree = "<group>";
 		};
+		2D0DDAC1233B534800674257 /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				2D0DDAC4233B539600674257 /* ZFRippleButton */,
+				2D0403C22337775700794EA8 /* CalendarView */,
+			);
+			path = UI;
+			sourceTree = "<group>";
+		};
+		2D0DDAC4233B539600674257 /* ZFRippleButton */ = {
+			isa = PBXGroup;
+			children = (
+				2D0DDAC2233B538E00674257 /* ZFRippleButton.swift */,
+			);
+			path = ZFRippleButton;
+			sourceTree = "<group>";
+		};
 		2D30576922E3FA6500EBF92B = {
 			isa = PBXGroup;
 			children = (
@@ -271,6 +290,7 @@
 		2D30577422E3FA6500EBF92B /* Stroke-Rehabilitation */ = {
 			isa = PBXGroup;
 			children = (
+				2D0DDAC1233B534800674257 /* UI */,
 				2D3057A622E3FFC500EBF92B /* Tool */,
 				2D02DF3C22E8063A00763334 /* Extension */,
 				2D3057AA22E409B600EBF92B /* Resources */,
@@ -307,7 +327,6 @@
 			isa = PBXGroup;
 			children = (
 				2D02D3C222E96D84003A5279 /* StatisticPage */,
-				2D0403C22337775700794EA8 /* CalendarView */,
 				2D02DF3722E7FB2600763334 /* GoalCounterPage */,
 				2D9F3FFF2309506A00932D8F /* BLEConnectionPage */,
 				2D02DF3622E7FB1300763334 /* NormalCounterpage */,
@@ -527,6 +546,7 @@
 				2D040B4322E47CC0004D1659 /* GoalCounterSettingPage.swift in Sources */,
 				2D040B2F22E46F31004D1659 /* TimeInfo.swift in Sources */,
 				2D0403CD2337775700794EA8 /* CalendarFlowLayout.swift in Sources */,
+				2D0DDAC3233B538E00674257 /* ZFRippleButton.swift in Sources */,
 				2D03673622E723EC004FA5DE /* UserListAndLoginPage.swift in Sources */,
 				2D040B3922E471CD004D1659 /* Button.swift in Sources */,
 				2D0447012339A06A00F8F374 /* ExtensionUIView.swift in Sources */,
