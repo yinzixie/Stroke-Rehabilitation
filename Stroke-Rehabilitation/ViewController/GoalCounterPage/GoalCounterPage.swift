@@ -16,6 +16,7 @@ class GoalCounterPage: UIViewController{
     @IBOutlet weak var progressBar: UIProgressView!
     @IBOutlet weak var hintLoginNameLabel: UILabel!
    
+    @IBOutlet weak var timerBar: UICircularTimerRing!
     var peripheralManager: CBPeripheralManager?
     //var peripheral: CBPeripheral?
     

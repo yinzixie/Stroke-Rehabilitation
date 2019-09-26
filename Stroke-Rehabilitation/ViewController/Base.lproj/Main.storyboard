@@ -398,8 +398,13 @@ click the &gt;&gt;&gt; button to go to the "goal" page.</string>
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
                                         <connections>
-                                            <segue destination="aW3-tc-q1I" kind="custom" identifier="showDetailStatisticPage" customClass="AFBlurSegue" id="cR4-v1-fxI"/>
+                                            <segue destination="jfg-dz-gWG" kind="modal" identifier="showDetailStatisticPage" customClass="AFBlurSegue" modalTransitionStyle="crossDissolve" id="Iif-fZ-grO"/>
                                         </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AIW-qF-lDW">
+                                        <rect key="frame" x="239" y="508" width="46" height="30"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <state key="normal" title="Button"/>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -604,19 +609,19 @@ click the &gt;&gt;&gt; button to go to the "goal" page.</string>
                                     <action selector="back:" destination="aW3-tc-q1I" eventType="touchUpInside" id="M3f-o4-4YO"/>
                                 </connections>
                             </button>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pGi-SL-8LY" customClass="SpringView" customModule="Stroke_Rehabilitation" customModuleProvider="target">
-                                <rect key="frame" x="30" y="20" width="500" height="728"/>
+                            <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="pGi-SL-8LY" customClass="SpringView" customModule="Stroke_Rehabilitation" customModuleProvider="target">
+                                <rect key="frame" x="30" y="20" width="286" height="267"/>
                                 <subviews>
-                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="150" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="q6u-xg-x7F">
-                                        <rect key="frame" x="20" y="20" width="460" height="688"/>
+                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="150" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="q6u-xg-x7F">
+                                        <rect key="frame" x="20" y="20" width="258" height="217"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <color key="separatorColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <prototypes>
                                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="MissionListCell" rowHeight="140" id="rM7-qL-Cel" customClass="MissionListCell" customModule="Stroke_Rehabilitation" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="28" width="460" height="140"/>
+                                                <rect key="frame" x="0.0" y="28" width="258" height="140"/>
                                                 <autoresizingMask key="autoresizingMask"/>
                                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="rM7-qL-Cel" id="m0F-kB-h3s">
-                                                    <rect key="frame" x="0.0" y="0.0" width="460" height="140"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="258" height="140"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <subviews>
                                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Kgs-T6-shB">
@@ -718,7 +723,50 @@ click the &gt;&gt;&gt; button to go to the "goal" page.</string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yr0-VX-deg" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1539.84375" y="-912.5"/>
+            <point key="canvasLocation" x="1498" y="-1703"/>
+        </scene>
+        <!--Statistic Details Page-->
+        <scene sceneID="Anq-PD-kiG">
+            <objects>
+                <viewController id="jfg-dz-gWG" customClass="StatisticDetailsPage" customModule="Stroke_Rehabilitation" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="7Eu-ic-6wf">
+                        <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="W7h-0M-x8r" customClass="SpringView" customModule="Stroke_Rehabilitation" customModuleProvider="target">
+                                <rect key="frame" x="10" y="30" width="500" height="748"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="500" id="3Db-jM-0aj"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="animation" value="squezzeRight"/>
+                                </userDefinedRuntimeAttributes>
+                            </view>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qDa-AB-fJ5">
+                                <rect key="frame" x="902" y="60" width="39" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Close"/>
+                                <connections>
+                                    <action selector="closePage:" destination="jfg-dz-gWG" eventType="touchUpInside" id="68w-41-Xyh"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="W7h-0M-x8r" firstAttribute="leading" secondItem="un4-dn-oDL" secondAttribute="leading" constant="10" id="EPk-4y-Uzp"/>
+                            <constraint firstItem="W7h-0M-x8r" firstAttribute="bottom" secondItem="un4-dn-oDL" secondAttribute="bottom" constant="10" id="M9H-0Y-dSx"/>
+                            <constraint firstItem="W7h-0M-x8r" firstAttribute="top" secondItem="un4-dn-oDL" secondAttribute="top" constant="10" id="dNN-oe-mhF"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="un4-dn-oDL"/>
+                    </view>
+                    <connections>
+                        <outlet property="cardView" destination="W7h-0M-x8r" id="C7X-FN-K4B"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="mYv-Qo-ROa" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1498" y="-912"/>
         </scene>
         <!--GoalCounterPage-->
         <scene sceneID="WGc-DW-kMK">
@@ -819,6 +867,62 @@ click the &gt;&gt;&gt; button to go to the "goal" page.</string>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="tt"/>
                             </button>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="WOp-eQ-o0E" customClass="UICircularProgressRing" customModule="Stroke_Rehabilitation" customModuleProvider="target">
+                                <rect key="frame" x="604" y="431" width="334" height="185"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="value">
+                                        <real key="value" value="10"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="minValue">
+                                        <real key="value" value="0.0"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="maxValue">
+                                        <real key="value" value="100"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="outerRingColor">
+                                        <color key="value" red="0.48420244455337524" green="0.90581130981445312" blue="0.91056537628173828" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="innerRingColor">
+                                        <color key="value" name="systemRedColor" catalog="System" colorSpace="catalog"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="innerRingSpacing">
+                                        <real key="value" value="-20"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="innerRingWidth">
+                                        <real key="value" value="10"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </view>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="0og-hQ-nQf" customClass="UICircularTimerRing" customModule="Stroke_Rehabilitation" customModuleProvider="target">
+                                <rect key="frame" x="115" y="431" width="334" height="185"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="value">
+                                        <real key="value" value="10"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="minValue">
+                                        <real key="value" value="0.0"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="maxValue">
+                                        <real key="value" value="100"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="outerRingColor">
+                                        <color key="value" name="systemGreenColor" catalog="System" colorSpace="catalog"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="innerRingColor">
+                                        <color key="value" name="systemRedColor" catalog="System" colorSpace="catalog"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="innerRingWidth">
+                                        <real key="value" value="2"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="innerRingSpacing">
+                                        <real key="value" value="10"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
@@ -848,6 +952,7 @@ click the &gt;&gt;&gt; button to go to the "goal" page.</string>
                         <outlet property="goalLabel" destination="nnF-gg-L9G" id="rdY-BK-kma"/>
                         <outlet property="hintLoginNameLabel" destination="OM2-DS-Bgl" id="xr4-LZ-vwf"/>
                         <outlet property="progressBar" destination="uRd-Sz-gnz" id="eHw-fK-dCW"/>
+                        <outlet property="timerBar" destination="0og-hQ-nQf" id="puF-If-iBl"/>
                         <outlet property="timerLabel" destination="ixW-wo-5bB" id="fgF-HN-VG5"/>
                     </connections>
                 </viewController>
@@ -1043,7 +1148,7 @@ click the &gt;&gt;&gt; button to go to the "goal" page.</string>
                                     <userDefinedRuntimeAttribute type="boolean" keyPath="autostart" value="YES"/>
                                     <userDefinedRuntimeAttribute type="string" keyPath="animation" value="slideUp"/>
                                     <userDefinedRuntimeAttribute type="number" keyPath="duration">
-                                        <real key="value" value="3"/>
+                                        <real key="value" value="2"/>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </view>
@@ -1104,7 +1209,7 @@ click the &gt;&gt;&gt; button to go to the "goal" page.</string>
                                         <rect key="frame" x="109" y="32" width="194" height="60"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="50"/>
-                                        <nil key="textColor"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Dnb-5e-Fhw">
@@ -1118,7 +1223,9 @@ click the &gt;&gt;&gt; button to go to the "goal" page.</string>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2C8-pB-W8X">
                                                         <rect key="frame" x="0.0" y="0.0" width="54" height="52"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="33"/>
-                                                        <state key="normal" title="-20"/>
+                                                        <state key="normal" title="-20">
+                                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        </state>
                                                         <connections>
                                                             <action selector="negateTwenty:" destination="mtF-gf-NZo" eventType="touchUpInside" id="qVa-jE-yAT"/>
                                                         </connections>
@@ -1126,7 +1233,9 @@ click the &gt;&gt;&gt; button to go to the "goal" page.</string>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TI4-BP-w6b">
                                                         <rect key="frame" x="69" y="0.0" width="49" height="52"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="33"/>
-                                                        <state key="normal" title="-15"/>
+                                                        <state key="normal" title="-15">
+                                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        </state>
                                                         <connections>
                                                             <action selector="negateFifteen:" destination="mtF-gf-NZo" eventType="touchUpInside" id="Gsm-Ge-CqP"/>
                                                         </connections>
@@ -1134,7 +1243,9 @@ click the &gt;&gt;&gt; button to go to the "goal" page.</string>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aCN-I2-vox">
                                                         <rect key="frame" x="133" y="0.0" width="49" height="52"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="33"/>
-                                                        <state key="normal" title="-10"/>
+                                                        <state key="normal" title="-10">
+                                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        </state>
                                                         <connections>
                                                             <action selector="negateTen:" destination="mtF-gf-NZo" eventType="touchUpInside" id="evd-n0-6of"/>
                                                         </connections>
@@ -1142,7 +1253,9 @@ click the &gt;&gt;&gt; button to go to the "goal" page.</string>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XXh-Sl-aOn">
                                                         <rect key="frame" x="197" y="0.0" width="35" height="52"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="33"/>
-                                                        <state key="normal" title="-5"/>
+                                                        <state key="normal" title="-5">
+                                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        </state>
                                                         <connections>
                                                             <action selector="negateFive:" destination="mtF-gf-NZo" eventType="touchUpInside" id="MUw-kn-u2J"/>
                                                         </connections>
@@ -1150,7 +1263,9 @@ click the &gt;&gt;&gt; button to go to the "goal" page.</string>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Q5E-Nu-XU3">
                                                         <rect key="frame" x="247" y="0.0" width="71" height="52"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="33"/>
-                                                        <state key="normal" title="reset"/>
+                                                        <state key="normal" title="reset">
+                                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        </state>
                                                         <connections>
                                                             <action selector="goalReset:" destination="mtF-gf-NZo" eventType="touchUpInside" id="bWN-zj-nTX"/>
                                                         </connections>
@@ -1158,7 +1273,9 @@ click the &gt;&gt;&gt; button to go to the "goal" page.</string>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QHu-p0-Pu0">
                                                         <rect key="frame" x="333" y="0.0" width="40" height="52"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="33"/>
-                                                        <state key="normal" title="+5"/>
+                                                        <state key="normal" title="+5">
+                                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        </state>
                                                         <connections>
                                                             <action selector="incrementFive:" destination="mtF-gf-NZo" eventType="touchUpInside" id="AGj-qd-Zgq"/>
                                                         </connections>
@@ -1166,7 +1283,9 @@ click the &gt;&gt;&gt; button to go to the "goal" page.</string>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QxD-PA-iUU">
                                                         <rect key="frame" x="388" y="0.0" width="55" height="52"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="33"/>
-                                                        <state key="normal" title="+10"/>
+                                                        <state key="normal" title="+10">
+                                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        </state>
                                                         <connections>
                                                             <action selector="incrementTen:" destination="mtF-gf-NZo" eventType="touchUpInside" id="7Kv-D9-xWq"/>
                                                         </connections>
@@ -1174,7 +1293,9 @@ click the &gt;&gt;&gt; button to go to the "goal" page.</string>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Fs6-ey-rrJ">
                                                         <rect key="frame" x="458" y="0.0" width="55" height="52"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="33"/>
-                                                        <state key="normal" title="+15"/>
+                                                        <state key="normal" title="+15">
+                                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        </state>
                                                         <connections>
                                                             <action selector="incrementFifteen:" destination="mtF-gf-NZo" eventType="touchUpInside" id="icf-oq-KWL"/>
                                                         </connections>
@@ -1182,7 +1303,9 @@ click the &gt;&gt;&gt; button to go to the "goal" page.</string>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fiI-4W-Cdh">
                                                         <rect key="frame" x="528" y="0.0" width="60" height="52"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="33"/>
-                                                        <state key="normal" title="+20"/>
+                                                        <state key="normal" title="+20">
+                                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        </state>
                                                         <connections>
                                                             <action selector="incrementTwenty:" destination="mtF-gf-NZo" eventType="touchUpInside" id="gv4-mP-oqx"/>
                                                         </connections>
@@ -1193,7 +1316,7 @@ click the &gt;&gt;&gt; button to go to the "goal" page.</string>
                                                 <rect key="frame" x="190" y="8" width="213" height="119"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="50"/>
-                                                <nil key="textColor"/>
+                                                <color key="textColor" name="systemGreenColor" catalog="System" colorSpace="catalog"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                         </subviews>
@@ -1207,7 +1330,7 @@ click the &gt;&gt;&gt; button to go to the "goal" page.</string>
                                                 <rect key="frame" x="152" y="34" width="307" height="60"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="50"/>
-                                                <nil key="textColor"/>
+                                                <color key="textColor" name="systemGreenColor" catalog="System" colorSpace="catalog"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <stackView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="Xff-XE-hq0">
@@ -1217,7 +1340,9 @@ click the &gt;&gt;&gt; button to go to the "goal" page.</string>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WjG-al-ViB">
                                                         <rect key="frame" x="0.0" y="0.0" width="76" height="52"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="33"/>
-                                                        <state key="normal" title="-10m"/>
+                                                        <state key="normal" title="-10m">
+                                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        </state>
                                                         <connections>
                                                             <action selector="minusTenMins:" destination="mtF-gf-NZo" eventType="touchUpInside" id="jaU-UH-naG"/>
                                                         </connections>
@@ -1225,7 +1350,9 @@ click the &gt;&gt;&gt; button to go to the "goal" page.</string>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="99x-c8-fQK">
                                                         <rect key="frame" x="91" y="0.0" width="56" height="52"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="33"/>
-                                                        <state key="normal" title="-1m"/>
+                                                        <state key="normal" title="-1m">
+                                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        </state>
                                                         <connections>
                                                             <action selector="minusOneMins:" destination="mtF-gf-NZo" eventType="touchUpInside" id="Ujw-E6-6Kr"/>
                                                         </connections>
@@ -1233,7 +1360,9 @@ click the &gt;&gt;&gt; button to go to the "goal" page.</string>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kbY-qo-3ni">
                                                         <rect key="frame" x="162" y="0.0" width="65" height="52"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="33"/>
-                                                        <state key="normal" title="-10s"/>
+                                                        <state key="normal" title="-10s">
+                                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        </state>
                                                         <connections>
                                                             <action selector="minusTenSecs:" destination="mtF-gf-NZo" eventType="touchUpInside" id="gVR-NN-RaA"/>
                                                         </connections>
@@ -1241,7 +1370,9 @@ click the &gt;&gt;&gt; button to go to the "goal" page.</string>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VLe-Ic-XX0">
                                                         <rect key="frame" x="242" y="0.0" width="71" height="52"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="33"/>
-                                                        <state key="normal" title="reset"/>
+                                                        <state key="normal" title="reset">
+                                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        </state>
                                                         <connections>
                                                             <action selector="resetTimer:" destination="mtF-gf-NZo" eventType="touchUpInside" id="U3f-uS-f8E"/>
                                                         </connections>
@@ -1249,7 +1380,9 @@ click the &gt;&gt;&gt; button to go to the "goal" page.</string>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rGD-Mt-mPn">
                                                         <rect key="frame" x="328" y="0.0" width="71" height="52"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="33"/>
-                                                        <state key="normal" title="+10s"/>
+                                                        <state key="normal" title="+10s">
+                                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        </state>
                                                         <connections>
                                                             <action selector="plusTenSecs:" destination="mtF-gf-NZo" eventType="touchUpInside" id="T8n-dm-kf4"/>
                                                         </connections>
@@ -1257,7 +1390,9 @@ click the &gt;&gt;&gt; button to go to the "goal" page.</string>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="D43-m3-P8y">
                                                         <rect key="frame" x="414" y="0.0" width="62" height="52"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="33"/>
-                                                        <state key="normal" title="+1m"/>
+                                                        <state key="normal" title="+1m">
+                                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        </state>
                                                         <connections>
                                                             <action selector="plusOneMins:" destination="mtF-gf-NZo" eventType="touchUpInside" id="hUT-dw-ySS"/>
                                                         </connections>
@@ -1265,7 +1400,9 @@ click the &gt;&gt;&gt; button to go to the "goal" page.</string>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XHT-h3-eiX">
                                                         <rect key="frame" x="491" y="0.0" width="82" height="52"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="33"/>
-                                                        <state key="normal" title="+10m"/>
+                                                        <state key="normal" title="+10m">
+                                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        </state>
                                                         <connections>
                                                             <action selector="plusTenMins:" destination="mtF-gf-NZo" eventType="touchUpInside" id="vyL-TY-2YF"/>
                                                         </connections>
@@ -1279,13 +1416,15 @@ click the &gt;&gt;&gt; button to go to the "goal" page.</string>
                                         <rect key="frame" x="109" y="226" width="201" height="60"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="50"/>
-                                        <nil key="textColor"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wDy-JV-QPp">
                                         <rect key="frame" x="377" y="470" width="37" height="66"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <state key="normal" title="Done"/>
+                                        <state key="normal" title="Done">
+                                            <color key="titleColor" name="systemGreenColor" catalog="System" colorSpace="catalog"/>
+                                        </state>
                                         <connections>
                                             <action selector="finishSetGoal:" destination="mtF-gf-NZo" eventType="touchUpInside" id="Pre-uz-jaX"/>
                                         </connections>
@@ -1293,7 +1432,9 @@ click the &gt;&gt;&gt; button to go to the "goal" page.</string>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BKD-it-epl">
                                         <rect key="frame" x="620" y="488" width="48" height="30"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <state key="normal" title="Cancel"/>
+                                        <state key="normal" title="Cancel">
+                                            <color key="titleColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
                                         <connections>
                                             <action selector="cancel:" destination="mtF-gf-NZo" eventType="touchUpInside" id="xRZ-Pb-RoD"/>
                                         </connections>

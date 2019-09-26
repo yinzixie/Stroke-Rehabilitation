@@ -173,8 +173,8 @@ class StatisticOverviewPage: UIViewController{
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "showDetailStatisticPage" {
             print("Going to show statistic details")
-            let statiticPage = segue.destination as! StatisticPage
-            statiticPage.modalTransitionStyle = UIModalTransitionStyle.crossDissolve
+            let statiticPage = segue.destination as! StatisticDetailsPage
+            //statiticPage.modalTransitionStyle = UIModalTransitionStyle.crossDissolve
             statiticPage.displayMissionList = normalCounterMissionListForSelectDay
             //UIModalTransitionStyleCrossDissolve
         }

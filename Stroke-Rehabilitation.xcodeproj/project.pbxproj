@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		2D01D3AD233C2966005424CA /* settingtest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D01D3AC233C2966005424CA /* settingtest.swift */; };
 		2D02D3C422E96DB3003A5279 /* MissionListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D02D3C322E96DB3003A5279 /* MissionListCell.swift */; };
 		2D02D3C822E96DFF003A5279 /* StatisticPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D02D3C722E96DFF003A5279 /* StatisticPage.swift */; };
 		2D02DF3922E7FB6100763334 /* UserListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D02DF3822E7FB6100763334 /* UserListCell.swift */; };
@@ -88,6 +87,19 @@
 		2D9F40032309526400932D8F /* PeripheralListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D9F40022309526400932D8F /* PeripheralListCell.swift */; };
 		2D9F400523095BB300932D8F /* UUIDKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D9F400423095BB200932D8F /* UUIDKey.swift */; };
 		2DCE904E23068EDC00B8ECE6 /* CoreBluetooth.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2DCE904D23068EDB00B8ECE6 /* CoreBluetooth.framework */; };
+		2DD505DE233C3DB700F4C0EF /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DD505D5233C3DB700F4C0EF /* Extensions.swift */; };
+		2DD505DF233C3DB700F4C0EF /* UICircularProgressRing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DD505D7233C3DB700F4C0EF /* UICircularProgressRing.swift */; };
+		2DD505E0233C3DB700F4C0EF /* UICircularProgressRingDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DD505D8233C3DB700F4C0EF /* UICircularProgressRingDelegate.swift */; };
+		2DD505E1233C3DB700F4C0EF /* UICircularRing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DD505D9233C3DB700F4C0EF /* UICircularRing.swift */; };
+		2DD505E2233C3DB700F4C0EF /* UICircularRingLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DD505DA233C3DB700F4C0EF /* UICircularRingLayer.swift */; };
+		2DD505E3233C3DB700F4C0EF /* UICircularRingStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DD505DB233C3DB700F4C0EF /* UICircularRingStyle.swift */; };
+		2DD505E4233C3DB700F4C0EF /* UICircularRingValueFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DD505DC233C3DB700F4C0EF /* UICircularRingValueFormatter.swift */; };
+		2DD505E5233C3DB700F4C0EF /* UICircularTimerRing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DD505DD233C3DB700F4C0EF /* UICircularTimerRing.swift */; };
+		2DD505EB233C47A800F4C0EF /* StatisticDetailsPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DD505EA233C47A800F4C0EF /* StatisticDetailsPage.swift */; };
+		2DD505ED233C482800F4C0EF /* MissionCardCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DD505EC233C482800F4C0EF /* MissionCardCell.swift */; };
+		2DD505F1233C4E5200F4C0EF /* CardStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DD505EE233C4E5200F4C0EF /* CardStackView.swift */; };
+		2DD505F2233C4E5200F4C0EF /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DD505EF233C4E5200F4C0EF /* CardView.swift */; };
+		2DD505F3233C4E5200F4C0EF /* PaginationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DD505F0233C4E5200F4C0EF /* PaginationView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -108,7 +120,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		2D01D3AC233C2966005424CA /* settingtest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = settingtest.swift; sourceTree = "<group>"; };
 		2D02D3C322E96DB3003A5279 /* MissionListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MissionListCell.swift; sourceTree = "<group>"; };
 		2D02D3C722E96DFF003A5279 /* StatisticPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatisticPage.swift; sourceTree = "<group>"; };
 		2D02DF3822E7FB6100763334 /* UserListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserListCell.swift; sourceTree = "<group>"; };
@@ -198,6 +209,20 @@
 		2D9F40022309526400932D8F /* PeripheralListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PeripheralListCell.swift; sourceTree = "<group>"; };
 		2D9F400423095BB200932D8F /* UUIDKey.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UUIDKey.swift; sourceTree = "<group>"; };
 		2DCE904D23068EDB00B8ECE6 /* CoreBluetooth.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreBluetooth.framework; path = System/Library/Frameworks/CoreBluetooth.framework; sourceTree = SDKROOT; };
+		2DD505D5233C3DB700F4C0EF /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		2DD505D6233C3DB700F4C0EF /* UICircularProgressRing.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UICircularProgressRing.h; sourceTree = "<group>"; };
+		2DD505D7233C3DB700F4C0EF /* UICircularProgressRing.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UICircularProgressRing.swift; sourceTree = "<group>"; };
+		2DD505D8233C3DB700F4C0EF /* UICircularProgressRingDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UICircularProgressRingDelegate.swift; sourceTree = "<group>"; };
+		2DD505D9233C3DB700F4C0EF /* UICircularRing.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UICircularRing.swift; sourceTree = "<group>"; };
+		2DD505DA233C3DB700F4C0EF /* UICircularRingLayer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UICircularRingLayer.swift; sourceTree = "<group>"; };
+		2DD505DB233C3DB700F4C0EF /* UICircularRingStyle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UICircularRingStyle.swift; sourceTree = "<group>"; };
+		2DD505DC233C3DB700F4C0EF /* UICircularRingValueFormatter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UICircularRingValueFormatter.swift; sourceTree = "<group>"; };
+		2DD505DD233C3DB700F4C0EF /* UICircularTimerRing.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UICircularTimerRing.swift; sourceTree = "<group>"; };
+		2DD505EA233C47A800F4C0EF /* StatisticDetailsPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatisticDetailsPage.swift; sourceTree = "<group>"; };
+		2DD505EC233C482800F4C0EF /* MissionCardCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MissionCardCell.swift; sourceTree = "<group>"; };
+		2DD505EE233C4E5200F4C0EF /* CardStackView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CardStackView.swift; sourceTree = "<group>"; };
+		2DD505EF233C4E5200F4C0EF /* CardView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
+		2DD505F0233C4E5200F4C0EF /* PaginationView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PaginationView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -232,6 +257,8 @@
 				2D02D3C722E96DFF003A5279 /* StatisticPage.swift */,
 				2D02D3C322E96DB3003A5279 /* MissionListCell.swift */,
 				2D0403AD2337636E00794EA8 /* StatisticOverviewPage.swift */,
+				2DD505EA233C47A800F4C0EF /* StatisticDetailsPage.swift */,
+				2DD505EC233C482800F4C0EF /* MissionCardCell.swift */,
 			);
 			path = StatisticPage;
 			sourceTree = "<group>";
@@ -259,7 +286,6 @@
 			children = (
 				2D040B4022E47956004D1659 /* GoalCounterPage.swift */,
 				2D040B4222E47CC0004D1659 /* GoalCounterSettingPage.swift */,
-				2D01D3AC233C2966005424CA /* settingtest.swift */,
 			);
 			path = GoalCounterPage;
 			sourceTree = "<group>";
@@ -354,6 +380,8 @@
 		2D0DDAC1233B534800674257 /* UI */ = {
 			isa = PBXGroup;
 			children = (
+				2DD505F4233C4E5600F4C0EF /* CardStackView */,
+				2DD505D4233C3DB700F4C0EF /* UICircularProgressRing */,
 				2D2E7FBC233B67A200E17CE5 /* BlurSegue */,
 				2D0DDAC4233B539600674257 /* ZFRippleButton */,
 				2D0403C22337775700794EA8 /* CalendarView */,
@@ -404,9 +432,9 @@
 		2D30577422E3FA6500EBF92B /* Stroke-Rehabilitation */ = {
 			isa = PBXGroup;
 			children = (
-				2D0A8526233B718D009AEB40 /* Spring */,
 				2D0DDAC1233B534800674257 /* UI */,
 				2D3057A622E3FFC500EBF92B /* Tool */,
+				2D0A8526233B718D009AEB40 /* Spring */,
 				2D02DF3C22E8063A00763334 /* Extension */,
 				2D3057AA22E409B600EBF92B /* Resources */,
 				2D040B3322E471CD004D1659 /* CoreStruct */,
@@ -512,6 +540,32 @@
 				2DCE904D23068EDB00B8ECE6 /* CoreBluetooth.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		2DD505D4233C3DB700F4C0EF /* UICircularProgressRing */ = {
+			isa = PBXGroup;
+			children = (
+				2DD505D5233C3DB700F4C0EF /* Extensions.swift */,
+				2DD505D6233C3DB700F4C0EF /* UICircularProgressRing.h */,
+				2DD505D7233C3DB700F4C0EF /* UICircularProgressRing.swift */,
+				2DD505D8233C3DB700F4C0EF /* UICircularProgressRingDelegate.swift */,
+				2DD505D9233C3DB700F4C0EF /* UICircularRing.swift */,
+				2DD505DA233C3DB700F4C0EF /* UICircularRingLayer.swift */,
+				2DD505DB233C3DB700F4C0EF /* UICircularRingStyle.swift */,
+				2DD505DC233C3DB700F4C0EF /* UICircularRingValueFormatter.swift */,
+				2DD505DD233C3DB700F4C0EF /* UICircularTimerRing.swift */,
+			);
+			path = UICircularProgressRing;
+			sourceTree = "<group>";
+		};
+		2DD505F4233C4E5600F4C0EF /* CardStackView */ = {
+			isa = PBXGroup;
+			children = (
+				2DD505EE233C4E5200F4C0EF /* CardStackView.swift */,
+				2DD505EF233C4E5200F4C0EF /* CardView.swift */,
+				2DD505F0233C4E5200F4C0EF /* PaginationView.swift */,
+			);
+			path = CardStackView;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -660,11 +714,16 @@
 				2D0A854F233B718E009AEB40 /* DesignableView.swift in Sources */,
 				2D0A854E233B718E009AEB40 /* DesignableTextView.swift in Sources */,
 				2D040B4122E47956004D1659 /* GoalCounterPage.swift in Sources */,
+				2DD505E1233C3DB700F4C0EF /* UICircularRing.swift in Sources */,
 				2D2E7FBB233B679F00E17CE5 /* UIImage+ImageEffects.m in Sources */,
+				2DD505E5233C3DB700F4C0EF /* UICircularTimerRing.swift in Sources */,
+				2DD505E3233C3DB700F4C0EF /* UICircularRingStyle.swift in Sources */,
 				2D048D2922E6B95600956E5A /* DBAdapter.swift in Sources */,
 				2D0403D02337775700794EA8 /* CalendarView+Delegate.swift in Sources */,
+				2DD505F2233C4E5200F4C0EF /* CardView.swift in Sources */,
 				2D040B4322E47CC0004D1659 /* GoalCounterSettingPage.swift in Sources */,
 				2D0A8556233B718E009AEB40 /* SoundPlayer.swift in Sources */,
+				2DD505DE233C3DB700F4C0EF /* Extensions.swift in Sources */,
 				2D040B2F22E46F31004D1659 /* TimeInfo.swift in Sources */,
 				2D0403CD2337775700794EA8 /* CalendarFlowLayout.swift in Sources */,
 				2D0DDAC3233B538E00674257 /* ZFRippleButton.swift in Sources */,
@@ -672,6 +731,8 @@
 				2D0A855B233B718E009AEB40 /* SpringLabel.swift in Sources */,
 				2D03673622E723EC004FA5DE /* UserListAndLoginPage.swift in Sources */,
 				2D0A8550233B718E009AEB40 /* ImageLoader.swift in Sources */,
+				2DD505EB233C47A800F4C0EF /* StatisticDetailsPage.swift in Sources */,
+				2DD505F3233C4E5200F4C0EF /* PaginationView.swift in Sources */,
 				2D040B3922E471CD004D1659 /* Button.swift in Sources */,
 				2D0A854B233B718E009AEB40 /* DesignableLabel.swift in Sources */,
 				2D0447012339A06A00F8F374 /* ExtensionUIView.swift in Sources */,
@@ -687,25 +748,28 @@
 				2D040B3A22E471CD004D1659 /* ButtonTriggerEvent.swift in Sources */,
 				2D0A8553233B718E009AEB40 /* LoadingView.swift in Sources */,
 				2D0A855C233B718E009AEB40 /* SpringTextField.swift in Sources */,
+				2DD505E0233C3DB700F4C0EF /* UICircularProgressRingDelegate.swift in Sources */,
 				2D0A854C233B718E009AEB40 /* DesignableTabBarController.swift in Sources */,
 				2D02DF4422E8063A00763334 /* ExtensionUIViewController.swift in Sources */,
 				2D9F4001230950C200932D8F /* BLEConnectionPage.swift in Sources */,
 				2D0403AE2337636E00794EA8 /* StatisticOverviewPage.swift in Sources */,
 				2D0A855A233B718E009AEB40 /* SpringImageView.swift in Sources */,
+				2DD505E4233C3DB700F4C0EF /* UICircularRingValueFormatter.swift in Sources */,
 				2D0A8555233B718E009AEB40 /* Misc.swift in Sources */,
 				2D0A8546233B718E009AEB40 /* AsyncImageView.swift in Sources */,
 				2D0403D12337775700794EA8 /* CalendarView+Extensions.swift in Sources */,
 				2D0A8560233B718E009AEB40 /* TransitionZoom.swift in Sources */,
 				2D048D2722E6B43600956E5A /* UserDefaultKeys.swift in Sources */,
 				2D02D3C422E96DB3003A5279 /* MissionListCell.swift in Sources */,
+				2DD505DF233C3DB700F4C0EF /* UICircularProgressRing.swift in Sources */,
 				2D02DF3B22E7FB7D00763334 /* AddNewUserCell.swift in Sources */,
 				2D040B3C22E471CD004D1659 /* Mission.swift in Sources */,
 				2D02D3C822E96DFF003A5279 /* StatisticPage.swift in Sources */,
 				2D040B3B22E471CD004D1659 /* CounterModel.swift in Sources */,
 				2D9F3FFE23094D7300932D8F /* BLEAdapter.swift in Sources */,
 				2D9F40032309526400932D8F /* PeripheralListCell.swift in Sources */,
-				2D01D3AD233C2966005424CA /* settingtest.swift in Sources */,
 				2D040B3F22E471F9004D1659 /* Alert.swift in Sources */,
+				2DD505F1233C4E5200F4C0EF /* CardStackView.swift in Sources */,
 				2D02DF4222E8063A00763334 /* ExtensionString.swift in Sources */,
 				2D0A8552233B718E009AEB40 /* KeyboardLayoutConstraint.swift in Sources */,
 				2D048D2522E6A96800956E5A /* NormalCounterMission.swift in Sources */,
@@ -714,6 +778,7 @@
 				2D040B3222E47190004D1659 /* SQLiteDatabase.swift in Sources */,
 				2D0403CF2337775700794EA8 /* CalendarView+DataSource.swift in Sources */,
 				2D040B3D22E471CD004D1659 /* Patient.swift in Sources */,
+				2DD505ED233C482800F4C0EF /* MissionCardCell.swift in Sources */,
 				2D0A855E233B718E009AEB40 /* SpringView.swift in Sources */,
 				2D0A8547233B718E009AEB40 /* AutoTextView.swift in Sources */,
 				2D0A8561233B718E009AEB40 /* UnwindSegue.swift in Sources */,
@@ -721,6 +786,7 @@
 				2D02DF4322E8063A00763334 /* ExtensionUIImage.swift in Sources */,
 				2D9F400523095BB300932D8F /* UUIDKey.swift in Sources */,
 				2D0A8549233B718E009AEB40 /* DesignableButton.swift in Sources */,
+				2DD505E2233C3DB700F4C0EF /* UICircularRingLayer.swift in Sources */,
 				2D0A8545233B718E009AEB40 /* AsyncButton.swift in Sources */,
 				2D0403D42337775700794EA8 /* EventsManager.swift in Sources */,
 				2D2E7FBA233B679F00E17CE5 /* AFBlurSegue.m in Sources */,
