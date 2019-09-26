@@ -100,6 +100,7 @@
 		2DD505F1233C4E5200F4C0EF /* CardStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DD505EE233C4E5200F4C0EF /* CardStackView.swift */; };
 		2DD505F2233C4E5200F4C0EF /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DD505EF233C4E5200F4C0EF /* CardView.swift */; };
 		2DD505F3233C4E5200F4C0EF /* PaginationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DD505F0233C4E5200F4C0EF /* PaginationView.swift */; };
+		2DD505F6233C798500F4C0EF /* UserSettingPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DD505F5233C798500F4C0EF /* UserSettingPage.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -223,6 +224,7 @@
 		2DD505EE233C4E5200F4C0EF /* CardStackView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CardStackView.swift; sourceTree = "<group>"; };
 		2DD505EF233C4E5200F4C0EF /* CardView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
 		2DD505F0233C4E5200F4C0EF /* PaginationView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PaginationView.swift; sourceTree = "<group>"; };
+		2DD505F5233C798500F4C0EF /* UserSettingPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserSettingPage.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -266,9 +268,10 @@
 		2D02DF3522E7FAC200763334 /* UserListAndLoginPage */ = {
 			isa = PBXGroup;
 			children = (
-				2D03673522E723EC004FA5DE /* UserListAndLoginPage.swift */,
 				2D02DF3822E7FB6100763334 /* UserListCell.swift */,
 				2D02DF3A22E7FB7D00763334 /* AddNewUserCell.swift */,
+				2DD505F5233C798500F4C0EF /* UserSettingPage.swift */,
+				2D03673522E723EC004FA5DE /* UserListAndLoginPage.swift */,
 			);
 			path = UserListAndLoginPage;
 			sourceTree = "<group>";
@@ -331,12 +334,12 @@
 			isa = PBXGroup;
 			children = (
 				2D040B3422E471CD004D1659 /* Button.swift */,
-				2D040B3522E471CD004D1659 /* ButtonTriggerEvent.swift */,
-				2D040B3622E471CD004D1659 /* CounterModel.swift */,
-				2D040B3722E471CD004D1659 /* Mission.swift */,
 				2D040B3822E471CD004D1659 /* Patient.swift */,
-				2D048D2422E6A96800956E5A /* NormalCounterMission.swift */,
+				2D040B3722E471CD004D1659 /* Mission.swift */,
+				2D040B3622E471CD004D1659 /* CounterModel.swift */,
 				2D048D2622E6B43600956E5A /* UserDefaultKeys.swift */,
+				2D040B3522E471CD004D1659 /* ButtonTriggerEvent.swift */,
+				2D048D2422E6A96800956E5A /* NormalCounterMission.swift */,
 			);
 			path = CoreStruct;
 			sourceTree = "<group>";
@@ -788,6 +791,7 @@
 				2D0A8549233B718E009AEB40 /* DesignableButton.swift in Sources */,
 				2DD505E2233C3DB700F4C0EF /* UICircularRingLayer.swift in Sources */,
 				2D0A8545233B718E009AEB40 /* AsyncButton.swift in Sources */,
+				2DD505F6233C798500F4C0EF /* UserSettingPage.swift in Sources */,
 				2D0403D42337775700794EA8 /* EventsManager.swift in Sources */,
 				2D2E7FBA233B679F00E17CE5 /* AFBlurSegue.m in Sources */,
 				2D06771C22EC329500CFC680 /* ExtensionDate.swift in Sources */,

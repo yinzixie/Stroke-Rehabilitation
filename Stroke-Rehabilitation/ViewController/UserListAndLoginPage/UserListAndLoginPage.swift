@@ -124,28 +124,49 @@ extension UserListAndLoginPage:UITableViewDataSource, UITableViewDelegate {
     
     func deleteAction(at indexPath: IndexPath)->UIContextualAction {
         let action = UIContextualAction(style:.normal, title: "Delete") {(action, view, completion) in
+            let defaults = UserDefaults.standard
+            let isProtection = defaults.bool(forKey:UserDefaultKeys.DeleteProtection)
             
-            //弹出确认窗口
-            let alert = UIAlertController(title: "Warning", message: "This action cannot be reversed.", preferredStyle: .alert)
-            alert.addAction(UIAlertAction(title: "Proceed", style: .default, handler: {
-                action in
-                //do something
-                if(DBAdapter.deletePatient(patient: DBAdapter.patientList[indexPath.row])) {
-                    self.userListTable.deleteRows(at: [indexPath], with: .automatic)
-                    print("Succeed delete user")
+            if(isProtection) {
+                //弹出确认窗口
+                let alert = UIAlertController(title: "Opration Denied", message: "Your account is under protection, turn off Delete Protection if you want delete user.", preferredStyle: .alert)
+                alert.addAction(UIAlertAction(title: "Dismiss", style: .default, handler: nil))
+                self.present(alert, animated: true, completion: nil)
+                
+            }else {
+                //判断是否为当前登陆账号
+                if(DBAdapter.patientList[indexPath.row].ID == DBAdapter.logPatient.ID) {
+                    //弹出确认窗口
+                    let alert = UIAlertController(title: "Opration Denied", message: "Please Log out to delete this account", preferredStyle: .alert)
+                    alert.addAction(UIAlertAction(title: "Dismiss", style: .default, handler: nil))
+                    self.present(alert, animated: true, completion: nil)
                 }else {
-                    //pop up message if failed to add new user
-                    let failedAlert = UIAlertController(title: "Delete user", message: "Failed to delete user", preferredStyle: .alert)
-                    failedAlert.addAction(UIAlertAction(title: "OK", style: .cancel, handler: { (action: UIAlertAction!) in
-                        //
+                    
+                    //弹出确认窗口
+                    let alert = UIAlertController(title: "Warning", message: "This action cannot be reversed.", preferredStyle: .alert)
+                    alert.addAction(UIAlertAction(title: "Proceed", style: .default, handler: {
+                        action in
+                        //do something
+                        if(DBAdapter.deletePatient(patient: DBAdapter.patientList[indexPath.row])) {
+                            self.userListTable.deleteRows(at: [indexPath], with: .automatic)
+                            print("Succeed delete user")
+                            self.reLoginUser = DBAdapter.patientList[indexPath.row-1]
+                            self.loginAsButton.setTitle("Login as " + self.reLoginUser!.Name + " (" + self.reLoginUser!.ID + ")", for: .normal)
+                        }else {
+                            //pop up message if failed to add new user
+                            let failedAlert = UIAlertController(title: "Delete user", message: "Failed to delete user", preferredStyle: .alert)
+                            failedAlert.addAction(UIAlertAction(title: "OK", style: .cancel, handler: { (action: UIAlertAction!) in
+                                //
+                            }))
+                            self.present(failedAlert, animated: true, completion: nil)
+                            print("Failed to delete user")
+                        }
+                        completion(true)
                     }))
-                    self.present(failedAlert, animated: true, completion: nil)
-                    print("Failed to delete user")
+                    alert.addAction(UIAlertAction(title: "Cancel", style: .default, handler: nil))
+                    self.present(alert, animated: true, completion: nil)
                 }
-                completion(true)
-            }))
-            alert.addAction(UIAlertAction(title: "Cancel", style: .default, handler: nil))
-            self.present(alert, animated: true, completion: nil)
+            }
         }
         
         action.image = UIImage(named:"delete@250*250")?.resizeImage(60, opaque: false)
@@ -243,6 +264,7 @@ extension UserListAndLoginPage:TellUserListTableAddAccount {
 extension UserListAndLoginPage:TellLoginPageSelectUser {
     func selectUser(id: String) {
         reLoginUser = DBAdapter.selectPatientByID(id: id)
-        loginAsButton.setTitle("Login as " + DBAdapter.selectPatientName(id: id)! + " (" + id + ")", for: .normal)
+        let name = reLoginUser?.Name ?? "NULL"
+        loginAsButton.setTitle("Login as " + name + " (" + id + ")", for: .normal)
     }
 }

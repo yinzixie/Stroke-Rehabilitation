@@ -12,6 +12,7 @@ class UserDefaultKeys {
     static let VisitorID = "000visitor"
     static let LoginUserID = "LoginUserID"
     static let LoginUserName = "LoginUserName"
+    static let DeleteProtection = "DeleteProtection"
     
     static let ArmButton = "ArmButton"
     static let TriggerButton = "TriggerButton"
