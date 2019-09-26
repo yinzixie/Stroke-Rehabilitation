@@ -25,6 +25,10 @@ class GoalCounterSettingPage: UIViewController {
     @IBOutlet weak var goalSettingArea: UIView!
     @IBOutlet weak var timerSettingArea: UIView!
     
+    @IBOutlet weak var cancelButton: UIButton!
+    @IBOutlet weak var saveButton: UIButton!
+    
+    
     var tellGoalCounterPageUpdate:TellGoalCounterPageUpdate?
     var goal = 0// Sets the goal label as an integer
  
@@ -33,7 +37,12 @@ class GoalCounterSettingPage: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
-         modalView.transform = CGAffineTransform(translationX: 0, y: 600)
+        saveButton.layer.borderWidth = 1
+        saveButton.layer.borderColor = UIColor.green.cgColor
+        cancelButton.layer.borderWidth = 1
+        cancelButton.layer.borderColor = UIColor.lightGray.cgColor
+        
+        modalView.transform = CGAffineTransform(translationX: 0, y: 600)
         //get preset data
         goal = DBAdapter.logPatient!.NormalCounterGoal
         timeMins = TimeInterval(DBAdapter.logPatient!.NormalCounterLimitTime)
