@@ -10,7 +10,7 @@ import UIKit
 import CoreBluetooth
 
 class GoalCounterPage: UIViewController{
-    
+    var darkMode = true
     @IBOutlet weak var goalLabel: UILabel!
     @IBOutlet weak var timerLabel: UILabel!
     @IBOutlet weak var progressBar: UIProgressView!
@@ -81,8 +81,11 @@ class GoalCounterPage: UIViewController{
         }else {
             print("Timer version(without any goal)")
         }
-        
-        
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(true)
+    
     }
     
     func runTimer() //runs the specified function (updateTimer) once every timeInterval (1 second)
@@ -366,5 +369,27 @@ extension GoalCounterPage:CBPeripheralManagerDelegate {
             print("\(error)")
             return
         }
+    }
+}
+
+extension GoalCounterPage {
+    
+    override var preferredStatusBarStyle : UIStatusBarStyle {
+        return darkMode ? .default : .lightContent
+    }
+    
+    @objc func minimizeView(_ sender: AnyObject) {
+        SpringAnimation.spring(duration: 0.7, animations: {
+            self.view.transform = CGAffineTransform(scaleX: 0.935, y: 0.935)
+        })
+       setNeedsStatusBarAppearanceUpdate() //setStatusBarStyle(UIStatusBarStyle.lightContent, animated: true)
+    }
+    
+    @objc func maximizeView(_ sender: AnyObject) {
+        SpringAnimation.spring(duration: 0.7, animations: {
+            self.view.transform = CGAffineTransform(scaleX: 1, y: 1)
+        })
+        setNeedsStatusBarAppearanceUpdate()
+        //UIApplication.shared.setStatusBarStyle(UIStatusBarStyle.default, animated: true)
     }
 }

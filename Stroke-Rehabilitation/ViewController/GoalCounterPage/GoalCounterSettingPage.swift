@@ -14,13 +14,13 @@ protocol TellGoalCounterPageUpdate {
 
 class GoalCounterSettingPage: UIViewController {
 
+    @IBOutlet weak var modalView: SpringView!
+    
     @IBOutlet weak var goalLabel: UILabel!
     @IBOutlet weak var timerLabel: UILabel!
     
     @IBOutlet weak var hideGoalAreaSwitch: UISwitch!
     @IBOutlet weak var hideTimerAreaSwitch: UISwitch!
-    
-    @IBOutlet weak var goalSettingStackView: UIStackView!
     
     @IBOutlet weak var goalSettingArea: UIView!
     @IBOutlet weak var timerSettingArea: UIView!
@@ -33,6 +33,7 @@ class GoalCounterSettingPage: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
+         modalView.transform = CGAffineTransform(translationX: 0, y: 600)
         //get preset data
         goal = DBAdapter.logPatient!.NormalCounterGoal
         timeMins = TimeInterval(DBAdapter.logPatient!.NormalCounterLimitTime)
@@ -48,6 +49,12 @@ class GoalCounterSettingPage: UIViewController {
             hideTimerAreaSwitch.setOn(false, animated: false)
             timerSettingArea.isHidden = true
         }
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(true)
+        UIApplication.shared.sendAction(#selector(GoalCounterPage.minimizeView(_:)), to: nil, from: self, for: nil)
+        modalView.animate()
     }
     
     @IBAction func hideGoalArea(_ sender: Any) {
@@ -189,11 +196,14 @@ class GoalCounterSettingPage: UIViewController {
         DBAdapter.logPatient.setPatientPresetGoal(normalGoal:goal, normalTime:Int(timeMins))
         DBAdapter.updatePatientNormalCounterPresetGoal(patient: DBAdapter.logPatient)
         tellGoalCounterPageUpdate?.updateMission()
+        
         self.dismiss(animated: true, completion: nil)
+        UIApplication.shared.sendAction(#selector(GoalCounterPage.maximizeView(_:)), to: nil, from: self, for: nil)
     }
     
     @IBAction func cancel(_ sender: Any) {
-         self.dismiss(animated: true, completion: nil)
+        dismiss(animated: true, completion: nil)
+        UIApplication.shared.sendAction(#selector(GoalCounterPage.maximizeView(_:)), to: nil, from: self, for: nil)
     }
     /*
     // MARK: - Navigation

@@ -29,7 +29,9 @@ class MissionListCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
-         backGroundView.cardView(radius: CGFloat(10))
+        backGroundView.cardView(radius: CGFloat(10))
+        //backGroundView.layer.animation(forKey: "squeezeRight")
+        //backGroundView.layer.animate()
     }
     
     func setLabels() {
