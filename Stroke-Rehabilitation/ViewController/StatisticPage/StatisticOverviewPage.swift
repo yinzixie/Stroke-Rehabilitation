@@ -174,7 +174,7 @@ class StatisticOverviewPage: UIViewController{
         if segue.identifier == "showDetailStatisticPage" {
             print("Going to show statistic details")
             let statiticPage = segue.destination as! StatisticDetailsPage
-            //statiticPage.modalTransitionStyle = UIModalTransitionStyle.crossDissolve
+            statiticPage.modalTransitionStyle = UIModalTransitionStyle.crossDissolve
             statiticPage.displayMissionList = normalCounterMissionListForSelectDay
             //UIModalTransitionStyleCrossDissolve
         }
@@ -214,7 +214,9 @@ extension StatisticOverviewPage: CalendarViewDataSource, CalendarViewDelegate{
             lastIndex -= 1
         }
         normalCounterMissionListForSelectDay = DBAdapter.selectNormalCounterMissionForDay(day: date)
-        normalCounterMissionListForLastDay = DBAdapter.selectNormalCounterMissionForDay(day: DBAdapter.logPatient.ExerciseLog[lastIndex])
+        if(DBAdapter.logPatient.ExerciseLog.count != 0) {
+            normalCounterMissionListForLastDay = DBAdapter.selectNormalCounterMissionForDay(day: DBAdapter.logPatient.ExerciseLog[lastIndex])
+        }
         
         setStatisticOverViewInformation()
         

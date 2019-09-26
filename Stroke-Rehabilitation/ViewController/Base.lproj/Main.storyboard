@@ -733,6 +733,92 @@ click the &gt;&gt;&gt; button to go to the "goal" page.</string>
                         <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8oX-wN-O0h" customClass="SpringView" customModule="Stroke_Rehabilitation" customModuleProvider="target">
+                                <rect key="frame" x="694" y="234" width="230" height="300"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="JNw-Kz-oDp">
+                                        <rect key="frame" x="0.0" y="0.0" width="230" height="70"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Month" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="83X-bW-Zcl">
+                                                <rect key="frame" x="55" y="11" width="120" height="48"/>
+                                                <fontDescription key="fontDescription" type="boldSystem" pointSize="40"/>
+                                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                        <color key="backgroundColor" name="systemRedColor" catalog="System" colorSpace="catalog"/>
+                                        <constraints>
+                                            <constraint firstItem="83X-bW-Zcl" firstAttribute="centerX" secondItem="JNw-Kz-oDp" secondAttribute="centerX" id="Q79-u0-qgQ"/>
+                                            <constraint firstItem="83X-bW-Zcl" firstAttribute="centerY" secondItem="JNw-Kz-oDp" secondAttribute="centerY" id="tr2-Kk-TgO"/>
+                                            <constraint firstAttribute="height" constant="70" id="vHX-Ze-YyO"/>
+                                        </constraints>
+                                    </view>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aJ7-oH-URi">
+                                        <rect key="frame" x="0.0" y="240" width="230" height="60"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0000" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Lny-Dm-bHC">
+                                                <rect key="frame" x="75" y="12" width="80.5" height="36"/>
+                                                <fontDescription key="fontDescription" type="boldSystem" pointSize="30"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstItem="Lny-Dm-bHC" firstAttribute="centerX" secondItem="aJ7-oH-URi" secondAttribute="centerX" id="7Ka-tW-78g"/>
+                                            <constraint firstAttribute="height" constant="60" id="97r-lu-mlS"/>
+                                            <constraint firstItem="Lny-Dm-bHC" firstAttribute="centerY" secondItem="aJ7-oH-URi" secondAttribute="centerY" id="I9O-pF-AaE"/>
+                                        </constraints>
+                                    </view>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="YMZ-Z3-Lui">
+                                        <rect key="frame" x="0.0" y="70" width="230" height="170"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tlk-39-CUD">
+                                                <rect key="frame" x="75" y="20" width="80" height="72"/>
+                                                <fontDescription key="fontDescription" type="boldSystem" pointSize="60"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="WeekDay" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NHR-la-P6W">
+                                                <rect key="frame" x="50" y="97" width="130" height="36"/>
+                                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="30"/>
+                                                <color key="textColor" name="systemRedColor" catalog="System" colorSpace="catalog"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstItem="NHR-la-P6W" firstAttribute="centerX" secondItem="YMZ-Z3-Lui" secondAttribute="centerX" id="91f-IA-2aB"/>
+                                            <constraint firstItem="tlk-39-CUD" firstAttribute="top" secondItem="YMZ-Z3-Lui" secondAttribute="top" constant="20" id="Bl1-jl-BY8"/>
+                                            <constraint firstItem="NHR-la-P6W" firstAttribute="top" secondItem="tlk-39-CUD" secondAttribute="bottom" constant="5" id="T7C-18-2O2"/>
+                                            <constraint firstItem="tlk-39-CUD" firstAttribute="centerX" secondItem="YMZ-Z3-Lui" secondAttribute="centerX" id="y3O-XL-SyB"/>
+                                        </constraints>
+                                    </view>
+                                </subviews>
+                                <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstItem="aJ7-oH-URi" firstAttribute="top" secondItem="YMZ-Z3-Lui" secondAttribute="bottom" id="09w-Qy-wV8"/>
+                                    <constraint firstItem="YMZ-Z3-Lui" firstAttribute="top" secondItem="JNw-Kz-oDp" secondAttribute="bottom" id="1q9-MT-gHI"/>
+                                    <constraint firstAttribute="trailing" secondItem="YMZ-Z3-Lui" secondAttribute="trailing" id="CdN-Wg-r5z"/>
+                                    <constraint firstItem="JNw-Kz-oDp" firstAttribute="leading" secondItem="8oX-wN-O0h" secondAttribute="leading" id="Eqc-8T-ikt"/>
+                                    <constraint firstItem="JNw-Kz-oDp" firstAttribute="top" secondItem="8oX-wN-O0h" secondAttribute="top" id="GRr-EP-Jqf"/>
+                                    <constraint firstAttribute="trailing" secondItem="JNw-Kz-oDp" secondAttribute="trailing" id="TNH-eO-rag"/>
+                                    <constraint firstAttribute="width" constant="230" id="UO7-OT-8DB"/>
+                                    <constraint firstItem="aJ7-oH-URi" firstAttribute="leading" secondItem="8oX-wN-O0h" secondAttribute="leading" id="a3i-dL-4i4"/>
+                                    <constraint firstAttribute="trailing" secondItem="aJ7-oH-URi" secondAttribute="trailing" id="ceJ-VC-6CK"/>
+                                    <constraint firstItem="YMZ-Z3-Lui" firstAttribute="leading" secondItem="8oX-wN-O0h" secondAttribute="leading" id="hkf-zW-nPC"/>
+                                    <constraint firstAttribute="bottom" secondItem="aJ7-oH-URi" secondAttribute="bottom" id="qYg-8F-lZW"/>
+                                    <constraint firstAttribute="height" constant="300" id="xB7-nF-fN6"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="autostart" value="NO"/>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="animation" value="squeezeLeft"/>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="duration">
+                                        <real key="value" value="2"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="autohide" value="YES"/>
+                                </userDefinedRuntimeAttributes>
+                            </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="W7h-0M-x8r" customClass="SpringView" customModule="Stroke_Rehabilitation" customModuleProvider="target">
                                 <rect key="frame" x="10" y="30" width="500" height="748"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -740,7 +826,11 @@ click the &gt;&gt;&gt; button to go to the "goal" page.</string>
                                     <constraint firstAttribute="width" constant="500" id="3Db-jM-0aj"/>
                                 </constraints>
                                 <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="string" keyPath="animation" value="squezzeRight"/>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="animation" value="squeezeRight"/>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="autohide" value="YES"/>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="duration">
+                                        <real key="value" value="2"/>
+                                    </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qDa-AB-fJ5">
@@ -755,13 +845,22 @@ click the &gt;&gt;&gt; button to go to the "goal" page.</string>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="W7h-0M-x8r" firstAttribute="leading" secondItem="un4-dn-oDL" secondAttribute="leading" constant="10" id="EPk-4y-Uzp"/>
+                            <constraint firstItem="un4-dn-oDL" firstAttribute="trailing" secondItem="8oX-wN-O0h" secondAttribute="trailing" constant="100" id="Kf8-2u-957"/>
                             <constraint firstItem="W7h-0M-x8r" firstAttribute="bottom" secondItem="un4-dn-oDL" secondAttribute="bottom" constant="10" id="M9H-0Y-dSx"/>
+                            <constraint firstItem="8oX-wN-O0h" firstAttribute="centerY" secondItem="7Eu-ic-6wf" secondAttribute="centerY" id="ZCg-rB-3Aw"/>
                             <constraint firstItem="W7h-0M-x8r" firstAttribute="top" secondItem="un4-dn-oDL" secondAttribute="top" constant="10" id="dNN-oe-mhF"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="un4-dn-oDL"/>
                     </view>
                     <connections>
+                        <outlet property="calendarCardView" destination="8oX-wN-O0h" id="xNW-AP-dlL"/>
+                        <outlet property="calendarMonththView" destination="JNw-Kz-oDp" id="qnv-rq-SL2"/>
+                        <outlet property="calendarYearView" destination="aJ7-oH-URi" id="qmx-df-ioS"/>
                         <outlet property="cardView" destination="W7h-0M-x8r" id="C7X-FN-K4B"/>
+                        <outlet property="dayLabel" destination="tlk-39-CUD" id="ic8-aD-2kj"/>
+                        <outlet property="monthLabel" destination="83X-bW-Zcl" id="3Qi-ZA-96O"/>
+                        <outlet property="weekdayLabel" destination="NHR-la-P6W" id="OW5-T0-Ww9"/>
+                        <outlet property="yearLabel" destination="Lny-Dm-bHC" id="Aje-Im-HcN"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mYv-Qo-ROa" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -810,14 +909,6 @@ click the &gt;&gt;&gt; button to go to the "goal" page.</string>
                                 <state key="normal" title="reset"/>
                                 <connections>
                                     <action selector="reset:" destination="5di-1x-6dG" eventType="touchUpInside" id="Iyy-hk-qe8"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="11B-HP-Vaz">
-                                <rect key="frame" x="937" y="34" width="39" height="40"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Button" image="Settings"/>
-                                <connections>
-                                    <segue destination="mtF-gf-NZo" kind="presentation" identifier="goToGoalCounterSettingPage" animates="NO" modalPresentationStyle="overCurrentContext" id="WEg-Nd-4Fj"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sHV-oc-trh">
@@ -923,6 +1014,14 @@ click the &gt;&gt;&gt; button to go to the "goal" page.</string>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </view>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="11B-HP-Vaz">
+                                <rect key="frame" x="239" y="42" width="39" height="40"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button" image="Settings"/>
+                                <connections>
+                                    <segue destination="mtF-gf-NZo" kind="presentation" identifier="goToGoalCounterSettingPage" animates="NO" modalPresentationStyle="overCurrentContext" id="WEg-Nd-4Fj"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
@@ -995,33 +1094,6 @@ click the &gt;&gt;&gt; button to go to the "goal" page.</string>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                     </textView>
-                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SD1-zd-esk" customClass="ZFRippleButton" customModule="Stroke_Rehabilitation" customModuleProvider="target">
-                                        <rect key="frame" x="564" y="275" width="292" height="67"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <color key="backgroundColor" name="systemGreenColor" catalog="System" colorSpace="catalog"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="30"/>
-                                        <state key="normal" title="Show Statistics">
-                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        </state>
-                                        <userDefinedRuntimeAttributes>
-                                            <userDefinedRuntimeAttribute type="boolean" keyPath="trackTouchLocation" value="YES"/>
-                                            <userDefinedRuntimeAttribute type="color" keyPath="rippleBackgroundColor">
-                                                <color key="value" red="0.0" green="0.64990903253424659" blue="0.25490196078431371" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                            </userDefinedRuntimeAttribute>
-                                            <userDefinedRuntimeAttribute type="color" keyPath="rippleColor">
-                                                <color key="value" red="0.15686274509803921" green="0.54505565068493156" blue="0.25490196078431371" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                            </userDefinedRuntimeAttribute>
-                                            <userDefinedRuntimeAttribute type="number" keyPath="buttonCornerRadius">
-                                                <real key="value" value="5"/>
-                                            </userDefinedRuntimeAttribute>
-                                            <userDefinedRuntimeAttribute type="boolean" keyPath="shadowRippleEnable" value="YES"/>
-                                        </userDefinedRuntimeAttributes>
-                                        <connections>
-                                            <segue destination="DFh-Ym-NzS" kind="popoverPresentation" identifier="" popoverAnchorView="SD1-zd-esk" id="NXC-h5-EzT">
-                                                <popoverArrowDirection key="popoverArrowDirection" up="YES" down="YES" left="YES" right="YES"/>
-                                            </segue>
-                                        </connections>
-                                    </button>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="37c-Qi-qJG" customClass="ZFRippleButton" customModule="Stroke_Rehabilitation" customModuleProvider="target">
                                         <rect key="frame" x="39" y="615" width="468" height="67"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -1142,6 +1214,33 @@ click the &gt;&gt;&gt; button to go to the "goal" page.</string>
                                             <outlet property="delegate" destination="7eF-hD-mGw" id="GIJ-m6-qNI"/>
                                         </connections>
                                     </tableView>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SD1-zd-esk" customClass="ZFRippleButton" customModule="Stroke_Rehabilitation" customModuleProvider="target">
+                                        <rect key="frame" x="98" y="8" width="292" height="67"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <color key="backgroundColor" name="systemGreenColor" catalog="System" colorSpace="catalog"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                        <state key="normal" title="Show Statistics">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="boolean" keyPath="trackTouchLocation" value="YES"/>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="rippleBackgroundColor">
+                                                <color key="value" red="0.0" green="0.64990903253424659" blue="0.25490196078431371" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="rippleColor">
+                                                <color key="value" red="0.15686274509803921" green="0.54505565068493156" blue="0.25490196078431371" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="buttonCornerRadius">
+                                                <real key="value" value="5"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="boolean" keyPath="shadowRippleEnable" value="YES"/>
+                                        </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <segue destination="DFh-Ym-NzS" kind="popoverPresentation" identifier="" popoverAnchorView="SD1-zd-esk" id="NXC-h5-EzT">
+                                                <popoverArrowDirection key="popoverArrowDirection" up="YES" down="YES" left="YES" right="YES"/>
+                                            </segue>
+                                        </connections>
+                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <userDefinedRuntimeAttributes>
@@ -1419,16 +1518,6 @@ click the &gt;&gt;&gt; button to go to the "goal" page.</string>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wDy-JV-QPp">
-                                        <rect key="frame" x="377" y="470" width="37" height="66"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <state key="normal" title="Done">
-                                            <color key="titleColor" name="systemGreenColor" catalog="System" colorSpace="catalog"/>
-                                        </state>
-                                        <connections>
-                                            <action selector="finishSetGoal:" destination="mtF-gf-NZo" eventType="touchUpInside" id="Pre-uz-jaX"/>
-                                        </connections>
-                                    </button>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BKD-it-epl">
                                         <rect key="frame" x="620" y="488" width="48" height="30"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -1446,6 +1535,16 @@ click the &gt;&gt;&gt; button to go to the "goal" page.</string>
                                             <action selector="hideTimeArea:" destination="mtF-gf-NZo" eventType="valueChanged" id="n2z-JM-F7J"/>
                                         </connections>
                                     </switch>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wDy-JV-QPp">
+                                        <rect key="frame" x="357" y="26" width="37" height="66"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <state key="normal" title="Done">
+                                            <color key="titleColor" name="systemGreenColor" catalog="System" colorSpace="catalog"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="finishSetGoal:" destination="mtF-gf-NZo" eventType="touchUpInside" id="Pre-uz-jaX"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" red="0.23921568630000001" green="0.25882352939999997" blue="0.30588235289999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
