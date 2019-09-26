@@ -110,14 +110,14 @@ class GoalCounterPage: UIViewController{
             if countdown == 0
             {
                 missionFinshed()
+                let appearance = SCLAlertView.SCLAppearance(
+                    showCloseButton: false,
+                    dynamicAnimatorActive: true
+                )
+                let alertView = SCLAlertView(appearance: appearance)
+                 let timer_temp = SCLAlertView.SCLTimeoutConfiguration.init(timeoutValue: 5, timeoutAction: {})
+                alertView.showNotice("Time Out", subTitle: "Task finished, it's not bad, why not try it again?",timeout:timer_temp)
                 
-                let alert = UIAlertController(title: "Time's Up!", message: "Your timer has ended. Tap finish to bring up the goal page or Reset to start again.", preferredStyle: .alert)
-                
-                alert.addAction(UIAlertAction(title: "Finish", style: .default, handler: {(alert: UIAlertAction!) in
-                    self.dismiss(animated: true, completion: nil)
-                })) //back to normal counter page
-                alert.addAction(UIAlertAction(title: "Reset", style: .default, handler: {(alert: UIAlertAction!) in self.reset()}))
-                self.present(alert, animated: true)//presents the alert
             }
         }else {
             countdown += 1
@@ -173,29 +173,16 @@ class GoalCounterPage: UIViewController{
             if mission.AimGoal > 0 && displayCount == 0
             {
                 missionFinshed()
-                
-                let alert = UIAlertController(title: "Congratulations!", message: "You have completed your target reps.", preferredStyle: .alert)
-                
-                alert.addAction(UIAlertAction(title: "Back", style: .default, handler: {(alert: UIAlertAction!) in
-                    self.dismiss(animated: true, completion: nil)
-                })) //back to normal counter page
-                alert.addAction(UIAlertAction(title: "Redo", style: .default, handler: {(alert: UIAlertAction!) in self.reset()}))
-                self.present(alert, animated: true)//presents the alert
+                let appearance = SCLAlertView.SCLAppearance(
+                    showCloseButton: false
+                )
+                let alertView = SCLAlertView(appearance: appearance)
+                let timer_temp = SCLAlertView.SCLTimeoutConfiguration.init(timeoutValue: 5, timeoutAction: {})
+                alertView.showSuccess("Congratulations", subTitle: "You have completed your target reps", timeout: timer_temp)
             }
         }
     }
-    
-    func reset() -> Void //resets the goal and timer values to their starting values and refreshes the labels
-    {
-        resetTimer()
-        firstArm = true
-        
-        displayCount = mission.AimGoal
-        countdown = TimeInterval(mission.AimTime)
-        goalLabel.text = String(displayCount)
-        timerLabel.text = TimerFormattor.formatter.string(from: countdown)
-    }
-    
+   
     @IBAction func armButton(_ sender: AnyObject) { //links our arm button and tells it to run the arm function when pressed
         audioPlayer.playSound(fileName: "First_Tone", fileType: "mp3")
         let armButton = Button(id: UserDefaultKeys.ArmButton)
@@ -214,31 +201,57 @@ class GoalCounterPage: UIViewController{
         trigger()
     }
     
-    @IBAction func reset(_ sender: Any) {
+    @IBAction func endMissionButtonTrigger(_ sender: Any) {
         //judge wether is in mission
-        if(true) {
+        if(missionInProcess) {
             //pop up alert "you haven't finished your task"
-            if(Alert.yesOrNoAlert(title:"Message", message:"Finish this task?",view:self)) {
-                print("yes")
-                
-            }else {
-                
-                print("No")
+            let appearance = SCLAlertView.SCLAppearance(
+                showCloseButton: false,
+                dynamicAnimatorActive: true
+            )
+            let alertView = SCLAlertView(appearance: appearance)
+            alertView.addButton("YES"){
+                self.missionFinshed()
             }
+            alertView.addButton("NO"){
             
-            
-            //choose yes
-            
+            }
+            alertView.showNotice("Notice", subTitle: "Finish this task right now?")
         }else {
-            //if in timer version without goal
-            //save mission
-           
-            
-            
+             reset()
         }
-        
-        //
-        reset()
+    }
+    
+    @IBAction func resetButtonTrigger(_ sender: Any) {
+        //pop up alert "you haven't finished your task"
+        if(missionInProcess) {
+            let appearance = SCLAlertView.SCLAppearance(
+                showCloseButton: false,
+                dynamicAnimatorActive: true
+            )
+            let alertView = SCLAlertView(appearance: appearance)
+            alertView.addButton("Continue"){
+                self.reset()
+            }
+            alertView.addButton("Cancle"){
+                
+            }
+            alertView.showNotice("Notice", subTitle: "Reset task will discard this mission's recording data")
+        }else {
+            reset()
+        }
+    }
+    
+    
+    func reset() -> Void //resets the goal and timer values to their starting values and refreshes the labels
+    {
+        resetTimer()
+        missionInProcess = false
+        firstArm = true
+        displayCount = mission.AimGoal
+        countdown = TimeInterval(mission.AimTime)
+        goalLabel.text = String(displayCount)
+        timerLabel.text = TimerFormattor.formatter.string(from: countdown)
     }
     
     func missionStart() {
@@ -248,20 +261,33 @@ class GoalCounterPage: UIViewController{
     }
     
     func missionFinshed(){
-        resetTimer()
-        missionInProcess = false
+        reset()
+        //resetTimer()
+        //missionInProcess = false
         //make sure user exactly did some press
         if(mission.ButtonTriggerEventList.count != 0) {
             mission.FinalTime = TimeInfo.getStamp()
             mission.FinalAchievement = realCount
            
             if(DBAdapter.insertNormalCounterMission(mission: mission)) {
-                print("Succeed to save statistic data")
                 DBAdapter.refreshlogPatientData()
+                print("Succeed to save statistic data")
+                let appearance = SCLAlertView.SCLAppearance(
+                    showCloseButton: false
+                )
+                let alertView = SCLAlertView(appearance: appearance)
+                let timer_temp = SCLAlertView.SCLTimeoutConfiguration.init(timeoutValue: 2, timeoutAction: {})
+                alertView.showSuccess("Congratulations", subTitle: "Succeed save data", timeout: timer_temp)
+              
             }else {
                 print("Failed to save statistic data")
+                let appearance = SCLAlertView.SCLAppearance(
+                    showCloseButton: false
+                )
+                let alertView = SCLAlertView(appearance: appearance)
+                let timer_temp = SCLAlertView.SCLTimeoutConfiguration.init(timeoutValue: 2, timeoutAction: {})
+                alertView.showError("Error", subTitle: "Unknow error.Failed saving data", timeout: timer_temp)
             }
-            
         }else {
             print("No data need to be stored")
         }

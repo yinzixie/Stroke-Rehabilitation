@@ -129,12 +129,12 @@ extension UserListAndLoginPage:UITableViewDataSource, UITableViewDelegate {
             
             if(isProtection) {
                 //pop up operation denied message
-                _ = SCLAlertView().showWarning("Opration Denied", subTitle: "Your account is under protection, turn off Delete Protection if you want delete user")
+                _ = SCLAlertView().showWarning("Operation Denied", subTitle: "Your account is under protection, turn off Delete Protection if you want delete user")
             }else {
                 //判断是否为当前登陆账号
                 if(DBAdapter.patientList[indexPath.row].ID == DBAdapter.logPatient.ID) {
                     //pop up operation denied message
-                   _ = SCLAlertView().showWarning("Opration Denied", subTitle: "Please Log out to delete this account")
+                   _ = SCLAlertView().showWarning("Operation Denied", subTitle: "Please Log out to delete this account")
                 }else {
                     let appearance = SCLAlertView.SCLAppearance(
                         showCloseButton: false
@@ -158,30 +158,6 @@ extension UserListAndLoginPage:UITableViewDataSource, UITableViewDelegate {
                         
                     }
                     alertView.showWarning("Warning", subTitle: "This action cannot be reversed")
-
-                    //弹出确认窗口
-              /*      let alert = UIAlertController(title: "Warning", message: "This action cannot be reversed.", preferredStyle: .alert)
-                    alert.addAction(UIAlertAction(title: "Proceed", style: .default, handler: {
-                        action in
-                        //do something
-                        if(DBAdapter.deletePatient(patient: DBAdapter.patientList[indexPath.row])) {
-                            self.userListTable.deleteRows(at: [indexPath], with: .automatic)
-                            print("Succeed delete user")
-                            self.reLoginUser = DBAdapter.patientList[indexPath.row-1]
-                            self.loginAsButton.setTitle("Login as " + self.reLoginUser!.Name + " (" + self.reLoginUser!.ID + ")", for: .normal)
-                        }else {
-                            //pop up message if failed to add new user
-                            let failedAlert = UIAlertController(title: "Delete user", message: "Failed to delete user", preferredStyle: .alert)
-                            failedAlert.addAction(UIAlertAction(title: "OK", style: .cancel, handler: { (action: UIAlertAction!) in
-                                //
-                            }))
-                            self.present(failedAlert, animated: true, completion: nil)
-                            print("Failed to delete user")
-                        }
-                        completion(true)
-                    }))
-                    alert.addAction(UIAlertAction(title: "Cancel", style: .default, handler: nil))
-                    self.present(alert, animated: true, completion: nil)*/
                 }
             }
         }
@@ -206,11 +182,11 @@ extension UserListAndLoginPage:UITableViewDataSource, UITableViewDelegate {
             print("Name value: \(nameText.text ?? "NA")")
             print("ID value: \(idText.text ?? "NA")")
             guard let newUserName = nameText.text else {
-                _ = SCLAlertView().showWarning("Warning", subTitle: "Name and idd can't be empty")
+                _ = SCLAlertView().showWarning("Warning", subTitle: "Name and ID can't be empty")
                 return
             }
             guard let newUserID = idText.text else {
-                _ = SCLAlertView().showWarning("Warning", subTitle: "Name and idd can't be empty")
+                _ = SCLAlertView().showWarning("Warning", subTitle: "Name and ID can't be empty")
                 return
             }
             //check name and id 是否为空
@@ -248,81 +224,7 @@ extension UserListAndLoginPage:UITableViewDataSource, UITableViewDelegate {
         }
         _ = alert.addButton("Cancle") {}
         _ = alert.showEdit("Create New User", subTitle:"Type name and ID for new user")
-        
-        //1. Create the alert controller.
-        /*let addNewUserAlert = UIAlertController(title: "Add new user", message: "Type user's (unique) ID and Name", preferredStyle: .alert)
-        
-        //2. Add the text field.
-        addNewUserAlert.addTextField(configurationHandler: { (textField) -> Void in
-            textField.placeholder = "ID:can't be empty!"})
-        addNewUserAlert.addTextField(configurationHandler: { (textField) -> Void in
-            textField.placeholder = "Name:can't be empty!"
-        })
-        
-        //3. Grab the value from the text field, and print it when the user clicks OK.
-        addNewUserAlert.addAction(UIAlertAction(title: "OK", style: .default, handler: { [weak addNewUserAlert] (action) -> Void in
-            //let textField = addNewMoodAlert?.textFields![0] as! UITextField
-            //print("Text field: \(textField.text)")
-            
-            let newUserID = addNewUserAlert?.textFields![0].text!
-            let newUserName = addNewUserAlert?.textFields![1].text!
-            
-            if(newUserID != "" && newUserName != "") {
-                //check weather the id is repeated. if no, continue
-                if (DBAdapter.isUserIDExist(id: newUserID!)) {
-                    //pop up alert
-                    let repeatedAlert = UIAlertController(title: "Warning", message: "This ID already exists", preferredStyle: .alert)
-                    repeatedAlert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: { (action: UIAlertAction!) in
-                        //print("Repeated name")
-                    }))
-                    self.present(repeatedAlert, animated: true, completion: nil)
-                }else {
-                    let newPatient = Patient()
-                    newPatient.ID = newUserID!
-                    newPatient.Name = newUserName!
-                    if(DBAdapter.addPatient(patient: newPatient)) {
-                        print("Succeed add new user")
-                        DBAdapter.refreshlogPatient(patient:newPatient)
-                        //set label text
-                        self.helloLabel.text = "Hello " + DBAdapter.logPatient.Name
-                        //reload userlist
-                        self.userListTable.beginUpdates()
-                        self.userListTable.reloadData()
-                        self.userListTable.endUpdates()
-                        print("Auto login as " + DBAdapter.logPatient.ID)
-                        
-                        let alert = SCLAlertView()
-                        _ = alert.showSuccess("Congratulations", subTitle: "Succeed add new user")
-                    }else {
-                        //pop up message if failed to add new user
-                        let failedAlert = UIAlertController(title: "Add new user", message: "Failed to add new user", preferredStyle: .alert)
-                        failedAlert.addAction(UIAlertAction(title: "OK", style: .cancel, handler: { (action: UIAlertAction!) in
-                            //
-                        }))
-                        self.present(failedAlert, animated: true, completion: nil)
-                        print("Failed add new user")
-                    }
-                }
-            }else {
-                let notificationAlert = UIAlertController(title: "Add new user", message: "Error: please fill in both fields.", preferredStyle: .alert)
-                notificationAlert.addAction(UIAlertAction(title: "OK", style: .cancel, handler: { (action: UIAlertAction!) in
-                    //
-                }))
-                self.present(notificationAlert, animated: true, completion: nil)
-                print("User didn't fill the information correctly")
-            }
-        }))
-        
-        //cancel button
-        addNewUserAlert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: { (action: UIAlertAction!) in
-            print("User canceled add a new user")
-        }))
-        
-        // 4. Present the alert.
-        self.present(addNewUserAlert, animated: true, completion: nil)*/
     }
-    
-    
 }
 
 extension UserListAndLoginPage:TellUserListTableAddAccount {
