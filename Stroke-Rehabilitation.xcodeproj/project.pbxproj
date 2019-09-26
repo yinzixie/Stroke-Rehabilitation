@@ -41,6 +41,8 @@
 		2D048D2922E6B95600956E5A /* DBAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D048D2822E6B95600956E5A /* DBAdapter.swift */; };
 		2D048D2B22E6C9F600956E5A /* TimerFormattor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D048D2A22E6C9F600956E5A /* TimerFormattor.swift */; };
 		2D06771C22EC329500CFC680 /* ExtensionDate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D06771B22EC329500CFC680 /* ExtensionDate.swift */; };
+		2D08F65D233CA6D1009946DF /* SCLAlertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D08F65A233CA6D1009946DF /* SCLAlertView.swift */; };
+		2D08F65E233CA6D1009946DF /* SCLExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D08F65B233CA6D1009946DF /* SCLExtensions.swift */; };
 		2D0A8545233B718E009AEB40 /* AsyncButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D0A8527233B718D009AEB40 /* AsyncButton.swift */; };
 		2D0A8546233B718E009AEB40 /* AsyncImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D0A8528233B718D009AEB40 /* AsyncImageView.swift */; };
 		2D0A8547233B718E009AEB40 /* AutoTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D0A8529233B718D009AEB40 /* AutoTextView.swift */; };
@@ -155,6 +157,8 @@
 		2D048D2822E6B95600956E5A /* DBAdapter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DBAdapter.swift; sourceTree = "<group>"; };
 		2D048D2A22E6C9F600956E5A /* TimerFormattor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerFormattor.swift; sourceTree = "<group>"; };
 		2D06771B22EC329500CFC680 /* ExtensionDate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExtensionDate.swift; sourceTree = "<group>"; };
+		2D08F65A233CA6D1009946DF /* SCLAlertView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SCLAlertView.swift; sourceTree = "<group>"; };
+		2D08F65B233CA6D1009946DF /* SCLExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SCLExtensions.swift; sourceTree = "<group>"; };
 		2D0A8527233B718D009AEB40 /* AsyncButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AsyncButton.swift; sourceTree = "<group>"; };
 		2D0A8528233B718D009AEB40 /* AsyncImageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AsyncImageView.swift; sourceTree = "<group>"; };
 		2D0A8529233B718D009AEB40 /* AutoTextView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AutoTextView.swift; sourceTree = "<group>"; };
@@ -344,6 +348,15 @@
 			path = CoreStruct;
 			sourceTree = "<group>";
 		};
+		2D08F658233CA6D1009946DF /* SCLAlertView */ = {
+			isa = PBXGroup;
+			children = (
+				2D08F65A233CA6D1009946DF /* SCLAlertView.swift */,
+				2D08F65B233CA6D1009946DF /* SCLExtensions.swift */,
+			);
+			path = SCLAlertView;
+			sourceTree = "<group>";
+		};
 		2D0A8526233B718D009AEB40 /* Spring */ = {
 			isa = PBXGroup;
 			children = (
@@ -383,6 +396,7 @@
 		2D0DDAC1233B534800674257 /* UI */ = {
 			isa = PBXGroup;
 			children = (
+				2D08F658233CA6D1009946DF /* SCLAlertView */,
 				2DD505F4233C4E5600F4C0EF /* CardStackView */,
 				2DD505D4233C3DB700F4C0EF /* UICircularProgressRing */,
 				2D2E7FBC233B67A200E17CE5 /* BlurSegue */,
@@ -741,6 +755,7 @@
 				2D0447012339A06A00F8F374 /* ExtensionUIView.swift in Sources */,
 				2D0403CC2337775700794EA8 /* CalendarDayCell.swift in Sources */,
 				2D3057A822E4000E00EBF92B /* AudioEffectController.swift in Sources */,
+				2D08F65E233CA6D1009946DF /* SCLExtensions.swift in Sources */,
 				2D0A854A233B718E009AEB40 /* DesignableImageView.swift in Sources */,
 				2D0A855F233B718E009AEB40 /* TransitionManager.swift in Sources */,
 				2D3057A522E3FB2D00EBF92B /* NormalCounterPage.swift in Sources */,
@@ -781,6 +796,7 @@
 				2D040B3222E47190004D1659 /* SQLiteDatabase.swift in Sources */,
 				2D0403CF2337775700794EA8 /* CalendarView+DataSource.swift in Sources */,
 				2D040B3D22E471CD004D1659 /* Patient.swift in Sources */,
+				2D08F65D233CA6D1009946DF /* SCLAlertView.swift in Sources */,
 				2DD505ED233C482800F4C0EF /* MissionCardCell.swift in Sources */,
 				2D0A855E233B718E009AEB40 /* SpringView.swift in Sources */,
 				2D0A8547233B718E009AEB40 /* AutoTextView.swift in Sources */,

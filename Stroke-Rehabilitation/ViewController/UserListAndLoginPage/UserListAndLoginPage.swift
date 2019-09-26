@@ -128,22 +128,39 @@ extension UserListAndLoginPage:UITableViewDataSource, UITableViewDelegate {
             let isProtection = defaults.bool(forKey:UserDefaultKeys.DeleteProtection)
             
             if(isProtection) {
-                //弹出确认窗口
-                let alert = UIAlertController(title: "Opration Denied", message: "Your account is under protection, turn off Delete Protection if you want delete user.", preferredStyle: .alert)
-                alert.addAction(UIAlertAction(title: "Dismiss", style: .default, handler: nil))
-                self.present(alert, animated: true, completion: nil)
-                
+                //pop up operation denied message
+                _ = SCLAlertView().showWarning("Opration Denied", subTitle: "Your account is under protection, turn off Delete Protection if you want delete user")
             }else {
                 //判断是否为当前登陆账号
                 if(DBAdapter.patientList[indexPath.row].ID == DBAdapter.logPatient.ID) {
-                    //弹出确认窗口
-                    let alert = UIAlertController(title: "Opration Denied", message: "Please Log out to delete this account", preferredStyle: .alert)
-                    alert.addAction(UIAlertAction(title: "Dismiss", style: .default, handler: nil))
-                    self.present(alert, animated: true, completion: nil)
+                    //pop up operation denied message
+                   _ = SCLAlertView().showWarning("Opration Denied", subTitle: "Please Log out to delete this account")
                 }else {
-                    
+                    let appearance = SCLAlertView.SCLAppearance(
+                        showCloseButton: false
+                    )
+                    let alertView = SCLAlertView(appearance: appearance)
+                    alertView.addButton("Proceed"){
+                        //delete user
+                        if(DBAdapter.deletePatient(patient: DBAdapter.patientList[indexPath.row])) {
+                            self.userListTable.deleteRows(at: [indexPath], with: .automatic)
+                            print("Succeed delete user")
+                            self.reLoginUser = DBAdapter.patientList[indexPath.row-1]
+                            self.loginAsButton.setTitle("Login as " + self.reLoginUser!.Name + " (" + self.reLoginUser!.ID + ")", for: .normal)
+                             _ = SCLAlertView().showSuccess("Congraduation", subTitle: "Succeed delete user")
+                        }else {
+                            //pop up message if failed to delete new user
+                            print("Failed to delete user")
+                            _ = SCLAlertView().showError("ERROR", subTitle:"You have met an error which really confusing the system, please try again", closeButtonTitle:"OK")
+                        }
+                    }
+                    alertView.addButton("Cancle"){
+                        
+                    }
+                    alertView.showWarning("Warning", subTitle: "This action cannot be reversed")
+
                     //弹出确认窗口
-                    let alert = UIAlertController(title: "Warning", message: "This action cannot be reversed.", preferredStyle: .alert)
+              /*      let alert = UIAlertController(title: "Warning", message: "This action cannot be reversed.", preferredStyle: .alert)
                     alert.addAction(UIAlertAction(title: "Proceed", style: .default, handler: {
                         action in
                         //do something
@@ -164,7 +181,7 @@ extension UserListAndLoginPage:UITableViewDataSource, UITableViewDelegate {
                         completion(true)
                     }))
                     alert.addAction(UIAlertAction(title: "Cancel", style: .default, handler: nil))
-                    self.present(alert, animated: true, completion: nil)
+                    self.present(alert, animated: true, completion: nil)*/
                 }
             }
         }
@@ -176,8 +193,64 @@ extension UserListAndLoginPage:UITableViewDataSource, UITableViewDelegate {
     
     @objc func addNewUser(_ sender:UIButton) {
         print("Start create a new user")
+        
+        let appearance = SCLAlertView.SCLAppearance(
+            kTextFieldHeight: 40,
+            showCloseButton: false
+        )
+        let alert = SCLAlertView(appearance: appearance)
+        let nameText = alert.addTextField("Enter your name")
+        let idText = alert.addTextField("Enter your id(unique)")
+        
+        _ = alert.addButton("Create") {
+            print("Name value: \(nameText.text ?? "NA")")
+            print("ID value: \(idText.text ?? "NA")")
+            guard let newUserName = nameText.text else {
+                _ = SCLAlertView().showWarning("Warning", subTitle: "Name and idd can't be empty")
+                return
+            }
+            guard let newUserID = idText.text else {
+                _ = SCLAlertView().showWarning("Warning", subTitle: "Name and idd can't be empty")
+                return
+            }
+            //check name and id 是否为空
+            if(newUserID != "" && newUserName != "") {
+                
+                //检查id是否重复
+                if(DBAdapter.isUserIDExist(id: newUserID)) {
+                    _ = SCLAlertView().showWarning("Warning", subTitle: "ID ")
+                }else {
+                    let newPatient = Patient()
+                    newPatient.ID = newUserID
+                    newPatient.Name = newUserName
+                    if(DBAdapter.addPatient(patient: newPatient)) {
+                        print("Succeed add new user")
+                        DBAdapter.refreshlogPatient(patient:newPatient)
+                        //set label text
+                        self.helloLabel.text = "Hello " + DBAdapter.logPatient.Name
+                        //reload userlist
+                        self.userListTable.beginUpdates()
+                        self.userListTable.reloadData()
+                        self.userListTable.endUpdates()
+                        print("Auto login as " + DBAdapter.logPatient.ID)
+                        
+                        let alert = SCLAlertView()
+                        _ = alert.showSuccess("Congratulations", subTitle: "Succeed add new user")
+                    }else {
+                        //pop up message if failed to add new user
+                        print("Failed add new user")
+                        _ = SCLAlertView().showError("ERROR", subTitle:"You have met an error which really confusing the system, please try again", closeButtonTitle:"OK")
+                    }
+                }
+            }else {
+                 _ = SCLAlertView().showWarning("Warning", subTitle: "Name and idd can't be empty")
+            }
+        }
+        _ = alert.addButton("Cancle") {}
+        _ = alert.showEdit("Create New User", subTitle:"Type name and ID for new user")
+        
         //1. Create the alert controller.
-        let addNewUserAlert = UIAlertController(title: "Add new user", message: "Type user's (unique) ID and Name", preferredStyle: .alert)
+        /*let addNewUserAlert = UIAlertController(title: "Add new user", message: "Type user's (unique) ID and Name", preferredStyle: .alert)
         
         //2. Add the text field.
         addNewUserAlert.addTextField(configurationHandler: { (textField) -> Void in
@@ -217,6 +290,9 @@ extension UserListAndLoginPage:UITableViewDataSource, UITableViewDelegate {
                         self.userListTable.reloadData()
                         self.userListTable.endUpdates()
                         print("Auto login as " + DBAdapter.logPatient.ID)
+                        
+                        let alert = SCLAlertView()
+                        _ = alert.showSuccess("Congratulations", subTitle: "Succeed add new user")
                     }else {
                         //pop up message if failed to add new user
                         let failedAlert = UIAlertController(title: "Add new user", message: "Failed to add new user", preferredStyle: .alert)
@@ -243,7 +319,7 @@ extension UserListAndLoginPage:UITableViewDataSource, UITableViewDelegate {
         }))
         
         // 4. Present the alert.
-        self.present(addNewUserAlert, animated: true, completion: nil)
+        self.present(addNewUserAlert, animated: true, completion: nil)*/
     }
     
     

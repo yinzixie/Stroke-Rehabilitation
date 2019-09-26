@@ -49,9 +49,6 @@ class GoalCounterPage: UIViewController{
         //-Notification for updating the text view with incoming text
         updateIncomingData()
         
-        //register DBAdapter
-        DBAdapter.delegateForGoalCounterPage = self
-        
         //set label text
         hintLoginNameLabel.text = DBAdapter.logPatient.Name
         
@@ -72,21 +69,24 @@ class GoalCounterPage: UIViewController{
         if(mission.AimGoal > 0 && mission.AimTime > 0) {
             hasGoal = true
             hasTimer = true
-            print("Count down version with goal")
+            print("Count Down version with goal")
         }else if(mission.AimTime > 0) {
             hasTimer = true
-            print("Count Down version(without arm goal)")
+            print("Count Down version without Reps goal")
         }else if(mission.AimGoal > 0) {
             hasGoal = true
             print("Timer version with goal")
         }else {
-            print("Timer version(without any goal)")
+            print("Timer version without Reps goal")
         }
     }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(true)
-    
+        //set label text
+        hintLoginNameLabel.text = DBAdapter.logPatient.Name
+        //set mission
+        updateMission()
     }
     
     func runTimer() //runs the specified function (updateTimer) once every timeInterval (1 second)
@@ -94,8 +94,8 @@ class GoalCounterPage: UIViewController{
         timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: (#selector(GoalCounterPage.updateTimer)), userInfo: nil, repeats: true)
     }
     
-    // stop timer
-    func stopTimer() {
+    // reset timer
+    func resetTimer() {
         timer.invalidate() //destroy timer
         timer = Timer()
     }
@@ -176,10 +176,10 @@ class GoalCounterPage: UIViewController{
                 
                 let alert = UIAlertController(title: "Congratulations!", message: "You have completed your target reps.", preferredStyle: .alert)
                 
-                alert.addAction(UIAlertAction(title: "Finish", style: .default, handler: {(alert: UIAlertAction!) in
+                alert.addAction(UIAlertAction(title: "Back", style: .default, handler: {(alert: UIAlertAction!) in
                     self.dismiss(animated: true, completion: nil)
                 })) //back to normal counter page
-                alert.addAction(UIAlertAction(title: "Reset", style: .default, handler: {(alert: UIAlertAction!) in self.reset()}))
+                alert.addAction(UIAlertAction(title: "Redo", style: .default, handler: {(alert: UIAlertAction!) in self.reset()}))
                 self.present(alert, animated: true)//presents the alert
             }
         }
@@ -187,7 +187,7 @@ class GoalCounterPage: UIViewController{
     
     func reset() -> Void //resets the goal and timer values to their starting values and refreshes the labels
     {
-        stopTimer()
+        resetTimer()
         firstArm = true
         
         displayCount = mission.AimGoal
@@ -196,7 +196,7 @@ class GoalCounterPage: UIViewController{
         timerLabel.text = TimerFormattor.formatter.string(from: countdown)
     }
     
-    @IBAction func arm(_ sender: AnyObject) { //links our arm button and tells it to run the arm function when pressed
+    @IBAction func armButton(_ sender: AnyObject) { //links our arm button and tells it to run the arm function when pressed
         audioPlayer.playSound(fileName: "First_Tone", fileType: "mp3")
         let armButton = Button(id: UserDefaultKeys.ArmButton)
         let armButtonTriigerEvent = ButtonTriggerEvent(missionID: mission.MissionID, patientID: DBAdapter.logPatient.ID, button: armButton, timeinterval: TimeInfo.getStamp())
@@ -205,7 +205,7 @@ class GoalCounterPage: UIViewController{
         arm()
     }
     
-    @IBAction func trigger(_ sender: AnyObject) { //links our trigger button and tells it to run the trigger function when presed
+    @IBAction func triggerButton(_ sender: AnyObject) { //links our trigger button and tells it to run the trigger function when presed
         audioPlayer.playSound(fileName: "Second_Tone", fileType: "mp3")
         let triggerButton = Button(id: UserDefaultKeys.TriggerButton)
         let triggerButtonTriigerEvent = ButtonTriggerEvent(missionID: mission.MissionID, patientID: DBAdapter.logPatient.ID, button: triggerButton, timeinterval: TimeInfo.getStamp())
@@ -218,6 +218,15 @@ class GoalCounterPage: UIViewController{
         //judge wether is in mission
         if(true) {
             //pop up alert "you haven't finished your task"
+            if(Alert.yesOrNoAlert(title:"Message", message:"Finish this task?",view:self)) {
+                print("yes")
+                
+            }else {
+                
+                print("No")
+            }
+            
+            
             //choose yes
             
         }else {
@@ -239,7 +248,7 @@ class GoalCounterPage: UIViewController{
     }
     
     func missionFinshed(){
-        stopTimer()
+        resetTimer()
         missionInProcess = false
         //make sure user exactly did some press
         if(mission.ButtonTriggerEventList.count != 0) {
@@ -277,7 +286,7 @@ class GoalCounterPage: UIViewController{
 
 extension GoalCounterPage:TellGoalCounterPageUpdate   {
     func updateMission() {
-        stopTimer()
+        resetTimer()
         missionInProcess = false
         realCount = 0
         let _id = DBAdapter.logPatient.ID + "-" + String(TimeInfo.getStamp())
@@ -312,17 +321,6 @@ extension GoalCounterPage:TellGoalCounterPageUpdate   {
             print("Timer version(without any goal)")
         }
     }
-}
-
-extension GoalCounterPage:SendMessageToGoalCounterPage {
-    func userChanged() {
-        //set label text
-        hintLoginNameLabel.text = DBAdapter.logPatient.Name
-        //set mission
-        updateMission()
-    }
-    
-    
 }
 
 extension GoalCounterPage:CBPeripheralManagerDelegate {

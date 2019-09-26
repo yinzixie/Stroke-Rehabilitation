@@ -883,27 +883,20 @@ click the &gt;&gt;&gt; button to go to the "goal" page.</string>
                                     <constraint firstAttribute="height" constant="20" id="tEk-wH-KCa"/>
                                 </constraints>
                             </progressView>
-                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yxj-QD-DpY">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yxj-QD-DpY">
                                 <rect key="frame" x="151" y="522" width="175" height="132"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="100"/>
                                 <state key="normal" title="Arm"/>
                                 <connections>
-                                    <action selector="arm:" destination="5di-1x-6dG" eventType="touchUpInside" id="vYk-EF-4jy"/>
+                                    <action selector="armButton:" destination="5di-1x-6dG" eventType="touchUpInside" id="2rz-ij-1RM"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RbT-gA-Kk5">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RbT-gA-Kk5">
                                 <rect key="frame" x="673" y="522" width="290" height="132"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="100"/>
                                 <state key="normal" title="Trigger"/>
                                 <connections>
-                                    <action selector="trigger:" destination="5di-1x-6dG" eventType="touchUpInside" id="Bva-Cr-jrp"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tVG-EA-tEY">
-                                <rect key="frame" x="494.5" y="667" width="35" height="30"/>
-                                <state key="normal" title="reset"/>
-                                <connections>
-                                    <action selector="reset:" destination="5di-1x-6dG" eventType="touchUpInside" id="Iyy-hk-qe8"/>
+                                    <action selector="triggerButton:" destination="5di-1x-6dG" eventType="touchUpInside" id="uGo-EU-tSy"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sHV-oc-trh">
@@ -1012,20 +1005,32 @@ click the &gt;&gt;&gt; button to go to the "goal" page.</string>
                                     <segue destination="mtF-gf-NZo" kind="presentation" identifier="goToGoalCounterSettingPage" animates="NO" modalPresentationStyle="overCurrentContext" id="WEg-Nd-4Fj"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tVG-EA-tEY">
+                                <rect key="frame" x="481" y="681" width="62" height="30"/>
+                                <state key="normal" title="End Task"/>
+                                <connections>
+                                    <action selector="reset:" destination="5di-1x-6dG" eventType="touchUpInside" id="Iyy-hk-qe8"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="RbT-gA-Kk5" firstAttribute="centerY" secondItem="yxj-QD-DpY" secondAttribute="centerY" id="1Ah-xe-7KR"/>
                             <constraint firstItem="sHV-oc-trh" firstAttribute="leading" secondItem="w0H-pM-37O" secondAttribute="leading" constant="30" id="8Xd-LF-KqN"/>
                             <constraint firstItem="tVG-EA-tEY" firstAttribute="centerX" secondItem="pOq-Lq-1xF" secondAttribute="centerX" id="C31-jv-dyG"/>
+                            <constraint firstItem="w0H-pM-37O" firstAttribute="trailing" secondItem="RbT-gA-Kk5" secondAttribute="trailing" constant="61" id="GAG-AD-KBP"/>
                             <constraint firstItem="uRd-Sz-gnz" firstAttribute="leading" secondItem="pOq-Lq-1xF" secondAttribute="leading" constant="10" id="Kdr-UN-Rrt"/>
                             <constraint firstItem="OM2-DS-Bgl" firstAttribute="leading" secondItem="sHV-oc-trh" secondAttribute="trailing" constant="20" id="KyL-8w-7XR"/>
                             <constraint firstItem="uRd-Sz-gnz" firstAttribute="top" secondItem="sHV-oc-trh" secondAttribute="bottom" constant="10" id="L86-l8-fDN"/>
                             <constraint firstItem="OM2-DS-Bgl" firstAttribute="centerY" secondItem="sHV-oc-trh" secondAttribute="centerY" id="MZd-9f-bYW"/>
+                            <constraint firstItem="yxj-QD-DpY" firstAttribute="leading" secondItem="w0H-pM-37O" secondAttribute="leading" constant="151" id="Or0-Of-l95"/>
                             <constraint firstItem="sHV-oc-trh" firstAttribute="top" secondItem="w0H-pM-37O" secondAttribute="top" constant="630" id="Vhv-1z-Op1"/>
+                            <constraint firstItem="w0H-pM-37O" firstAttribute="bottom" secondItem="yxj-QD-DpY" secondAttribute="bottom" constant="114" id="XoG-n5-fJY"/>
                             <constraint firstItem="nnF-gg-L9G" firstAttribute="top" secondItem="uRd-Sz-gnz" secondAttribute="bottom" constant="50" id="bJc-5j-upb"/>
                             <constraint firstAttribute="trailing" secondItem="uRd-Sz-gnz" secondAttribute="trailing" constant="10" id="fK5-zA-CqS"/>
                             <constraint firstItem="sHV-oc-trh" firstAttribute="leading" secondItem="w0H-pM-37O" secondAttribute="leading" constant="30" id="gfi-nG-wB6"/>
+                            <constraint firstItem="w0H-pM-37O" firstAttribute="bottom" secondItem="RbT-gA-Kk5" secondAttribute="bottom" constant="114" id="pfd-FG-mov"/>
+                            <constraint firstItem="w0H-pM-37O" firstAttribute="bottom" secondItem="tVG-EA-tEY" secondAttribute="bottom" constant="57" id="qfw-hQ-jsU"/>
                             <constraint firstItem="nnF-gg-L9G" firstAttribute="leading" secondItem="w0H-pM-37O" secondAttribute="leading" constant="20" id="rQg-sa-GeO"/>
                             <constraint firstItem="sHV-oc-trh" firstAttribute="top" secondItem="w0H-pM-37O" secondAttribute="top" constant="30" id="tjZ-nm-WWC"/>
                             <constraint firstItem="w0H-pM-37O" firstAttribute="trailing" secondItem="nnF-gg-L9G" secondAttribute="trailing" constant="20" id="xf7-dH-22j"/>
@@ -1186,7 +1191,7 @@ click the &gt;&gt;&gt; button to go to the "goal" page.</string>
                                                     <rect key="frame" x="0.0" y="0.0" width="468" height="84.5"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <subviews>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Default User" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nSe-Kr-wgq">
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Default User" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nSe-Kr-wgq">
                                                             <rect key="frame" x="312.5" y="32" width="95.5" height="21"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                             <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -1199,14 +1204,14 @@ click the &gt;&gt;&gt; button to go to the "goal" page.</string>
                                                                 <constraint firstAttribute="width" secondItem="hAA-UG-0jo" secondAttribute="height" multiplier="71:67" id="emZ-T8-vXX"/>
                                                             </constraints>
                                                         </imageView>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="000visitor" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6xi-2m-nwq">
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Visitor" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6xi-2m-nwq">
                                                             <rect key="frame" x="100" y="13" width="204.5" height="26"/>
                                                             <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="20"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Visitor" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KYv-bQ-ZwT">
-                                                            <rect key="frame" x="100" y="49" width="49" height="21"/>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="000visitor" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KYv-bQ-ZwT">
+                                                            <rect key="frame" x="100" y="49" width="78" height="21"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                             <color key="textColor" red="0.43529412150000002" green="0.4431372583" blue="0.47450980539999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                             <nil key="highlightedColor"/>
@@ -1237,9 +1242,9 @@ click the &gt;&gt;&gt; button to go to the "goal" page.</string>
                                                 </tableViewCellContentView>
                                                 <color key="tintColor" red="0.93725490570000003" green="0.93725490570000003" blue="0.95686274770000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <connections>
-                                                    <outlet property="IDLabel" destination="6xi-2m-nwq" id="jxk-jk-Hub"/>
+                                                    <outlet property="IDLabel" destination="KYv-bQ-ZwT" id="sKg-11-eEJ"/>
                                                     <outlet property="hintLabel" destination="nSe-Kr-wgq" id="VsB-4N-Wvp"/>
-                                                    <outlet property="nameLabel" destination="KYv-bQ-ZwT" id="Mwb-eG-MxF"/>
+                                                    <outlet property="nameLabel" destination="6xi-2m-nwq" id="Zme-LZ-Ymb"/>
                                                     <outlet property="selectedHintImage" destination="iyi-4S-6ed" id="SfT-gh-PJ7"/>
                                                 </connections>
                                             </tableViewCell>

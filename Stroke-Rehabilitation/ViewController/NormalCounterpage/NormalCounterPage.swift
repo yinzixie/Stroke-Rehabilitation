@@ -31,8 +31,6 @@ class NormalCounterPage: UIViewController {
         //-Notification for updating the text view with incoming text
         updateIncomingData()
         
-        //registe DBAdapter
-        DBAdapter.delegateForNormalCounterPage = self
         //set label text
         hintLoginNameLabel.text = DBAdapter.logPatient.Name
         
@@ -45,6 +43,10 @@ class NormalCounterPage: UIViewController {
     
     func super_init() {
         DBAdapter()
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+         hintLoginNameLabel.text = DBAdapter.logPatient.Name
     }
     
     @IBAction func bluetoothSettings(_ sender: Any) {
@@ -116,13 +118,6 @@ class NormalCounterPage: UIViewController {
     }
     */
 
-}
-
-extension NormalCounterPage:SendMessageToNormalCounterPage {
-    func userChanged() {
-        //set label text
-        hintLoginNameLabel.text = DBAdapter.logPatient.Name
-    }
 }
 
 extension NormalCounterPage:CBPeripheralManagerDelegate {

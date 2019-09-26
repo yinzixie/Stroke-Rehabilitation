@@ -12,18 +12,8 @@ protocol TellUserListTableAddAccount {
     func addAccount()
 }
 
-protocol SendMessageToNormalCounterPage {
-    func userChanged()
-}
-
-protocol SendMessageToGoalCounterPage {
-    func userChanged()
-}
-
 public class DBAdapter {
     static var tellUserListTableAddAccount:TellUserListTableAddAccount?
-    static var delegateForNormalCounterPage:SendMessageToNormalCounterPage?
-    static var delegateForGoalCounterPage:SendMessageToGoalCounterPage?
     
     static var database:SQLiteDatabase = SQLiteDatabase(databaseName: "MyDatabase")
     static var patientList = [Patient]()
@@ -54,8 +44,6 @@ public class DBAdapter {
         defaults.setValue(patient.ID, forKey: UserDefaultKeys.LoginUserID)
         
         //tell relative pages log user has changed
-        delegateForNormalCounterPage?.userChanged()
-        delegateForGoalCounterPage?.userChanged()
     }
     
     static func refreshlogPatientData() {
