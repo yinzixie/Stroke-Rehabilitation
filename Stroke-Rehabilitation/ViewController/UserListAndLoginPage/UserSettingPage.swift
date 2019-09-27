@@ -55,7 +55,7 @@ class UserSettingPage: UIViewController {
             csvMissionText.append(newLine)
             
             for event in mission.ButtonTriggerEventList {
-                let newL = "\(event.MissionID),\(event.EventID),\(event.Button),\(event.TriggerTime)\n"
+                let newL = "\(event.MissionID),\(event.EventID),\(event.Button.ButtonID),\(event.TriggerTime)\n"
                 csvButtonText.append(newL)
             }
         }
@@ -70,13 +70,13 @@ class UserSettingPage: UIViewController {
             
             DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
                 alert.close()
+                let vc = UIActivityViewController(activityItems: [missionPath,buttonPath], applicationActivities: [])
+                self.present(vc, animated: true, completion: nil)
             }
-           
-            let vc = UIActivityViewController(activityItems: [missionPath,buttonPath], applicationActivities: [])
-            self.present(vc, animated: true, completion: nil)
         } catch {
             print("Failed to create file")
             print("\(error)")
+            _ = SCLAlertView().showError("Error", subTitle: error as! String)
         }
     }
     

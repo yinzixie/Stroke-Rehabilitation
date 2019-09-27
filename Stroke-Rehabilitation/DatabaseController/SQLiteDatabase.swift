@@ -505,7 +505,7 @@ class SQLiteDatabase
         let selectStatementQuery = "SELECT * FROM ButtonTriggerEvent WHERE MissionID='\(id)'"
         
         selectWithQuery(selectStatementQuery, eachRow: { (row) in //create a event object from each result
-            let button = Button(id: String(cString:sqlite3_column_text(row, 1)))
+            let button = Button(id: String(cString:sqlite3_column_text(row, 3)))
             let event = ButtonTriggerEvent(missionID: String(cString:sqlite3_column_text(row, 2)), patientID: String(cString:sqlite3_column_text(row, 1)), button: button, timeinterval: Int(sqlite3_column_int(row, 4)))
 
             result += [event]

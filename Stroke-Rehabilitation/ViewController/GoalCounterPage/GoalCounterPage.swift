@@ -221,6 +221,7 @@ class GoalCounterPage: UIViewController{
         startArmA()
         audioPlayer.playSound(fileName: "First_Tone", fileType: "mp3")
         let armButton = Button(id: UserDefaultKeys.ArmButton)
+        print(armButton.ButtonID)
         let armButtonTriigerEvent = ButtonTriggerEvent(missionID: mission.MissionID, patientID: DBAdapter.logPatient.ID, button: armButton, timeinterval: TimeInfo.getStamp())
         //print(armButtonTriigerEvent.EventID)
         mission.ButtonTriggerEventList.append(armButtonTriigerEvent)

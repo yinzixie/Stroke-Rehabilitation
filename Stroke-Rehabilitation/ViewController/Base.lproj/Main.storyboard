@@ -938,9 +938,12 @@ click the &gt;&gt;&gt; button to go to the "goal" page.</string>
                                             <action selector="loginAs:" destination="7eF-hD-mGw" eventType="touchUpInside" id="XE9-p3-FDS"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Kvr-WP-Il8">
-                                        <rect key="frame" x="837" y="0.0" width="49" height="44"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Kvr-WP-Il8">
+                                        <rect key="frame" x="844" y="0.0" width="50" height="50"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="50" id="Bod-gC-ya4"/>
+                                            <constraint firstAttribute="width" constant="50" id="Yw3-F3-KH3"/>
+                                        </constraints>
                                         <state key="normal" image="Settings"/>
                                         <connections>
                                             <segue destination="a7d-Ez-UTq" kind="popoverPresentation" popoverAnchorView="Kvr-WP-Il8" id="yQU-k2-icp">
@@ -1116,7 +1119,7 @@ click the &gt;&gt;&gt; button to go to the "goal" page.</string>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="blue-arrow" translatesAutoresizingMaskIntoConstraints="NO" id="iyi-4S-6ed">
-                                                            <rect key="frame" x="420" y="-214" width="35" height="512.5"/>
+                                                            <rect key="frame" x="422" y="-214" width="35" height="512.5"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="width" constant="35" id="EuB-j4-2yt"/>
                                                                 <constraint firstAttribute="width" secondItem="iyi-4S-6ed" secondAttribute="height" multiplier="35:512" id="HvJ-rY-GPR"/>
@@ -1191,7 +1194,9 @@ click the &gt;&gt;&gt; button to go to the "goal" page.</string>
                                     <constraint firstItem="iKa-Vb-xze" firstAttribute="leading" secondItem="37c-Qi-qJG" secondAttribute="trailing" id="K5K-45-h6L"/>
                                     <constraint firstItem="PGX-RM-kr6" firstAttribute="centerY" secondItem="2rj-VB-2PT" secondAttribute="centerY" id="LEJ-7P-ZN8"/>
                                     <constraint firstItem="76c-Yd-Ose" firstAttribute="leading" secondItem="2rj-VB-2PT" secondAttribute="leading" constant="20" id="NwA-ph-7U5"/>
+                                    <constraint firstAttribute="trailing" secondItem="Kvr-WP-Il8" secondAttribute="trailing" id="T57-Cn-CUi"/>
                                     <constraint firstItem="76c-Yd-Ose" firstAttribute="top" secondItem="2rj-VB-2PT" secondAttribute="top" constant="70" id="TLw-9w-Gej"/>
+                                    <constraint firstItem="Kvr-WP-Il8" firstAttribute="top" secondItem="2rj-VB-2PT" secondAttribute="top" id="Y4V-h1-6lO"/>
                                     <constraint firstAttribute="trailing" secondItem="iKa-Vb-xze" secondAttribute="trailing" id="c9f-Jz-0ee"/>
                                     <constraint firstItem="37c-Qi-qJG" firstAttribute="top" secondItem="76c-Yd-Ose" secondAttribute="bottom" constant="10" id="cMH-kk-cL2"/>
                                     <constraint firstItem="37c-Qi-qJG" firstAttribute="bottom" secondItem="iKa-Vb-xze" secondAttribute="bottom" id="eGm-CX-jHB"/>
@@ -1610,6 +1615,6 @@ click the &gt;&gt;&gt; button to go to the "goal" page.</string>
         <image name="green-plus" width="170.66667175292969" height="170.66667175292969"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="GVY-PE-VB4"/>
+        <segue reference="KX0-0Y-vAn"/>
     </inferredMetricsTieBreakers>
 </document>
