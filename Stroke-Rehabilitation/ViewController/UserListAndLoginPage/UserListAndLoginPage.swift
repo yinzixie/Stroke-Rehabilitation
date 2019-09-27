@@ -14,7 +14,11 @@ class UserListAndLoginPage: UIViewController {
     @IBOutlet weak var userListTable: UITableView!
     
     @IBOutlet weak var helloLabel: UILabel!
-    @IBOutlet weak var hintLoginAsLabel: UILabel!
+
+    @IBOutlet weak var totalRepsLabel: UILabel!
+    @IBOutlet weak var totalExerciseTimeLabel: UILabel!
+    @IBOutlet weak var averageRepsLabel: UILabel!
+    
     
     var reLoginUser:Patient?
     var noCloseButtonApperance = SCLAlertView.SCLAppearance()
@@ -40,18 +44,38 @@ class UserListAndLoginPage: UIViewController {
         userListTable.layer.borderColor = UIColor.lightGray.cgColor
         //set label text
         helloLabel.text = "Hello " + DBAdapter.logPatient.Name
-        //hintLoginAsLabel.text = "You are now login as " + DBAdapter.logPatient.ID
+        setMilestone()
     }
     
-    @IBAction func loginAs(_ sender: Any) {
-        DBAdapter.refreshlogPatient(patient:reLoginUser!)
+    func setMilestone() {
+        var totalReps = 0
+        var totalTime = 0
+        for mission in DBAdapter.logPatient.HistoryNormalCounterMissionList {
+            totalReps += mission.FinalAchievement
+            totalTime += mission.FinalTime - mission.StartTime
+        }
+        totalRepsLabel.text = String(totalReps)
+        totalExerciseTimeLabel.text = String(format:"%0.2f",Float(totalTime)/Float(3600))
+        if(DBAdapter.logPatient.ExerciseLog.count > 0) {
+             averageRepsLabel.text = String(totalReps/DBAdapter.logPatient.ExerciseLog.count)
+        }
+       
+    }
+    
+    func login(patient:Patient) {
+        DBAdapter.refreshlogPatient(patient:patient)
         //set label text
         helloLabel.text = "Hello " + DBAdapter.logPatient.Name
+        setMilestone()
         //reload userlist
         userListTable.beginUpdates()
         userListTable.reloadData()
         userListTable.endUpdates()
         print("Login as " + DBAdapter.logPatient.ID)
+    }
+    
+    @IBAction func loginAs(_ sender: Any) {
+        login(patient:reLoginUser!)
     }
     
     @IBAction func backPreviousPage(_ sender: Any) {
@@ -211,14 +235,8 @@ extension UserListAndLoginPage:UITableViewDataSource, UITableViewDelegate {
                     newPatient.Name = newUserName
                     if(DBAdapter.addPatient(patient: newPatient)) {
                         print("Succeed add new user")
-                        DBAdapter.refreshlogPatient(patient:newPatient)
-                        //set label text
-                        self.helloLabel.text = "Hello " + DBAdapter.logPatient.Name
-                        //reload userlist
-                        self.userListTable.beginUpdates()
-                        self.userListTable.reloadData()
-                        self.userListTable.endUpdates()
-                        print("Auto login as " + DBAdapter.logPatient.ID)
+                        
+                        self.login(patient: newPatient)
                         
                         let alert = SCLAlertView()
                         _ = alert.showSuccess("Congratulations", subTitle: "Succeed add new user")

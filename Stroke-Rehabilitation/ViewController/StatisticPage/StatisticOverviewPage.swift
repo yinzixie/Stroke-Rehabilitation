@@ -31,6 +31,11 @@ class StatisticOverviewPage: UIViewController{
     override func viewDidLoad() {
         
         super.viewDidLoad()
+        let c = Date().timeIntervalSince1970
+        print(c)
+
+        let date = NSDate(timeIntervalSince1970: TimeInterval(c))
+        print(date)
         
         CalendarView.Style.cellShape                = .round//.bevel(8.0)
         CalendarView.Style.cellColorDefault         = UIColor(red:0.86, green:0.86, blue:0.86, alpha:1.00)

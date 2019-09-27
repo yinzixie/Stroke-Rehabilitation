@@ -12,6 +12,8 @@ import CoreBluetooth
 
 class NormalCounterPage: UIViewController {
     
+    @IBOutlet weak var orderCountDown: CountdownLabel!
+    var timeNumber = 0
     @IBOutlet weak var counterLabel: UILabel!
     @IBOutlet weak var hintLoginNameLabel: UILabel!
     
@@ -47,12 +49,49 @@ class NormalCounterPage: UIViewController {
     
     override func viewDidAppear(_ animated: Bool) {
          hintLoginNameLabel.text = DBAdapter.logPatient.Name
+        setTimer()
     }
     
     @IBAction func bluetoothSettings(_ sender: Any) {
         performSegue(withIdentifier: "bluetoothSegue", sender: self)
+    }
+    
+    func setTimer() {
+        // 0 is the start time to increase
+        let time: TimeInterval = TimeInterval(0)
+        
+        orderCountDown.setCountDownTime(minutes: time)
+        
+        orderCountDown.timeFormat = "mm:ss"
+        
+        orderCountDown.animationType = .Evaporate
+        
+        // set a time interval to repeat every second and add time to it
+        // it will automatically animate
+        Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(self.addTime), userInfo: nil, repeats: true)
         
     }
+    
+    
+    @objc func addTime(){
+        
+        timeNumber += 1
+        
+        let time: TimeInterval = TimeInterval(timeNumber)
+        
+        orderCountDown.setCountDownTime(minutes: time)
+        
+    }
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
     /*
      The arm function is used to arm the counter, making it ready to trigger.
      */

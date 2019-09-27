@@ -57,7 +57,16 @@ extension CalendarView: UICollectionViewDataSource {
         
         self.endOfMonthCache = self.calendar.date(from: lastDayOfEndMonthComponents)!
         
-        let today = Date()
+        //时区的问题会导致显示出错 因此需要加上时间间隔
+        #warning("Don't wheather this change will cause other bugs or not")
+        //today = Date() //original code
+        
+        //add change start//
+        let gtmToday = Date() //GTM TIME
+        let zone = NSTimeZone.system //Time Zone
+        let interval = zone.secondsFromGMT()
+        let today = gtmToday.addingTimeInterval(TimeInterval(interval))
+        //add change end//
         
         if (self.startOfMonthCache ... self.endOfMonthCache).contains(today) {
             
