@@ -431,8 +431,6 @@
 		2D0DDAC1233B534800674257 /* UI */ = {
 			isa = PBXGroup;
 			children = (
-				2D17043D233E36C30019A6C6 /* CountdownLabel.h */,
-				2D170426233E36C20019A6C6 /* CountdownLabel.swift */,
 				2D170427233E36C20019A6C6 /* LTMorphingLabel */,
 				2D08F658233CA6D1009946DF /* SCLAlertView */,
 				2DD505F4233C4E5600F4C0EF /* CardStackView */,
@@ -455,6 +453,8 @@
 		2D170427233E36C20019A6C6 /* LTMorphingLabel */ = {
 			isa = PBXGroup;
 			children = (
+				2D17043D233E36C30019A6C6 /* CountdownLabel.h */,
+				2D170426233E36C20019A6C6 /* CountdownLabel.swift */,
 				2D170429233E36C20019A6C6 /* LTCharacterDiffResult.swift */,
 				2D17042A233E36C20019A6C6 /* LTCharacterLimbo.swift */,
 				2D17042B233E36C20019A6C6 /* LTEasing.swift */,
