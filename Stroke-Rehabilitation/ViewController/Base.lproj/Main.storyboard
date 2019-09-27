@@ -148,7 +148,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Cz0-ET-rVd" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-639.2578125" y="25"/>
+            <point key="canvasLocation" x="15" y="834"/>
         </scene>
         <!--Normal Counter Page-->
         <scene sceneID="tne-QT-ifu">
@@ -888,7 +888,7 @@ click the &gt;&gt;&gt; button to go to the "goal" page.</string>
                                 <fontDescription key="fontDescription" type="system" pointSize="100"/>
                                 <state key="normal" title="Arm"/>
                                 <connections>
-                                    <action selector="armButton:" destination="5di-1x-6dG" eventType="touchUpInside" id="2rz-ij-1RM"/>
+                                    <action selector="armButtonTrigger:" destination="5di-1x-6dG" eventType="touchUpInside" id="Ure-Dl-zrH"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RbT-gA-Kk5">
@@ -896,7 +896,7 @@ click the &gt;&gt;&gt; button to go to the "goal" page.</string>
                                 <fontDescription key="fontDescription" type="system" pointSize="100"/>
                                 <state key="normal" title="Trigger"/>
                                 <connections>
-                                    <action selector="triggerButton:" destination="5di-1x-6dG" eventType="touchUpInside" id="uGo-EU-tSy"/>
+                                    <action selector="triggerButtonTrigger:" destination="5di-1x-6dG" eventType="touchUpInside" id="1If-XT-gU0"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sHV-oc-trh">
@@ -1012,12 +1012,12 @@ click the &gt;&gt;&gt; button to go to the "goal" page.</string>
                                     <action selector="endMissionButtonTrigger:" destination="5di-1x-6dG" eventType="touchUpInside" id="E5U-hY-Phi"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="57K-i4-C41">
-                                <rect key="frame" x="607" y="681" width="39" height="30"/>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2Pk-HR-U8D">
+                                <rect key="frame" x="362" y="88" width="46" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Reset"/>
+                                <state key="normal" title="Button"/>
                                 <connections>
-                                    <action selector="resetButtonTrigger:" destination="5di-1x-6dG" eventType="touchUpInside" id="ILV-68-SW7"/>
+                                    <action selector="testb:" destination="5di-1x-6dG" eventType="touchUpInside" id="0Gj-gr-Ke8"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -1046,11 +1046,15 @@ click the &gt;&gt;&gt; button to go to the "goal" page.</string>
                         <viewLayoutGuide key="safeArea" id="w0H-pM-37O"/>
                     </view>
                     <connections>
+                        <outlet property="armButton" destination="yxj-QD-DpY" id="dyW-zX-IzQ"/>
+                        <outlet property="backButton" destination="N75-lq-mZX" id="H6M-0A-ZWZ"/>
                         <outlet property="goalLabel" destination="nnF-gg-L9G" id="rdY-BK-kma"/>
                         <outlet property="hintLoginNameLabel" destination="OM2-DS-Bgl" id="xr4-LZ-vwf"/>
                         <outlet property="progressBar" destination="uRd-Sz-gnz" id="eHw-fK-dCW"/>
                         <outlet property="timerBar" destination="0og-hQ-nQf" id="puF-If-iBl"/>
                         <outlet property="timerLabel" destination="ixW-wo-5bB" id="fgF-HN-VG5"/>
+                        <outlet property="triggerButton" destination="RbT-gA-Kk5" id="JWT-qX-WMp"/>
+                        <outlet property="userButton" destination="sHV-oc-trh" id="QlJ-EE-Bjd"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ZYw-qc-5ox" userLabel="First Responder" sceneMemberID="firstResponder"/>

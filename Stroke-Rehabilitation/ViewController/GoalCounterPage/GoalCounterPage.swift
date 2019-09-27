@@ -11,11 +11,22 @@ import CoreBluetooth
 
 class GoalCounterPage: UIViewController{
     var darkMode = true
+    
+    @IBOutlet weak var userButton: UIButton!
+    @IBOutlet weak var backButton: UIButton!
+    
     @IBOutlet weak var goalLabel: UILabel!
     @IBOutlet weak var timerLabel: UILabel!
     @IBOutlet weak var progressBar: UIProgressView!
     @IBOutlet weak var hintLoginNameLabel: UILabel!
-   
+    @IBOutlet weak var armButton: UIButton!
+    @IBOutlet weak var triggerButton: UIButton!
+    
+    private let radarAnimationArm = "radarAnimationArm"
+    private let radarAnimationTrigger = "radarAnimationTrigger"
+    private var animationLayer: CALayer?
+    private var animationGroup: CAAnimationGroup?
+    
     @IBOutlet weak var timerBar: UICircularTimerRing!
     var peripheralManager: CBPeripheralManager?
     //var peripheral: CBPeripheral?
@@ -39,8 +50,37 @@ class GoalCounterPage: UIViewController{
     var hasGoal:Bool = false
     var hasTimer:Bool = false
     
+    var noCloseButtonWithAnimationApperance = SCLAlertView.SCLAppearance()
+    var noCloseButtonApperance = SCLAlertView.SCLAppearance()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        
+        //..........//
+        addAnimation()
+        
+        
+        //..........//
+        noCloseButtonWithAnimationApperance = SCLAlertView.SCLAppearance(
+            kWindowWidth: self.view.frame.width*0.6,
+            kButtonHeight: 50,
+            kTitleFont: UIFont(name: "HelveticaNeue", size: 40)!,
+            kTextFont: UIFont(name: "HelveticaNeue", size: 34)!,
+            kButtonFont: UIFont(name: "HelveticaNeue-Bold", size: 34)!,
+            showCloseButton: false,
+            dynamicAnimatorActive: true
+        )
+        
+        noCloseButtonApperance = SCLAlertView.SCLAppearance(
+            kWindowWidth: self.view.frame.width*0.6,
+            kButtonHeight: 50,
+            kTitleFont: UIFont(name: "HelveticaNeue", size: 40)!,
+            kTextFont: UIFont(name: "HelveticaNeue", size: 34)!,
+            kButtonFont: UIFont(name: "HelveticaNeue-Bold", size: 34)!,
+            showCloseButton: false
+        )
+        
         // progressBar.transform = CGAffineTransform(scaleX: 1.0, y: 5.0)
         // Do any additional setup after loading the view.
         
@@ -100,6 +140,12 @@ class GoalCounterPage: UIViewController{
         timer = Timer()
     }
     
+    @IBAction func testb(_ sender: Any) {
+        
+        let alertView = SCLAlertView(appearance: noCloseButtonWithAnimationApperance)
+        let timer_temp = SCLAlertView.SCLTimeoutConfiguration.init(timeoutValue: 5, timeoutAction: {})
+        alertView.showNotice("Time Out", subTitle: "Task finished, well done, why not try it again?",timeout:timer_temp)
+    }
     @objc func updateTimer()//decrements the timer every second and refreshes the label
     {
         if(hasTimer) {
@@ -110,13 +156,9 @@ class GoalCounterPage: UIViewController{
             if countdown == 0
             {
                 missionFinshed()
-                let appearance = SCLAlertView.SCLAppearance(
-                    showCloseButton: false,
-                    dynamicAnimatorActive: true
-                )
-                let alertView = SCLAlertView(appearance: appearance)
-                 let timer_temp = SCLAlertView.SCLTimeoutConfiguration.init(timeoutValue: 5, timeoutAction: {})
-                alertView.showNotice("Time Out", subTitle: "Task finished, it's not bad, why not try it again?",timeout:timer_temp)
+                let alertView = SCLAlertView(appearance: noCloseButtonWithAnimationApperance)
+                let timer_temp = SCLAlertView.SCLTimeoutConfiguration.init(timeoutValue: 5, timeoutAction: {})
+                alertView.showNotice("Time Out", subTitle: "Task finished, well done, why not try it again?",timeout:timer_temp)
                 
             }
         }else {
@@ -173,17 +215,16 @@ class GoalCounterPage: UIViewController{
             if mission.AimGoal > 0 && displayCount == 0
             {
                 missionFinshed()
-                let appearance = SCLAlertView.SCLAppearance(
-                    showCloseButton: false
-                )
-                let alertView = SCLAlertView(appearance: appearance)
+                
+                let alertView = SCLAlertView(appearance: noCloseButtonApperance)
                 let timer_temp = SCLAlertView.SCLTimeoutConfiguration.init(timeoutValue: 5, timeoutAction: {})
                 alertView.showSuccess("Congratulations", subTitle: "You have completed your target reps", timeout: timer_temp)
             }
         }
     }
    
-    @IBAction func armButton(_ sender: AnyObject) { //links our arm button and tells it to run the arm function when pressed
+    @IBAction func armButtonTrigger(_ sender: AnyObject) { //links our arm button and tells it to run the arm function when pressed
+        startArmA()
         audioPlayer.playSound(fileName: "First_Tone", fileType: "mp3")
         let armButton = Button(id: UserDefaultKeys.ArmButton)
         let armButtonTriigerEvent = ButtonTriggerEvent(missionID: mission.MissionID, patientID: DBAdapter.logPatient.ID, button: armButton, timeinterval: TimeInfo.getStamp())
@@ -192,7 +233,8 @@ class GoalCounterPage: UIViewController{
         arm()
     }
     
-    @IBAction func triggerButton(_ sender: AnyObject) { //links our trigger button and tells it to run the trigger function when presed
+    @IBAction func triggerButtonTrigger(_ sender: AnyObject) { //links our trigger button and tells it to run the trigger function when presed
+        startTriggerA()
         audioPlayer.playSound(fileName: "Second_Tone", fileType: "mp3")
         let triggerButton = Button(id: UserDefaultKeys.TriggerButton)
         let triggerButtonTriigerEvent = ButtonTriggerEvent(missionID: mission.MissionID, patientID: DBAdapter.logPatient.ID, button: triggerButton, timeinterval: TimeInfo.getStamp())
@@ -204,12 +246,8 @@ class GoalCounterPage: UIViewController{
     @IBAction func endMissionButtonTrigger(_ sender: Any) {
         //judge wether is in mission
         if(missionInProcess) {
-            //pop up alert "you haven't finished your task"
-            let appearance = SCLAlertView.SCLAppearance(
-                showCloseButton: false,
-                dynamicAnimatorActive: true
-            )
-            let alertView = SCLAlertView(appearance: appearance)
+            //pop up alert
+            let alertView = SCLAlertView(appearance: noCloseButtonWithAnimationApperance)
             alertView.addButton("YES"){
                 self.missionFinshed()
             }
@@ -222,7 +260,7 @@ class GoalCounterPage: UIViewController{
         }
     }
     
-    @IBAction func resetButtonTrigger(_ sender: Any) {
+   /* @IBAction func resetButtonTrigger(_ sender: Any) {
         //pop up alert "you haven't finished your task"
         if(missionInProcess) {
             let appearance = SCLAlertView.SCLAppearance(
@@ -240,7 +278,7 @@ class GoalCounterPage: UIViewController{
         }else {
             reset()
         }
-    }
+    }*/
     
     
     func reset() -> Void //resets the goal and timer values to their starting values and refreshes the labels
@@ -252,12 +290,16 @@ class GoalCounterPage: UIViewController{
         countdown = TimeInterval(mission.AimTime)
         goalLabel.text = String(displayCount)
         timerLabel.text = TimerFormattor.formatter.string(from: countdown)
+        userButton.isEnabled = true
+        backButton.isEnabled = true
     }
     
     func missionStart() {
         runTimer()
         missionInProcess = true
         mission.StartTime = TimeInfo.getStamp()
+        userButton.isEnabled = false
+        backButton.isEnabled = false
     }
     
     func missionFinshed(){
@@ -272,19 +314,15 @@ class GoalCounterPage: UIViewController{
             if(DBAdapter.insertNormalCounterMission(mission: mission)) {
                 DBAdapter.refreshlogPatientData()
                 print("Succeed to save statistic data")
-                let appearance = SCLAlertView.SCLAppearance(
-                    showCloseButton: false
-                )
-                let alertView = SCLAlertView(appearance: appearance)
+                
+                let alertView = SCLAlertView(appearance: noCloseButtonApperance)
                 let timer_temp = SCLAlertView.SCLTimeoutConfiguration.init(timeoutValue: 2, timeoutAction: {})
                 alertView.showSuccess("Congratulations", subTitle: "Succeed save data", timeout: timer_temp)
               
             }else {
                 print("Failed to save statistic data")
-                let appearance = SCLAlertView.SCLAppearance(
-                    showCloseButton: false
-                )
-                let alertView = SCLAlertView(appearance: appearance)
+            
+                let alertView = SCLAlertView(appearance: noCloseButtonApperance)
                 let timer_temp = SCLAlertView.SCLTimeoutConfiguration.init(timeoutValue: 2, timeoutAction: {})
                 alertView.showError("Error", subTitle: "Unknow error.Failed saving data", timeout: timer_temp)
             }
@@ -416,5 +454,83 @@ extension GoalCounterPage {
         })
         setNeedsStatusBarAppearanceUpdate()
         //UIApplication.shared.setStatusBarStyle(UIStatusBarStyle.default, animated: true)
+    }
+    
+    func  addAnimation() {
+        //add animation
+        let first = makeRadarAnimation(showRect: CGRect(x: armButton.frame.origin.x , y: armButton.frame.origin.y - 66, width: 300, height: 300), isRound: true, key: radarAnimationArm)    //位置和大小
+        let sencond = makeRadarAnimation(showRect: CGRect(x: triggerButton.frame.origin.x , y: triggerButton.frame.origin.y - 66, width: 300, height: 300), isRound: true, key: radarAnimationTrigger)    //位置和大小
+        view.layer.addSublayer(first)
+        //view.layer.addSublayer(sencond)
+        endAnimation()
+    }
+    
+    //动作-开始
+    @objc func startArmAction() {
+        animationLayer?.add(animationGroup!, forKey: radarAnimationArm)
+    }
+    
+    @objc func startTriggerAction() {
+        animationLayer?.add(animationGroup!, forKey: radarAnimationTrigger)
+    }
+    
+    func endAnimation() {
+        self.animationLayer?.removeAnimation(forKey: self.radarAnimationArm)
+        self.animationLayer?.removeAnimation(forKey: self.radarAnimationTrigger)
+    }
+    
+    func startArmA() {
+        animationLayer?.add(animationGroup!, forKey: radarAnimationArm)
+    }
+    
+    func startTriggerA() {
+        animationLayer?.add(animationGroup!, forKey: radarAnimationTrigger)
+    }
+    
+    private func makeRadarAnimation(showRect: CGRect, isRound: Bool,key:String) -> CALayer {
+        // 1. 一个动态波
+        let shapeLayer = CAShapeLayer()
+        shapeLayer.frame = showRect
+        // showRect 最大内切圆
+        
+        shapeLayer.path = UIBezierPath(ovalIn: CGRect(x: 0, y: 0, width: showRect.width, height: showRect.height)).cgPath
+        
+        shapeLayer.fillColor = UIColor.orange.cgColor    //波纹颜色
+        
+        shapeLayer.opacity = 0.0    // 默认初始颜色透明度
+        
+        animationLayer = shapeLayer
+        
+        // 2. 需要重复的动态波，即创建副本
+        let replicator = CAReplicatorLayer()
+        replicator.frame = shapeLayer.bounds
+        replicator.instanceCount = 4
+        replicator.instanceDelay = 1.0
+        replicator.addSublayer(shapeLayer)
+        
+        // 3. 创建动画组
+        let opacityAnimation = CABasicAnimation(keyPath: "opacity")
+        opacityAnimation.fromValue = NSNumber(floatLiteral: 0.3)  // 开始透明度
+        opacityAnimation.toValue = NSNumber(floatLiteral: 0)      // 结束时透明底
+        
+        let scaleAnimation = CABasicAnimation(keyPath: "transform")
+        if isRound {
+            scaleAnimation.fromValue = NSValue.init(caTransform3D: CATransform3DScale(CATransform3DIdentity, 1.0, 1.0, 0))      // 缩放起始大小
+        } else {
+            scaleAnimation.fromValue = NSValue.init(caTransform3D: CATransform3DScale(CATransform3DIdentity, 1.5, 1.5, 0))      // 缩放起始大小
+        }
+        scaleAnimation.toValue = NSValue.init(caTransform3D: CATransform3DScale(CATransform3DIdentity, 2.0, 2.0, 0))      // 缩放结束大小
+        
+        let animationGroup = CAAnimationGroup()
+        animationGroup.animations = [opacityAnimation, scaleAnimation]
+        animationGroup.duration = 3.0       // 动画执行时间
+        animationGroup.repeatCount = 2//HUGE   // 最大重复
+        animationGroup.autoreverses = false
+        
+        self.animationGroup = animationGroup
+        
+        shapeLayer.add(animationGroup, forKey: key)
+       
+        return replicator
     }
 }
