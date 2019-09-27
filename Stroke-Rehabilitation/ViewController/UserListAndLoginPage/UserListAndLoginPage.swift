@@ -17,10 +17,20 @@ class UserListAndLoginPage: UIViewController {
     @IBOutlet weak var hintLoginAsLabel: UILabel!
     
     var reLoginUser:Patient?
+    var noCloseButtonApperance = SCLAlertView.SCLAppearance()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+       
+        //..........//
+        noCloseButtonApperance = SCLAlertView.SCLAppearance(
+            kWindowWidth: self.view.frame.width*0.6,
+            kButtonHeight: 50,
+            kTitleFont: UIFont(name: "HelveticaNeue", size: 40)!,
+            kTextFont: UIFont(name: "HelveticaNeue", size: 34)!,
+            kButtonFont: UIFont(name: "HelveticaNeue-Bold", size: 34)!,
+            showCloseButton: false
+        )
         
         //regist DBAdaper delegate
         DBAdapter.tellUserListTableAddAccount = self

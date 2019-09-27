@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		2D02D3C422E96DB3003A5279 /* MissionListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D02D3C322E96DB3003A5279 /* MissionListCell.swift */; };
-		2D02D3C822E96DFF003A5279 /* StatisticPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D02D3C722E96DFF003A5279 /* StatisticPage.swift */; };
 		2D02DF3922E7FB6100763334 /* UserListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D02DF3822E7FB6100763334 /* UserListCell.swift */; };
 		2D02DF3B22E7FB7D00763334 /* AddNewUserCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D02DF3A22E7FB7D00763334 /* AddNewUserCell.swift */; };
 		2D02DF4222E8063A00763334 /* ExtensionString.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D02DF3E22E8063A00763334 /* ExtensionString.swift */; };
@@ -124,7 +123,6 @@
 
 /* Begin PBXFileReference section */
 		2D02D3C322E96DB3003A5279 /* MissionListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MissionListCell.swift; sourceTree = "<group>"; };
-		2D02D3C722E96DFF003A5279 /* StatisticPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatisticPage.swift; sourceTree = "<group>"; };
 		2D02DF3822E7FB6100763334 /* UserListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserListCell.swift; sourceTree = "<group>"; };
 		2D02DF3A22E7FB7D00763334 /* AddNewUserCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNewUserCell.swift; sourceTree = "<group>"; };
 		2D02DF3E22E8063A00763334 /* ExtensionString.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExtensionString.swift; sourceTree = "<group>"; };
@@ -260,7 +258,6 @@
 		2D02D3C222E96D84003A5279 /* StatisticPage */ = {
 			isa = PBXGroup;
 			children = (
-				2D02D3C722E96DFF003A5279 /* StatisticPage.swift */,
 				2D02D3C322E96DB3003A5279 /* MissionListCell.swift */,
 				2D0403AD2337636E00794EA8 /* StatisticOverviewPage.swift */,
 				2DD505EA233C47A800F4C0EF /* StatisticDetailsPage.swift */,
@@ -782,7 +779,6 @@
 				2DD505DF233C3DB700F4C0EF /* UICircularProgressRing.swift in Sources */,
 				2D02DF3B22E7FB7D00763334 /* AddNewUserCell.swift in Sources */,
 				2D040B3C22E471CD004D1659 /* Mission.swift in Sources */,
-				2D02D3C822E96DFF003A5279 /* StatisticPage.swift in Sources */,
 				2D040B3B22E471CD004D1659 /* CounterModel.swift in Sources */,
 				2D9F3FFE23094D7300932D8F /* BLEAdapter.swift in Sources */,
 				2D9F40032309526400932D8F /* PeripheralListCell.swift in Sources */,

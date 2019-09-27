@@ -140,12 +140,6 @@ class GoalCounterPage: UIViewController{
         timer = Timer()
     }
     
-    @IBAction func testb(_ sender: Any) {
-        
-        let alertView = SCLAlertView(appearance: noCloseButtonWithAnimationApperance)
-        let timer_temp = SCLAlertView.SCLTimeoutConfiguration.init(timeoutValue: 5, timeoutAction: {})
-        alertView.showNotice("Time Out", subTitle: "Task finished, well done, why not try it again?",timeout:timer_temp)
-    }
     @objc func updateTimer()//decrements the timer every second and refreshes the label
     {
         if(hasTimer) {

@@ -466,7 +466,7 @@ class SQLiteDatabase
     //select patient's mission through patient's id order by time
     func selectAllNormalCounterMissionsThroughPatientID(id:String)->[NormalCounterMission] {
         var result = [NormalCounterMission]()
-        let selectStatementQuery = "SELECT * FROM NormalCounterMission WHERE PatientID='\(id)' ORDER BY StartTime DESC"
+        let selectStatementQuery = "SELECT * FROM NormalCounterMission WHERE PatientID='\(id)' ORDER BY StartTime" //DESC"    //DESC MEANS INVERSION
         
         selectWithQuery(selectStatementQuery, eachRow: { (row) in //create a mission object from each result
             let mission = NormalCounterMission(missionID: String(cString:sqlite3_column_text(row, 0)), patientID: String(cString:sqlite3_column_text(row, 1)))

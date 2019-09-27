@@ -30,6 +30,7 @@ class StatisticDetailsPage: UIViewController {
         
         var index = 0
         for mission in displayMissionList {
+            index += 1
             let view = UIView()
             view.backgroundColor = UIColor.white
             view.cardView(radius: CGFloat(10))
@@ -109,7 +110,6 @@ class StatisticDetailsPage: UIViewController {
             //averageLabel.text = averageString
             
             cardViews.append(view)
-            index += 1
         }
        
         cardViews.reverse()
