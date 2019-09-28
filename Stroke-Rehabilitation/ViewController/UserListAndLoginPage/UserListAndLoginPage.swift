@@ -50,16 +50,25 @@ class UserListAndLoginPage: UIViewController {
     func setMilestone() {
         var totalReps = 0
         var totalTime = 0
+        var activityDay = 0
+        var day_last = ""
+        
         for mission in DBAdapter.logPatient.HistoryNormalCounterMissionList {
+            let day = TimeInfo.timeStampToString(String(mission.StartTime))
+            if (day != day_last) {
+                activityDay += 1
+            }
             totalReps += mission.FinalAchievement
             totalTime += mission.FinalTime - mission.StartTime
+            day_last = day
         }
         totalRepsLabel.text = String(totalReps)
         totalExerciseTimeLabel.text = String(format:"%0.2f",Float(totalTime)/Float(3600))
-        if(DBAdapter.logPatient.ExerciseLog.count > 0) {
-             averageRepsLabel.text = String(totalReps/DBAdapter.logPatient.ExerciseLog.count)
+        if(activityDay > 0) {
+             averageRepsLabel.text = String(totalReps/activityDay)
+        }else {
+              averageRepsLabel.text = "0"
         }
-       
     }
     
     func login(patient:Patient) {

@@ -151,7 +151,7 @@ public class TimeInfo {
         let string = NSString(string: timeStamp)
         let timeSta:TimeInterval = string.doubleValue
         let dfmatter = DateFormatter()
-        dfmatter.dateFormat="yyyy年MM月dd日"
+        dfmatter.dateFormat="yyyy-MM-dd"
         let date = Date(timeIntervalSince1970: timeSta)
         return dfmatter.string(from: date)
     }
