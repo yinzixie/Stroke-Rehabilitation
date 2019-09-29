@@ -55,7 +55,8 @@ class NormalCounterPage: UIViewController {
         
         //set mission
         updateMission()
-        
+        //
+        AppDelegate.normalCounterPage = self
         //centreView.cardView(radius: CGFloat(5))
         //set label text
         hintLoginNameLabel.text = DBAdapter.logPatient.Name

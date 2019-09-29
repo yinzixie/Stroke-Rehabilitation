@@ -16,6 +16,8 @@ class UserDefaultKeys {
     
     static let ArmButton = "ArmButton"
     static let TriggerButton = "TriggerButton"
+    static let LeaveAppButton = "LeaveAppButton"
+    static let EnterAppButton = "EnterAppButton"
     
     static let ArmID = "ArmID"
     static let TriggerID = "TriggerID"

@@ -12,8 +12,10 @@ import UIKit
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
-
-
+    //static var mission = NormalCounterMission(missionID: "NULL-mission", patientID: DBAdapter.logPatient.ID)
+    static var normalCounterPage:NormalCounterPage?
+    static var goalCounterPage:GoalCounterPage?
+    
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         return true
@@ -22,6 +24,20 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func applicationWillResignActive(_ application: UIApplication) {
         // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
         // Use this method to pause ongoing tasks, disable timers, and invalidate graphics rendering callbacks. Games should use this method to pause the game.
+        if(AppDelegate.normalCounterPage != nil) {
+            if(AppDelegate.normalCounterPage!.missionInProcess) {
+                let triggerButton = Button(id: UserDefaultKeys.LeaveAppButton)
+                let triggerButtonTriigerEvent = ButtonTriggerEvent(missionID: (AppDelegate.normalCounterPage?.mission.MissionID)!, patientID: DBAdapter.logPatient.ID, button: triggerButton, timeinterval: TimeInfo.getStamp())
+                AppDelegate.normalCounterPage?.mission.ButtonTriggerEventList.append(triggerButtonTriigerEvent)
+            }
+        }
+        if(AppDelegate.goalCounterPage != nil) {
+            if(AppDelegate.goalCounterPage!.missionInProcess) {
+                let triggerButton = Button(id: UserDefaultKeys.LeaveAppButton)
+                let triggerButtonTriigerEvent = ButtonTriggerEvent(missionID: (AppDelegate.goalCounterPage?.mission.MissionID)!, patientID: DBAdapter.logPatient.ID, button: triggerButton, timeinterval: TimeInfo.getStamp())
+                AppDelegate.goalCounterPage?.mission.ButtonTriggerEventList.append(triggerButtonTriigerEvent)
+            }
+        }
     }
 
     func applicationDidEnterBackground(_ application: UIApplication) {
@@ -31,6 +47,20 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func applicationWillEnterForeground(_ application: UIApplication) {
         // Called as part of the transition from the background to the active state; here you can undo many of the changes made on entering the background.
+        if(AppDelegate.normalCounterPage != nil) {
+             if(AppDelegate.normalCounterPage!.missionInProcess) {
+                let triggerButton = Button(id: UserDefaultKeys.EnterAppButton)
+                let triggerButtonTriigerEvent = ButtonTriggerEvent(missionID: (AppDelegate.normalCounterPage?.mission.MissionID)!, patientID: DBAdapter.logPatient.ID, button: triggerButton, timeinterval: TimeInfo.getStamp())
+                AppDelegate.normalCounterPage?.mission.ButtonTriggerEventList.append(triggerButtonTriigerEvent)
+            }
+        }
+        if(AppDelegate.goalCounterPage != nil) {
+            if(AppDelegate.goalCounterPage!.missionInProcess) {
+                let triggerButton = Button(id: UserDefaultKeys.EnterAppButton)
+                let triggerButtonTriigerEvent = ButtonTriggerEvent(missionID: (AppDelegate.goalCounterPage?.mission.MissionID)!, patientID: DBAdapter.logPatient.ID, button: triggerButton, timeinterval: TimeInfo.getStamp())
+                AppDelegate.goalCounterPage?.mission.ButtonTriggerEventList.append(triggerButtonTriigerEvent)
+            }
+        }
     }
 
     func applicationDidBecomeActive(_ application: UIApplication) {
