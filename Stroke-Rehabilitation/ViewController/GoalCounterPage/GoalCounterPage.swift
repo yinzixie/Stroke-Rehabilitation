@@ -195,6 +195,9 @@ class GoalCounterPage: UIViewController{
     @objc func updateTimer()//decrements the timer every second and refreshes the label
     {
         if(hasTimer) {
+            if(!hasGoal) {
+                progressCircular.startProgress(to: CGFloat(Float(mission.AimTime - Int(countdown-1))*100/Float(mission.AimTime)), duration: 1)
+            }
             countdown -= 1
             if(countdown <= 0) {
                 timerLabel.text = "00:00:00"
@@ -248,7 +251,10 @@ class GoalCounterPage: UIViewController{
                 displayCount -= 1 //decrease the value of count
                 goalLabel.text = String(displayCount) //change the label that displays the counter value
                 armed = false //de-arms the counter so its can be armed again
-                progressCircular.startProgress(to: CGFloat(Float(mission.AimGoal - displayCount)*100/Float(mission.AimGoal)), duration: 1)
+                
+                if(hasGoal) {
+                     progressCircular.startProgress(to: CGFloat(Float(mission.AimGoal - displayCount)*100/Float(mission.AimGoal)), duration: 1)
+                }
                 
                 print(displayCount)
             }
@@ -378,7 +384,7 @@ class GoalCounterPage: UIViewController{
         armButton.animation = "squeezeRight"
         armButton.animateFrom = false
         
-        UIView.animate(withDuration: 1, delay: 0,
+        UIView.animate(withDuration: 0.5, delay: 0,
                        options: [.curveEaseOut, .beginFromCurrentState, .allowUserInteraction],
                        animations: {
                         self.cardView.alpha = 1
@@ -417,11 +423,18 @@ extension GoalCounterPage:TellGoalCounterPageUpdate   {
         displayCount = mission.AimGoal
         countdown = TimeInterval(mission.AimTime)
         
-        progressCircular.resetProgress()
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
+            self.progressCircular.resetProgress()
+        }
         
         goalLabel.text = String(displayCount)
         //timerLabel.text = TimerFormattor.formatter.string(from: countdown)
-        timerLabel.setCountDownTime(minutes: TimeInterval(countdown))
+        if(countdown == 0){
+            timerLabel.text = "00:00:00"
+        }else {
+            timerLabel.setCountDownTime(minutes: TimeInterval(countdown))
+        }
+       
         firstArm = true
         //timer = Timer()
         hasGoal = false

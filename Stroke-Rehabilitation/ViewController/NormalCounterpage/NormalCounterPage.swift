@@ -266,7 +266,7 @@ class NormalCounterPage: UIViewController {
         armButton.animateFrom = false
         
         
-        UIView.animate(withDuration: 0.7, delay: 0,
+        UIView.animate(withDuration: 0.5, delay: 0,
                        options: [.curveEaseOut, .beginFromCurrentState, .allowUserInteraction],
                        animations: {
                         self.cardView.alpha = 1
