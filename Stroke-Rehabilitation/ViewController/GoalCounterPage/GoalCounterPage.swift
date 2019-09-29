@@ -12,22 +12,22 @@ import CoreBluetooth
 class GoalCounterPage: UIViewController{
     var darkMode = true
     
+    @IBOutlet weak var centreView: SpringView!
+    @IBOutlet weak var cardView: UIView!
+    
     @IBOutlet weak var userButton: UIButton!
     @IBOutlet weak var backButton: UIButton!
     
     @IBOutlet weak var goalLabel: UILabel!
-    @IBOutlet weak var timerLabel: UILabel!
-    @IBOutlet weak var progressBar: UIProgressView!
+
+    @IBOutlet weak var timerLabel: CountdownLabel!
+    
+    @IBOutlet weak var progressCircular: UICircularProgressRing!
+    
     @IBOutlet weak var hintLoginNameLabel: UILabel!
-    @IBOutlet weak var armButton: UIButton!
-    @IBOutlet weak var triggerButton: UIButton!
+    @IBOutlet weak var armButton: SpringButton!
+    @IBOutlet weak var triggerButton: SpringButton!
     
-    private let radarAnimationArm = "radarAnimationArm"
-    private let radarAnimationTrigger = "radarAnimationTrigger"
-    private var animationLayer: CALayer?
-    private var animationGroup: CAAnimationGroup?
-    
-    @IBOutlet weak var timerBar: UICircularTimerRing!
     var peripheralManager: CBPeripheralManager?
     //var peripheral: CBPeripheral?
     
@@ -53,14 +53,26 @@ class GoalCounterPage: UIViewController{
     var noCloseButtonWithAnimationApperance = SCLAlertView.SCLAppearance()
     var noCloseButtonApperance = SCLAlertView.SCLAppearance()
     
+    var colors = [UIColor.white.cgColor,UIColor.white.cgColor,UIColor.white.cgColor]
+    var whiteColors = [UIColor.white.cgColor,UIColor.white.cgColor,UIColor.white.cgColor]
+    //渐变层
+    var gradientLayer:CAGradientLayer!
+    var timeNumber = 0
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        //set button
+        armButton.isHighlighted = false
+        armButton.addTarget(self, action: #selector(pressArmButton), for: .touchDown)
+        armButton.addTarget(self, action: #selector(releaseArmButton), for: .touchUpInside)
+        
+        triggerButton.isHighlighted = false
+        triggerButton.addTarget(self, action: #selector(pressTriggerButton), for: .touchDown)
+        triggerButton.addTarget(self, action: #selector(releaseTriggerButton), for: .touchUpInside)
         
         //..........//
-        addAnimation()
-        
-        
+        cardView.cardView(radius: CGFloat(5))
         //..........//
         noCloseButtonWithAnimationApperance = SCLAlertView.SCLAppearance(
             kWindowWidth: self.view.frame.width*0.6,
@@ -81,7 +93,20 @@ class GoalCounterPage: UIViewController{
             showCloseButton: false
         )
         
-        // progressBar.transform = CGAffineTransform(scaleX: 1.0, y: 5.0)
+        ////创建CAGradientLayer对象
+        gradientLayer = CAGradientLayer()
+        //设置初始渐变色
+        gradientLayer.colors = whiteColors
+        //每种颜色所在的位置
+        gradientLayer.locations = [0.0,0.3,0.6]
+        //设置渲染的起始结束位置（横向渐变）
+        gradientLayer.startPoint = CGPoint(x: 0, y: 0)
+        gradientLayer.endPoint = CGPoint(x: 1, y: 0)
+        
+        //设置其CAGradientLayer对象的frame，并插入view的layer
+        gradientLayer.frame = self.view.frame
+        self.view.layer.insertSublayer(gradientLayer, at: 0)
+        
         // Do any additional setup after loading the view.
         
         //Create and start the peripheral manager
@@ -101,10 +126,12 @@ class GoalCounterPage: UIViewController{
         displayCount = mission.AimGoal
         countdown = TimeInterval(mission.AimTime)
         
-        progressBar.setProgress(0, animated: false)
-        
         goalLabel.text = String(displayCount)
-        timerLabel.text = TimerFormattor.formatter.string(from: countdown)
+        
+        timerLabel.timeFormat = "hh:mm:ss"
+        timerLabel.animationType = .Evaporate
+        timerLabel.setCountDownTime(minutes: TimeInterval(countdown))
+        //timerLabel.text = TimerFormattor.formatter.string(from: countdown)
         
         if(mission.AimGoal > 0 && mission.AimTime > 0) {
             hasGoal = true
@@ -127,6 +154,31 @@ class GoalCounterPage: UIViewController{
         hintLoginNameLabel.text = DBAdapter.logPatient.Name
         //set mission
         updateMission()
+        
+        //animation
+        centreView.animation = "squeezeDown"
+        centreView.animateFrom = true
+        
+        triggerButton.animation = "squeezeLeft"
+        triggerButton.animateFrom = true
+        
+        armButton.animation = "squeezeRight"
+        armButton.animateFrom = true
+        
+        armButton.animate()
+        triggerButton.animate()
+        
+        centreView.animateNext {
+            UIView.animate(withDuration: 1, delay: 0,
+                           options: [.curveEaseOut, .beginFromCurrentState, .allowUserInteraction],
+                           animations: {
+                            self.cardView.alpha = 0
+            }, completion: nil)
+        }
+    }
+    
+    override func viewDidLayoutSubviews() {
+        gradientLayer.frame = self.view.frame
     }
     
     func runTimer() //runs the specified function (updateTimer) once every timeInterval (1 second)
@@ -144,7 +196,12 @@ class GoalCounterPage: UIViewController{
     {
         if(hasTimer) {
             countdown -= 1
-            timerLabel.text = TimerFormattor.formatter.string(from: countdown)
+            if(countdown <= 0) {
+                timerLabel.text = "00:00:00"
+            }else {
+                 timerLabel.setCountDownTime(minutes: TimeInterval(countdown))
+            }
+            //timerLabel.text = TimerFormattor.formatter.string(from: countdown)
             
             //time is up before user finish all task
             if countdown == 0
@@ -153,11 +210,11 @@ class GoalCounterPage: UIViewController{
                 let alertView = SCLAlertView(appearance: noCloseButtonWithAnimationApperance)
                 let timer_temp = SCLAlertView.SCLTimeoutConfiguration.init(timeoutValue: 5, timeoutAction: {})
                 alertView.showNotice("Time Out", subTitle: "Task finished, well done, why not try it again?",timeout:timer_temp)
-                
             }
         }else {
             countdown += 1
-            timerLabel.text = TimerFormattor.formatter.string(from: countdown)
+            //timerLabel.text = TimerFormattor.formatter.string(from: countdown)
+            timerLabel.setCountDownTime(minutes: TimeInterval(countdown))
         }
     }
     
@@ -191,8 +248,8 @@ class GoalCounterPage: UIViewController{
                 displayCount -= 1 //decrease the value of count
                 goalLabel.text = String(displayCount) //change the label that displays the counter value
                 armed = false //de-arms the counter so its can be armed again
-                progressBar.setProgress(Float(mission.AimGoal - displayCount)/Float(mission.AimGoal), animated: true)
-               
+                progressCircular.startProgress(to: CGFloat(Float(mission.AimGoal - displayCount)*100/Float(mission.AimGoal)), duration: 1)
+                
                 print(displayCount)
             }
             else //if the counter is zero or below, keep decrementing but remove the negative sign so it looks like its counting up
@@ -217,25 +274,33 @@ class GoalCounterPage: UIViewController{
         }
     }
    
-    @IBAction func armButtonTrigger(_ sender: AnyObject) { //links our arm button and tells it to run the arm function when pressed
-        startArmA()
-        audioPlayer.playSound(fileName: "First_Tone", fileType: "mp3")
+    @objc func pressArmButton() {
+        self.audioPlayer.playSound(fileName: "First_Tone", fileType: "mp3")
+        self.arm()
+        
+        changeBackgroundColor(isFromLeft:true)
+        
         let armButton = Button(id: UserDefaultKeys.ArmButton)
-        print(armButton.ButtonID)
         let armButtonTriigerEvent = ButtonTriggerEvent(missionID: mission.MissionID, patientID: DBAdapter.logPatient.ID, button: armButton, timeinterval: TimeInfo.getStamp())
-        //print(armButtonTriigerEvent.EventID)
         mission.ButtonTriggerEventList.append(armButtonTriigerEvent)
-        arm()
     }
     
-    @IBAction func triggerButtonTrigger(_ sender: AnyObject) { //links our trigger button and tells it to run the trigger function when presed
-        startTriggerA()
-        audioPlayer.playSound(fileName: "Second_Tone", fileType: "mp3")
+    @objc func releaseArmButton() {
+        removeBackgroundColor()
+    }
+    
+    @objc func pressTriggerButton() {
+        self.audioPlayer.playSound(fileName: "Second_Tone", fileType: "mp3")
+        self.trigger()
+        changeBackgroundColor(isFromLeft:false)
+        
         let triggerButton = Button(id: UserDefaultKeys.TriggerButton)
         let triggerButtonTriigerEvent = ButtonTriggerEvent(missionID: mission.MissionID, patientID: DBAdapter.logPatient.ID, button: triggerButton, timeinterval: TimeInfo.getStamp())
-        //print(triggerButtonTriigerEvent.EventID)
         mission.ButtonTriggerEventList.append(triggerButtonTriigerEvent)
-        trigger()
+    }
+    
+    @objc func releaseTriggerButton() {
+        removeBackgroundColor()
     }
     
     @IBAction func endMissionButtonTrigger(_ sender: Any) {
@@ -251,46 +316,10 @@ class GoalCounterPage: UIViewController{
             }
             alertView.showNotice("Notice", subTitle: "Finish this task right now?")
         }else {
-             reset()
+            self.missionFinshed()
         }
     }
-    
-   /* @IBAction func resetButtonTrigger(_ sender: Any) {
-        //pop up alert "you haven't finished your task"
-        if(missionInProcess) {
-            let appearance = SCLAlertView.SCLAppearance(
-                showCloseButton: false,
-                dynamicAnimatorActive: true
-            )
-            let alertView = SCLAlertView(appearance: appearance)
-            alertView.addButton("Continue"){
-                self.reset()
-            }
-            alertView.addButton("Cancle"){
-                
-            }
-            alertView.showNotice("Notice", subTitle: "Reset task will discard this mission's recording data")
-        }else {
-            reset()
-        }
-    }*/
-    
-    
-    func reset() -> Void //resets the goal and timer values to their starting values and refreshes the labels
-    {
-        resetTimer()
-        missionInProcess = false
-        firstArm = true
-        armed = false
-        
-        displayCount = mission.AimGoal
-        countdown = TimeInterval(mission.AimTime)
-        goalLabel.text = String(displayCount)
-        timerLabel.text = TimerFormattor.formatter.string(from: countdown)
-        userButton.isEnabled = true
-        backButton.isEnabled = true
-    }
-    
+   
     func missionStart() {
         runTimer()
         missionInProcess = true
@@ -300,11 +329,21 @@ class GoalCounterPage: UIViewController{
     }
     
     func missionFinshed(){
-        reset()
-        //resetTimer()
-        //missionInProcess = false
+        resetTimer()
+        missionInProcess = false
+        firstArm = true
+        armed = false
+        
+        displayCount = mission.AimGoal
+        countdown = TimeInterval(mission.AimTime)
+        goalLabel.text = String(displayCount)
+        //timerLabel.setCountDownTime(minutes: TimeInterval(countdown))
+        //timerLabel.text = TimerFormattor.formatter.string(from: countdown)
+        userButton.isEnabled = true
+        backButton.isEnabled = true
+        
         //make sure user exactly did some press
-        if(mission.ButtonTriggerEventList.count != 0) {
+        if(realCount > 0) {
             mission.FinalTime = TimeInfo.getStamp()
             mission.FinalAchievement = realCount
            
@@ -330,7 +369,27 @@ class GoalCounterPage: UIViewController{
     }
     
     @IBAction func backPreviousPage(_ sender: Any) {
-        self.dismiss(animated: true, completion: nil)
+        centreView.animation = "fadeInDown"
+        centreView.animateFrom = false
+        
+        triggerButton.animation = "squeezeLeft"
+        triggerButton.animateFrom = false
+        
+        armButton.animation = "squeezeRight"
+        armButton.animateFrom = false
+        
+        UIView.animate(withDuration: 1, delay: 0,
+                       options: [.curveEaseOut, .beginFromCurrentState, .allowUserInteraction],
+                       animations: {
+                        self.cardView.alpha = 1
+        }, completion: { (finished: Bool) in
+            self.triggerButton.animateTo()
+            self.armButton.animateTo()
+            self.centreView.animateToNext(completion: {
+                self.dismiss(animated: false, completion: nil)
+            })
+        }
+        )
     }
     // MARK: - Navigation
 
@@ -358,11 +417,11 @@ extension GoalCounterPage:TellGoalCounterPageUpdate   {
         displayCount = mission.AimGoal
         countdown = TimeInterval(mission.AimTime)
         
-        progressBar.setProgress(0, animated: false)
+        progressCircular.resetProgress()
         
         goalLabel.text = String(displayCount)
-        timerLabel.text = TimerFormattor.formatter.string(from: countdown)
-        
+        //timerLabel.text = TimerFormattor.formatter.string(from: countdown)
+        timerLabel.setCountDownTime(minutes: TimeInterval(countdown))
         firstArm = true
         //timer = Timer()
         hasGoal = false
@@ -391,22 +450,18 @@ extension GoalCounterPage:CBPeripheralManagerDelegate {
             notification in
             let rawValue = BLEAdapter.characteristicASCIIValue as String
             if(BLEAdapter.checkValue(value: rawValue)) {
-                if(rawValue.split(separator: ":")[0] == BLEAdapter.ARM_ID && rawValue.split(separator: ":")[1] == BLEAdapter.RELEASE_KEY) {
-                    self.audioPlayer.playSound(fileName: "First_Tone", fileType: "mp3")
-                    let armButton = Button(id: UserDefaultKeys.ArmButton)
-                    let armButtonTriigerEvent = ButtonTriggerEvent(missionID: self.mission.MissionID, patientID: DBAdapter.logPatient.ID, button: armButton, timeinterval: TimeInfo.getStamp())
-                    //print(armButtonTriigerEvent.EventID)
-                    self.mission.ButtonTriggerEventList.append(armButtonTriigerEvent)
-                    self.arm()
-                }
-                else if(rawValue.split(separator: ":")[0] == BLEAdapter.TRIGGER_ID && rawValue.split(separator: ":")[1] == BLEAdapter.RELEASE_KEY) {
-                    self.audioPlayer.playSound(fileName: "Second_Tone", fileType: "mp3")
-                    let triggerButton = Button(id: UserDefaultKeys.TriggerButton)
-                    let triggerButtonTriigerEvent = ButtonTriggerEvent(missionID: self.mission.MissionID, patientID: DBAdapter.logPatient.ID, button: triggerButton, timeinterval: TimeInfo.getStamp())
-                    //print(triggerButtonTriigerEvent.EventID)
-                    self.mission.ButtonTriggerEventList.append(triggerButtonTriigerEvent)
-                    self.trigger()
-                    
+                if(rawValue.split(separator: ":")[0] == BLEAdapter.ARM_ID) {
+                    if(rawValue.split(separator: ":")[1] == BLEAdapter.PRESS_KEY) {
+                        self.armButton.sendActions(for: UIControl.Event.touchDown)
+                    }else {
+                        self.armButton.sendActions(for: UIControl.Event.touchUpInside)
+                    }
+                }else if(rawValue.split(separator: ":")[0] == BLEAdapter.TRIGGER_ID) {
+                    if(rawValue.split(separator: ":")[1] == BLEAdapter.PRESS_KEY) {
+                        self.triggerButton.sendActions(for: UIControl.Event.touchDown)
+                    }else {
+                        self.triggerButton.sendActions(for: UIControl.Event.touchUpInside)
+                    }
                 }
             }
         }
@@ -432,6 +487,50 @@ extension GoalCounterPage:CBPeripheralManagerDelegate {
     }
 }
 
+extension GoalCounterPage:CAAnimationDelegate{
+    func changeBackgroundColor(isFromLeft:Bool){
+        if(isFromLeft) {
+            //设置渲染的起始结束位置（横向渐变）
+            self.gradientLayer.startPoint = CGPoint(x: 0, y: 0)
+            self.gradientLayer.endPoint = CGPoint(x: 1, y: 0)
+        }else {
+            self.gradientLayer.startPoint = CGPoint(x: 1, y: 0)
+            self.gradientLayer.endPoint = CGPoint(x: 0, y: 0)
+        }
+        //下一组渐变色索引
+        let firstColorIndex = Int(arc4random() % (8))
+        var secondColorIndex = Int(arc4random() % (8))
+        while(secondColorIndex == firstColorIndex) {
+            secondColorIndex = Int(arc4random() % (8))
+        }
+        colors = [ColorEffectController.gradientColors[firstColorIndex],ColorEffectController.gradientColors[secondColorIndex],UIColor.white.cgColor]
+        //添加渐变动画
+        let colorChangeAnimation = CABasicAnimation(keyPath: "colors")
+        colorChangeAnimation.delegate = self
+        colorChangeAnimation.duration = 1.0
+        colorChangeAnimation.fromValue = whiteColors
+        colorChangeAnimation.toValue = colors
+        colorChangeAnimation.fillMode = CAMediaTimingFillMode.forwards
+        //动画结束后保持最终的效果
+        colorChangeAnimation.isRemovedOnCompletion = false
+        gradientLayer.add(colorChangeAnimation, forKey: "colorChange")
+    }
+    
+    func removeBackgroundColor() {
+        //添加渐变动画
+        let colorChangeAnimation = CABasicAnimation(keyPath: "colors")
+        colorChangeAnimation.delegate = self
+        colorChangeAnimation.duration = 2.0
+        colorChangeAnimation.fromValue = colors
+        colorChangeAnimation.toValue = whiteColors
+        colorChangeAnimation.fillMode = CAMediaTimingFillMode.forwards
+        //动画结束后保持最终的效果
+        colorChangeAnimation.isRemovedOnCompletion = false
+        gradientLayer.add(colorChangeAnimation, forKey: "colorChange")
+    }
+    
+}
+
 extension GoalCounterPage {
     
     override var preferredStatusBarStyle : UIStatusBarStyle {
@@ -451,83 +550,5 @@ extension GoalCounterPage {
         })
         setNeedsStatusBarAppearanceUpdate()
         //UIApplication.shared.setStatusBarStyle(UIStatusBarStyle.default, animated: true)
-    }
-    
-    func  addAnimation() {
-        //add animation
-        let first = makeRadarAnimation(showRect: CGRect(x: armButton.frame.origin.x , y: armButton.frame.origin.y - 66, width: 300, height: 300), isRound: true, key: radarAnimationArm)    //位置和大小
-        let sencond = makeRadarAnimation(showRect: CGRect(x: triggerButton.frame.origin.x , y: triggerButton.frame.origin.y - 66, width: 300, height: 300), isRound: true, key: radarAnimationTrigger)    //位置和大小
-        view.layer.addSublayer(first)
-        //view.layer.addSublayer(sencond)
-        endAnimation()
-    }
-    
-    //动作-开始
-    @objc func startArmAction() {
-        animationLayer?.add(animationGroup!, forKey: radarAnimationArm)
-    }
-    
-    @objc func startTriggerAction() {
-        animationLayer?.add(animationGroup!, forKey: radarAnimationTrigger)
-    }
-    
-    func endAnimation() {
-        self.animationLayer?.removeAnimation(forKey: self.radarAnimationArm)
-        self.animationLayer?.removeAnimation(forKey: self.radarAnimationTrigger)
-    }
-    
-    func startArmA() {
-        animationLayer?.add(animationGroup!, forKey: radarAnimationArm)
-    }
-    
-    func startTriggerA() {
-        animationLayer?.add(animationGroup!, forKey: radarAnimationTrigger)
-    }
-    
-    private func makeRadarAnimation(showRect: CGRect, isRound: Bool,key:String) -> CALayer {
-        // 1. 一个动态波
-        let shapeLayer = CAShapeLayer()
-        shapeLayer.frame = showRect
-        // showRect 最大内切圆
-        
-        shapeLayer.path = UIBezierPath(ovalIn: CGRect(x: 0, y: 0, width: showRect.width, height: showRect.height)).cgPath
-        
-        shapeLayer.fillColor = UIColor.orange.cgColor    //波纹颜色
-        
-        shapeLayer.opacity = 0.0    // 默认初始颜色透明度
-        
-        animationLayer = shapeLayer
-        
-        // 2. 需要重复的动态波，即创建副本
-        let replicator = CAReplicatorLayer()
-        replicator.frame = shapeLayer.bounds
-        replicator.instanceCount = 4
-        replicator.instanceDelay = 1.0
-        replicator.addSublayer(shapeLayer)
-        
-        // 3. 创建动画组
-        let opacityAnimation = CABasicAnimation(keyPath: "opacity")
-        opacityAnimation.fromValue = NSNumber(floatLiteral: 0.3)  // 开始透明度
-        opacityAnimation.toValue = NSNumber(floatLiteral: 0)      // 结束时透明底
-        
-        let scaleAnimation = CABasicAnimation(keyPath: "transform")
-        if isRound {
-            scaleAnimation.fromValue = NSValue.init(caTransform3D: CATransform3DScale(CATransform3DIdentity, 1.0, 1.0, 0))      // 缩放起始大小
-        } else {
-            scaleAnimation.fromValue = NSValue.init(caTransform3D: CATransform3DScale(CATransform3DIdentity, 1.5, 1.5, 0))      // 缩放起始大小
-        }
-        scaleAnimation.toValue = NSValue.init(caTransform3D: CATransform3DScale(CATransform3DIdentity, 2.0, 2.0, 0))      // 缩放结束大小
-        
-        let animationGroup = CAAnimationGroup()
-        animationGroup.animations = [opacityAnimation, scaleAnimation]
-        animationGroup.duration = 3.0       // 动画执行时间
-        animationGroup.repeatCount = 2//HUGE   // 最大重复
-        animationGroup.autoreverses = false
-        
-        self.animationGroup = animationGroup
-        
-        shapeLayer.add(animationGroup, forKey: key)
-       
-        return replicator
     }
 }

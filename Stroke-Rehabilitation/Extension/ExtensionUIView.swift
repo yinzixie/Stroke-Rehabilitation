@@ -14,9 +14,17 @@ extension UIView {
         self.backgroundColor = UIColor.white
         self.layer.cornerRadius = radius //3.0
         self.layer.masksToBounds = false
-        self.layer.shadowColor = UIColor.black.withAlphaComponent(0.2).cgColor
-        self.layer.shadowOffset = CGSize(width: 0, height: 0)
+        self.layer.shadowColor = UIColor.black.withAlphaComponent(0.3).cgColor
+        self.layer.shadowOffset = CGSize(width: 0, height: 1)
         self.layer.shadowOpacity = 0.8
+    }
+    
+    func removeCardView() {
+        self.backgroundColor = UIColor.clear
+        self.layer.cornerRadius = 0
+        self.layer.masksToBounds = true
+        self.layer.shadowColor = UIColor.clear.cgColor
+        self.layer.shadowOpacity = 0
     }
     
     //https://blog.csdn.net/kmonarch/article/details/82892300

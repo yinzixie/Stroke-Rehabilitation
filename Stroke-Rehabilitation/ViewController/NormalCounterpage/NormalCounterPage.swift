@@ -14,6 +14,8 @@ class NormalCounterPage: UIViewController {
     
     @IBOutlet var containerView: UIView!
     @IBOutlet weak var centreView: SpringView!
+    @IBOutlet weak var cardView: UIView!
+    
     @IBOutlet weak var orderCountDown: CountdownLabel!
     
     @IBOutlet weak var counterLabel: UILabel!
@@ -57,7 +59,8 @@ class NormalCounterPage: UIViewController {
         updateMission()
         //
         AppDelegate.normalCounterPage = self
-        //centreView.cardView(radius: CGFloat(5))
+        
+        cardView.cardView(radius: CGFloat(5))
         //set label text
         hintLoginNameLabel.text = DBAdapter.logPatient.Name
         //set button style
@@ -122,9 +125,25 @@ class NormalCounterPage: UIViewController {
     override func viewDidAppear(_ animated: Bool) {
          hintLoginNameLabel.text = DBAdapter.logPatient.Name
         //setTimer()
-        centreView.animate()
+        centreView.animation = "squeezeDown"
+        centreView.animateFrom = true
+        
+        triggerButton.animation = "squeezeLeft"
+        triggerButton.animateFrom = true
+        
+        armButton.animation = "squeezeRight"
+        armButton.animateFrom = true
+        
         armButton.animate()
         triggerButton.animate()
+        
+        centreView.animateNext {
+            UIView.animate(withDuration: 1, delay: 0,
+                           options: [.curveEaseOut, .beginFromCurrentState, .allowUserInteraction],
+                           animations: {
+                            self.cardView.alpha = 0
+            }, completion: nil)
+        }
     }
     
     override func viewDidLayoutSubviews() {
@@ -235,16 +254,42 @@ class NormalCounterPage: UIViewController {
         
     }
     
+    @IBAction func goToGoalCounterPage(_ sender: Any) {
+        self.missionEnd()
+        centreView.animation = "fadeInDown"
+        centreView.animateFrom = false
+
+        triggerButton.animation = "squeezeLeft"
+        triggerButton.animateFrom = false
+        
+        armButton.animation = "squeezeRight"
+        armButton.animateFrom = false
+        
+        
+        UIView.animate(withDuration: 0.7, delay: 0,
+                       options: [.curveEaseOut, .beginFromCurrentState, .allowUserInteraction],
+                       animations: {
+                        self.cardView.alpha = 1
+        }, completion: { (finished: Bool) in
+            self.triggerButton.animateTo()
+            self.armButton.animateTo()
+            self.centreView.animateToNext(completion: {
+            self.performSegue(withIdentifier: "goToGoalCounterPage", sender: self)
+            })
+            }
+        )
+    }
     
-    /*
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destination.
         // Pass the selected object to the new view controller.
+        if(segue.identifier == "goToGoalCounterPage") {
+             //self.missionEnd()
+        }
     }
-    */
 
 }
 
@@ -268,7 +313,7 @@ extension NormalCounterPage {
         missionInProcess = false
     
         //make sure user exactly did some press
-        if(mission.ButtonTriggerEventList.count != 0) {
+        if(count != 0) {
             mission.FinalTime = TimeInfo.getStamp()
             mission.FinalAchievement = count
             
@@ -353,14 +398,17 @@ extension NormalCounterPage:CBPeripheralManagerDelegate {
             let rawValue = BLEAdapter.characteristicASCIIValue as String
             if(BLEAdapter.checkValue(value: rawValue)) {
                 if(rawValue.split(separator: ":")[0] == BLEAdapter.ARM_ID) {
-                    if(rawValue.split(separator: ":")[0] == BLEAdapter.PRESS_KEY) {
+                    if(rawValue.split(separator: ":")[1] == BLEAdapter.PRESS_KEY) {
                         self.armButton.sendActions(for: UIControl.Event.touchDown)
                     }else {
                         self.armButton.sendActions(for: UIControl.Event.touchUpInside)
                     }
-                }else if(rawValue.split(separator: ":")[0] == BLEAdapter.TRIGGER_ID && rawValue.split(separator: ":")[1] == BLEAdapter.RELEASE_KEY) {
-                    self.audioPlayer.playSound(fileName: "Second_Tone", fileType: "mp3")
-                    self.trigger()
+                }else if(rawValue.split(separator: ":")[0] == BLEAdapter.TRIGGER_ID) {
+                    if(rawValue.split(separator: ":")[1] == BLEAdapter.PRESS_KEY) {
+                        self.triggerButton.sendActions(for: UIControl.Event.touchDown)
+                    }else {
+                        self.triggerButton.sendActions(for: UIControl.Event.touchUpInside)
+                    }
                 }
             }
         }
