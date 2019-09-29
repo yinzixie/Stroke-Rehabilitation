@@ -100,8 +100,6 @@
 		2D30579622E3FA6600EBF92B /* Stroke_RehabilitationUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D30579522E3FA6600EBF92B /* Stroke_RehabilitationUITests.swift */; };
 		2D3057A522E3FB2D00EBF92B /* NormalCounterPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D3057A422E3FB2D00EBF92B /* NormalCounterPage.swift */; };
 		2D3057A822E4000E00EBF92B /* AudioEffectController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D3057A722E4000E00EBF92B /* AudioEffectController.swift */; };
-		2D3057AD22E409FF00EBF92B /* First_Tone.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 2D3057AC22E409FF00EBF92B /* First_Tone.mp3 */; };
-		2D3057AF22E40A0500EBF92B /* Second_Tone.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 2D3057AE22E40A0500EBF92B /* Second_Tone.mp3 */; };
 		2D9F3FFE23094D7300932D8F /* BLEAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D9F3FFD23094D7300932D8F /* BLEAdapter.swift */; };
 		2D9F4001230950C200932D8F /* BLEConnectionPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D9F4000230950C200932D8F /* BLEConnectionPage.swift */; };
 		2D9F40032309526400932D8F /* PeripheralListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D9F40022309526400932D8F /* PeripheralListCell.swift */; };
@@ -121,6 +119,8 @@
 		2DD505F2233C4E5200F4C0EF /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DD505EF233C4E5200F4C0EF /* CardView.swift */; };
 		2DD505F3233C4E5200F4C0EF /* PaginationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DD505F0233C4E5200F4C0EF /* PaginationView.swift */; };
 		2DD505F6233C798500F4C0EF /* UserSettingPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DD505F5233C798500F4C0EF /* UserSettingPage.swift */; };
+		2DF2D6632340C31A00126572 /* First_Tone.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 2DF2D6612340C31A00126572 /* First_Tone.mp3 */; };
+		2DF2D6642340C31A00126572 /* Second_Tone.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 2DF2D6622340C31A00126572 /* Second_Tone.mp3 */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -245,8 +245,6 @@
 		2D30579722E3FA6600EBF92B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2D3057A422E3FB2D00EBF92B /* NormalCounterPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NormalCounterPage.swift; sourceTree = "<group>"; };
 		2D3057A722E4000E00EBF92B /* AudioEffectController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioEffectController.swift; sourceTree = "<group>"; };
-		2D3057AC22E409FF00EBF92B /* First_Tone.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = First_Tone.mp3; sourceTree = "<group>"; };
-		2D3057AE22E40A0500EBF92B /* Second_Tone.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = Second_Tone.mp3; sourceTree = "<group>"; };
 		2D9F3FFD23094D7300932D8F /* BLEAdapter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BLEAdapter.swift; sourceTree = "<group>"; };
 		2D9F4000230950C200932D8F /* BLEConnectionPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BLEConnectionPage.swift; sourceTree = "<group>"; };
 		2D9F40022309526400932D8F /* PeripheralListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PeripheralListCell.swift; sourceTree = "<group>"; };
@@ -267,6 +265,8 @@
 		2DD505EF233C4E5200F4C0EF /* CardView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
 		2DD505F0233C4E5200F4C0EF /* PaginationView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PaginationView.swift; sourceTree = "<group>"; };
 		2DD505F5233C798500F4C0EF /* UserSettingPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserSettingPage.swift; sourceTree = "<group>"; };
+		2DF2D6612340C31A00126572 /* First_Tone.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = First_Tone.mp3; sourceTree = "<group>"; };
+		2DF2D6622340C31A00126572 /* Second_Tone.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = Second_Tone.mp3; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -601,8 +601,8 @@
 		2D3057AB22E409C600EBF92B /* Sounds */ = {
 			isa = PBXGroup;
 			children = (
-				2D3057AC22E409FF00EBF92B /* First_Tone.mp3 */,
-				2D3057AE22E40A0500EBF92B /* Second_Tone.mp3 */,
+				2DF2D6612340C31A00126572 /* First_Tone.mp3 */,
+				2DF2D6622340C31A00126572 /* Second_Tone.mp3 */,
 			);
 			path = Sounds;
 			sourceTree = "<group>";
@@ -771,13 +771,13 @@
 			files = (
 				2D30578022E3FA6600EBF92B /* LaunchScreen.storyboard in Resources */,
 				2D17044D233E36C30019A6C6 /* Fire.png in Resources */,
-				2D3057AD22E409FF00EBF92B /* First_Tone.mp3 in Resources */,
 				2D30577D22E3FA6600EBF92B /* Assets.xcassets in Resources */,
 				2D0A8554233B718E009AEB40 /* LoadingView.xib in Resources */,
+				2DF2D6642340C31A00126572 /* Second_Tone.mp3 in Resources */,
 				2D30577B22E3FA6500EBF92B /* Main.storyboard in Resources */,
-				2D3057AF22E40A0500EBF92B /* Second_Tone.mp3 in Resources */,
 				2D17044E233E36C30019A6C6 /* Fragment.png in Resources */,
 				2D17044F233E36C30019A6C6 /* Smoke.png in Resources */,
+				2DF2D6632340C31A00126572 /* First_Tone.mp3 in Resources */,
 				2D170450233E36C30019A6C6 /* Sparkle.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
