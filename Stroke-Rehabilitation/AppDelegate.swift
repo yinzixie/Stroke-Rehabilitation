@@ -13,11 +13,20 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
     //static var mission = NormalCounterMission(missionID: "NULL-mission", patientID: DBAdapter.logPatient.ID)
+    
+    static var BLEPage:BLEConnectionPage?
     static var normalCounterPage:NormalCounterPage?
     static var goalCounterPage:GoalCounterPage?
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        
+        if (AppDelegate.BLEPage == nil) {
+            // initialize view controller (for a storyboard, you'd do it like so, making sure your storyboard filename and view controller identifier are set properly):
+            let storyboard = UIStoryboard(name: "Main", bundle: nil)
+            
+            AppDelegate.BLEPage = storyboard.instantiateViewController(withIdentifier: "BLEConnectionPage") as? BLEConnectionPage
+        }
         return true
     }
 

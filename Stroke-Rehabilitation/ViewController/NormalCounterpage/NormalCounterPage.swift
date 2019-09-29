@@ -16,8 +16,10 @@ class NormalCounterPage: UIViewController {
     @IBOutlet weak var topView: SpringView!
     @IBOutlet weak var cardViewInTopView: UIView!
     
+    @IBOutlet weak var bleButton: UIButton!
+    
     @IBOutlet weak var centreView: SpringView!
-    @IBOutlet weak var cardView: UIView!
+    @IBOutlet weak var cardViewInCentreView: UIView!
     
     @IBOutlet weak var orderCountDown: CountdownLabel!
     
@@ -25,6 +27,7 @@ class NormalCounterPage: UIViewController {
     @IBOutlet weak var hintLoginNameLabel: UILabel!
     @IBOutlet weak var armButton: SpringButton!
     @IBOutlet weak var triggerButton: SpringButton!
+    @IBOutlet weak var endTaskButton: SpringButton!
     
     var mission:NormalCounterMission!
     var missionInProcess = false
@@ -64,7 +67,7 @@ class NormalCounterPage: UIViewController {
         AppDelegate.normalCounterPage = self
         
         cardViewInTopView.cardView(radius: CGFloat(5))
-        cardView.cardView(radius: CGFloat(5))
+        cardViewInCentreView.cardView(radius: CGFloat(5))
         //set label text
         hintLoginNameLabel.text = DBAdapter.logPatient.Name
         //set button style
@@ -127,31 +130,8 @@ class NormalCounterPage: UIViewController {
     }
     
     override func viewDidAppear(_ animated: Bool) {
-         hintLoginNameLabel.text = DBAdapter.logPatient.Name
-        //setTimer()
-        topView.animation = "slideDown"
-        topView.animateFrom = true
-        
-        centreView.animation = "slideDown"
-        centreView.animateFrom = true
-        
-        triggerButton.animation = "slideLeft"
-        triggerButton.animateFrom = true
-        
-        armButton.animation = "slideRight"
-        armButton.animateFrom = true
-        
-        armButton.animate()
-        triggerButton.animate()
-        topView.animate()
-        centreView.animateNext {
-            UIView.animate(withDuration: 1, delay: 0,
-                           options: [.curveEaseOut, .beginFromCurrentState, .allowUserInteraction],
-                           animations: {
-                            self.cardViewInTopView.alpha = 0
-                            self.cardView.alpha = 0
-            }, completion: nil)
-        }
+        hintLoginNameLabel.text = DBAdapter.logPatient.Name
+        enterPageAnimation()
     }
     
     override func viewDidLayoutSubviews() {
@@ -159,7 +139,15 @@ class NormalCounterPage: UIViewController {
     }
     
     @IBAction func bluetoothSettings(_ sender: Any) {
-        performSegue(withIdentifier: "bluetoothSegue", sender: self)
+        AppDelegate.BLEPage!.modalPresentationStyle = .popover
+        AppDelegate.BLEPage!.popoverPresentationController?.delegate = self
+        AppDelegate.BLEPage!.popoverPresentationController?.sourceView = bleButton
+        AppDelegate.BLEPage!.popoverPresentationController?.sourceRect = CGRect(
+            origin: CGPoint(x: 0, y: 0),
+            size: UIScreen.main.bounds.size
+        )
+        self.present(AppDelegate.BLEPage!, animated: true, completion: nil)
+        //leavePageAnimation(function:self.present(AppDelegate.BLEPage!, animated: true, completion: nil))
     }
     
     func setTimer() {
@@ -211,15 +199,6 @@ class NormalCounterPage: UIViewController {
         orderCountDown.setCountDownTime(minutes: time)
     }
     
-    
-    
-    
-    
-    
-    
-    
-    
-    
     /*
      The arm function is used to arm the counter, making it ready to trigger.
      */
@@ -262,34 +241,13 @@ class NormalCounterPage: UIViewController {
         
     }
     
+    @IBAction func goToUserPage(_ sender: Any) {
+        leavePageAnimation(identifier:"fromNormalCounterPageGoToUserPage")
+    }
+    
     @IBAction func goToGoalCounterPage(_ sender: Any) {
         self.missionEnd()
-        topView.animation = "slideDown"
-        topView.animateFrom = false
-        
-        centreView.animation = "fadeInDown"
-        centreView.animateFrom = false
-
-        triggerButton.animation = "slideLeft"
-        triggerButton.animateFrom = false
-        
-        armButton.animation = "slideRight"
-        armButton.animateFrom = false
-        
-        UIView.animate(withDuration: 0.4, delay: 0,
-                       options: [.curveEaseOut, .beginFromCurrentState, .allowUserInteraction],
-                       animations: {
-                        self.cardViewInTopView.alpha = 1
-                        self.cardView.alpha = 1
-        }, completion: { (finished: Bool) in
-            self.triggerButton.animateTo()
-            self.armButton.animateTo()
-            self.topView.animateTo()
-            self.centreView.animateToNext(completion: {
-            self.performSegue(withIdentifier: "goToGoalCounterPage", sender: self)
-            })
-            }
-        )
+        leavePageAnimation(identifier:"goToGoalCounterPage" )
     }
     
     // MARK: - Navigation
@@ -300,6 +258,9 @@ class NormalCounterPage: UIViewController {
         // Pass the selected object to the new view controller.
         if(segue.identifier == "goToGoalCounterPage") {
              //self.missionEnd()
+        }
+        if(segue.identifier == "goToBluetoothPage") {
+            //let bluetoothPage = segue.destination as! BLEConnectionPage
         }
     }
 
@@ -358,6 +319,70 @@ extension NormalCounterPage {
     }
 }
 
+extension NormalCounterPage {
+    func enterPageAnimation() {
+        topView.animation = "slideDown"
+        topView.animateFrom = true
+        
+        centreView.animation = "slideDown"
+        centreView.animateFrom = true
+        
+        triggerButton.animation = "slideLeft"
+        triggerButton.animateFrom = true
+        
+        armButton.animation = "slideRight"
+        armButton.animateFrom = true
+        
+        endTaskButton.animation = "slideUp"
+        endTaskButton.animateFrom = true
+        
+        endTaskButton.animate()
+        armButton.animate()
+        triggerButton.animate()
+        topView.animate()
+        centreView.animateNext {
+            UIView.animate(withDuration: 1, delay: 0,
+                           options: [.curveEaseOut, .beginFromCurrentState, .allowUserInteraction],
+                           animations: {
+                            self.cardViewInTopView.alpha = 0
+                            self.cardViewInCentreView.alpha = 0
+            }, completion: nil)
+        }
+    }
+    
+    func leavePageAnimation(identifier:String) {
+        topView.animation = "slideDown"
+        topView.animateFrom = false
+        
+        centreView.animation = "fadeInDown"
+        centreView.animateFrom = false
+        
+        triggerButton.animation = "slideLeft"
+        triggerButton.animateFrom = false
+        
+        armButton.animation = "slideRight"
+        armButton.animateFrom = false
+        
+        endTaskButton.animation = "slideUp"
+        endTaskButton.animateFrom = false
+        
+        UIView.animate(withDuration: 0.4, delay: 0,
+                       options: [.curveEaseOut, .beginFromCurrentState, .allowUserInteraction],
+                       animations: {
+                        self.cardViewInTopView.alpha = 1
+                        self.cardViewInCentreView.alpha = 1
+        }, completion: { (finished: Bool) in
+            self.endTaskButton.animateTo()
+            self.triggerButton.animateTo()
+            self.armButton.animateTo()
+            self.topView.animateTo()
+            self.centreView.animateToNext(completion: {
+                self.performSegue(withIdentifier: identifier, sender: self)
+            })
+        }
+        )
+    }
+}
 
 extension NormalCounterPage:CAAnimationDelegate{
     func changeBackgroundColor(isFromLeft:Bool){
@@ -443,5 +468,11 @@ extension NormalCounterPage:CBPeripheralManagerDelegate {
             print("\(error)")
             return
         }
+    }
+}
+
+extension NormalCounterPage:UIPopoverPresentationControllerDelegate {
+    func adaptivePresentationStyleForPresentationController(controller: UIPresentationController) -> UIModalPresentationStyle {
+        return .none
     }
 }

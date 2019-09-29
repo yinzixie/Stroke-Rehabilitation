@@ -16,7 +16,7 @@ class GoalCounterPage: UIViewController{
     @IBOutlet weak var cardViewInTopView: UIView!
     
     @IBOutlet weak var centreView: SpringView!
-    @IBOutlet weak var cardView: UIView!
+    @IBOutlet weak var cardViewInCentreView: UIView!
     
     @IBOutlet weak var userButton: UIButton!
     @IBOutlet weak var backButton: UIButton!
@@ -30,6 +30,7 @@ class GoalCounterPage: UIViewController{
     @IBOutlet weak var hintLoginNameLabel: UILabel!
     @IBOutlet weak var armButton: SpringButton!
     @IBOutlet weak var triggerButton: SpringButton!
+    @IBOutlet weak var endTaskButton: SpringButton!
     
     var peripheralManager: CBPeripheralManager?
     //var peripheral: CBPeripheral?
@@ -65,6 +66,8 @@ class GoalCounterPage: UIViewController{
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        //
+        AppDelegate.goalCounterPage = self
         //set button
         armButton.isHighlighted = false
         armButton.addTarget(self, action: #selector(pressArmButton), for: .touchDown)
@@ -76,7 +79,7 @@ class GoalCounterPage: UIViewController{
         
         //..........//
         cardViewInTopView.cardView(radius: CGFloat(5))
-        cardView.cardView(radius: CGFloat(5))
+        cardViewInCentreView.cardView(radius: CGFloat(5))
         //..........//
         noCloseButtonWithAnimationApperance = SCLAlertView.SCLAppearance(
             kWindowWidth: self.view.frame.width*0.6,
@@ -160,30 +163,7 @@ class GoalCounterPage: UIViewController{
         updateMission()
         
         //animation
-        centreView.animation = "slideDown"
-        centreView.animateFrom = true
-        
-        triggerButton.animation = "slideLeft"
-        triggerButton.animateFrom = true
-        
-        armButton.animation = "slideRight"
-        armButton.animateFrom = true
-        
-        topView.animation = "slideDown"
-        topView.animateFrom = true
-        
-        topView.animate()
-        armButton.animate()
-        triggerButton.animate()
-        
-        centreView.animateNext {
-            UIView.animate(withDuration: 1, delay: 0,
-                           options: [.curveEaseOut, .beginFromCurrentState, .allowUserInteraction],
-                           animations: {
-                            self.cardViewInTopView.alpha = 0
-                            self.cardView.alpha = 0
-            }, completion: nil)
-        }
+        enterPageAnimation()
     }
     
     override func viewDidLayoutSubviews() {
@@ -406,32 +386,7 @@ class GoalCounterPage: UIViewController{
     }
     
     @IBAction func backPreviousPage(_ sender: Any) {
-        centreView.animation = "fadeInDown"
-        centreView.animateFrom = false
-        
-        triggerButton.animation = "slideLeft"
-        triggerButton.animateFrom = false
-        
-        armButton.animation = "slideRight"
-        armButton.animateFrom = false
-        
-        topView.animation = "slideDown"
-        topView.animateFrom = false
-        
-        UIView.animate(withDuration: 0.4, delay: 0,
-                       options: [.curveEaseOut, .beginFromCurrentState, .allowUserInteraction],
-                       animations: {
-                        self.cardViewInTopView.alpha = 1
-                        self.cardView.alpha = 1
-        }, completion: { (finished: Bool) in
-            self.topView.animateTo()
-            self.triggerButton.animateTo()
-            self.armButton.animateTo()
-            self.centreView.animateToNext(completion: {
-                self.dismiss(animated: false, completion: nil)
-            })
-        }
-        )
+       leavePageAnimation(identifier: "")
     }
     // MARK: - Navigation
 
@@ -533,6 +488,75 @@ extension GoalCounterPage:CBPeripheralManagerDelegate {
             print("\(error)")
             return
         }
+    }
+}
+
+extension GoalCounterPage {
+    func enterPageAnimation() {
+        topView.animation = "slideDown"
+        topView.animateFrom = true
+        
+        centreView.animation = "slideDown"
+        centreView.animateFrom = true
+        
+        triggerButton.animation = "slideLeft"
+        triggerButton.animateFrom = true
+        
+        armButton.animation = "slideRight"
+        armButton.animateFrom = true
+        
+        endTaskButton.animation = "slideUp"
+        endTaskButton.animateFrom = true
+        
+        endTaskButton.animate()
+        armButton.animate()
+        triggerButton.animate()
+        topView.animate()
+        centreView.animateNext {
+            UIView.animate(withDuration: 1, delay: 0,
+                           options: [.curveEaseOut, .beginFromCurrentState, .allowUserInteraction],
+                           animations: {
+                            self.cardViewInTopView.alpha = 0
+                            self.cardViewInCentreView.alpha = 0
+            }, completion: nil)
+        }
+    }
+    
+    func leavePageAnimation(identifier:String) {
+        topView.animation = "slideDown"
+        topView.animateFrom = false
+        
+        centreView.animation = "fadeInDown"
+        centreView.animateFrom = false
+        
+        triggerButton.animation = "slideLeft"
+        triggerButton.animateFrom = false
+        
+        armButton.animation = "slideRight"
+        armButton.animateFrom = false
+        
+        endTaskButton.animation = "slideUp"
+        endTaskButton.animateFrom = false
+        
+        UIView.animate(withDuration: 0.4, delay: 0,
+                       options: [.curveEaseOut, .beginFromCurrentState, .allowUserInteraction],
+                       animations: {
+                        self.cardViewInTopView.alpha = 1
+                        self.cardViewInCentreView.alpha = 1
+        }, completion: { (finished: Bool) in
+            self.endTaskButton.animateTo()
+            self.triggerButton.animateTo()
+            self.armButton.animateTo()
+            self.topView.animateTo()
+            self.centreView.animateToNext(completion: {
+                if(identifier != "") {
+                    self.performSegue(withIdentifier: identifier, sender: self)
+                }else {
+                    self.dismiss(animated: false, completion: nil)
+                }
+            })
+        }
+        )
     }
 }
 

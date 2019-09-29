@@ -13,6 +13,9 @@ import CoreBluetooth
 class BLEConnectionPage: UIViewController, CBCentralManagerDelegate, CBPeripheralDelegate, UITableViewDelegate, UITableViewDataSource{
 
     @IBOutlet weak var peripheralTable: UITableView!
+    @IBOutlet weak var armButton: ZFRippleButton!
+    @IBOutlet weak var triggerButton: ZFRippleButton!
+    
     @IBOutlet weak var sensor0Button: UIButton!
     @IBOutlet weak var sensor1Button: UIButton!
     
@@ -42,7 +45,7 @@ class BLEConnectionPage: UIViewController, CBCentralManagerDelegate, CBPeriphera
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        BLEAdapter()
+        _ = BLEAdapter()
         
         let defaults = UserDefaults.standard
         armIDLabel.text = defaults.string(forKey: UserDefaultKeys.ArmID) ?? BLEAdapter.SENSOR0_ID
@@ -254,20 +257,20 @@ class BLEConnectionPage: UIViewController, CBCentralManagerDelegate, CBPeriphera
             
             //receiveText.split(separator: ":")
             if(BLEAdapter.checkValue(value: receiveText)) {
-                if(receiveText.split(separator: ":")[0] == BLEAdapter.SENSOR0_ID ) {
+                if(receiveText.split(separator: ":")[0] == BLEAdapter.ARM_ID ) {
                     if(receiveText.split(separator: ":")[1] == BLEAdapter.RELEASE_KEY){
-                        self.sensor0Button.backgroundColor = .white
+                        self.armButton.sendActions(for: UIControl.Event.touchUpInside)
                         
                     }else if(receiveText.split(separator: ":")[1] == BLEAdapter.PRESS_KEY){
-                         self.sensor0Button.backgroundColor = .red
+                         self.armButton.sendActions(for: UIControl.Event.touchDown)
                     }
                 }
-                else if(receiveText.split(separator: ":")[0] == BLEAdapter.SENSOR1_ID ) {
+                else if(receiveText.split(separator: ":")[0] == BLEAdapter.TRIGGER_ID ) {
                     if(receiveText.split(separator: ":")[1] == BLEAdapter.RELEASE_KEY){
-                        self.sensor1Button.backgroundColor = .white
+                       self.triggerButton.sendActions(for: UIControl.Event.touchUpInside)
                         
                     }else if(receiveText.split(separator: ":")[1] == BLEAdapter.PRESS_KEY){
-                        self.sensor1Button.backgroundColor = .red
+                         self.triggerButton.sendActions(for: UIControl.Event.touchDown)
                     }
                 }
             }
@@ -391,19 +394,18 @@ class BLEConnectionPage: UIViewController, CBCentralManagerDelegate, CBPeriphera
         let defaults = UserDefaults.standard
         armIDLabel.text = defaults.string(forKey: UserDefaultKeys.ArmID)
         triggerIDLabel.text = defaults.string(forKey: UserDefaultKeys.TriggerID) ?? BLEAdapter.SENSOR1_ID
-        
+
     }
     
     @IBAction func start(_ sender: Any) {
         //Once connected, move to new view controller to manager incoming and outgoing data
-        let storyboard = UIStoryboard(name: "Main", bundle: nil)
-         
-         let normalCounterPage = storyboard.instantiateViewController(withIdentifier: "NormalCounterPage") as! NormalCounterPage
-         //normalCounterPage.peripheral = BLEAdapter.blePeripheral
-         self.present(normalCounterPage, animated: true, completion: nil)
-        //navigationController?.pushViewController(normalCounterPage, animated: true)
+        //let storyboard = UIStoryboard(name: "Main", bundle: nil)
         
+         //let normalCounterPage = storyboard.instantiateViewController(withIdentifier: "NormalCounterPage") as! NormalCounterPage
+         //normalCounterPage.peripheral = BLEAdapter.blePeripheral
+        self.dismiss(animated: true, completion: nil)
+        //navigationController?.pushViewController(normalCounterPage, animated: true)
     }
-    
 }
+
 
