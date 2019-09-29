@@ -13,6 +13,9 @@ import CoreBluetooth
 class NormalCounterPage: UIViewController {
     
     @IBOutlet var containerView: UIView!
+    @IBOutlet weak var topView: SpringView!
+    @IBOutlet weak var cardViewInTopView: UIView!
+    
     @IBOutlet weak var centreView: SpringView!
     @IBOutlet weak var cardView: UIView!
     
@@ -60,6 +63,7 @@ class NormalCounterPage: UIViewController {
         //
         AppDelegate.normalCounterPage = self
         
+        cardViewInTopView.cardView(radius: CGFloat(5))
         cardView.cardView(radius: CGFloat(5))
         //set label text
         hintLoginNameLabel.text = DBAdapter.logPatient.Name
@@ -125,22 +129,26 @@ class NormalCounterPage: UIViewController {
     override func viewDidAppear(_ animated: Bool) {
          hintLoginNameLabel.text = DBAdapter.logPatient.Name
         //setTimer()
-        centreView.animation = "squeezeDown"
+        topView.animation = "slideDown"
+        topView.animateFrom = true
+        
+        centreView.animation = "slideDown"
         centreView.animateFrom = true
         
-        triggerButton.animation = "squeezeLeft"
+        triggerButton.animation = "slideLeft"
         triggerButton.animateFrom = true
         
-        armButton.animation = "squeezeRight"
+        armButton.animation = "slideRight"
         armButton.animateFrom = true
         
         armButton.animate()
         triggerButton.animate()
-        
+        topView.animate()
         centreView.animateNext {
             UIView.animate(withDuration: 1, delay: 0,
                            options: [.curveEaseOut, .beginFromCurrentState, .allowUserInteraction],
                            animations: {
+                            self.cardViewInTopView.alpha = 0
                             self.cardView.alpha = 0
             }, completion: nil)
         }
@@ -256,23 +264,27 @@ class NormalCounterPage: UIViewController {
     
     @IBAction func goToGoalCounterPage(_ sender: Any) {
         self.missionEnd()
+        topView.animation = "slideDown"
+        topView.animateFrom = false
+        
         centreView.animation = "fadeInDown"
         centreView.animateFrom = false
 
-        triggerButton.animation = "squeezeLeft"
+        triggerButton.animation = "slideLeft"
         triggerButton.animateFrom = false
         
-        armButton.animation = "squeezeRight"
+        armButton.animation = "slideRight"
         armButton.animateFrom = false
         
-        
-        UIView.animate(withDuration: 0.5, delay: 0,
+        UIView.animate(withDuration: 0.4, delay: 0,
                        options: [.curveEaseOut, .beginFromCurrentState, .allowUserInteraction],
                        animations: {
+                        self.cardViewInTopView.alpha = 1
                         self.cardView.alpha = 1
         }, completion: { (finished: Bool) in
             self.triggerButton.animateTo()
             self.armButton.animateTo()
+            self.topView.animateTo()
             self.centreView.animateToNext(completion: {
             self.performSegue(withIdentifier: "goToGoalCounterPage", sender: self)
             })

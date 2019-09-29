@@ -166,15 +166,6 @@
                                     <constraint firstAttribute="height" constant="10" id="wF6-Sy-IW2"/>
                                 </constraints>
                             </view>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Visitor" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jyf-at-Vrb">
-                                <rect key="frame" x="101" y="65" width="49" height="20"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="20" id="L8V-fT-IBE"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="G60-o1-JGp" customClass="SpringView" customModule="Stroke_Rehabilitation" customModuleProvider="target">
                                 <rect key="frame" x="287" y="84" width="450" height="600"/>
                                 <subviews>
@@ -242,34 +233,12 @@ click the &gt;&gt;&gt; button to go to the "goal" page.</string>
                                     <constraint firstItem="s23-F0-ISN" firstAttribute="centerX" secondItem="G60-o1-JGp" secondAttribute="centerX" id="xlL-ut-3eL"/>
                                 </constraints>
                                 <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="string" keyPath="animation" value="squeezeDown"/>
                                     <userDefinedRuntimeAttribute type="boolean" keyPath="autohide" value="NO"/>
                                 </userDefinedRuntimeAttributes>
                             </view>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fWt-o4-nPS">
-                                <rect key="frame" x="954" y="50" width="50" height="50"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="50" id="QBQ-Vj-fzl"/>
-                                    <constraint firstAttribute="width" constant="50" id="hzI-Yz-z6O"/>
-                                </constraints>
-                                <state key="normal" title="Bluetooth" image="Bluetooth"/>
-                                <connections>
-                                    <action selector="bluetoothSettings:" destination="BYZ-38-t0r" eventType="touchUpInside" id="W1x-Ub-di5"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wqk-p0-noz">
-                                <rect key="frame" x="30" y="50" width="51" height="50"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="50" id="Uop-Lx-Xqf"/>
-                                    <constraint firstAttribute="width" secondItem="wqk-p0-noz" secondAttribute="height" multiplier="44:43" id="aqu-YR-mAd"/>
-                                </constraints>
-                                <state key="normal" image="change-user"/>
-                                <connections>
-                                    <segue destination="7eF-hD-mGw" kind="show" id="GVY-PE-VB4"/>
-                                </connections>
-                            </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oVr-qS-zrP">
-                                <rect key="frame" x="476" y="693" width="72" height="30"/>
+                                <rect key="frame" x="443.5" y="690" width="137" height="48"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
                                 <state key="normal" title="END TASK"/>
                                 <connections>
                                     <action selector="endTask:" destination="BYZ-38-t0r" eventType="touchUpInside" id="MaH-Gc-QHc"/>
@@ -281,9 +250,6 @@ click the &gt;&gt;&gt; button to go to the "goal" page.</string>
                                 <state key="normal" title="Arm">
                                     <color key="titleColor" red="0.0" green="0.64990903249999998" blue="0.25490196079999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="string" keyPath="animation" value="squeezeRight"/>
-                                </userDefinedRuntimeAttributes>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VLn-3B-Tfu" customClass="SpringButton" customModule="Stroke_Rehabilitation" customModuleProvider="target">
                                 <rect key="frame" x="762" y="330" width="232" height="108"/>
@@ -291,50 +257,104 @@ click the &gt;&gt;&gt; button to go to the "goal" page.</string>
                                 <state key="normal" title="Trigger">
                                     <color key="titleColor" red="1" green="0.57637232540000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="string" keyPath="animation" value="squeezeLeft"/>
-                                </userDefinedRuntimeAttributes>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ePZ-Ud-X4a">
-                                <rect key="frame" x="949" y="187" width="61.5" height="50"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ved-ZZ-nRO" customClass="SpringView" customModule="Stroke_Rehabilitation" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="-20" width="1024" height="100"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hSB-tB-CXU">
+                                        <rect key="frame" x="0.0" y="20" width="1024" height="75"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </view>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Visitor" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jyf-at-Vrb">
+                                        <rect key="frame" x="110" y="55" width="49" height="20"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="20" id="L8V-fT-IBE"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ePZ-Ud-X4a">
+                                        <rect key="frame" x="492" y="30" width="40" height="40"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="40" id="YmB-lX-QSG"/>
+                                            <constraint firstAttribute="width" constant="40" id="zDw-5H-i9H"/>
+                                        </constraints>
+                                        <state key="normal" title="&gt;&gt;&gt;" image="blue-arrow"/>
+                                        <connections>
+                                            <action selector="goToGoalCounterPage:" destination="BYZ-38-t0r" eventType="touchUpInside" id="X1I-CL-ZmZ"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fWt-o4-nPS">
+                                        <rect key="frame" x="924" y="40" width="50" height="50"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="50" id="QBQ-Vj-fzl"/>
+                                            <constraint firstAttribute="width" constant="50" id="hzI-Yz-z6O"/>
+                                        </constraints>
+                                        <state key="normal" title="Bluetooth" image="Bluetooth"/>
+                                        <connections>
+                                            <action selector="bluetoothSettings:" destination="BYZ-38-t0r" eventType="touchUpInside" id="W1x-Ub-di5"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wqk-p0-noz">
+                                        <rect key="frame" x="50" y="40" width="50" height="50"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="50" id="Uop-Lx-Xqf"/>
+                                            <constraint firstAttribute="width" constant="50" id="cTe-GF-aQi"/>
+                                        </constraints>
+                                        <state key="normal" image="change-user"/>
+                                        <connections>
+                                            <segue destination="7eF-hD-mGw" kind="show" id="GVY-PE-VB4"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="50" id="YmB-lX-QSG"/>
-                                    <constraint firstAttribute="width" secondItem="ePZ-Ud-X4a" secondAttribute="height" multiplier="27:22" id="bHj-Ys-XI7"/>
+                                    <constraint firstItem="fWt-o4-nPS" firstAttribute="top" secondItem="Ved-ZZ-nRO" secondAttribute="top" constant="40" id="18T-jm-P8v"/>
+                                    <constraint firstItem="jyf-at-Vrb" firstAttribute="centerY" secondItem="wqk-p0-noz" secondAttribute="centerY" id="64b-C6-arE"/>
+                                    <constraint firstItem="hSB-tB-CXU" firstAttribute="top" secondItem="Ved-ZZ-nRO" secondAttribute="top" constant="20" id="BEN-bW-Bxq"/>
+                                    <constraint firstItem="jyf-at-Vrb" firstAttribute="leading" secondItem="wqk-p0-noz" secondAttribute="trailing" constant="10" id="D6L-H9-X23"/>
+                                    <constraint firstAttribute="bottom" secondItem="hSB-tB-CXU" secondAttribute="bottom" constant="5" id="FId-ls-oGA"/>
+                                    <constraint firstItem="wqk-p0-noz" firstAttribute="leading" secondItem="Ved-ZZ-nRO" secondAttribute="leading" constant="50" id="bdj-Pa-zrr"/>
+                                    <constraint firstAttribute="trailing" secondItem="fWt-o4-nPS" secondAttribute="trailing" constant="50" id="dtw-W4-P3l"/>
+                                    <constraint firstAttribute="height" constant="100" id="eGK-zO-G1c"/>
+                                    <constraint firstItem="hSB-tB-CXU" firstAttribute="leading" secondItem="Ved-ZZ-nRO" secondAttribute="leading" id="jlP-bA-eAf"/>
+                                    <constraint firstItem="ePZ-Ud-X4a" firstAttribute="centerX" secondItem="Ved-ZZ-nRO" secondAttribute="centerX" id="vEn-a7-dzb"/>
+                                    <constraint firstItem="wqk-p0-noz" firstAttribute="top" secondItem="Ved-ZZ-nRO" secondAttribute="top" constant="40" id="vFY-Ta-6KR"/>
+                                    <constraint firstItem="ePZ-Ud-X4a" firstAttribute="centerY" secondItem="Ved-ZZ-nRO" secondAttribute="centerY" id="yS3-Zq-rJm"/>
+                                    <constraint firstAttribute="trailing" secondItem="hSB-tB-CXU" secondAttribute="trailing" id="ya1-2v-5e4"/>
                                 </constraints>
-                                <state key="normal" title="&gt;&gt;&gt;" image="blue-arrow"/>
-                                <connections>
-                                    <action selector="goToGoalCounterPage:" destination="BYZ-38-t0r" eventType="touchUpInside" id="X1I-CL-ZmZ"/>
-                                </connections>
-                            </button>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="vaw-2g-NOy" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="AP3-KG-zET"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="oVr-qS-zrP" secondAttribute="bottom" constant="45" id="FFD-hX-6mz"/>
-                            <constraint firstItem="fWt-o4-nPS" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="30" id="G9S-Df-HQH"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="oVr-qS-zrP" secondAttribute="bottom" constant="30" id="FFD-hX-6mz"/>
                             <constraint firstItem="oVr-qS-zrP" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="IDP-aU-Oub"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="ePZ-Ud-X4a" secondAttribute="trailing" constant="13.5" id="KKZ-mg-9N3"/>
-                            <constraint firstItem="ePZ-Ud-X4a" firstAttribute="top" secondItem="fWt-o4-nPS" secondAttribute="bottom" constant="87" id="Th4-BU-o6B"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="VLn-3B-Tfu" secondAttribute="trailing" constant="30" id="ap9-ca-rQH"/>
                             <constraint firstItem="G60-o1-JGp" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="bLi-RI-mfE"/>
                             <constraint firstItem="m3Q-aX-Ipc" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="100" id="hlB-P7-BLr"/>
                             <constraint firstItem="vaw-2g-NOy" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="j08-45-xEP"/>
                             <constraint firstItem="m3Q-aX-Ipc" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="jjp-UI-nKq"/>
                             <constraint firstItem="VLn-3B-Tfu" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="keZ-FJ-0tt"/>
+                            <constraint firstItem="Ved-ZZ-nRO" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" constant="-20" id="lnW-rk-nIa"/>
                             <constraint firstItem="G60-o1-JGp" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="mYh-j0-P2N"/>
+                            <constraint firstItem="Ved-ZZ-nRO" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="qyl-bb-HTe"/>
                             <constraint firstItem="VLn-3B-Tfu" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="G60-o1-JGp" secondAttribute="trailing" id="w9A-ql-N1u"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="fWt-o4-nPS" secondAttribute="trailing" constant="20" id="wZR-nI-4h3"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Ved-ZZ-nRO" secondAttribute="trailing" id="wVa-Ig-mbN"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <connections>
                         <outlet property="armButton" destination="m3Q-aX-Ipc" id="8Ax-XX-RYM"/>
                         <outlet property="cardView" destination="ihh-dG-AGG" id="qXw-8m-kRg"/>
+                        <outlet property="cardViewInTopView" destination="hSB-tB-CXU" id="ket-BB-gVd"/>
                         <outlet property="centreView" destination="G60-o1-JGp" id="BMj-gX-8pe"/>
                         <outlet property="containerView" destination="8bC-Xf-vdC" id="lbl-ly-kLX"/>
                         <outlet property="counterLabel" destination="vnG-Re-peU" id="76q-a0-SDG"/>
                         <outlet property="hintLoginNameLabel" destination="jyf-at-Vrb" id="y41-Tj-4f6"/>
                         <outlet property="orderCountDown" destination="T3M-lQ-lGS" id="hS3-TN-xko"/>
+                        <outlet property="topView" destination="Ved-ZZ-nRO" id="dXL-nr-nls"/>
                         <outlet property="triggerButton" destination="VLn-3B-Tfu" id="bUY-AY-GjE"/>
                         <segue destination="OZH-m0-JJ7" kind="show" identifier="bluetoothSegue" id="pC9-sx-HSM"/>
                         <segue destination="5di-1x-6dG" kind="showDetail" identifier="goToGoalCounterPage" animates="NO" id="xZG-Qc-rIc"/>
@@ -677,37 +697,9 @@ click the &gt;&gt;&gt; button to go to the "goal" page.</string>
                         <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sHV-oc-trh">
-                                <rect key="frame" x="30" y="50" width="54" height="54"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="54" id="B6u-aU-ycn"/>
-                                    <constraint firstAttribute="width" constant="50" id="Ksz-4h-YxU"/>
-                                    <constraint firstAttribute="width" secondItem="sHV-oc-trh" secondAttribute="height" multiplier="1:1" id="wEH-6X-3DZ"/>
-                                </constraints>
-                                <state key="normal" image="change-user"/>
-                                <connections>
-                                    <segue destination="7eF-hD-mGw" kind="show" id="KX0-0Y-vAn"/>
-                                </connections>
-                            </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Visitor" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OM2-DS-Bgl">
-                                <rect key="frame" x="104" y="67" width="49" height="20"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="20" id="JD9-R1-Nq9"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="11B-HP-Vaz">
-                                <rect key="frame" x="965" y="63" width="39" height="40"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Button" image="Settings"/>
-                                <connections>
-                                    <segue destination="mtF-gf-NZo" kind="presentation" identifier="goToGoalCounterSettingPage" animates="NO" modalPresentationStyle="overCurrentContext" id="WEg-Nd-4Fj"/>
-                                </connections>
-                            </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tVG-EA-tEY">
-                                <rect key="frame" x="481" y="681" width="62" height="30"/>
+                                <rect key="frame" x="454" y="690" width="116" height="48"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
                                 <state key="normal" title="End Task"/>
                                 <connections>
                                     <action selector="endMissionButtonTrigger:" destination="5di-1x-6dG" eventType="touchUpInside" id="E5U-hY-Phi"/>
@@ -733,25 +725,87 @@ click the &gt;&gt;&gt; button to go to the "goal" page.</string>
                                     <userDefinedRuntimeAttribute type="string" keyPath="animation" value="squeezeLeft"/>
                                 </userDefinedRuntimeAttributes>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="N75-lq-mZX">
-                                <rect key="frame" x="324" y="20" width="54" height="47"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="&lt;&lt;&lt;" image="blue-arrow-left"/>
-                                <connections>
-                                    <action selector="backPreviousPage:" destination="5di-1x-6dG" eventType="touchUpInside" id="PZE-XP-s6M"/>
-                                </connections>
-                            </button>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QSA-JC-YiJ" customClass="SpringView" customModule="Stroke_Rehabilitation" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="-20" width="1024" height="100"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aln-SA-mHN">
+                                        <rect key="frame" x="0.0" y="0.0" width="1024" height="95"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </view>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sHV-oc-trh">
+                                        <rect key="frame" x="50" y="40" width="50" height="50"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="50" id="Ksz-4h-YxU"/>
+                                            <constraint firstAttribute="height" constant="50" id="dF7-SX-7X9"/>
+                                        </constraints>
+                                        <state key="normal" image="change-user"/>
+                                        <connections>
+                                            <segue destination="7eF-hD-mGw" kind="show" id="KX0-0Y-vAn"/>
+                                        </connections>
+                                    </button>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Visitor" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OM2-DS-Bgl">
+                                        <rect key="frame" x="110" y="55" width="49" height="20"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="20" id="JD9-R1-Nq9"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="11B-HP-Vaz">
+                                        <rect key="frame" x="924" y="40" width="50" height="50"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="50" id="Pej-Zz-wkn"/>
+                                            <constraint firstAttribute="width" constant="50" id="xn1-11-rag"/>
+                                        </constraints>
+                                        <state key="normal" title="Button" image="Settings"/>
+                                        <connections>
+                                            <segue destination="mtF-gf-NZo" kind="presentation" identifier="goToGoalCounterSettingPage" animates="NO" modalPresentationStyle="overCurrentContext" id="WEg-Nd-4Fj"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="N75-lq-mZX">
+                                        <rect key="frame" x="492" y="30" width="40" height="40"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="40" id="XSL-ht-WJA"/>
+                                            <constraint firstAttribute="width" constant="40" id="kbl-sj-1Ys"/>
+                                        </constraints>
+                                        <state key="normal" title="&lt;&lt;&lt;" image="blue-arrow-left"/>
+                                        <connections>
+                                            <action selector="backPreviousPage:" destination="5di-1x-6dG" eventType="touchUpInside" id="PZE-XP-s6M"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstItem="OM2-DS-Bgl" firstAttribute="centerY" secondItem="sHV-oc-trh" secondAttribute="centerY" id="2NL-Xc-YPc"/>
+                                    <constraint firstAttribute="trailing" secondItem="aln-SA-mHN" secondAttribute="trailing" id="7xd-2l-8P3"/>
+                                    <constraint firstItem="OM2-DS-Bgl" firstAttribute="leading" secondItem="sHV-oc-trh" secondAttribute="trailing" constant="10" id="B0t-Vi-Kb8"/>
+                                    <constraint firstItem="11B-HP-Vaz" firstAttribute="top" secondItem="QSA-JC-YiJ" secondAttribute="top" constant="40" id="BDi-z5-zl9"/>
+                                    <constraint firstItem="aln-SA-mHN" firstAttribute="leading" secondItem="QSA-JC-YiJ" secondAttribute="leading" id="FVl-kz-Wyd"/>
+                                    <constraint firstAttribute="height" constant="100" id="L5b-0S-9ho"/>
+                                    <constraint firstItem="sHV-oc-trh" firstAttribute="top" secondItem="QSA-JC-YiJ" secondAttribute="top" constant="40" id="N5S-Ee-NG2"/>
+                                    <constraint firstAttribute="trailing" secondItem="11B-HP-Vaz" secondAttribute="trailing" constant="50" id="Rtf-6e-TPV"/>
+                                    <constraint firstItem="sHV-oc-trh" firstAttribute="leading" secondItem="QSA-JC-YiJ" secondAttribute="leading" constant="50" id="Yrk-2z-gIH"/>
+                                    <constraint firstItem="N75-lq-mZX" firstAttribute="centerX" secondItem="QSA-JC-YiJ" secondAttribute="centerX" id="Z5q-M4-2MG"/>
+                                    <constraint firstItem="aln-SA-mHN" firstAttribute="top" secondItem="QSA-JC-YiJ" secondAttribute="top" id="bAt-hy-FEo"/>
+                                    <constraint firstAttribute="bottom" secondItem="aln-SA-mHN" secondAttribute="bottom" constant="5" id="eJ2-ZH-yZ8"/>
+                                    <constraint firstItem="N75-lq-mZX" firstAttribute="centerY" secondItem="QSA-JC-YiJ" secondAttribute="centerY" id="gHU-bc-WKi"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="animation" value="slideDown"/>
+                                </userDefinedRuntimeAttributes>
+                            </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="k7A-vB-vOi" customClass="SpringView" customModule="Stroke_Rehabilitation" customModuleProvider="target">
-                                <rect key="frame" x="287" y="84" width="450" height="600"/>
+                                <rect key="frame" x="287" y="94" width="450" height="580"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZNy-rB-brN">
-                                        <rect key="frame" x="5" y="5" width="440" height="590"/>
+                                        <rect key="frame" x="5" y="5" width="440" height="570"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     </view>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="00:00:00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Em9-la-M5l" customClass="CountdownLabel" customModule="Stroke_Rehabilitation" customModuleProvider="target">
                                         <rect key="frame" x="99.5" y="10" width="251" height="72"/>
                                         <constraints>
-                                            <constraint firstAttribute="width" constant="251" id="ylo-aT-kqA"/>
+                                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="251" id="ylo-aT-kqA"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="60"/>
                                         <color key="textColor" red="1" green="0.57637232540000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -764,7 +818,7 @@ click the &gt;&gt;&gt; button to go to the "goal" page.</string>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WOp-eQ-o0E" customClass="UICircularProgressRing" customModule="Stroke_Rehabilitation" customModuleProvider="target">
-                                        <rect key="frame" x="5" y="320" width="440" height="250"/>
+                                        <rect key="frame" x="5" y="300" width="440" height="250"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="440" id="CYO-OA-CBu"/>
@@ -808,7 +862,7 @@ click the &gt;&gt;&gt; button to go to the "goal" page.</string>
                                     <constraint firstItem="Em9-la-M5l" firstAttribute="top" secondItem="k7A-vB-vOi" secondAttribute="top" constant="10" id="TI6-rr-ggJ"/>
                                     <constraint firstAttribute="trailing" secondItem="WOp-eQ-o0E" secondAttribute="trailing" constant="5" id="ZOg-Gi-HZl"/>
                                     <constraint firstItem="ZNy-rB-brN" firstAttribute="top" secondItem="k7A-vB-vOi" secondAttribute="top" constant="5" id="ahy-cj-Kip"/>
-                                    <constraint firstAttribute="height" constant="600" id="h5U-o3-KcP"/>
+                                    <constraint firstAttribute="height" constant="580" id="h5U-o3-KcP"/>
                                     <constraint firstItem="nnF-gg-L9G" firstAttribute="top" secondItem="k7A-vB-vOi" secondAttribute="top" constant="90" id="hoA-IO-TPP"/>
                                     <constraint firstItem="ZNy-rB-brN" firstAttribute="leading" secondItem="k7A-vB-vOi" secondAttribute="leading" constant="5" id="jLj-AF-aNq"/>
                                     <constraint firstAttribute="bottom" secondItem="ZNy-rB-brN" secondAttribute="bottom" constant="5" id="nRt-AP-WfC"/>
@@ -819,19 +873,16 @@ click the &gt;&gt;&gt; button to go to the "goal" page.</string>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstItem="QSA-JC-YiJ" firstAttribute="top" secondItem="pOq-Lq-1xF" secondAttribute="top" constant="-20" id="4hm-wa-cz0"/>
                             <constraint firstItem="H3W-Nk-WkS" firstAttribute="leading" secondItem="w0H-pM-37O" secondAttribute="leading" constant="100" id="55j-dC-AfT"/>
-                            <constraint firstItem="sHV-oc-trh" firstAttribute="leading" secondItem="w0H-pM-37O" secondAttribute="leading" constant="30" id="8Xd-LF-KqN"/>
                             <constraint firstItem="tVG-EA-tEY" firstAttribute="centerX" secondItem="pOq-Lq-1xF" secondAttribute="centerX" id="C31-jv-dyG"/>
-                            <constraint firstItem="OM2-DS-Bgl" firstAttribute="leading" secondItem="sHV-oc-trh" secondAttribute="trailing" constant="20" id="KyL-8w-7XR"/>
-                            <constraint firstItem="OM2-DS-Bgl" firstAttribute="centerY" secondItem="sHV-oc-trh" secondAttribute="centerY" id="MZd-9f-bYW"/>
                             <constraint firstItem="k7A-vB-vOi" firstAttribute="centerX" secondItem="pOq-Lq-1xF" secondAttribute="centerX" id="ONr-gh-3JK"/>
                             <constraint firstItem="k7A-vB-vOi" firstAttribute="centerY" secondItem="pOq-Lq-1xF" secondAttribute="centerY" id="VFJ-3P-PKr"/>
-                            <constraint firstItem="sHV-oc-trh" firstAttribute="top" secondItem="w0H-pM-37O" secondAttribute="top" constant="630" id="Vhv-1z-Op1"/>
-                            <constraint firstItem="sHV-oc-trh" firstAttribute="leading" secondItem="w0H-pM-37O" secondAttribute="leading" constant="30" id="gfi-nG-wB6"/>
+                            <constraint firstItem="QSA-JC-YiJ" firstAttribute="leading" secondItem="w0H-pM-37O" secondAttribute="leading" id="d8l-TA-kdU"/>
+                            <constraint firstItem="w0H-pM-37O" firstAttribute="trailing" secondItem="QSA-JC-YiJ" secondAttribute="trailing" id="dKK-QL-TLK"/>
                             <constraint firstItem="w0H-pM-37O" firstAttribute="trailing" secondItem="Hqo-LW-iWH" secondAttribute="trailing" constant="30" id="pEn-Xf-YSh"/>
                             <constraint firstItem="H3W-Nk-WkS" firstAttribute="centerY" secondItem="pOq-Lq-1xF" secondAttribute="centerY" id="paP-jr-5jK"/>
-                            <constraint firstItem="w0H-pM-37O" firstAttribute="bottom" secondItem="tVG-EA-tEY" secondAttribute="bottom" constant="57" id="qfw-hQ-jsU"/>
-                            <constraint firstItem="sHV-oc-trh" firstAttribute="top" secondItem="w0H-pM-37O" secondAttribute="top" constant="30" id="tjZ-nm-WWC"/>
+                            <constraint firstItem="w0H-pM-37O" firstAttribute="bottom" secondItem="tVG-EA-tEY" secondAttribute="bottom" constant="30" id="qfw-hQ-jsU"/>
                             <constraint firstItem="Hqo-LW-iWH" firstAttribute="centerY" secondItem="pOq-Lq-1xF" secondAttribute="centerY" id="vK0-FB-K8F"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="w0H-pM-37O"/>
@@ -840,11 +891,13 @@ click the &gt;&gt;&gt; button to go to the "goal" page.</string>
                         <outlet property="armButton" destination="H3W-Nk-WkS" id="fpZ-4d-rgJ"/>
                         <outlet property="backButton" destination="N75-lq-mZX" id="H6M-0A-ZWZ"/>
                         <outlet property="cardView" destination="ZNy-rB-brN" id="OGf-nU-6pF"/>
+                        <outlet property="cardViewInTopView" destination="aln-SA-mHN" id="Y8w-Hs-TNT"/>
                         <outlet property="centreView" destination="k7A-vB-vOi" id="Ra9-in-50E"/>
                         <outlet property="goalLabel" destination="nnF-gg-L9G" id="rdY-BK-kma"/>
                         <outlet property="hintLoginNameLabel" destination="OM2-DS-Bgl" id="xr4-LZ-vwf"/>
                         <outlet property="progressCircular" destination="WOp-eQ-o0E" id="oan-pt-Cw1"/>
                         <outlet property="timerLabel" destination="Em9-la-M5l" id="oBh-qJ-FpG"/>
+                        <outlet property="topView" destination="QSA-JC-YiJ" id="umo-OL-swj"/>
                         <outlet property="triggerButton" destination="Hqo-LW-iWH" id="m6N-B7-4Za"/>
                         <outlet property="userButton" destination="sHV-oc-trh" id="QlJ-EE-Bjd"/>
                     </connections>
@@ -1643,6 +1696,6 @@ click the &gt;&gt;&gt; button to go to the "goal" page.</string>
         <image name="green-plus" width="170.66667175292969" height="170.66667175292969"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="KX0-0Y-vAn"/>
+        <segue reference="GVY-PE-VB4"/>
     </inferredMetricsTieBreakers>
 </document>

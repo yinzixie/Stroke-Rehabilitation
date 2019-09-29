@@ -11,6 +11,9 @@ import CoreBluetooth
 
 class GoalCounterPage: UIViewController{
     var darkMode = true
+
+    @IBOutlet weak var topView: SpringView!
+    @IBOutlet weak var cardViewInTopView: UIView!
     
     @IBOutlet weak var centreView: SpringView!
     @IBOutlet weak var cardView: UIView!
@@ -72,6 +75,7 @@ class GoalCounterPage: UIViewController{
         triggerButton.addTarget(self, action: #selector(releaseTriggerButton), for: .touchUpInside)
         
         //..........//
+        cardViewInTopView.cardView(radius: CGFloat(5))
         cardView.cardView(radius: CGFloat(5))
         //..........//
         noCloseButtonWithAnimationApperance = SCLAlertView.SCLAppearance(
@@ -156,15 +160,19 @@ class GoalCounterPage: UIViewController{
         updateMission()
         
         //animation
-        centreView.animation = "squeezeDown"
+        centreView.animation = "slideDown"
         centreView.animateFrom = true
         
-        triggerButton.animation = "squeezeLeft"
+        triggerButton.animation = "slideLeft"
         triggerButton.animateFrom = true
         
-        armButton.animation = "squeezeRight"
+        armButton.animation = "slideRight"
         armButton.animateFrom = true
         
+        topView.animation = "slideDown"
+        topView.animateFrom = true
+        
+        topView.animate()
         armButton.animate()
         triggerButton.animate()
         
@@ -172,6 +180,7 @@ class GoalCounterPage: UIViewController{
             UIView.animate(withDuration: 1, delay: 0,
                            options: [.curveEaseOut, .beginFromCurrentState, .allowUserInteraction],
                            animations: {
+                            self.cardViewInTopView.alpha = 0
                             self.cardView.alpha = 0
             }, completion: nil)
         }
@@ -327,6 +336,17 @@ class GoalCounterPage: UIViewController{
     }
    
     func missionStart() {
+        topView.animation = "slideDown"
+        topView.animateFrom = true
+        UIView.animate(withDuration: 1, delay: 0,
+                       options: [.curveEaseOut, .beginFromCurrentState, .allowUserInteraction],
+                       animations: {
+                        self.cardViewInTopView.alpha = 1
+        }, completion: { (finished: Bool) in
+            self.topView.animateTo()
+        }
+        )
+        
         runTimer()
         missionInProcess = true
         mission.StartTime = TimeInfo.getStamp()
@@ -335,6 +355,17 @@ class GoalCounterPage: UIViewController{
     }
     
     func missionFinshed(){
+        topView.animation = "slideDown"
+        topView.animateFrom = true
+
+        topView.animateNext {
+            UIView.animate(withDuration: 1, delay: 0,
+                           options: [.curveEaseOut, .beginFromCurrentState, .allowUserInteraction],
+                           animations: {
+                            self.cardViewInTopView.alpha = 0
+            }, completion: nil)
+        }
+        
         resetTimer()
         missionInProcess = false
         firstArm = true
@@ -378,17 +409,22 @@ class GoalCounterPage: UIViewController{
         centreView.animation = "fadeInDown"
         centreView.animateFrom = false
         
-        triggerButton.animation = "squeezeLeft"
+        triggerButton.animation = "slideLeft"
         triggerButton.animateFrom = false
         
-        armButton.animation = "squeezeRight"
+        armButton.animation = "slideRight"
         armButton.animateFrom = false
         
-        UIView.animate(withDuration: 0.5, delay: 0,
+        topView.animation = "slideDown"
+        topView.animateFrom = false
+        
+        UIView.animate(withDuration: 0.4, delay: 0,
                        options: [.curveEaseOut, .beginFromCurrentState, .allowUserInteraction],
                        animations: {
+                        self.cardViewInTopView.alpha = 1
                         self.cardView.alpha = 1
         }, completion: { (finished: Bool) in
+            self.topView.animateTo()
             self.triggerButton.animateTo()
             self.armButton.animateTo()
             self.centreView.animateToNext(completion: {
