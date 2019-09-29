@@ -281,6 +281,8 @@ class GoalCounterPage: UIViewController{
         resetTimer()
         missionInProcess = false
         firstArm = true
+        armed = false
+        
         displayCount = mission.AimGoal
         countdown = TimeInterval(mission.AimTime)
         goalLabel.text = String(displayCount)

@@ -39,6 +39,7 @@
 		2D048D2722E6B43600956E5A /* UserDefaultKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D048D2622E6B43600956E5A /* UserDefaultKeys.swift */; };
 		2D048D2922E6B95600956E5A /* DBAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D048D2822E6B95600956E5A /* DBAdapter.swift */; };
 		2D048D2B22E6C9F600956E5A /* TimerFormattor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D048D2A22E6C9F600956E5A /* TimerFormattor.swift */; };
+		2D04B53323402A1A00B0BE64 /* ColorEffectController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D04B53223402A1A00B0BE64 /* ColorEffectController.swift */; };
 		2D06771C22EC329500CFC680 /* ExtensionDate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D06771B22EC329500CFC680 /* ExtensionDate.swift */; };
 		2D08F65D233CA6D1009946DF /* SCLAlertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D08F65A233CA6D1009946DF /* SCLAlertView.swift */; };
 		2D08F65E233CA6D1009946DF /* SCLExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D08F65B233CA6D1009946DF /* SCLExtensions.swift */; };
@@ -172,6 +173,7 @@
 		2D048D2622E6B43600956E5A /* UserDefaultKeys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultKeys.swift; sourceTree = "<group>"; };
 		2D048D2822E6B95600956E5A /* DBAdapter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DBAdapter.swift; sourceTree = "<group>"; };
 		2D048D2A22E6C9F600956E5A /* TimerFormattor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerFormattor.swift; sourceTree = "<group>"; };
+		2D04B53223402A1A00B0BE64 /* ColorEffectController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorEffectController.swift; sourceTree = "<group>"; };
 		2D06771B22EC329500CFC680 /* ExtensionDate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExtensionDate.swift; sourceTree = "<group>"; };
 		2D08F65A233CA6D1009946DF /* SCLAlertView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SCLAlertView.swift; sourceTree = "<group>"; };
 		2D08F65B233CA6D1009946DF /* SCLExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SCLExtensions.swift; sourceTree = "<group>"; };
@@ -522,7 +524,6 @@
 			children = (
 				2D0DDAC1233B534800674257 /* UI */,
 				2D3057A622E3FFC500EBF92B /* Tool */,
-				2D0A8526233B718D009AEB40 /* Spring */,
 				2D02DF3C22E8063A00763334 /* Extension */,
 				2D3057AA22E409B600EBF92B /* Resources */,
 				2D040B3322E471CD004D1659 /* CoreStruct */,
@@ -581,7 +582,9 @@
 		2D3057A922E4001800EBF92B /* EffectController */ = {
 			isa = PBXGroup;
 			children = (
+				2D0A8526233B718D009AEB40 /* Spring */,
 				2D3057A722E4000E00EBF92B /* AudioEffectController.swift */,
+				2D04B53223402A1A00B0BE64 /* ColorEffectController.swift */,
 			);
 			path = EffectController;
 			sourceTree = "<group>";
@@ -878,6 +881,7 @@
 				2D0A854D233B718E009AEB40 /* DesignableTextField.swift in Sources */,
 				2D040B3222E47190004D1659 /* SQLiteDatabase.swift in Sources */,
 				2D0403CF2337775700794EA8 /* CalendarView+DataSource.swift in Sources */,
+				2D04B53323402A1A00B0BE64 /* ColorEffectController.swift in Sources */,
 				2D040B3D22E471CD004D1659 /* Patient.swift in Sources */,
 				2D08F65D233CA6D1009946DF /* SCLAlertView.swift in Sources */,
 				2DD505ED233C482800F4C0EF /* MissionCardCell.swift in Sources */,

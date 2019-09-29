@@ -13,30 +13,25 @@ import CoreBluetooth
 class NormalCounterPage: UIViewController {
     
     @IBOutlet var containerView: UIView!
-    @IBOutlet weak var leftSideBackgroundView: UIView!
     @IBOutlet weak var centreView: SpringView!
     @IBOutlet weak var orderCountDown: CountdownLabel!
     
     @IBOutlet weak var counterLabel: UILabel!
     @IBOutlet weak var hintLoginNameLabel: UILabel!
-    @IBOutlet weak var armButton: UIButton!
-    @IBOutlet weak var triggerButton: UIButton!
+    @IBOutlet weak var armButton: SpringButton!
+    @IBOutlet weak var triggerButton: SpringButton!
     
-    //共三组渐变色
-    let colorsSet = [
-        [UIColor.white.cgColor,UIColor.white.cgColor,UIColor.white.cgColor],
-        [UIColor.yellow.cgColor, UIColor.orange.cgColor,UIColor.white.cgColor],
-        [UIColor.cyan.cgColor, UIColor.green.cgColor,UIColor.white.cgColor],
-        [UIColor.magenta.cgColor, UIColor.blue.cgColor,UIColor.white.cgColor],
-    ]
+    var mission:NormalCounterMission!
+    var missionInProcess = false
     
-    //当前渐变色索引
-    var currentColorIndex = 0
+    var timer = Timer()
     
+    var firstPress = true
+
+    var colors = [UIColor.white.cgColor,UIColor.white.cgColor,UIColor.white.cgColor]
+    var whiteColors = [UIColor.white.cgColor,UIColor.white.cgColor,UIColor.white.cgColor]
     //渐变层
     var gradientLayer:CAGradientLayer!
-    
-    
     var timeNumber = 0
     
     var count:Int = 0 //value to be displayed on the counter
@@ -44,10 +39,13 @@ class NormalCounterPage: UIViewController {
     var audioPlayer = AudioEffectController()
     
     var peripheralManager: CBPeripheralManager?
-    //var peripheral: CBPeripheral?
+    
+    var noCloseButtonWithAnimationApperance = SCLAlertView.SCLAppearance()
+    var noCloseButtonApperance = SCLAlertView.SCLAppearance()
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         super_init()
         // Do any additional setup after loading the view.
         //Create and start the peripheral manager
@@ -55,6 +53,10 @@ class NormalCounterPage: UIViewController {
         //-Notification for updating the text view with incoming text
         updateIncomingData()
         
+        //set mission
+        updateMission()
+        
+        //centreView.cardView(radius: CGFloat(5))
         //set label text
         hintLoginNameLabel.text = DBAdapter.logPatient.Name
         //set button style
@@ -72,7 +74,7 @@ class NormalCounterPage: UIViewController {
         ////创建CAGradientLayer对象
         gradientLayer = CAGradientLayer()
         //设置初始渐变色
-        gradientLayer.colors = colorsSet[0]
+        gradientLayer.colors = whiteColors
         //每种颜色所在的位置
         gradientLayer.locations = [0.0,0.3,0.6]
         //设置渲染的起始结束位置（横向渐变）
@@ -80,9 +82,28 @@ class NormalCounterPage: UIViewController {
         gradientLayer.endPoint = CGPoint(x: 1, y: 0)
         
         //设置其CAGradientLayer对象的frame，并插入view的layer
-        gradientLayer.frame = self.view.frame//self.leftSideBackgroundView.frame
+        gradientLayer.frame = self.view.frame
         self.view.layer.insertSublayer(gradientLayer, at: 0)
         ////////////////
+
+        noCloseButtonWithAnimationApperance = SCLAlertView.SCLAppearance(
+            kWindowWidth: self.view.frame.width*0.6,
+            kButtonHeight: 50,
+            kTitleFont: UIFont(name: "HelveticaNeue", size: 40)!,
+            kTextFont: UIFont(name: "HelveticaNeue", size: 34)!,
+            kButtonFont: UIFont(name: "HelveticaNeue-Bold", size: 34)!,
+            showCloseButton: false,
+            dynamicAnimatorActive: true
+        )
+        
+        noCloseButtonApperance = SCLAlertView.SCLAppearance(
+            kWindowWidth: self.view.frame.width*0.6,
+            kButtonHeight: 50,
+            kTitleFont: UIFont(name: "HelveticaNeue", size: 40)!,
+            kTextFont: UIFont(name: "HelveticaNeue", size: 34)!,
+            kButtonFont: UIFont(name: "HelveticaNeue-Bold", size: 34)!,
+            showCloseButton: false
+        )
         
         
         
@@ -94,17 +115,19 @@ class NormalCounterPage: UIViewController {
     }
     
     func super_init() {
-        DBAdapter()
+        _ = DBAdapter()
     }
     
     override func viewDidAppear(_ animated: Bool) {
          hintLoginNameLabel.text = DBAdapter.logPatient.Name
         //setTimer()
         centreView.animate()
+        armButton.animate()
+        triggerButton.animate()
     }
     
     override func viewDidLayoutSubviews() {
-        //gradientLayer.frame = self.leftSideBackgroundView.frame
+         gradientLayer.frame = self.view.frame
     }
     
     @IBAction func bluetoothSettings(_ sender: Any) {
@@ -113,24 +136,27 @@ class NormalCounterPage: UIViewController {
     
     func setTimer() {
         // 0 is the start time to increase
-        let time: TimeInterval = TimeInterval(0)
-        
-        orderCountDown.setCountDownTime(minutes: time)
-        
-        orderCountDown.timeFormat = "mm:ss"
-        
+        orderCountDown.timeFormat = "hh:mm:ss"
         orderCountDown.animationType = .Evaporate
+        orderCountDown.text = "00:00:00"
         
         // set a time interval to repeat every second and add time to it
         // it will automatically animate
-        Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(self.addTime), userInfo: nil, repeats: true)
-        
+        timer = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(self.addTime), userInfo: nil, repeats: true)
     }
     
     @objc func pressArmButton() {
+        if(firstPress) {
+            firstPress = false
+            missionStart()
+        }
         self.audioPlayer.playSound(fileName: "First_Tone", fileType: "mp3")
         self.arm()
         changeBackgroundColor(isFromLeft:true)
+        
+        let armButton = Button(id: UserDefaultKeys.ArmButton)
+        let armButtonTriigerEvent = ButtonTriggerEvent(missionID: mission.MissionID, patientID: DBAdapter.logPatient.ID, button: armButton, timeinterval: TimeInfo.getStamp())
+        mission.ButtonTriggerEventList.append(armButtonTriigerEvent)
     }
     
     @objc func releaseArmButton() {
@@ -141,6 +167,10 @@ class NormalCounterPage: UIViewController {
         self.audioPlayer.playSound(fileName: "Second_Tone", fileType: "mp3")
         self.trigger()
         changeBackgroundColor(isFromLeft:false)
+        
+        let triggerButton = Button(id: UserDefaultKeys.TriggerButton)
+        let triggerButtonTriigerEvent = ButtonTriggerEvent(missionID: mission.MissionID, patientID: DBAdapter.logPatient.ID, button: triggerButton, timeinterval: TimeInfo.getStamp())
+        mission.ButtonTriggerEventList.append(triggerButtonTriigerEvent)
     }
     
     @objc func releaseTriggerButton() {
@@ -148,13 +178,9 @@ class NormalCounterPage: UIViewController {
     }
     
     @objc func addTime(){
-        
         timeNumber += 1
-        
         let time: TimeInterval = TimeInterval(timeNumber)
-        
         orderCountDown.setCountDownTime(minutes: time)
-        
     }
     
     
@@ -195,30 +221,17 @@ class NormalCounterPage: UIViewController {
         
     }
     
-    
-    
-    func reset() -> Void
-    {
-        count = 0
-        counterLabel.text = String(count)
-    }
-    
-    
-   /* @IBAction func armButtonPress(_ sender: UIButton) {
-        //links our arm button and tells it to run the arm function when pressed
+    @IBAction func endTask(_ sender: UIButton) {
+       
+        let alertView = SCLAlertView(appearance: noCloseButtonWithAnimationApperance)
+        alertView.addButton("YES"){
+            self.missionEnd()
+        }
+        alertView.addButton("NO"){
+            
+        }
+        alertView.showNotice("Notice", subTitle: "Finish this task right now?")
         
-        audioPlayer.playSound(fileName: "First_Tone", fileType: "mp3")
-        arm()
-    }
-    
-    @IBAction func triggerButtonPress(_ sender: UIButton) {
-        //links our trigger button and tells it to run the trigger function when presed
-        audioPlayer.playSound(fileName: "Second_Tone", fileType: "mp3")
-        trigger()
-    }*/
-    
-    @IBAction func resetButtonPress(_ sender: UIButton) {
-        reset()
     }
     
     
@@ -234,6 +247,60 @@ class NormalCounterPage: UIViewController {
 
 }
 
+extension NormalCounterPage {
+    func  updateMission() {
+        let _id = DBAdapter.logPatient.ID + "-" + String(TimeInfo.getStamp())
+        mission = NormalCounterMission(missionID: _id, patientID: DBAdapter.logPatient.ID)
+        mission.AimGoal = 0
+        mission.AimTime = 0
+    }
+    
+    func missionStart() {
+        setTimer()
+        missionInProcess = true
+        mission.StartTime = TimeInfo.getStamp()
+    }
+    
+    func missionEnd() {
+        timer.invalidate()
+        timeNumber = 0
+        missionInProcess = false
+    
+        //make sure user exactly did some press
+        if(mission.ButtonTriggerEventList.count != 0) {
+            mission.FinalTime = TimeInfo.getStamp()
+            mission.FinalAchievement = count
+            
+            if(DBAdapter.insertNormalCounterMission(mission: mission)) {
+                DBAdapter.refreshlogPatientData()
+                print("Succeed to save statistic data")
+                
+                let alertView = SCLAlertView(appearance: noCloseButtonApperance)
+                let timer_temp = SCLAlertView.SCLTimeoutConfiguration.init(timeoutValue: 2, timeoutAction: {})
+                alertView.showSuccess("Congratulations", subTitle: "Succeed save data", timeout: timer_temp)
+                
+            }else {
+                print("Failed to save statistic data")
+                
+                let alertView = SCLAlertView(appearance: noCloseButtonApperance)
+                let timer_temp = SCLAlertView.SCLTimeoutConfiguration.init(timeoutValue: 2, timeoutAction: {})
+                alertView.showError("Error", subTitle: "Unknow error.Failed saving data", timeout: timer_temp)
+            }
+        }else {
+            print("No data need to be stored")
+        }
+        updateMission()
+        
+        firstPress = true
+        armed = false
+        
+        orderCountDown.text = "00:00:00"
+        count = 0
+        counterLabel.text = String(count)
+    }
+}
+
+
 extension NormalCounterPage:CAAnimationDelegate{
     func changeBackgroundColor(isFromLeft:Bool){
         if(isFromLeft) {
@@ -245,44 +312,35 @@ extension NormalCounterPage:CAAnimationDelegate{
             self.gradientLayer.endPoint = CGPoint(x: 0, y: 0)
         }
         //下一组渐变色索引
-        let nextIndex = Int(arc4random() % (3) + 1)
-        //print(nextIndex)
-       // var nextIndex = currentColorIndex + 1
-       // if nextIndex >= colorsSet.count {
-        //    nextIndex = 0
-       // }
+        let firstColorIndex = Int(arc4random() % (8))
+        var secondColorIndex = Int(arc4random() % (8))
+        while(secondColorIndex == firstColorIndex) {
+            secondColorIndex = Int(arc4random() % (8))
+        }
+        colors = [ColorEffectController.gradientColors[firstColorIndex],ColorEffectController.gradientColors[secondColorIndex],UIColor.white.cgColor]
         //添加渐变动画
         let colorChangeAnimation = CABasicAnimation(keyPath: "colors")
         colorChangeAnimation.delegate = self
         colorChangeAnimation.duration = 1.0
-        colorChangeAnimation.fromValue = colorsSet[currentColorIndex]
-        colorChangeAnimation.toValue = colorsSet[nextIndex]
+        colorChangeAnimation.fromValue = whiteColors
+        colorChangeAnimation.toValue = colors
         colorChangeAnimation.fillMode = CAMediaTimingFillMode.forwards
         //动画结束后保持最终的效果
         colorChangeAnimation.isRemovedOnCompletion = false
         gradientLayer.add(colorChangeAnimation, forKey: "colorChange")
-        
-        //动画播放后改变当前索引值
-        currentColorIndex = nextIndex
     }
     
     func removeBackgroundColor() {
-        //下一组渐变色索引
-        let nextIndex = 0
-        
         //添加渐变动画
         let colorChangeAnimation = CABasicAnimation(keyPath: "colors")
         colorChangeAnimation.delegate = self
         colorChangeAnimation.duration = 2.0
-        colorChangeAnimation.fromValue = colorsSet[currentColorIndex]
-        colorChangeAnimation.toValue = colorsSet[nextIndex]
+        colorChangeAnimation.fromValue = colors
+        colorChangeAnimation.toValue = whiteColors
         colorChangeAnimation.fillMode = CAMediaTimingFillMode.forwards
         //动画结束后保持最终的效果
         colorChangeAnimation.isRemovedOnCompletion = false
         gradientLayer.add(colorChangeAnimation, forKey: "colorChange")
-        
-        //动画播放后改变当前索引值
-        currentColorIndex = nextIndex
     }
     
 }
