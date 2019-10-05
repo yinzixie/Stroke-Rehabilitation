@@ -28,8 +28,6 @@
 		2D040B3222E47190004D1659 /* SQLiteDatabase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D040B3122E47190004D1659 /* SQLiteDatabase.swift */; };
 		2D040B3922E471CD004D1659 /* Button.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D040B3422E471CD004D1659 /* Button.swift */; };
 		2D040B3A22E471CD004D1659 /* ButtonTriggerEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D040B3522E471CD004D1659 /* ButtonTriggerEvent.swift */; };
-		2D040B3B22E471CD004D1659 /* CounterModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D040B3622E471CD004D1659 /* CounterModel.swift */; };
-		2D040B3C22E471CD004D1659 /* Mission.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D040B3722E471CD004D1659 /* Mission.swift */; };
 		2D040B3D22E471CD004D1659 /* Patient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D040B3822E471CD004D1659 /* Patient.swift */; };
 		2D040B3F22E471F9004D1659 /* Alert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D040B3E22E471F9004D1659 /* Alert.swift */; };
 		2D040B4122E47956004D1659 /* GoalCounterPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D040B4022E47956004D1659 /* GoalCounterPage.swift */; };
@@ -162,8 +160,6 @@
 		2D040B3122E47190004D1659 /* SQLiteDatabase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SQLiteDatabase.swift; sourceTree = "<group>"; };
 		2D040B3422E471CD004D1659 /* Button.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Button.swift; sourceTree = "<group>"; };
 		2D040B3522E471CD004D1659 /* ButtonTriggerEvent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ButtonTriggerEvent.swift; sourceTree = "<group>"; };
-		2D040B3622E471CD004D1659 /* CounterModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CounterModel.swift; sourceTree = "<group>"; };
-		2D040B3722E471CD004D1659 /* Mission.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Mission.swift; sourceTree = "<group>"; };
 		2D040B3822E471CD004D1659 /* Patient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Patient.swift; sourceTree = "<group>"; };
 		2D040B3E22E471F9004D1659 /* Alert.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Alert.swift; sourceTree = "<group>"; };
 		2D040B4022E47956004D1659 /* GoalCounterPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoalCounterPage.swift; sourceTree = "<group>"; };
@@ -376,8 +372,6 @@
 			children = (
 				2D040B3422E471CD004D1659 /* Button.swift */,
 				2D040B3822E471CD004D1659 /* Patient.swift */,
-				2D040B3722E471CD004D1659 /* Mission.swift */,
-				2D040B3622E471CD004D1659 /* CounterModel.swift */,
 				2D048D2622E6B43600956E5A /* UserDefaultKeys.swift */,
 				2D040B3522E471CD004D1659 /* ButtonTriggerEvent.swift */,
 				2D048D2422E6A96800956E5A /* NormalCounterMission.swift */,
@@ -430,18 +424,19 @@
 			path = Spring;
 			sourceTree = "<group>";
 		};
-		2D0DDAC1233B534800674257 /* UI */ = {
+		2D0DDAC1233B534800674257 /* Widget */ = {
 			isa = PBXGroup;
 			children = (
-				2D170427233E36C20019A6C6 /* LTMorphingLabel */,
+				2D0A8526233B718D009AEB40 /* Spring */,
+				2D2E7FBC233B67A200E17CE5 /* BlurSegue */,
+				2D0403C22337775700794EA8 /* CalendarView */,
 				2D08F658233CA6D1009946DF /* SCLAlertView */,
 				2DD505F4233C4E5600F4C0EF /* CardStackView */,
-				2DD505D4233C3DB700F4C0EF /* UICircularProgressRing */,
-				2D2E7FBC233B67A200E17CE5 /* BlurSegue */,
 				2D0DDAC4233B539600674257 /* ZFRippleButton */,
-				2D0403C22337775700794EA8 /* CalendarView */,
+				2D170427233E36C20019A6C6 /* LTMorphingLabel */,
+				2DD505D4233C3DB700F4C0EF /* UICircularProgressRing */,
 			);
-			path = UI;
+			path = Widget;
 			sourceTree = "<group>";
 		};
 		2D0DDAC4233B539600674257 /* ZFRippleButton */ = {
@@ -522,8 +517,8 @@
 		2D30577422E3FA6500EBF92B /* Stroke-Rehabilitation */ = {
 			isa = PBXGroup;
 			children = (
-				2D0DDAC1233B534800674257 /* UI */,
 				2D3057A622E3FFC500EBF92B /* Tool */,
+				2D0DDAC1233B534800674257 /* Widget */,
 				2D02DF3C22E8063A00763334 /* Extension */,
 				2D3057AA22E409B600EBF92B /* Resources */,
 				2D040B3322E471CD004D1659 /* CoreStruct */,
@@ -582,7 +577,6 @@
 		2D3057A922E4001800EBF92B /* EffectController */ = {
 			isa = PBXGroup;
 			children = (
-				2D0A8526233B718D009AEB40 /* Spring */,
 				2D3057A722E4000E00EBF92B /* AudioEffectController.swift */,
 				2D04B53223402A1A00B0BE64 /* ColorEffectController.swift */,
 			);
@@ -867,8 +861,6 @@
 				2DD505DF233C3DB700F4C0EF /* UICircularProgressRing.swift in Sources */,
 				2D17043E233E36C30019A6C6 /* CountdownLabel.swift in Sources */,
 				2D02DF3B22E7FB7D00763334 /* AddNewUserCell.swift in Sources */,
-				2D040B3C22E471CD004D1659 /* Mission.swift in Sources */,
-				2D040B3B22E471CD004D1659 /* CounterModel.swift in Sources */,
 				2D9F3FFE23094D7300932D8F /* BLEAdapter.swift in Sources */,
 				2D9F40032309526400932D8F /* PeripheralListCell.swift in Sources */,
 				2D040B3F22E471F9004D1659 /* Alert.swift in Sources */,
