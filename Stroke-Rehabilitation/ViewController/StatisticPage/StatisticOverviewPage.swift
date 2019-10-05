@@ -39,14 +39,14 @@ class StatisticOverviewPage: UIViewController{
         
         CalendarView.Style.cellShape                = .round//.bevel(8.0)
         CalendarView.Style.cellColorDefault         = UIColor(red:0.86, green:0.86, blue:0.86, alpha:1.00)
-        CalendarView.Style.cellColorToday           = UIColor(red:1.00, green:0.62, blue:0.27, alpha:1.00)
+        CalendarView.Style.cellColorToday           = UIColor(red:0.85, green:0.3, blue:0.51, alpha:1.00)
         CalendarView.Style.cellSelectedBorderColor  = UIColor(red:1.00, green:0.62, blue:0.27, alpha:1.00)
         CalendarView.Style.cellSelectedColor        = UIColor(red:1.00, green:0.62, blue:0.27, alpha:1.00)//UIColor(red:0.86, green:0.86, blue:0.86, alpha:1.00)
         CalendarView.Style.cellSelectedTextColor    = UIColor.white
         CalendarView.Style.cellEventColor           = UIColor(red:1.00, green:0.63, blue:0.24, alpha:1.00)
         CalendarView.Style.headerTextColor          = UIColor.gray
         CalendarView.Style.cellTextColorDefault     = UIColor.black
-        CalendarView.Style.cellTextColorToday       = UIColor.black
+        CalendarView.Style.cellTextColorToday       = UIColor.white
         CalendarView.Style.headerBackgroundColor    = UIColor.white
         
         CalendarView.Style.firstWeekday             = .sunday

@@ -56,8 +56,8 @@ open class CalendarDayCell: UICollectionViewCell {
         didSet {
             switch isToday {
             case true:
-                self.bgView.backgroundColor = UIColor.black//CalendarView.Style.cellColorToday
-                self.textLabel.textColor    = UIColor.orange//CalendarView.Style.cellTextColorToday
+                self.bgView.backgroundColor = CalendarView.Style.cellColorToday
+                self.textLabel.textColor    = CalendarView.Style.cellTextColorToday
             case false:
                 self.bgView.backgroundColor = CalendarView.Style.cellColorDefault
                 self.textLabel.textColor = CalendarView.Style.cellTextColorDefault
@@ -101,7 +101,11 @@ open class CalendarDayCell: UICollectionViewCell {
             case false:
                 self.bgView.layer.borderColor = CalendarView.Style.cellBorderColor.cgColor
                 self.bgView.layer.borderWidth = CalendarView.Style.cellBorderWidth
-                self.bgView.backgroundColor = CalendarView.Style.cellColorDefault
+                if self.isToday {
+                    self.bgView.backgroundColor = CalendarView.Style.cellColorToday
+                } else {
+                    self.bgView.backgroundColor = CalendarView.Style.cellColorDefault
+                }
             }
         }
     }
