@@ -43,8 +43,7 @@ class MissionListCell: UITableViewCell {
         if(startTimeDate.day_() < 10) {
             dateString = "0" + String(startTimeDate.day_())
         }
-        let monthString = TimeInfo.MonthsString[startTimeDate.month_() - 1]
-        let yearString = String(startTimeDate.year_())
+        //let monthString = TimeInfo.MonthsString[startTimeDate.month_() - 1]
         let stratedFromString = "Started from: " + TimeInfo.timeStampToHHMMSS(String(startTime!))
 
         let finishedTime = mission?.FinalTime

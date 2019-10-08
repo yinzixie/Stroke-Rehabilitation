@@ -71,7 +71,7 @@ class StatisticDetailsPage: UIViewController {
             }
             view.addSubview(progressView)
             
-            var xDistance = CGFloat(40);
+            let xDistance = CGFloat(40);
             
             let StartFromLabel = UILabel(frame: CGRect(x: xDistance, y: 150, width: getLabelWidth(str:startFromString,font:UIFont.systemFont(ofSize: 24.0),height: 30), height: 20))
             StartFromLabel.textColor = UIColor.black
