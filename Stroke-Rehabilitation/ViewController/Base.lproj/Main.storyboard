@@ -43,13 +43,13 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Peripheral Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fTC-WH-LFt">
-                                                    <rect key="frame" x="18" y="13" width="124" height="21"/>
+                                                    <rect key="frame" x="25" y="16" width="124" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="RSSI" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hxx-jn-oU8">
-                                                    <rect key="frame" x="18" y="44" width="36" height="21"/>
+                                                    <rect key="frame" x="25" y="47" width="36" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -1226,19 +1226,19 @@ click the &gt;&gt;&gt; button to go to the "goal" page.</string>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="P4q-1z-9QG">
-                                                        <rect key="frame" x="287" y="226.5" width="15" height="29"/>
+                                                        <rect key="frame" x="327" y="226.5" width="15" height="29"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="24"/>
                                                         <color key="textColor" red="0.91556078770000004" green="0.45760627230000001" blue="0.55808540240000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nu1-w8-9aY">
-                                                        <rect key="frame" x="287" y="280.5" width="15" height="29"/>
+                                                        <rect key="frame" x="327" y="280.5" width="15" height="29"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="24"/>
                                                         <color key="textColor" red="0.91556078770000004" green="0.45760627230000001" blue="0.55808540240000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Omi-dt-z7K">
-                                                        <rect key="frame" x="287" y="172.5" width="15" height="29"/>
+                                                        <rect key="frame" x="327" y="172.5" width="15" height="29"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="24"/>
                                                         <color key="textColor" red="0.91556078770000004" green="0.45760627230000001" blue="0.55808540240000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         <nil key="highlightedColor"/>
@@ -1254,7 +1254,7 @@ click the &gt;&gt;&gt; button to go to the "goal" page.</string>
                                                     <constraint firstItem="nu1-w8-9aY" firstAttribute="centerY" secondItem="ZwW-Zy-dSK" secondAttribute="centerY" id="ehr-5A-KJS"/>
                                                     <constraint firstItem="mJO-sg-0ue" firstAttribute="top" secondItem="ig5-9T-T8m" secondAttribute="bottom" constant="30" id="gVQ-cw-O6D"/>
                                                     <constraint firstItem="ZwW-Zy-dSK" firstAttribute="leading" secondItem="R4g-xD-WDe" secondAttribute="leading" id="iKA-FF-cGK"/>
-                                                    <constraint firstAttribute="trailing" secondItem="P4q-1z-9QG" secondAttribute="trailing" constant="70" id="iL3-Ub-khA"/>
+                                                    <constraint firstAttribute="trailing" secondItem="P4q-1z-9QG" secondAttribute="trailing" constant="30" id="iL3-Ub-khA"/>
                                                     <constraint firstItem="xpC-jk-QUY" firstAttribute="top" secondItem="kGh-IT-uY1" secondAttribute="bottom" constant="15" id="kkn-HU-nQz"/>
                                                     <constraint firstItem="P4q-1z-9QG" firstAttribute="leading" secondItem="Omi-dt-z7K" secondAttribute="leading" id="kpw-0g-R0f"/>
                                                     <constraint firstItem="ZwW-Zy-dSK" firstAttribute="top" secondItem="mJO-sg-0ue" secondAttribute="bottom" constant="30" id="mLz-oO-xQe"/>
