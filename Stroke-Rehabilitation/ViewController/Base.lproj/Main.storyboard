@@ -28,10 +28,10 @@
                                 </connections>
                             </button>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="80" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="cvL-U8-b4i">
-                                <rect key="frame" x="5" y="90" width="1014" height="30"/>
+                                <rect key="frame" x="5" y="90" width="1014" height="300"/>
                                 <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="30" id="f0b-de-TiP"/>
+                                    <constraint firstAttribute="height" constant="300" id="f0b-de-TiP"/>
                                 </constraints>
                                 <color key="sectionIndexBackgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
@@ -74,7 +74,7 @@
                                 </connections>
                             </tableView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="YW2-JL-Dmd" userLabel="settingView">
-                                <rect key="frame" x="5" y="150" width="1014" height="608"/>
+                                <rect key="frame" x="5" y="420" width="1014" height="338"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Arm sensor ID:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Qfg-WP-nkb">
                                         <rect key="frame" x="5" y="120" width="113" height="21"/>
@@ -147,7 +147,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Goa-yp-BN5">
-                                        <rect key="frame" x="387" y="533" width="240" height="75"/>
+                                        <rect key="frame" x="387" y="263" width="240" height="75"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Jhk-zZ-RU4" customClass="ZFRippleButton" customModule="Stroke_Rehabilitation" customModuleProvider="target">
                                                 <rect key="frame" x="30" y="20" width="60" height="30"/>
