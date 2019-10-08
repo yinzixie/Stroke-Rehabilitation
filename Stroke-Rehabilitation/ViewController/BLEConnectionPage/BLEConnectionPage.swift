@@ -16,9 +16,6 @@ class BLEConnectionPage: UIViewController, CBCentralManagerDelegate, CBPeriphera
     @IBOutlet weak var armButton: ZFRippleButton!
     @IBOutlet weak var triggerButton: ZFRippleButton!
     
-    @IBOutlet weak var sensor0Button: UIButton!
-    @IBOutlet weak var sensor1Button: UIButton!
-    
     @IBOutlet weak var armIDLabel: UILabel!
     @IBOutlet weak var triggerIDLabel: UILabel!
     
@@ -44,9 +41,7 @@ class BLEConnectionPage: UIViewController, CBCentralManagerDelegate, CBPeriphera
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        _ = BLEAdapter()
-        
+
         let defaults = UserDefaults.standard
         armIDLabel.text = defaults.string(forKey: UserDefaultKeys.ArmID) ?? BLEAdapter.SENSOR0_ID
         triggerIDLabel.text = defaults.string(forKey: UserDefaultKeys.TriggerID) ?? BLEAdapter.SENSOR1_ID
@@ -59,10 +54,10 @@ class BLEConnectionPage: UIViewController, CBCentralManagerDelegate, CBPeriphera
     }
     
     override func viewDidAppear(_ animated: Bool) {
-        disconnectFromDevice()
+        //disconnectFromDevice()
         super.viewDidAppear(animated)
-        refreshScanView()
-        print("View Cleared")
+        //refreshScanView()
+        //print("View Cleared")
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -259,18 +254,17 @@ class BLEConnectionPage: UIViewController, CBCentralManagerDelegate, CBPeriphera
             if(BLEAdapter.checkValue(value: receiveText)) {
                 if(receiveText.split(separator: ":")[0] == BLEAdapter.ARM_ID ) {
                     if(receiveText.split(separator: ":")[1] == BLEAdapter.RELEASE_KEY){
-                        self.armButton.sendActions(for: UIControl.Event.touchUpInside)
-                        
+                        self.armButton.backgroundColor = UIColor.lightGray
                     }else if(receiveText.split(separator: ":")[1] == BLEAdapter.PRESS_KEY){
-                         self.armButton.sendActions(for: UIControl.Event.touchDown)
+                         self.armButton.backgroundColor = UIColor(red: 0.16, green: 0.8, blue: 0.25, alpha: 1)
                     }
                 }
                 else if(receiveText.split(separator: ":")[0] == BLEAdapter.TRIGGER_ID ) {
                     if(receiveText.split(separator: ":")[1] == BLEAdapter.RELEASE_KEY){
-                       self.triggerButton.sendActions(for: UIControl.Event.touchUpInside)
+                       self.triggerButton.backgroundColor = UIColor.lightGray
                         
                     }else if(receiveText.split(separator: ":")[1] == BLEAdapter.PRESS_KEY){
-                         self.triggerButton.sendActions(for: UIControl.Event.touchDown)
+                         self.triggerButton.backgroundColor = UIColor(red: CGFloat(1), green: CGFloat(0.58), blue: CGFloat(0), alpha: 1)
                     }
                 }
             }
@@ -317,7 +311,7 @@ class BLEConnectionPage: UIViewController, CBCentralManagerDelegate, CBPeriphera
     
     func centralManager(_ central: CBCentralManager, didDisconnectPeripheral peripheral: CBPeripheral, error: Error?) {
         print("Disconnected")
-        settingView.isHidden = false
+        settingView.isHidden = true
     }
     
     
@@ -404,7 +398,6 @@ class BLEConnectionPage: UIViewController, CBCentralManagerDelegate, CBPeriphera
          //let normalCounterPage = storyboard.instantiateViewController(withIdentifier: "NormalCounterPage") as! NormalCounterPage
          //normalCounterPage.peripheral = BLEAdapter.blePeripheral
         self.dismiss(animated: true, completion: nil)
-        //navigationController?.pushViewController(normalCounterPage, animated: true)
     }
 }
 

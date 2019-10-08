@@ -29,6 +29,8 @@ class NormalCounterPage: UIViewController {
     @IBOutlet weak var triggerButton: SpringButton!
     @IBOutlet weak var endTaskButton: SpringButton!
     
+    var ob:NSObjectProtocol? = nil
+    
     var mission:NormalCounterMission!
     var missionInProcess = false
     
@@ -53,13 +55,9 @@ class NormalCounterPage: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        super_init()
         // Do any additional setup after loading the view.
         //Create and start the peripheral manager
         peripheralManager = CBPeripheralManager(delegate: self, queue: nil)
-        //-Notification for updating the text view with incoming text
-        updateIncomingData()
         
         //set mission
         updateMission()
@@ -125,13 +123,16 @@ class NormalCounterPage: UIViewController {
         }
     }
     
-    func super_init() {
-        _ = DBAdapter()
-    }
-    
     override func viewDidAppear(_ animated: Bool) {
+        //-Notification for updating the text view with incoming text
+        updateIncomingData()
+        
         hintLoginNameLabel.text = DBAdapter.logPatient.Name
         enterPageAnimation()
+    }
+    
+    override func viewDidDisappear(_ animated: Bool) {
+        removeIncomingData()
     }
     
     override func viewDidLayoutSubviews() {
@@ -147,7 +148,6 @@ class NormalCounterPage: UIViewController {
             size: UIScreen.main.bounds.size
         )
         self.present(AppDelegate.BLEPage!, animated: true, completion: nil)
-        //leavePageAnimation(function:self.present(AppDelegate.BLEPage!, animated: true, completion: nil))
     }
     
     func setTimer() {
@@ -242,7 +242,7 @@ class NormalCounterPage: UIViewController {
     }
     
     @IBAction func goToUserPage(_ sender: Any) {
-        leavePageAnimation(identifier:"fromNormalCounterPageGoToUserPage")
+    leavePageAnimation(identifier:"fromNormalCounterPageGoToUserPage")
     }
     
     @IBAction func goToGoalCounterPage(_ sender: Any) {
@@ -430,7 +430,7 @@ extension NormalCounterPage:CAAnimationDelegate{
 
 extension NormalCounterPage:CBPeripheralManagerDelegate {
     func updateIncomingData () {
-        NotificationCenter.default.addObserver(forName: NSNotification.Name(rawValue: "Notify"), object: nil , queue: nil){
+        ob = NotificationCenter.default.addObserver(forName: NSNotification.Name(rawValue: "Notify"), object: nil , queue: nil){
             notification in
             let rawValue = BLEAdapter.characteristicASCIIValue as String
             if(BLEAdapter.checkValue(value: rawValue)) {
@@ -449,6 +449,10 @@ extension NormalCounterPage:CBPeripheralManagerDelegate {
                 }
             }
         }
+    }
+    
+    func removeIncomingData () {
+        NotificationCenter.default.removeObserver(ob as Any, name: NSNotification.Name(rawValue: "Notify"), object: nil)
     }
     
     func peripheralManagerDidUpdateState(_ peripheral: CBPeripheralManager) {

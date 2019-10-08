@@ -20,6 +20,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        _ = BLEAdapter()
+        _ = DBAdapter()
         
         if (AppDelegate.BLEPage == nil) {
             // initialize view controller (for a storyboard, you'd do it like so, making sure your storyboard filename and view controller identifier are set properly):

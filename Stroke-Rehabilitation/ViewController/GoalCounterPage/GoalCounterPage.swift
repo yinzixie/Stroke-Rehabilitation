@@ -32,6 +32,7 @@ class GoalCounterPage: UIViewController{
     @IBOutlet weak var triggerButton: SpringButton!
     @IBOutlet weak var endTaskButton: SpringButton!
     
+    var ob:NSObjectProtocol? = nil
     var peripheralManager: CBPeripheralManager?
     //var peripheral: CBPeripheral?
     
@@ -118,8 +119,6 @@ class GoalCounterPage: UIViewController{
         
         //Create and start the peripheral manager
         peripheralManager = CBPeripheralManager(delegate: self, queue: nil)
-        //-Notification for updating the text view with incoming text
-        updateIncomingData()
         
         //set label text
         hintLoginNameLabel.text = DBAdapter.logPatient.Name
@@ -157,6 +156,8 @@ class GoalCounterPage: UIViewController{
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(true)
+        //-Notification for updating the text view with incoming text
+        updateIncomingData()
         //set label text
         hintLoginNameLabel.text = DBAdapter.logPatient.Name
         //set mission
@@ -164,6 +165,10 @@ class GoalCounterPage: UIViewController{
         
         //animation
         enterPageAnimation()
+    }
+
+    override func viewDidDisappear(_ animated: Bool) {
+        removeIncomingData();
     }
     
     override func viewDidLayoutSubviews() {
@@ -385,6 +390,10 @@ class GoalCounterPage: UIViewController{
         updateMission()
     }
     
+    @IBAction func goToUserPage(_ sender: Any) {
+        leavePageAnimation(identifier: "fromGoalCounterPageGoToUserPage")
+    }
+    
     @IBAction func backPreviousPage(_ sender: Any) {
        leavePageAnimation(identifier: "")
     }
@@ -450,7 +459,7 @@ extension GoalCounterPage:TellGoalCounterPageUpdate   {
 extension GoalCounterPage:CBPeripheralManagerDelegate {
     
     func updateIncomingData () {
-        NotificationCenter.default.addObserver(forName: NSNotification.Name(rawValue: "Notify"), object: nil , queue: nil){
+        ob = NotificationCenter.default.addObserver(forName: NSNotification.Name(rawValue: "Notify"), object: nil , queue: nil){
             notification in
             let rawValue = BLEAdapter.characteristicASCIIValue as String
             if(BLEAdapter.checkValue(value: rawValue)) {
@@ -469,6 +478,10 @@ extension GoalCounterPage:CBPeripheralManagerDelegate {
                 }
             }
         }
+    }
+    
+    func removeIncomingData () {
+        NotificationCenter.default.removeObserver(ob as Any, name: NSNotification.Name(rawValue: "Notify"), object: nil)
     }
     
     func peripheralManagerDidUpdateState(_ peripheral: CBPeripheralManager) {
