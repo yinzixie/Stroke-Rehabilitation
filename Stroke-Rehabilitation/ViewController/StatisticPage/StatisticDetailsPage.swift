@@ -71,32 +71,34 @@ class StatisticDetailsPage: UIViewController {
             }
             view.addSubview(progressView)
             
-            let StartFromLabel = UILabel(frame: CGRect(x: 60, y: 150, width: getLabelWidth(str:startFromString,font:UIFont.systemFont(ofSize: 24.0),height: 30), height: 20))
+            var xDistance = CGFloat(40);
+            
+            let StartFromLabel = UILabel(frame: CGRect(x: xDistance, y: 150, width: getLabelWidth(str:startFromString,font:UIFont.systemFont(ofSize: 24.0),height: 30), height: 20))
             StartFromLabel.textColor = UIColor.black
             StartFromLabel.font = UIFont.systemFont(ofSize: 24.0)
             view.addSubview(StartFromLabel)
             
-            let finishAtLabel = UILabel(frame: CGRect(x: 60, y: 190, width: getLabelWidth(str:finishedAtString,font:UIFont.systemFont(ofSize: 24.0),height: 30), height: 30))
+            let finishAtLabel = UILabel(frame: CGRect(x: xDistance, y: 190, width: getLabelWidth(str:finishedAtString,font:UIFont.systemFont(ofSize: 24.0),height: 30), height: 30))
             finishAtLabel.textColor = UIColor.black
             finishAtLabel.font = UIFont.systemFont(ofSize: 24.0)
             view.addSubview(finishAtLabel)
             
-            let aimGoalLabel = UILabel(frame: CGRect(x: 60, y: 250, width: getLabelWidth(str:aimGoalString,font:UIFont.systemFont(ofSize: 24.0),height: 30), height: 30))
+            let aimGoalLabel = UILabel(frame: CGRect(x: xDistance, y: 250, width: getLabelWidth(str:aimGoalString,font:UIFont.systemFont(ofSize: 24.0),height: 30), height: 30))
             aimGoalLabel.textColor = UIColor.black
             aimGoalLabel.font = UIFont.systemFont(ofSize: 24.0)
             view.addSubview(aimGoalLabel)
             
-            let aimTimeLabel = UILabel(frame: CGRect(x: 60, y: 290, width: getLabelWidth(str:aimTimeString,font:UIFont.systemFont(ofSize: 24.0),height: 30), height: 30))
+            let aimTimeLabel = UILabel(frame: CGRect(x: xDistance, y: 290, width: getLabelWidth(str:aimTimeString,font:UIFont.systemFont(ofSize: 24.0),height: 30), height: 30))
             aimTimeLabel.textColor = UIColor.black
             aimTimeLabel.font = UIFont.systemFont(ofSize: 24.0)
             view.addSubview(aimTimeLabel)
             
-            let finalAchievementLabel = UILabel(frame: CGRect(x: 60, y: 350, width: getLabelWidth(str:finalAchievementString,font:UIFont.systemFont(ofSize: 24.0),height: 30), height: 30))
+            let finalAchievementLabel = UILabel(frame: CGRect(x: xDistance, y: 350, width: getLabelWidth(str:finalAchievementString,font:UIFont.systemFont(ofSize: 24.0),height: 30), height: 30))
             finalAchievementLabel.textColor = UIColor.black
             finalAchievementLabel.font = UIFont.systemFont(ofSize: 24.0)
             view.addSubview(finalAchievementLabel)
             
-            let finalTimeLabel = UILabel(frame: CGRect(x: 60, y: 390, width: getLabelWidth(str:finalTimeString,font:UIFont.systemFont(ofSize: 24.0),height: 30), height: 30))
+            let finalTimeLabel = UILabel(frame: CGRect(x: xDistance, y: 390, width: getLabelWidth(str:finalTimeString,font:UIFont.systemFont(ofSize: 24.0),height: 30), height: 30))
             finalTimeLabel.textColor = UIColor.black
             finalTimeLabel.font = UIFont.systemFont(ofSize: 24.0)
             view.addSubview(finalTimeLabel)

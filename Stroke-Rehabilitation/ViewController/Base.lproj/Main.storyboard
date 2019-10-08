@@ -43,13 +43,13 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Peripheral Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fTC-WH-LFt">
-                                                    <rect key="frame" x="25" y="16" width="124" height="21"/>
+                                                    <rect key="frame" x="18" y="13" width="124" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="RSSI" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hxx-jn-oU8">
-                                                    <rect key="frame" x="25" y="47" width="36" height="21"/>
+                                                    <rect key="frame" x="18" y="44" width="36" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -758,10 +758,10 @@ click the &gt;&gt;&gt; button to go to the "goal" page.</string>
                                 </userDefinedRuntimeAttributes>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qDa-AB-fJ5">
-                                <rect key="frame" x="909" y="50" width="50" height="50"/>
+                                <rect key="frame" x="859" y="50" width="100" height="100"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="50" id="5Ai-sM-TIJ"/>
-                                    <constraint firstAttribute="height" constant="50" id="EHa-JL-Z5X"/>
+                                    <constraint firstAttribute="width" constant="100" id="5Ai-sM-TIJ"/>
+                                    <constraint firstAttribute="height" constant="100" id="EHa-JL-Z5X"/>
                                 </constraints>
                                 <state key="normal" image="close"/>
                                 <connections>
@@ -1160,10 +1160,9 @@ click the &gt;&gt;&gt; button to go to the "goal" page.</string>
                                         <rect key="frame" x="492" y="70" width="402" height="608"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SD1-zd-esk" customClass="ZFRippleButton" customModule="Stroke_Rehabilitation" customModuleProvider="target">
-                                                <rect key="frame" x="30" y="430" width="300" height="65"/>
+                                                <rect key="frame" x="30" y="460" width="372" height="65"/>
                                                 <color key="backgroundColor" name="systemGreenColor" catalog="System" colorSpace="catalog"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="width" constant="300" id="bZk-Yo-tJ8"/>
                                                     <constraint firstAttribute="height" constant="65" id="efR-bF-VhO"/>
                                                 </constraints>
                                                 <fontDescription key="fontDescription" type="system" pointSize="30"/>
@@ -1190,7 +1189,7 @@ click the &gt;&gt;&gt; button to go to the "goal" page.</string>
                                                 </connections>
                                             </button>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="R4g-xD-WDe">
-                                                <rect key="frame" x="30" y="70" width="400" height="330"/>
+                                                <rect key="frame" x="30" y="100" width="372" height="330"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Total Exercise Time(hours):" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mJO-sg-0ue">
                                                         <rect key="frame" x="0.0" y="229" width="280.5" height="24"/>
@@ -1205,7 +1204,7 @@ click the &gt;&gt;&gt; button to go to the "goal" page.</string>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Use this screen to create, delete, or login as a user" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="xpC-jk-QUY">
-                                                        <rect key="frame" x="0.0" y="75" width="400" height="70"/>
+                                                        <rect key="frame" x="0.0" y="75" width="372" height="70"/>
                                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="70" id="7Ni-gb-VGH"/>
@@ -1227,19 +1226,19 @@ click the &gt;&gt;&gt; button to go to the "goal" page.</string>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="P4q-1z-9QG">
-                                                        <rect key="frame" x="310.5" y="226.5" width="15" height="29"/>
+                                                        <rect key="frame" x="287" y="226.5" width="15" height="29"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="24"/>
                                                         <color key="textColor" red="0.91556078770000004" green="0.45760627230000001" blue="0.55808540240000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nu1-w8-9aY">
-                                                        <rect key="frame" x="310.5" y="280.5" width="15" height="29"/>
+                                                        <rect key="frame" x="287" y="280.5" width="15" height="29"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="24"/>
                                                         <color key="textColor" red="0.91556078770000004" green="0.45760627230000001" blue="0.55808540240000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Omi-dt-z7K">
-                                                        <rect key="frame" x="310.5" y="172.5" width="15" height="29"/>
+                                                        <rect key="frame" x="287" y="172.5" width="15" height="29"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="24"/>
                                                         <color key="textColor" red="0.91556078770000004" green="0.45760627230000001" blue="0.55808540240000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         <nil key="highlightedColor"/>
@@ -1251,12 +1250,11 @@ click the &gt;&gt;&gt; button to go to the "goal" page.</string>
                                                     <constraint firstItem="ig5-9T-T8m" firstAttribute="top" secondItem="xpC-jk-QUY" secondAttribute="bottom" constant="30" id="MDg-Ku-mHv"/>
                                                     <constraint firstItem="Omi-dt-z7K" firstAttribute="centerY" secondItem="ig5-9T-T8m" secondAttribute="centerY" id="MSZ-vO-hyZ"/>
                                                     <constraint firstItem="kGh-IT-uY1" firstAttribute="top" secondItem="R4g-xD-WDe" secondAttribute="top" id="SRh-ct-woL"/>
-                                                    <constraint firstItem="P4q-1z-9QG" firstAttribute="leading" secondItem="mJO-sg-0ue" secondAttribute="trailing" constant="30" id="STH-fN-FrZ"/>
                                                     <constraint firstItem="kGh-IT-uY1" firstAttribute="leading" secondItem="R4g-xD-WDe" secondAttribute="leading" id="T0x-qz-coQ"/>
                                                     <constraint firstItem="nu1-w8-9aY" firstAttribute="centerY" secondItem="ZwW-Zy-dSK" secondAttribute="centerY" id="ehr-5A-KJS"/>
                                                     <constraint firstItem="mJO-sg-0ue" firstAttribute="top" secondItem="ig5-9T-T8m" secondAttribute="bottom" constant="30" id="gVQ-cw-O6D"/>
-                                                    <constraint firstAttribute="width" constant="400" id="i4Q-7H-K7K"/>
                                                     <constraint firstItem="ZwW-Zy-dSK" firstAttribute="leading" secondItem="R4g-xD-WDe" secondAttribute="leading" id="iKA-FF-cGK"/>
+                                                    <constraint firstAttribute="trailing" secondItem="P4q-1z-9QG" secondAttribute="trailing" constant="70" id="iL3-Ub-khA"/>
                                                     <constraint firstItem="xpC-jk-QUY" firstAttribute="top" secondItem="kGh-IT-uY1" secondAttribute="bottom" constant="15" id="kkn-HU-nQz"/>
                                                     <constraint firstItem="P4q-1z-9QG" firstAttribute="leading" secondItem="Omi-dt-z7K" secondAttribute="leading" id="kpw-0g-R0f"/>
                                                     <constraint firstItem="ZwW-Zy-dSK" firstAttribute="top" secondItem="mJO-sg-0ue" secondAttribute="bottom" constant="30" id="mLz-oO-xQe"/>
@@ -1272,9 +1270,11 @@ click the &gt;&gt;&gt; button to go to the "goal" page.</string>
                                         </subviews>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
+                                            <constraint firstAttribute="trailing" secondItem="R4g-xD-WDe" secondAttribute="trailing" id="2P0-Gy-G0U"/>
                                             <constraint firstItem="SD1-zd-esk" firstAttribute="leading" secondItem="iKa-Vb-xze" secondAttribute="leading" constant="30" id="9Yk-dn-LtQ"/>
-                                            <constraint firstItem="R4g-xD-WDe" firstAttribute="top" secondItem="iKa-Vb-xze" secondAttribute="top" constant="70" id="Lsp-R6-Mt6"/>
+                                            <constraint firstItem="R4g-xD-WDe" firstAttribute="top" secondItem="iKa-Vb-xze" secondAttribute="top" constant="100" id="KAD-IQ-psr"/>
                                             <constraint firstItem="R4g-xD-WDe" firstAttribute="leading" secondItem="iKa-Vb-xze" secondAttribute="leading" constant="30" id="ZfZ-cA-slp"/>
+                                            <constraint firstAttribute="trailing" secondItem="SD1-zd-esk" secondAttribute="trailing" id="tBi-Vg-E6d"/>
                                             <constraint firstItem="SD1-zd-esk" firstAttribute="top" secondItem="R4g-xD-WDe" secondAttribute="bottom" constant="30" id="z3P-Vo-HpT"/>
                                         </constraints>
                                     </view>
@@ -1298,36 +1298,35 @@ click the &gt;&gt;&gt; button to go to the "goal" page.</string>
                                                     <rect key="frame" x="0.0" y="0.0" width="472" height="84.5"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <subviews>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Default User" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nSe-Kr-wgq">
-                                                            <rect key="frame" x="312.5" y="32" width="95.5" height="21"/>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Default User" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nSe-Kr-wgq">
+                                                            <rect key="frame" x="316.5" y="32" width="95.5" height="21"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                             <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
-                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="0UZHO0-11" translatesAutoresizingMaskIntoConstraints="NO" id="hAA-UG-0jo">
+                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="headphoto" translatesAutoresizingMaskIntoConstraints="NO" id="hAA-UG-0jo">
                                                             <rect key="frame" x="10" y="9" width="70" height="66.5"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="width" constant="70" id="Lek-4K-DBw"/>
                                                                 <constraint firstAttribute="width" secondItem="hAA-UG-0jo" secondAttribute="height" multiplier="71:67" id="emZ-T8-vXX"/>
                                                             </constraints>
                                                         </imageView>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Visitor" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6xi-2m-nwq">
-                                                            <rect key="frame" x="100" y="13" width="204.5" height="26"/>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="Visitor" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6xi-2m-nwq">
+                                                            <rect key="frame" x="100" y="13" width="208.5" height="26"/>
                                                             <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="20"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="000visitor" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KYv-bQ-ZwT">
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="000visitor" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KYv-bQ-ZwT">
                                                             <rect key="frame" x="100" y="49" width="78" height="21"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                             <color key="textColor" red="0.43529412150000002" green="0.4431372583" blue="0.47450980539999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
-                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="blue-arrow" translatesAutoresizingMaskIntoConstraints="NO" id="iyi-4S-6ed">
-                                                            <rect key="frame" x="422" y="-214" width="35" height="512.5"/>
+                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="online" translatesAutoresizingMaskIntoConstraints="NO" id="iyi-4S-6ed">
+                                                            <rect key="frame" x="422" y="10.5" width="35" height="64"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="width" constant="35" id="EuB-j4-2yt"/>
-                                                                <constraint firstAttribute="width" secondItem="iyi-4S-6ed" secondAttribute="height" multiplier="35:512" id="HvJ-rY-GPR"/>
                                                             </constraints>
                                                         </imageView>
                                                     </subviews>
@@ -1338,10 +1337,9 @@ click the &gt;&gt;&gt; button to go to the "goal" page.</string>
                                                         <constraint firstItem="6xi-2m-nwq" firstAttribute="top" secondItem="6Bs-z5-swl" secondAttribute="topMargin" constant="2" id="GiW-RJ-Y5s"/>
                                                         <constraint firstItem="nSe-Kr-wgq" firstAttribute="leading" relation="lessThanOrEqual" secondItem="KYv-bQ-ZwT" secondAttribute="trailing" constant="163.5" id="Jdb-m8-xI9"/>
                                                         <constraint firstAttribute="trailing" secondItem="iyi-4S-6ed" secondAttribute="trailing" constant="15" id="ZNi-gR-uZM"/>
-                                                        <constraint firstItem="KYv-bQ-ZwT" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="6xi-2m-nwq" secondAttribute="leading" id="bXW-Py-dF6"/>
+                                                        <constraint firstItem="KYv-bQ-ZwT" firstAttribute="leading" secondItem="6xi-2m-nwq" secondAttribute="leading" id="bXW-Py-dF6"/>
                                                         <constraint firstItem="nSe-Kr-wgq" firstAttribute="leading" relation="lessThanOrEqual" secondItem="6xi-2m-nwq" secondAttribute="trailing" constant="8" symbolic="YES" id="cOP-mF-WCU"/>
                                                         <constraint firstItem="6xi-2m-nwq" firstAttribute="leading" secondItem="hAA-UG-0jo" secondAttribute="trailing" constant="20" id="f9u-GW-qnD"/>
-                                                        <constraint firstItem="iyi-4S-6ed" firstAttribute="leading" secondItem="nSe-Kr-wgq" secondAttribute="trailing" constant="10" id="lv3-IS-w2a"/>
                                                         <constraint firstItem="hAA-UG-0jo" firstAttribute="leading" secondItem="6Bs-z5-swl" secondAttribute="leading" constant="10" id="qkX-N7-l3V"/>
                                                         <constraint firstItem="nSe-Kr-wgq" firstAttribute="centerY" secondItem="6Bs-z5-swl" secondAttribute="centerY" id="wGI-Yz-EHr"/>
                                                         <constraint firstItem="iyi-4S-6ed" firstAttribute="leading" secondItem="nSe-Kr-wgq" secondAttribute="trailing" constant="10" id="xjo-zb-Q1K"/>
@@ -1362,13 +1360,13 @@ click the &gt;&gt;&gt; button to go to the "goal" page.</string>
                                                     <rect key="frame" x="0.0" y="0.0" width="472" height="89.5"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <subviews>
-                                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rgW-TF-mOB">
+                                                        <button opaque="NO" contentMode="center" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rgW-TF-mOB">
                                                             <rect key="frame" x="196" y="5" width="80" height="80"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="height" constant="80" id="gqi-LG-HJk"/>
                                                                 <constraint firstAttribute="width" constant="80" id="ouI-JL-A9U"/>
                                                             </constraints>
-                                                            <state key="normal" title="Button" image="green-plus"/>
+                                                            <state key="normal" image="add"/>
                                                         </button>
                                                     </subviews>
                                                     <constraints>
@@ -1409,11 +1407,12 @@ click the &gt;&gt;&gt; button to go to the "goal" page.</string>
                                     <constraint firstItem="37c-Qi-qJG" firstAttribute="bottom" secondItem="iKa-Vb-xze" secondAttribute="bottom" id="eGm-CX-jHB"/>
                                 </constraints>
                                 <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="boolean" keyPath="autostart" value="YES"/>
                                     <userDefinedRuntimeAttribute type="string" keyPath="animation" value="slideUp"/>
                                     <userDefinedRuntimeAttribute type="number" keyPath="duration">
                                         <real key="value" value="0.5"/>
                                     </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="autostart" value="YES"/>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="autohide" value="YES"/>
                                 </userDefinedRuntimeAttributes>
                             </view>
                         </subviews>
@@ -1425,14 +1424,6 @@ click the &gt;&gt;&gt; button to go to the "goal" page.</string>
                             <constraint firstItem="RFh-VN-XFB" firstAttribute="bottom" secondItem="2rj-VB-2PT" secondAttribute="bottom" constant="10" id="UZ5-0y-ZoO"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="RFh-VN-XFB"/>
-                        <userDefinedRuntimeAttributes>
-                            <userDefinedRuntimeAttribute type="boolean" keyPath="autostart" value="YES"/>
-                            <userDefinedRuntimeAttribute type="boolean" keyPath="autohide" value="YES"/>
-                            <userDefinedRuntimeAttribute type="string" keyPath="animation" value="slideUp"/>
-                            <userDefinedRuntimeAttribute type="number" keyPath="duration">
-                                <real key="value" value="4"/>
-                            </userDefinedRuntimeAttribute>
-                        </userDefinedRuntimeAttributes>
                     </view>
                     <connections>
                         <outlet property="averageRepsLabel" destination="nu1-w8-9aY" id="shB-Ox-O4r"/>
@@ -1812,13 +1803,13 @@ click the &gt;&gt;&gt; button to go to the "goal" page.</string>
         </scene>
     </scenes>
     <resources>
-        <image name="0UZHO0-11" width="106.66666412353516" height="106.66666412353516"/>
-        <image name="blue-arrow" width="512" height="512"/>
+        <image name="add" width="64" height="64"/>
         <image name="bluetooth" width="64" height="64"/>
         <image name="close" width="64" height="64"/>
         <image name="green-decrease-arrow" width="170.66667175292969" height="170.66667175292969"/>
-        <image name="green-plus" width="170.66667175292969" height="170.66667175292969"/>
+        <image name="headphoto" width="64" height="64"/>
         <image name="left_arrow" width="64" height="64"/>
+        <image name="online" width="64" height="64"/>
         <image name="right_arrow" width="64" height="64"/>
         <image name="setting" width="64" height="64"/>
         <image name="user" width="64" height="64"/>

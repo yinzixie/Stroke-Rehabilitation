@@ -139,9 +139,9 @@ extension UserListAndLoginPage:UITableViewDataSource, UITableViewDelegate {
                     UserCell.hintLabel.text = "<<< swipe to delete"
                 }
                 if(DBAdapter.patientList[indexPath.row].ID != DBAdapter.logPatient.ID) {
-                     UserCell.selectedHintImage.image = UIImage(named:"yellow-arrow")
+                     UserCell.selectedHintImage.image = UIImage(named:"offline")
                 }else {
-                     UserCell.selectedHintImage.image = UIImage(named:"green-arrow")
+                     UserCell.selectedHintImage.image = UIImage(named:"online")
                 }
                 
                 
@@ -205,7 +205,7 @@ extension UserListAndLoginPage:UITableViewDataSource, UITableViewDelegate {
             }
         }
         
-        action.image = UIImage(named:"delete@250*250")?.resizeImage(60, opaque: false)
+        action.image = UIImage(named:"delete")?.resizeImage(60, opaque: false)
         action.backgroundColor = .red
         return action
     }
