@@ -56,6 +56,7 @@ class NormalCounterPage: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
+        
         //Create and start the peripheral manager
         peripheralManager = CBPeripheralManager(delegate: self, queue: nil)
         
@@ -63,6 +64,7 @@ class NormalCounterPage: UIViewController {
         updateMission()
         //
         AppDelegate.normalCounterPage = self
+        AppDelegate.BLEPage?.blePageDelegate = self
         
         cardViewInTopView.cardView(radius: CGFloat(5))
         cardViewInCentreView.cardView(radius: CGFloat(5))
@@ -126,7 +128,6 @@ class NormalCounterPage: UIViewController {
     override func viewDidAppear(_ animated: Bool) {
         //-Notification for updating the text view with incoming text
         updateIncomingData()
-        
         hintLoginNameLabel.text = DBAdapter.logPatient.Name
         enterPageAnimation()
     }
@@ -316,6 +317,18 @@ extension NormalCounterPage {
         orderCountDown.text = "00:00:00"
         count = 0
         counterLabel.text = String(count)
+    }
+}
+
+extension NormalCounterPage:BlePageDelegate {
+    func appear() {
+        print("Ble page appdear")
+        updateIncomingData()
+    }
+    
+    func disappear() {
+        print("Ble page disappear")
+        removeIncomingData()
     }
 }
 

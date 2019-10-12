@@ -10,6 +10,11 @@ import Foundation
 import UIKit
 import CoreBluetooth
 
+protocol BlePageDelegate {
+    func appear()
+    func disappear()
+}
+
 class BLEConnectionPage: UIViewController, CBCentralManagerDelegate, CBPeripheralDelegate, UITableViewDelegate, UITableViewDataSource{
 
     @IBOutlet weak var peripheralTable: UITableView!
@@ -21,6 +26,7 @@ class BLEConnectionPage: UIViewController, CBCentralManagerDelegate, CBPeriphera
     
     @IBOutlet weak var settingView: UIView!
     
+    var blePageDelegate:BlePageDelegate?
     //Data
     var centralManager : CBCentralManager!
     var RSSIs = [NSNumber]()
@@ -56,12 +62,14 @@ class BLEConnectionPage: UIViewController, CBCentralManagerDelegate, CBPeriphera
     override func viewDidAppear(_ animated: Bool) {
         //disconnectFromDevice()
         super.viewDidAppear(animated)
+        blePageDelegate?.appear()
         //refreshScanView()
         //print("View Cleared")
     }
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
+        blePageDelegate?.disappear()
         print("Stop Scanning")
         centralManager?.stopScan()
     }
