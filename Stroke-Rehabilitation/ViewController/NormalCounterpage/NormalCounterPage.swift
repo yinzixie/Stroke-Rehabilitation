@@ -323,12 +323,12 @@ extension NormalCounterPage {
 extension NormalCounterPage:BlePageDelegate {
     func appear() {
         print("Ble page appdear")
-        updateIncomingData()
+        removeIncomingData()
     }
     
     func disappear() {
         print("Ble page disappear")
-        removeIncomingData()
+        updateIncomingData()
     }
 }
 

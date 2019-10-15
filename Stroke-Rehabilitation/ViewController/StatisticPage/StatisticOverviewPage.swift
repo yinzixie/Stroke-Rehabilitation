@@ -118,7 +118,7 @@ class StatisticOverviewPage: UIViewController{
             }
             
             if(taskFailed < lastTaskFailed) {
-                taskFailedImage.image = UIImage(named:"green-increase-arrow")
+                taskFailedImage.image = UIImage(named:"green-decrease-arrow")
             }else {
                 taskFailedImage.image = UIImage(named:"red-increase-arrow")
             }
